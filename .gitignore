@@ -19,4 +19,4 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
-/template/
+/project_template/
