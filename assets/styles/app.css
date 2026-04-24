@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
-body {
-    background-color: skyblue;
+@theme {
+  --color-feu-green: #008348;
+  --color-feu-yellow: #febe10;
+  
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-slate-800 bg-[#f8fafc];
+  }
 }
