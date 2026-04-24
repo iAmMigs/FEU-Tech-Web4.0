@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FEU Tech Web4.0{% endblock %}
+
+{% block body %}
+<div class="relative min-h-screen bg-slate-900 text-white overflow-hidden flex items-center justify-center">
+    <!-- Background Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-purple-900/40 to-slate-900 z-0"></div>
+    
+    <!-- Subtle Animated Shapes -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse z-0"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse animation-delay-2000 z-0"></div>
+
+    <div class="relative z-10 w-full max-w-5xl px-6 py-24 mx-auto text-center flex flex-col items-center justify-center h-full">
+        
+        <div class="inline-flex items-center px-4 py-2 border border-purple-500/30 rounded-full bg-purple-500/10 backdrop-blur-md mb-8 shadow-lg transition-transform hover:scale-105 cursor-default">
+            <span class="flex w-2 h-2 rounded-full bg-green-400 mr-3 animate-pulse"></span>
+            <span class="text-sm font-medium text-purple-200">Symfony 7 & Tailwind CSS Ready</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-300 to-indigo-400">
+            Welcome to FEU Tech Web4.0
+        </h1>
+        
+        <p class="mt-4 text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light mb-12">
+            Your project is perfectly orchestrated. The repository is configured with the latest frameworks to build dynamic, responsive, and robust web applications.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 mt-4">
+            <a href="#" class="group relative px-8 py-4 font-semibold text-white rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 shadow-lg hover:shadow-blue-500/50 transition-all duration-300 overflow-hidden">
+                <span class="relative z-10">Start Developing</span>
+                <div class="absolute inset-0 h-full w-0 bg-white/20 transition-all duration-300 ease-out group-hover:w-full z-0"></div>
+            </a>
+            <a href="https://symfony.com/doc/current/index.html" target="_blank" class="px-8 py-4 font-semibold text-slate-300 rounded-lg bg-slate-800/50 border border-slate-700 hover:bg-slate-800 hover:text-white backdrop-blur-sm transition-all duration-300 shadow-lg">
+                View Documentation
+            </a>
+        </div>
+        
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                <div class="text-3xl mb-4">⚡</div>
+                <h3 class="text-xl font-bold mb-2 text-white">Symfony 7</h3>
+                <p class="text-slate-400 text-sm">State-of-the-art PHP framework powered by AssetMapper for a node-less experience.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                <div class="text-3xl mb-4">🎨</div>
+                <h3 class="text-xl font-bold mb-2 text-white">Tailwind CSS</h3>
+                <p class="text-slate-400 text-sm">Rapidly build modern websites without ever leaving your HTML.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                <div class="text-3xl mb-4">🚀</div>
+                <h3 class="text-xl font-bold mb-2 text-white">Modern Ecosystem</h3>
+                <p class="text-slate-400 text-sm">Optimized loading, enhanced developer experience, and a strong foundation.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
