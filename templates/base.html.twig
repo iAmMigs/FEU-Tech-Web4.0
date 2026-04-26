@@ -26,11 +26,30 @@
     <body class="flex flex-col min-h-screen">
         <!-- Sub Header -->
         <div class="bg-feu-green text-white py-2 text-sm shadow-inner relative z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                <div class="hidden sm:block">
-                    <p class="font-medium">Welcome to <span class="text-feu-yellow">FEU Institute of Technology</span> - Where Education meets Innovation</p>
+            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="flex items-center gap-1.5 hover:text-feu-yellow transition-colors font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Sustainability
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 hover:text-feu-yellow transition-colors font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        EdITH
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 hover:text-feu-yellow transition-colors font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                        Paraverse
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 hover:text-feu-yellow transition-colors font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        FTIC
+                    </a>
+                    <a href="#" class="flex items-center gap-1.5 hover:text-feu-yellow transition-colors font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        Research
+                    </a>
                 </div>
-                <div class="flex space-x-6">
+                <div class="flex space-x-6 w-full md:w-auto justify-end mt-2 md:mt-0">
                     <a href="#" class="hover:text-feu-yellow transition-colors font-medium">Facebook</a>
                     <a href="#" class="hover:text-feu-yellow transition-colors font-medium">Twitter</a>
                     <a href="#" class="hover:text-feu-yellow transition-colors font-medium">LinkedIn</a>
@@ -39,7 +58,7 @@
         </div>
 
         <!-- Main Header Area -->
-        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300">
+        <header class="sticky top-0 z-50 bg-white/75 backdrop-blur-lg shadow-sm border-b border-gray-100 transition-all duration-300">
             <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20">
                     <!-- Logo Start -->
@@ -57,21 +76,33 @@
                             <button class="whitespace-nowrap text-slate-600 font-medium hover:text-feu-green transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-yellow after:transition-all">
                                 ABOUT <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="absolute left-0 mt-0 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
-                                <div class="py-2 flex flex-col min-h-[40px]">
-                                    <!-- Empty for now -->
+                            <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
+                                <div class="py-2 flex flex-col">
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facts and History</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Vision, Mission, Quality Policy</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facilities</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Executive Officers</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Directors</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Non-Academic Offices</a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- ADMISSION Dropdown -->
+                        <!-- ADMISSIONS Dropdown -->
                         <div class="relative group mt-1">
                             <button class="whitespace-nowrap text-slate-600 font-medium hover:text-feu-green transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-yellow after:transition-all">
-                                ADMISSION <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                ADMISSIONS <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="absolute left-0 mt-0 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
-                                <div class="py-2 flex flex-col min-h-[40px]">
-                                    <!-- Empty for now -->
+                            <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
+                                <div class="py-2 flex flex-col">
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Freshmen</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Transferees</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Second Degree</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">International Students</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Cross-Enrollees</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Scholarships & Grants</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Tuition & Fees</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">FAQs</a>
                                 </div>
                             </div>
                         </div>
@@ -81,26 +112,47 @@
                             <button class="whitespace-nowrap text-slate-600 font-medium hover:text-feu-green transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-yellow after:transition-all">
                                 ACADEMICS <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="absolute left-0 mt-0 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
-                                <div class="py-2 flex flex-col min-h-[40px]">
-                                    <!-- Empty for now -->
+                            <div class="absolute left-0 mt-0 w-64 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
+                                <div class="py-2 flex flex-col">
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">College of Engineering</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors leading-tight">College of Computer Studies & Multimedia Arts</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">General Education</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Services</a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- FACILITIES Dropdown -->
+                        <!-- STUDENT JOURNEY Dropdown -->
                         <div class="relative group mt-1">
                             <button class="whitespace-nowrap text-slate-600 font-medium hover:text-feu-green transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-yellow after:transition-all">
-                                FACILITIES <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                STUDENT JOURNEY <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
-                            <div class="absolute left-0 mt-0 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
-                                <div class="py-2 flex flex-col min-h-[40px]">
-                                    <!-- Empty for now -->
+                            <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
+                                <div class="py-2 flex flex-col">
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Guidance & Counseling</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Student Activities</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Student Discipline</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Student Organizations</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Community Extension</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Health Services Unit</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">iCARE</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">IALAP</a>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="#contact" class="whitespace-nowrap text-slate-600 font-medium hover:text-feu-green transition-colors uppercase relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-yellow after:transition-all">CONTACT US</a>
+                        <!-- CAREERS Dropdown -->
+                        <div class="relative group mt-1">
+                            <button class="whitespace-nowrap text-slate-600 font-medium hover:text-feu-green transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-yellow after:transition-all">
+                                CAREERS <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="absolute right-0 mt-0 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-right translate-y-2 group-hover:translate-y-0 z-50">
+                                <div class="py-2 flex flex-col">
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">HRO / Job Posting</a>
+                                </div>
+                            </div>
+                        </div>
+
                     </nav>
 
                     <div class="md:hidden flex items-center">
@@ -134,24 +186,32 @@
                         <p class="text-sm leading-relaxed mb-6 max-w-sm text-slate-400">
                             Providing quality education in the fields of Engineering and Computer Studies. We aim to produce globally competitive graduates equipped with strong core values.
                         </p>
-                        <div class="flex space-x-4">
+                        <h4 class="text-white text-md font-bold mb-4">Connect With Us</h4>
+                        <div class="flex space-x-4 mb-8">
                             <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">Facebook</span>f</a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">Twitter</span>t</a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">LinkedIn</span>in</a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">TikTok</span>t</a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">YouTube</span>y</a>
+                        </div>
+                        
+                        <h4 class="text-white text-md font-bold mb-4">Student Portals</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="px-5 py-2.5 bg-slate-800 text-sm font-medium text-slate-300 rounded-xl hover:bg-feu-green hover:text-white transition-colors">MILES</a>
+                            <a href="#" class="px-5 py-2.5 bg-slate-800 text-sm font-medium text-slate-300 rounded-xl hover:bg-feu-green hover:text-white transition-colors">Canvas</a>
                         </div>
                     </div>
+                    
                     <div>
-                        <h4 class="text-white text-lg font-bold mb-6 relative inline-block after:absolute after:bottom-[-8px] after:left-0 after:w-1/2 after:h-1 after:bg-feu-yellow">Quick Links</h4>
-                        <ul class="space-y-3 text-sm">
-                            <li><a href="#" class="hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> About Us</a></li>
-                            <li><a href="#" class="hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> Admissions</a></li>
-                            <li><a href="#" class="hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> Academic Programs</a></li>
-                            <li><a href="#" class="hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> Student Life</a></li>
-                        </ul>
+                        <h4 class="text-white text-lg font-bold mb-6 relative inline-block after:absolute after:bottom-[-8px] after:left-0 after:w-1/2 after:h-1 after:bg-feu-yellow">Virtual Office</h4>
+                        <p class="text-sm text-slate-400 mb-6">Need immediate assistance? Talk to our representatives live on Zoom.</p>
+                        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium text-sm shadow-md">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            Join on Zoom
+                        </a>
                     </div>
+                    
                     <div>
-                        <h4 class="text-white text-lg font-bold mb-6 relative inline-block after:absolute after:bottom-[-8px] after:left-0 after:w-1/2 after:h-1 after:bg-feu-yellow">Contact Info</h4>
-                        <ul class="space-y-4 text-sm">
+                        <h4 class="text-white text-lg font-bold mb-6 relative inline-block after:absolute after:bottom-[-8px] after:left-0 after:w-1/2 after:h-1 after:bg-feu-yellow">Contact Us</h4>
+                        <ul class="space-y-4 text-sm mb-8">
                             <li class="flex items-start gap-3">
                                 <span class="mt-1 text-feu-yellow">📍</span>
                                 <span>P. Paredes St., Sampaloc, Manila, Philippines 1008</span>
@@ -165,11 +225,15 @@
                                 <span>info@feutech.edu.ph</span>
                             </li>
                         </ul>
+                        <div class="space-y-3 pt-6 border-t border-slate-800">
+                            <a href="#" class="block text-sm font-medium text-slate-400 hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> Privacy Policy</a>
+                            <a href="#" class="block text-sm font-medium text-slate-400 hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> Terms & Conditions</a>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-16 pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
                     <p>&copy; {{ 'now'|date('Y') }} FEU Institute of Technology. All Rights Reserved.</p>
-                    <p class="mt-2 md:mt-0">Inspired by TemplateMo &bull; Powered by Symfony & Tailwind</p>
+                    <p class="mt-2 md:mt-0">Powered by Symfony & Tailwind</p>
                 </div>
             </div>
         </footer>
