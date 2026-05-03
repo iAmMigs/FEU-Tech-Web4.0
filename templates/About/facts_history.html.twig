@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-end justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="/images/About_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
+        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-16 md:pb-24">
+        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-4 block animate-bounce mt-8 md:mt-0">
+            Welcome to FEU Institute of Technology
+        </span>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+            History of <span class="feu-gradient-text">FEU Tech</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-200 mb-10 font-light max-w-2xl mx-auto drop-shadow-md">
+            Facts and History
+        </p>
+    </div>
+</section>
+
+<div class="bg-white min-h-screen py-12 px-4 md:px-10">
+    <h1 class="text-3xl font-bold text-green-600 mb-12 text-center">FEU Tech History</h1>
+
+    <!-- TIMELINE -->
+    <div class="relative max-w-7xl mx-auto" id="timeline">
+
+        <!-- CENTER LINE -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-green-200"></div>
+        <div id="timeline-line" class="absolute left-1/2 transform -translate-x-1/2 top-0 w-[4px] bg-green-600 h-0 transition-all duration-300"></div>
+
+        <div class="space-y-16">
+
+            {% set timeline = [
+                {
+                    date: '1936',
+                    content: 'In 1936, the Commonwealth was two years old and independence was promised a decade hence. The FEU, a private education pioneer, took stock of the emergent nation’s needs. Among its findings was a very pressing need for engineers and technologists to help build the nation. It felt itself challenged and it thus established the Institute of Technology. An increasing demand for trained engineers and technologists remained. With the government’s accelerated economic recovery program, private businesses establishing more and more factories, and agriculture shifting to mechanization, the demand for trained and skilled personnel was greater than ever. The Institute of Technology helped by filling the country’s needs in this respect.'
+                },
+                {
+                    date: '1936',
+                    content: 'In 1936, when it was founded, the Institute of Technology initially offered a complete course in civil engineering. The Institute has since added complete courses in six other major fields of technology: architecture, chemical engineering, mechanical engineering, electrical engineering, industrial engineering, and chemistry. A course in geodetic engineering was also started in 1952. However, in 1971, the Department of Architecture was elevated into the Institute of Architecture and Fine Arts and took over the architecture program; the course in chemistry was transferred to the Institute of Arts and Sciences in 1978.'
+                },
+                {
+                    date: '1991',
+                    content: 'SM Foundation and IBM Philippines set up the Asia Pacific Computer Technology Center (APCTC). Six months later, APCTC collaborated with Far Eastern University (FEU) and Intelligent Wave, Inc. (IWI) and set up a computer school, which was subsequently called East Asia Computer Center. Later, the name was changed to East Asia Institute of Computer Technology (EAICT). Initially, the only degree offered was a Bachelor of Science in Computer and Information Science (BSCIS).'
+                },
+                {
+                    date: '1992',
+                    content: 'FEU takes pride in its relentless efforts for academic excellence. For this reason, it conducts a constant review of programs of major tertiary courses. After a thorough study of the Technology Program, the administration decided to phase it out in favor of a computer technology program forged with East Asia Computer Center, Inc., which offered degrees in Computer Science'
+                },
+                {
+                    date: '1994',
+                    content: 'EAICT started to offer the degree of Bachelor of Science in Computer Engineering (BSCOE).'
+                },
+                {
+                    date: 'September 30, 1998',
+                    content: 'The Commission on Higher Education (CHED) noted the change in the name of East Asia Institute of Computer Technology (EAICT) to East Asia College of Information Technology (EACIT).'
+                },
+                {
+                    date: 'February 24, 2000',
+                    content: 'EACIT was identified by CHED as a Center of Development for Excellence (CODE) in Information Technology Education in the National Capital Region.'
+                },
+                {
+                    date: '2001',
+                    content: 'EACIT sought the approval of CHED to offer additional courses leading to the degrees of Bachelor of Science in Information Technology and Bachelor of Science in Information Management. Both courses gained full recognition in April 2004.'
+                },
+                {
+                    date: '2002',
+                    content: 'FEU acquired the controlling stock of EACIT and gained full control of the College.'
+                },
+                {
+                    date: '2003',
+                    content: 'the FEU Administration took a big step in merging the College of Engineering and East Asia College of Information Technology. The combined resources and efforts of both Colleges resulted in the merged FEU – East Asia College (FEU—EAC) with the re-organized vision and mission.'
+                },
+                {
+                    date: '2014',
+                    content: 'FEU–East Asia College was re-named back to its roots as FEU Institute of Technology, also known as FEU Tech.'
+                }
+            ] %}
+
+            {% for item in timeline %}
+
+                {% set isRight = loop.index is even %}
+
+                <div class="relative flex items-center timeline-item opacity-0 transition-all duration-700 ease-out">
+
+                    <!-- LEFT SIDE -->
+                    <div class="w-1/2 flex justify-end pr-10">
+                        {% if not isRight %}
+                            <div class="max-w-md ml-auto text-right border-r-2 border-transparent-200 pr-6">
+                                <h2 class="text-xl font-semibold text-green-600">{{ item.date }}</h2>
+
+                                <p class="text-black mt-2 leading-relaxed">
+                                    {{ item.content }}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- CENTER DOT -->
+                    <div class="w-12 flex justify-center relative">
+                        <span class="dot w-6 h-6 rounded-full bg-green-600 border-4 border-white shadow-lg shadow-green-500/50 opacity-0 scale-75 transition-all duration-500 z-10"></span>
+                    </div>
+                    
+                    <!-- RIGHT SIDE -->
+                    <div class="w-1/2 flex justify-start pl-10">
+                        {% if isRight %}
+                            <div class="max-w-md mr-auto text-left border-l-2 border-green-200 pl-6">
+                                <h2 class="text-xl font-semibold text-green-600">{{ item.date }}</h2>
+
+                                <p class="text-black mt-2 leading-relaxed text-left">
+                                    {{ item.content }}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const items = document.querySelectorAll('.timeline-item');
+    const line = document.getElementById('timeline-line');
+    const timeline = document.getElementById('timeline');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100');
+
+                const dot = entry.target.querySelector('.dot');
+                if (dot) {
+                    dot.classList.remove('scale-75', 'opacity-0');
+                    dot.classList.add('scale-100', 'opacity-100');
+                }
+            }
+        });
+    }, { threshold: 0.2 });
+
+    items.forEach(item => observer.observe(item));
+
+    window.addEventListener('scroll', () => {
+        const rect = timeline.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        const visible = Math.min(
+            Math.max((windowHeight - rect.top) / rect.height, 0),
+            1
+        );
+
+        line.style.height = visible * 100 + '%';
+    });
+</script>
+
+{% endblock %}

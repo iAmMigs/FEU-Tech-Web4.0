@@ -1,0 +1,5 @@
+.feu-gradient-text {
+    background: linear-gradient(to right, #f0b323, #fde68a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
