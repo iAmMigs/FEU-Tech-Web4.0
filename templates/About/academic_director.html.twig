@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-end justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="/images/EXECUTIVE_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
+        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-16 md:pb-24">
+        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block animate-bounce">
+            About Us
+        </span>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-lg">
+            Academic Directors of <span class="feu-gradient-text">FEU Tech</span>
+        </h1>
+    </div>
+</section>
+
+
+<!-- Academic Directors Section -->
+<section class="py-24 bg-white relative overflow-hidden scroll-animate">
+
+    <!-- Background accents -->
+    <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-feu-green opacity-10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-feu-yellow opacity-10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Header -->
+        <div class="text-center mb-20">
+            <span class="text-feu-green font-bold tracking-widest uppercase text-sm animate-pulse">
+                Academics
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 mt-3">
+                Academic Directors
+            </h2>
+            <p class="text-slate-500 mt-4 max-w-2xl mx-auto">
+                Meet the program directors leading each academic discipline.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {% set directors = [
+                ['Civil Engineering','Kevin Lawrence M. De Jesus, Ph.D.','Program Director','ce@feutech.edu.ph'],
+                ['Computer Engineering','Engr. Nino U. Pilueta','Program Director','cpe@feutech.edu.ph'],
+                ['Computer Science','Shaneth C. Ambat, Ph.D.','Program Director','ccs_cs@feutech.edu.ph'],
+                ['Electrical Engineering','Engr. Mark Anthony G. Teodoro','Program Director','eee@feutech.edu.ph'],
+                ['Electronics Engineering','Antipas T. Teologo, Jr. Ph.D.','Program Director','eee@feutech.edu.ph'],
+                ['Humanities, Social Sciences, and Communications','Ma. Ruth S. Que','Program Director','hsc@feutech.edu.ph'],
+                ['Information Technology','Roman M. De Angel, DIT','Program Director','ccs_it@feutech.edu.ph'],
+                ['Mathematics and Physical Sciences','Engr. Ivan Jerome Panis','Program Director','mps@feutech.edu.ph'],
+                ['Mechanical Engineering','Engr. Jaychris Georgette Y. Onia','Program Director','me@feutech.edu.ph'],
+                ['Multimedia Arts','Abigail L. Alix, MIT','Program Director','ccs_mma@feutech.edu.ph'],
+                ['Research','Engr. Mylene D. Gomez','Director','']
+            ] %}
+
+            {% for d in directors %}
+            <div class="group bg-slate-50 p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-500 hover:-translate-y-2 border border-slate-100">
+
+                <!-- Program -->
+                <h3 class="text-feu-green font-bold text-lg mb-2">
+                    {{ d[0] }}
+                </h3>
+
+                <!-- Name -->
+                <p class="font-semibold text-slate-800 group-hover:text-feu-green transition">
+                    {{ d[1] }}
+                </p>
+
+                <!-- Role -->
+                <p class="text-sm text-feu-yellow font-semibold mt-1">
+                    {{ d[2] }}
+                </p>
+
+                <!-- Email -->
+                {% if d[3] %}
+                <a href="mailto:{{ d[3] }}" 
+                   class="block mt-3 text-sm text-slate-500 hover:text-feu-green transition break-all">
+                    {{ d[3] }}
+                </a>
+                {% endif %}
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Scroll Animation Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".scroll-animate");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("opacity-100", "translate-y-0");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => {
+        el.classList.add("opacity-0", "translate-y-10", "transition-all", "duration-1000");
+        observer.observe(el);
+    });
+});
+</script>
+
+{% endblock %}
