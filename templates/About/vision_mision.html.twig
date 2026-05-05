@@ -2,131 +2,203 @@
 
 {% block body %}
 
-<!-- Hero Section -->
-<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+<style>
+@keyframes floatSlow {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-40px) translateX(20px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
 
+@keyframes floatMedium {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(60px) translateX(-30px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes floatFast {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-30px) translateX(-20px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+</style>
+
+<!-- HERO + MVV COMBINED -->
+<section class="relative w-full min-h-screen flex items-center overflow-hidden text-white">
+
+    <!-- Background -->
     <div class="absolute inset-0 z-0">
-        <img src="/images/About_TECH.jpg" alt="Hero Background"
-             class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+        <img src="/images/About_TECH.jpg" 
+             alt="FEU Tech"
+             class="w-full h-full object-cover">
+
+        <div class="absolute inset-0 bg-[#0b2e1f]/75"></div>
+
+        <!-- ✨ FLOATING LIGHTS -->
+        <div class="absolute inset-0 overflow-hidden">
+
+            <div class="absolute w-72 h-72 bg-white/10 rounded-full blur-3xl top-10 left-10"
+                 style="animation: floatSlow 12s ease-in-out infinite;"></div>
+
+            <div class="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl bottom-10 right-10"
+                 style="animation: floatMedium 16s ease-in-out infinite;"></div>
+
+            <div class="absolute w-64 h-64 bg-white/10 rounded-full blur-2xl top-1/2 left-1/3"
+                 style="animation: floatFast 10s ease-in-out infinite;"></div>
+
+            <div class="absolute w-80 h-80 bg-white/5 rounded-full blur-3xl bottom-1/3 left-1/4"
+                 style="animation: floatSlow 18s ease-in-out infinite;"></div>
+
+        </div>
     </div>
 
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto py-10 md:py-14">
-
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block animate-bounce">
-            About Us
-        </span>
-
-        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
-            Vision, Mission, and Quality Policy <span class="feu-gradient-text">FEU Tech</span>
+    <!-- Content -->
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-24">
+        <!-- BIG TITLE -->
+        <h1 class="text-4xl md:text-6xl font-extrabold uppercase leading-tight tracking-wide max-w-4xl">
+            Driven by Innovation,<br>
+            Excellence, and<br>
+            Nation-Building.
         </h1>
 
-        <p class="text-base md:text-lg text-slate-200 font-light max-w-2xl mx-auto drop-shadow-md">
-            Driven by innovation, excellence, and nation-building.
+        <!-- SUBTEXT -->
+        <p class="mt-6 text-white/80 max-w-2xl">
+            Vision, Mission, and Quality Policy of FEU Institute of Technology
         </p>
 
+        <!-- TRAPEZOID ITEMS -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+
+            <!-- VISION -->
+            <div class="relative group transition-all duration-300 hover:scale-105"
+                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+
+                <div class="absolute inset-0 bg-transparent 
+                            group-hover:bg-[#febe10] 
+                            transition-all duration-300"
+                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+                </div>
+
+                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path 
+                        d="M0 0 L85 0 L100 25"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="0.5"
+                        class="group-hover:stroke-[#008348] transition-all duration-300"
+                    />
+                </svg>
+
+                <div class="relative z-20 p-6 pr-10">
+                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
+                        Vision
+                    </h3>
+
+                    <p class="text-sm text-white/80 leading-relaxed text-justify group-hover:text-[#008348] transition-all duration-300">
+                        FEU Institute of Technology aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
+                    </p>
+                </div>
+            </div>
+
+            <!-- MISSION -->
+            <div class="relative group transition-all duration-300 hover:scale-105"
+                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+
+                <div class="absolute inset-0 bg-transparent 
+                            group-hover:bg-[#febe10] 
+                            transition-all duration-300"
+                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+                </div>
+
+                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path 
+                        d="M0 0 L85 0 L100 25"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="0.5"
+                        class="group-hover:stroke-[#008348] transition-all duration-300"
+                    />
+                </svg>
+
+                <div class="relative z-20 p-6 pr-10">
+                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
+                        Mission
+                    </h3>
+
+                    <p class="text-sm text-white/80 leading-relaxed text-justify group-hover:text-[#008348] transition-all duration-300">
+                        FEU Institute of Technology is dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of society.
+                    </p>
+                </div>
+            </div>
+
+            <!-- QUALITY POLICY -->
+            <div class="relative group transition-all duration-300 hover:scale-105"
+                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+
+                <div class="absolute inset-0 bg-transparent 
+                            group-hover:bg-[#febe10] 
+                            transition-all duration-300"
+                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+                </div>
+
+                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path 
+                        d="M0 0 L85 0 L100 25"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="0.5"
+                        class="group-hover:stroke-[#008348] transition-all duration-300"
+                    />
+                </svg>
+
+                <div class="relative z-20 p-6 pr-10">
+                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
+                        Quality Policy
+                    </h3>
+
+                    <p class="text-sm text-white/80 leading-relaxed text-justify group-hover:text-[#008348] transition-all duration-300">
+                        FEU Tech provides unique, quality learning experiences through innovative and globally relevant academic programs led by highly qualified educators, equipping students with technical and critical thinking skills to become leaders.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ACHIEVED BY -->
+            <div class="relative group transition-all duration-300 hover:scale-105"
+                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+
+                <div class="absolute inset-0 bg-transparent 
+                            group-hover:bg-[#febe10] 
+                            transition-all duration-300"
+                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+                </div>
+
+                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path 
+                        d="M0 0 L85 0 L100 25"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="0.5"
+                        class="group-hover:stroke-[#008348] transition-all duration-300"
+                    />
+                </svg>
+
+                <div class="relative z-20 p-6 pr-10">
+                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
+                        Achieved By
+                    </h3>
+
+                    <ul class="text-sm text-white/80 space-y-2 leading-relaxed group-hover:text-[#008348] transition-all duration-300">
+                        <li>• Industry-relevant academic programs</li>
+                        <li>• Student-centered learning (MILES)</li>
+                        <li>• Highly-qualified instructors</li>
+                        <li>• Entrepreneurial training (FTIC)</li>
+                        <li>• Strong industry partnerships</li>
+                        <li>• Continuous quality improvement</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </div>
-</section>
-
-<!-- Mission Vision Section -->
-<section id="mvv" class="relative z-20 mx-4 lg:mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-14 translate-y-8 pb-24 scroll-animate">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
-
-        <!-- Vision -->
-        <div class="relative bg-white rounded-3xl p-8 pt-16 text-center shadow-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-3xl overflow-visible">
-
-            <!-- ICON -->
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2 z-10">
-                <div class="w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    🎯
-                </div>
-            </div>
-
-            <h3 class="text-xl font-bold text-slate-800 mb-6 tracking-tight text-center">
-                Vision
-            </h3>
-
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-                FEU Institute of Technology aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
-            </p>
-
-        </div>
-
-        <!-- Mission -->
-        <div class="relative bg-white rounded-3xl p-8 pt-16 text-center shadow-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-3xl overflow-visible">
-
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2 z-10">
-                <div class="w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    💡
-                </div>
-            </div>
-
-            <h3 class="text-xl font-bold text-slate-800 mb-6 tracking-tight text-center">
-                Mission
-            </h3>
-
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-                FEU Institute of Technology is dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of the society.
-            </p>
-
-        </div>
-
-        <!-- Quality Policy -->
-        <div class="relative bg-white rounded-3xl p-8 pt-16 text-center shadow-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-3xl overflow-visible">
-
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2 z-10">
-                <div class="w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    📃
-                </div>
-            </div>
-
-            <h3 class="text-xl font-bold text-slate-800 mb-6 tracking-tight text-center">
-                Quality Policy
-            </h3>
-
-            <p class="text-slate-600 text-sm leading-relaxed text-justify mb-6">
-                FEU Tech and FEU Diliman are schools of innovation that provide unique, quality learning experiences for every learner. Through its innovative, globally relevant academic programs at the helm of highly-qualified, competent educators, we equip our students with technical and critical thinking skills that prepare them to be leaders in their chosen fields. Guided by the core values of Fortitude, Excellence, and Uprightness, we mold socially responsible and morally conscientious next generation of changemakers and nation builders.
-            </p>
-
-        </div>
-
-        <!-- Achieved By -->
-        <div class="relative bg-white rounded-3xl p-8 pt-16 text-center shadow-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:shadow-3xl overflow-visible">
-
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2 z-10">
-                <div class="w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    🗹
-                </div>
-            </div>
-
-            <h3 class="text-xl font-bold text-slate-800 mb-6 tracking-tight text-center">
-                These will be achieved by:
-            </h3>
-
-            <ul class="text-slate-500 text-sm space-y-2 text-justify">
-                <li>✔ Offering industry-relevant and globally competitive academic programs</li>
-                <li>✔ Introducing a student-centric, individualized learning methodology with MILES</li>
-                <li>✔ Providing access to highly-qualified teachers/instructors</li>
-                <li>✔ Equipping students with entrepreneurial skills and mindset via FTIC</li>
-                <li>✔ Establishing connections to local and international industry partners with intensive internships</li>
-                <li>✔ Commitment to continual improvement of the quality management system</li>
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- Bottom Highlight -->
-    <div class="mt-24 bg-[#008348] text-white rounded-[2rem] p-10 text-center shadow-2xl">
-        <h3 class="text-2xl md:text-3xl font-extrabold mb-4">
-            Guided by Core Values
-        </h3>
-        <p class="max-w-2xl mx-auto text-white/90">
-            Fortitude, Excellence, and Uprightness shape every FEU Tech student into a socially responsible and morally grounded innovator.
-        </p>
-    </div>
-
 </section>
 
 {% endblock %}

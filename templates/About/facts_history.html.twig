@@ -3,17 +3,13 @@
 {% block body %}
 
 <!-- Hero Section -->
-<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-end justify-center overflow-hidden">
+<section id="top" class="relative w-full h-[25vh] min-h-[250px] flex items-end justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
         <img src="/images/About_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
         <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
     </div>
 
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-16 md:pb-24">
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block animate-bounce">
-            About Us
-        </span>
-
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-10 md:pb-18">
         <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
             History of <span class="feu-gradient-text">FEU Tech</span>
         </h1>
@@ -25,14 +21,14 @@
 </section>
 
 <div class="bg-white min-h-screen py-12 px-4 md:px-10">
-    <h1 class="text-3xl font-bold text-green-600 mb-12 text-center">FEU Tech History</h1>
+    
 
     <!-- TIMELINE -->
-    <div class="relative max-w-7xl mx-auto" id="timeline">
+    <div class="relative max-w-5xl mx-auto" id="timeline">
 
-        <!-- CENTER LINE -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-green-200"></div>
-        <div id="timeline-line" class="absolute left-1/2 transform -translate-x-1/2 top-0 w-[4px] bg-green-600 h-0 transition-all duration-300"></div>
+        <!-- FIXED LINE POSITION -->
+        <div class="absolute left-[162px] top-0 h-full border-l-4 border-green-200"></div>
+        <div id="timeline-line" class="absolute left-[162px] top-0 w-[4px] bg-green-600 h-0 transition-all duration-300"></div>
 
         <div class="space-y-16">
 
@@ -85,42 +81,30 @@
 
             {% for item in timeline %}
 
-                {% set isRight = loop.index is even %}
+            <div class="relative grid grid-cols-[150px_1fr] gap-6 items-start timeline-item opacity-0 transition-all duration-700 ease-out group">
 
-                <div class="relative flex items-center timeline-item opacity-0 transition-all duration-700 ease-out">
+                <!-- DOT (aligned with line) -->
+                <span class="dot absolute left-[174px] -translate-x-1/2 w-5 h-5 rounded-full bg-green-600 border-4 border-white shadow-md opacity-0 scale-75 transition-all duration-500"></span>
 
-                    <!-- LEFT SIDE -->
-                    <div class="w-1/2 flex justify-end pr-10">
-                        {% if not isRight %}
-                            <div class="max-w-md ml-auto text-right border-r-2 border-transparent-200 pr-6">
-                                <h2 class="text-xl font-semibold text-green-600">{{ item.date }}</h2>
-
-                                <p class="text-black mt-2 leading-relaxed">
-                                    {{ item.content }}
-                                </p>
-                            </div>
-                        {% endif %}
-                    </div>
-
-                    <!-- CENTER DOT -->
-                    <div class="w-12 flex justify-center relative">
-                        <span class="dot w-6 h-6 rounded-full bg-green-600 border-4 border-white shadow-lg shadow-green-500/50 opacity-0 scale-75 transition-all duration-500 z-10"></span>
-                    </div>
-                    
-                    <!-- RIGHT SIDE -->
-                    <div class="w-1/2 flex justify-start pl-10">
-                        {% if isRight %}
-                            <div class="max-w-md mr-auto text-left border-l-2 border-green-200 pl-6">
-                                <h2 class="text-xl font-semibold text-green-600">{{ item.date }}</h2>
-
-                                <p class="text-black mt-2 leading-relaxed text-left">
-                                    {{ item.content }}
-                                </p>
-                            </div>
-                        {% endif %}
-                    </div>
-
+                <!-- LEFT: YEAR -->
+                <div class="text-right pr-5">
+                    <h2 class="text-xl md:text-2xl font-extrabold text-green-600 leading-tight break-words transition-colors duration-300 group-hover:text-[#febe10]">
+                        {{ item.date }}
+                    </h2>
                 </div>
+
+                <!-- RIGHT: CONTENT -->
+                <div class="relative ml-6 pl-6 border-l-2 border-green-200 bg-white rounded-lg shadow-md p-5
+                            transition-all duration-300 ease-in-out
+                            transform group-hover:-translate-y-2 group-hover:shadow-xl
+                            group-hover:bg-[#008348] group-hover:text-white">
+                    
+                    <p class="leading-relaxed transition-colors duration-300 group-hover:text-white">
+                        {{ item.content }}
+                    </p>
+                </div>
+
+            </div>
 
             {% endfor %}
 
