@@ -1,15 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<!-- Hero Section -->
+<!-- Hero Section with Dynamic Background -->
 <section id="top" class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-    <!-- Banner Image Background -->
-    <div class="absolute inset-0 z-0">
-        <img src="/images/FEU_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+    <!-- Default Banner Video Background -->
+    <div id="hero-bg-default" class="absolute inset-0 z-0 transition-opacity duration-700 ease-in-out opacity-100">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60">
+            <source src="/videos/Sample_HERO.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-slate-900/60"></div>
     </div>
-    
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pb-32">
+
+    <!-- Carousel-triggered Background Overlay (hidden by default) -->
+    <div id="hero-bg-overlay" class="absolute inset-0 z-[1] transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none">
+        <img id="hero-bg-overlay-blur" src="" alt="" class="absolute inset-0 w-full h-full object-cover opacity-100">
+        <img id="hero-bg-overlay-img" src="" alt="" class="relative z-10 w-full h-full object-contain">
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pb-32" id="hero-content">
         <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-4 block animate-bounce mt-8 md:mt-0">Welcome to FEU Institute of Technology</span>
         <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
             Shape Your Future at <span class="feu-gradient-text">FEU Tech</span>
@@ -28,43 +37,274 @@
     </div>
 </section>
 
-<!-- Characteristics/Services Section -->
-<section class="relative z-20 mx-4 lg:mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-24 pb-12 scroll-animate">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Feature 1 -->
-        <div class="bg-white rounded-3xl p-8 pt-14 text-center shadow-2xl relative mt-12 lg:mt-0">
-            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-sm">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+<!-- Infinite Carousel Section -->
+<section class="relative z-20 -mt-40 pb-8 overflow-hidden">
+    <div id="carousel-track-wrapper" class="relative w-full overflow-hidden group/carousel pt-24">
+        
+        <!-- Left Arrow -->
+        <div id="carousel-left-arrow" class="absolute left-0 top-1/2 -translate-y-1/2 w-24 h-[120%] bg-gradient-to-r from-black/50 via-black/20 to-transparent z-30 flex items-center justify-start opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none -mt-4">
+            <div class="w-12 h-20 bg-white/90 shadow-xl rounded-r-2xl flex items-center justify-center text-slate-600 pointer-events-auto hover:bg-feu-green hover:text-white transition-colors border border-slate-200 border-l-0">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
             </div>
-            <h4 class="text-xl font-bold text-slate-800 mb-3 tracking-tight">Best Education</h4>
-            <p class="text-slate-500 text-sm leading-relaxed">Experience top-notch curriculum tailored to the demands of modern industries.</p>
         </div>
-        <!-- Feature 2 -->
-        <div class="bg-white rounded-3xl p-8 pt-14 text-center shadow-2xl relative mt-12 lg:mt-0">
-            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-sm">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+
+        <!-- Right Arrow -->
+        <div id="carousel-right-arrow" class="absolute right-0 top-1/2 -translate-y-1/2 w-24 h-[120%] bg-gradient-to-l from-black/50 via-black/20 to-transparent z-30 flex items-center justify-end opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none -mt-4">
+            <div class="w-12 h-20 bg-white/90 shadow-xl rounded-l-2xl flex items-center justify-center text-slate-600 pointer-events-auto hover:bg-feu-green hover:text-white transition-colors border border-slate-200 border-r-0">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
             </div>
-            <h4 class="text-xl font-bold text-slate-800 mb-3 tracking-tight">Expert Faculty</h4>
-            <p class="text-slate-500 text-sm leading-relaxed">Learn straight from industry experts and highly qualified academicians.</p>
         </div>
-        <!-- Feature 3 -->
-        <div class="bg-white rounded-3xl p-8 pt-14 text-center shadow-2xl relative mt-12 lg:mt-0">
-             <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-sm">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+
+        <div id="carousel-track" class="flex gap-6 py-6 px-2" style="width: max-content;">
+            <!-- 
+                Carousel cards — duplicated for seamless infinite loop.
+            -->
+            {% set cards = [
+                { title: 'Accreditations', subtitle: 'Nationally & Internationally Recognized', icon: 'award', image: '/images/Home_carousel/TECH_Accredications.png', bg: 'bg-emerald-50', heroBg: '/images/Home_carousel/Acreditation_BG.png' },
+                { title: 'AUN-QA Certified', subtitle: 'Engineering Programs', icon: 'shield', image: '/images/Home_carousel/TECH_AUNQA.png', bg: 'bg-blue-50', heroBg: '/images/Home_carousel/AUN-QA_BG.png' },
+                { title: 'Autonomous Status', subtitle: 'CHED Granted Autonomy', icon: 'star', image: '/images/Home_carousel/TECH_Autonomous.png', bg: 'bg-yellow-50', heroBg: '/images/ABOUT_TECH.jpg' },
+                { title: 'TOPCIT', subtitle: 'IT Competency Standard', icon: 'code', image: '/images/Home_carousel/TECH_TOPCIT.png', bg: 'bg-slate-50', heroBg: '/images/Home_carousel/TopCIT_BG.png' },
+                { title: 'QS Asia Ranked', subtitle: '#118 SEA · #10 Philippines', icon: 'globe', image: '/images/Home_carousel/TECH_Top.png', bg: 'bg-indigo-50', heroBg: '/images/Home_carousel/Top_BG.png' },
+                { title: 'Top 2% Scientists', subtitle: 'World-class Research Faculty', icon: 'users', image: '/images/Home_carousel/TECH_TopScientist.png', bg: 'bg-orange-50', heroBg: '/images/Home_carousel/TopScientist_BG.png' }
+            ] %}
+
+            {# Render cards 3 times for seamless infinite scroll #}
+            {% for set in 1..3 %}
+            {% for card in cards %}
+            <div class="carousel-card group flex-shrink-0 w-[280px] {{ card.bg }} rounded-2xl p-6 shadow-xl drop-shadow-md border border-slate-200/60 cursor-pointer select-none hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:border-feu-green/30 hover:-translate-y-2 transition-all duration-300 relative"
+                 data-carousel-img="{{ card.image }}"
+                 data-hero-bg="{{ card.heroBg }}">
+                <!-- Subtle pattern overlay for placeholder - contained within card boundaries -->
+                <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl overflow-hidden"></div>
+                
+                <div class="flex items-center gap-4 mb-3 relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-feu-green group-hover:bg-feu-green group-hover:text-white transition-colors duration-300">
+                        {% if card.icon == 'award' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                        {% elseif card.icon == 'shield' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        {% elseif card.icon == 'star' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                        {% elseif card.icon == 'globe' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        {% elseif card.icon == 'users' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        {% elseif card.icon == 'code' %}
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        {% endif %}
+                    </div>
+                    <div class="relative z-10">
+                        <h4 class="text-base font-bold text-slate-800 leading-tight">{{ card.title }}</h4>
+                        <p class="text-xs text-slate-500 mt-0.5 font-medium">{{ card.subtitle }}</p>
+                    </div>
+                </div>
+                <!-- Accent bar -->
+                <div class="h-1.5 w-0 group-hover:w-full bg-gradient-to-r from-feu-green to-feu-yellow rounded-full transition-all duration-500 absolute bottom-0 left-0"></div>
             </div>
-            <h4 class="text-xl font-bold text-slate-800 mb-3 tracking-tight">Modern Labs</h4>
-            <p class="text-slate-500 text-sm leading-relaxed">Gain hands-on experience using state-of-the-art technological facilities.</p>
-        </div>
-        <!-- Feature 4 -->
-        <div class="bg-white rounded-3xl p-8 pt-14 text-center shadow-2xl relative mt-12 lg:mt-0">
-            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-sm">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-            </div>
-            <h4 class="text-xl font-bold text-slate-800 mb-3 tracking-tight">Vibrant Community</h4>
-            <p class="text-slate-500 text-sm leading-relaxed">Engage in rich student life, organizations, and global network opportunities.</p>
+            {% endfor %}
+            {% endfor %}
         </div>
     </div>
 </section>
+
+<!-- Carousel Controller Script -->
+<script>
+document.addEventListener('turbo:load', function initCarousel() {
+    const trackWrapper = document.getElementById('carousel-track-wrapper');
+    const track = document.getElementById('carousel-track');
+    const overlay = document.getElementById('hero-bg-overlay');
+    const overlayImg = document.getElementById('hero-bg-overlay-img');
+    const overlayBlur = document.getElementById('hero-bg-overlay-blur');
+    const heroContent = document.getElementById('hero-content');
+    
+    const leftArrow = document.getElementById('carousel-left-arrow')?.firstElementChild;
+    const rightArrow = document.getElementById('carousel-right-arrow')?.firstElementChild;
+
+    if (!track || !overlay || !overlayImg || !trackWrapper) return;
+
+    const cards = track.querySelectorAll('.carousel-card');
+    if (!cards.length) return;
+
+    // --- Carousel State ---
+    let scrollPos = 0;
+    let baseSpeed = 0.3;       // px per frame
+    let currentSpeed = baseSpeed;
+    let isPaused = false;      // true when hovering the wrapper (except arrows)
+    let isFastForward = false;
+    let isFastRewind = false;
+    let resumeTimeout = null;
+    let animFrameId = null;
+
+    // Compute the width of one "set" of cards (total / 3 since we tripled them)
+    function getOneSetWidth() {
+        const cardCount = cards.length / 3;
+        let w = 0;
+        for (let i = 0; i < cardCount; i++) {
+            w += cards[i].offsetWidth + 24; // 24px = gap-6
+        }
+        return w;
+    }
+
+    // --- TamTam Mascot Logic ---
+    let tamtamActive = false;
+    let tamtamCard = null;
+    const tamtam = document.createElement('img');
+    tamtam.src = '/images/Home_carousel/TamtamSit.png';
+    tamtam.className = 'absolute -top-20 left-1/2 -translate-x-1/2 w-24 h-24 object-contain z-[100] pointer-events-none transition-opacity duration-500 opacity-0';
+    
+    function spawnTamTam() {
+        if (tamtamActive || isPaused) return;
+        
+        // Pick a random card that is currently to the right of the screen
+        const trackRect = trackWrapper.getBoundingClientRect();
+        const availableCards = Array.from(cards).filter(card => {
+            const rect = card.getBoundingClientRect();
+            return rect.left > trackRect.right;
+        });
+
+        if (availableCards.length > 0) {
+            tamtamCard = availableCards[Math.floor(Math.random() * availableCards.length)];
+            tamtamCard.appendChild(tamtam);
+            tamtamActive = true;
+            setTimeout(() => tamtam.classList.replace('opacity-0', 'opacity-100'), 100);
+        }
+    }
+
+    function checkTamTamDespawn() {
+        if (!tamtamActive || !tamtamCard) return;
+        
+        const rect = tamtamCard.getBoundingClientRect();
+        const wrapperRect = trackWrapper.getBoundingClientRect();
+        
+        // If the card has moved off-screen to the left
+        if (rect.right < wrapperRect.left - 50) {
+            tamtam.classList.replace('opacity-100', 'opacity-0');
+            tamtamActive = false;
+            tamtamCard = null;
+            // Wait 3-8 seconds before trying to spawn again
+            setTimeout(spawnTamTam, 3000 + Math.random() * 5000);
+        }
+    }
+
+    // Initial spawn attempt
+    setTimeout(spawnTamTam, 2000);
+
+    function shiftTamTam(offset) {
+        if (!tamtamActive || !tamtamCard) return;
+        const allCards = Array.from(cards);
+        const currentIndex = allCards.indexOf(tamtamCard);
+        const newIndex = currentIndex + offset;
+        if (newIndex >= 0 && newIndex < allCards.length) {
+            tamtamCard = allCards[newIndex];
+            tamtamCard.appendChild(tamtam);
+        }
+    }
+
+    function animate() {
+        let activeSpeed = 0;
+        
+        if (isFastForward) {
+            activeSpeed = 4;
+        } else if (isFastRewind) {
+            activeSpeed = -4;
+        } else if (!isPaused) {
+            activeSpeed = baseSpeed;
+        }
+
+        if (activeSpeed !== 0) {
+            scrollPos += activeSpeed;
+            const oneSet = getOneSetWidth();
+            const cardsPerSet = cards.length / 3;
+            
+            // Handle wrapping in both directions
+            if (scrollPos >= oneSet) {
+                scrollPos -= oneSet;
+                shiftTamTam(-cardsPerSet);
+            } else if (scrollPos < 0) {
+                scrollPos += oneSet;
+                shiftTamTam(cardsPerSet);
+            }
+            track.style.transform = `translateX(-${scrollPos}px)`;
+            
+            checkTamTamDespawn();
+        }
+        
+        animFrameId = requestAnimationFrame(animate);
+    }
+
+    // Start animation
+    animFrameId = requestAnimationFrame(animate);
+
+    // --- Hover Handlers ---
+    
+    // Wrapper hover handles pausing and the 2-second timeout for the hero background
+    trackWrapper.addEventListener('mouseenter', () => {
+        if (resumeTimeout) {
+            clearTimeout(resumeTimeout);
+            resumeTimeout = null;
+        }
+        isPaused = true;
+        // If TamTam was about to spawn, he'll wait until we unpause
+    });
+
+    trackWrapper.addEventListener('mouseleave', () => {
+        // Stop fast scrolling just in case
+        isFastForward = false;
+        isFastRewind = false;
+        
+        // After mouse leaves, hold for 2 seconds then resume
+        resumeTimeout = setTimeout(() => {
+            isPaused = false;
+
+            // Revert hero background
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            // Fade hero text back in
+            heroContent.style.opacity = '1';
+
+            resumeTimeout = null;
+            
+            // Try to spawn TamTam again if none active
+            if (!tamtamActive) spawnTamTam();
+        }, 2000);
+    });
+
+    // Cards hover handles changing the hero background
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const imgSrc = card.getAttribute('data-carousel-img');
+            const heroBg = card.getAttribute('data-hero-bg');
+            if (imgSrc) {
+                overlayImg.src = imgSrc;
+                if (overlayBlur) overlayBlur.src = heroBg;
+                overlay.classList.remove('opacity-0');
+                overlay.classList.add('opacity-100');
+                // Fade out the hero text content
+                heroContent.style.opacity = '0';
+                heroContent.style.transition = 'opacity 0.5s ease';
+            }
+        });
+    });
+
+    // Arrows hover handles fast scrolling
+    if (leftArrow) {
+        leftArrow.addEventListener('mouseenter', () => isFastRewind = true);
+        leftArrow.addEventListener('mouseleave', () => isFastRewind = false);
+    }
+    
+    if (rightArrow) {
+        rightArrow.addEventListener('mouseenter', () => isFastForward = true);
+        rightArrow.addEventListener('mouseleave', () => isFastForward = false);
+    }
+
+    // Cleanup on Turbo navigation
+    document.addEventListener('turbo:before-render', function cleanup() {
+        if (animFrameId) cancelAnimationFrame(animFrameId);
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        document.removeEventListener('turbo:before-render', cleanup);
+    }, { once: true });
+});
+</script>
 
 <!-- Upcoming Events Section -->
 <section id="meetings" class="py-24 bg-slate-50 scroll-animate">

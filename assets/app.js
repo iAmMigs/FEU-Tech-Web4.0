@@ -1,7 +1,7 @@
 import './stimulus_bootstrap.js';
 import './styles/app.css';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbo:load', () => {
     // Scroll Animation Observer (Fade up sections)
     const observerOptions = {
         root: null,

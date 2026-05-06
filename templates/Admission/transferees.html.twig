@@ -1,0 +1,234 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transferee Admissions | FEU Institute of Technology{% endblock %}
+
+{% block body %}
+
+<!-- Hero Section -->
+<section id="admissions-hero" class="relative w-full h-[45vh] min-h-[320px] flex items-end justify-center overflow-hidden">
+
+    <!-- Background Layer -->
+    <div class="absolute inset-0 z-0">
+        <!-- Hero Image -->
+        <img src="/images/Admission_Sample.png" alt="Transferee Admissions Hero" class="w-full h-full object-cover">
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-slate-900/65 mix-blend-multiply"></div>
+
+        <!-- FEU-green accent gradient -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348]"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-10 md:pb-16">
+
+        <!-- Eyebrow label -->
+        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block">
+            Admissions
+        </span>
+
+        <!-- Main Title -->
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight drop-shadow-lg uppercase tracking-wide">
+            Transferees
+        </h1>
+    </div>
+
+    <!-- Decorative pattern overlay -->
+    <div class="absolute inset-0 z-[1] opacity-[0.04] pointer-events-none"
+         style="background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\"); background-size: 30px 30px;">
+    </div>
+</section>
+
+
+<!-- Admission Procedures Section -->
+<section class="py-24 bg-white relative overflow-hidden">
+    <!-- Background accents -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-feu-green opacity-5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+            <span class="text-feu-green font-bold tracking-widest uppercase text-sm">
+                How to Apply
+            </span>
+            <h2 class="text-4xl font-extrabold text-slate-800 mt-3">
+                Admission Procedures
+            </h2>
+            <p class="text-slate-500 mt-4 max-w-2xl mx-auto">
+                Transferees are students who have enrolled or taken college or vocational units in other colleges, universities or vocational schools.
+            </p>
+        </div>
+
+        <!-- Procedures Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Step 1: Register -->
+            <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
+                    1
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">Register</h3>
+                <p class="text-slate-600 mb-6 text-sm leading-relaxed">Start your journey by registering online through our official link.</p>
+                <a href="http://bit.ly/FEUCORE" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                    Visit Portal 
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Step 2: Crediting -->
+            <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
+                    2
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">Crediting</h3>
+                <p class="text-slate-600 mb-6 text-sm leading-relaxed">Submit TOR and Course Description for subject evaluation.</p>
+                <a href="mailto:admissions@feutech.edu.ph" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                    Submit via Email
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </a>
+            </div>
+
+            <!-- Step 3: Pay -->
+            <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
+                    3
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">Pay Fee</h3>
+                <p class="text-slate-600 mb-6 text-sm leading-relaxed">Pay reservation fee via our accredited bank partners.</p>
+                <a href="mailto:reservations@feutech.edu.ph" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                    Confirm Payment
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Step 4: Get Ready -->
+            <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
+                    4
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">Get Ready</h3>
+                <p class="text-slate-600 mb-6 text-sm leading-relaxed">Complete admissions forms and wait for your portal access.</p>
+                <a href="https://tinyurl.com/FEUTECHFORMS" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                    Get Forms
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Admission Requirements Section -->
+<section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Requirements List -->
+            <div>
+                <span class="text-feu-green font-bold tracking-widest uppercase text-sm">
+                    Preparation
+                </span>
+                <h2 class="text-4xl font-extrabold text-slate-800 mt-3 mb-8">
+                    Admission Requirements
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {% set requirements = [
+                        'FEUOCAT result',
+                        'Admissions form',
+                        'Transcript of Records',
+                        'Course Description',
+                        'Good Moral Certificate',
+                        'Honorable Dismissal',
+                        'PSA Birth Certificate'
+                    ] %}
+
+                    {% for req in requirements %}
+                    <div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:border-feu-green/30 transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-feu-green/10 flex items-center justify-center mr-4 text-feu-green">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span class="text-slate-700 font-medium text-sm">{{ req }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Payment & Enrollment Card -->
+            <div class="relative">
+                <div class="absolute -inset-4 bg-gradient-to-r from-feu-green to-emerald-600 rounded-[2rem] opacity-10 blur-2xl"></div>
+                <div class="relative bg-[#004a29] text-white rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden">
+                    <h3 class="text-3xl font-extrabold mb-8 flex items-center">
+                        <span class="bg-white/20 p-3 rounded-2xl mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </span>
+                        PAYMENT
+                    </h3>
+
+                    <p class="text-slate-300 text-sm mb-8 leading-relaxed">
+                        Pay the reservation fee via online transfers through our accredited banks (BPI, BDO, Robinsons, Land Bank, Metrobank, and Gcash).
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start bg-white/5 p-5 rounded-2xl border border-white/10 group hover:bg-white/10 transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-feu-yellow/20 flex items-center justify-center mr-4 text-feu-yellow">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Accredited Banks</h4>
+                                <a href="https://www.feutech.edu.ph/feutech/admission/feu-tech-bank-details" target="_blank" class="text-feu-yellow text-sm hover:underline">View Bank Details</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start bg-white/5 p-5 rounded-2xl border border-white/10 group hover:bg-white/10 transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-feu-yellow/20 flex items-center justify-center mr-4 text-feu-yellow">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Deposit Slip</h4>
+                                <p class="text-slate-300 text-sm">Email to: reservations@feutech.edu.ph</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Success Credentials Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex p-4 rounded-full bg-slate-50 mb-8 border border-slate-100">
+            <span class="text-feu-green font-bold px-4">What's Next?</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-6">Your Welcome Package</h2>
+        <p class="text-slate-500 mb-12">
+            Kindly wait for the Admissions Office email regarding the following credentials:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
+                <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5L10 6z"></path></svg>
+                </div>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">Student Number</p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
+                <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">Student Portal</p>
+            </div>
+
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
+                <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">SOLAR Access</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

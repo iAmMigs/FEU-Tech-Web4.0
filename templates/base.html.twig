@@ -27,6 +27,11 @@
         {% endif %}
     </head>
     <body class="flex flex-col min-h-screen">
+        {# Page Loader Overlay #}
+        <div id="page-loader" class="fixed inset-0 z-[99999] bg-[#FCFCFC] flex flex-col items-center justify-center transition-opacity duration-500">
+            <img src="{{ asset('images/loader.gif') }}" alt="Loading..." class="w-48 h-48 object-contain">
+            <p class="mt-4 text-feu-green font-bold tracking-widest uppercase text-sm animate-pulse">Loading...</p>
+        </div>
         <!-- Sub Header -->
         <div class="bg-feu-green text-white py-2 text-sm shadow-inner relative z-50">
             <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
@@ -61,17 +66,17 @@
         </div>
 
         <!-- Main Header Area -->
-        <header class="sticky top-0 z-50 bg-slate-900/70 backdrop-blur-md shadow-sm border-b border-white/10 transition-all duration-300">
+        <header class="sticky top-0 z-50 bg-[#002d19]/80 backdrop-blur-md shadow-sm border-b border-white/10 transition-all duration-300">
             <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20">
                     <!-- Logo Start -->
-                    <a href="/" class="flex-shrink-0 flex items-center gap-3 group mr-4 lg:mr-8">
+                    <a href="{{ path('app_home') }}" class="flex-shrink-0 flex items-center gap-3 group mr-4 lg:mr-8">
                         <img src="/images/Tech_Logo.png" alt="FEU Tech Logo" class="h-10 w-auto group-hover:scale-105 transition-transform drop-shadow-md">
                         <img src="/images/Tech_Text.png" alt="FEU Tech Text" class="h-6 md:h-7 w-auto group-hover:opacity-80 transition-opacity brightness-0 invert">
                     </a>
                     
                     <!-- Menu Start -->
-                        <a href="/" class="whitespace-nowrap text-white">HOME</a>
+                        <a href="{{ path('app_home') }}" class="whitespace-nowrap text-white">HOME</a>
                                                 
                         <!-- ABOUT Dropdown -->
                         <div class="relative group mt-1">
@@ -99,11 +104,11 @@
                             </button>
                             <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
                                 <div class="py-2 flex flex-col">
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Freshmen</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Transferees</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Second Degree</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">International Students</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Cross-Enrollees</a>
+                                    <a href="{{ path('app_admission_freshmen') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Freshmen</a>
+                                    <a href="{{ path('app_admission_transferees') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Transferees</a>
+                                    <a href="{{ path('app_admission_second_degree') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Second Degree</a>
+                                    <a href="{{ path('app_admission_international_students') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">International Students</a>
+                                    <a href="{{ path('app_admission_cross_enrollees') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Cross-Enrollees</a>
                                     <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Scholarships & Grants</a>
                                     <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Tuition & Fees</a>
                                     <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">FAQs</a>
@@ -187,24 +192,23 @@
                                 <img src="/images/Tech_Text.png" alt="FEU Tech Text" class="h-8 w-auto opacity-90 hidden sm:block brightness-0 invert">
                             </div>
                         </div>
-                        <p class="text-sm leading-relaxed mb-6 max-w-sm text-slate-400">
+                        <p class="text-sm leading-relaxed mb-8 max-w-sm text-slate-400">
                             Providing quality education in the fields of Engineering and Computer Studies. We aim to produce globally competitive graduates equipped with strong core values.
                         </p>
-                        <h4 class="text-white text-md font-bold mb-4">Connect With Us</h4>
-                        <div class="flex space-x-4 mb-8">
-                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">Facebook</span>f</a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">TikTok</span>t</a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">YouTube</span>y</a>
-                        </div>
                         
-                        <h4 class="text-white text-md font-bold mb-4">Student Portals</h4>
-                        <div class="flex gap-4">
-                            <a href="#" class="px-5 py-2.5 bg-slate-800 text-sm font-medium text-slate-300 rounded-xl hover:bg-feu-green hover:text-white transition-colors">MILES</a>
-                            <a href="#" class="px-5 py-2.5 bg-slate-800 text-sm font-medium text-slate-300 rounded-xl hover:bg-feu-green hover:text-white transition-colors">Canvas</a>
+                        <!-- DPO Footer Image -->
+                        <div class="mt-10">
+                            <img src="/images/DPO_Footer.png" alt="DPO Logo" class="h-64 w-auto opacity-90 hover:opacity-100 transition-opacity drop-shadow-md">
                         </div>
                     </div>
                     
                     <div>
+                        <h4 class="text-white text-md font-bold mb-4">Student Portals</h4>
+                        <div class="flex gap-4 mb-10">
+                            <a href="#" class="px-5 py-2.5 bg-slate-800 text-sm font-medium text-slate-300 rounded-xl hover:bg-feu-green hover:text-white transition-colors">SOLAR</a>
+                            <a href="#" class="px-5 py-2.5 bg-slate-800 text-sm font-medium text-slate-300 rounded-xl hover:bg-feu-green hover:text-white transition-colors">Canvas</a>
+                        </div>
+
                         <h4 class="text-white text-lg font-bold mb-6 relative inline-block after:absolute after:bottom-[-8px] after:left-0 after:w-1/2 after:h-1 after:bg-feu-yellow">Virtual Office</h4>
                         <p class="text-sm text-slate-400 mb-6">Need immediate assistance? Talk to our representatives live on Zoom.</p>
                         <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium text-sm shadow-md">
@@ -229,6 +233,14 @@
                                 <span>info@feutech.edu.ph</span>
                             </li>
                         </ul>
+
+                        <h4 class="text-white text-md font-bold mb-4">Connect With Us</h4>
+                        <div class="flex gap-4 mb-8">
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">Facebook</span>f</a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">TikTok</span>t</a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-feu-green hover:text-white transition-all text-slate-400"><span class="sr-only">YouTube</span>y</a>
+                        </div>
+
                         <div class="space-y-3 pt-6 border-t border-slate-800">
                             <a href="#" class="block text-sm font-medium text-slate-400 hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> Privacy Policy</a>
                             <a href="#" class="block text-sm font-medium text-slate-400 hover:text-feu-yellow transition-colors flex items-center gap-2"><span class="text-feu-green text-xs">▹</span> Terms & Conditions</a>
@@ -241,5 +253,47 @@
                 </div>
             </div>
         </footer>
+        {# Loader Script #}
+        <script>
+            (function() {
+                let loadStartTime = Date.now();
+                const MIN_DISPLAY_TIME = 600; 
+
+                const hideLoader = () => {
+                    const elapsedTime = Date.now() - loadStartTime;
+                    const timeToWait = Math.max(0, MIN_DISPLAY_TIME - elapsedTime);
+
+                    setTimeout(() => {
+                        const loader = document.getElementById('page-loader');
+                        if (loader) {
+                            loader.style.opacity = '0';
+                            setTimeout(() => {
+                                loader.style.display = 'none';
+                            }, 500);
+                        }
+                    }, timeToWait);
+                };
+
+                const showLoader = () => {
+                    loadStartTime = Date.now();
+                    const loader = document.getElementById('page-loader');
+                    if (loader) {
+                        loader.style.display = 'flex';
+                        setTimeout(() => {
+                            const activeLoader = document.getElementById('page-loader');
+                            if (activeLoader) activeLoader.style.opacity = '1';
+                        }, 10);
+                    }
+                };
+
+                // Standard load
+                window.addEventListener('load', hideLoader);
+
+                // Turbo events
+                document.addEventListener('turbo:visit', showLoader);
+                document.addEventListener('turbo:load', hideLoader);
+                document.addEventListener('turbo:render', hideLoader);
+            })();
+        </script>
     </body>
 </html>
