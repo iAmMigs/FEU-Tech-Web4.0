@@ -8,11 +8,17 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    private function renderWithDefaults(string $view, array $params = []): Response
+    {
+        return $this->render($view, array_merge($params, [
+            'controller_name' => 'HomeController',
+        ]));
+    }
+
+
+    #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->renderWithDefaults('home/index.html.twig');
     }
 }

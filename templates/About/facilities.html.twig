@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-end justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="/images/FACILITIES_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
+        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-16 md:pb-24">
+        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block animate-bounce">
+            About Us
+        </span>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg animate__animated animate__fadeIn animate__delay-2s">
+            Facilities of <span class="feu-gradient-text">FEU Tech</span>
+        </h1>
+    </div>
+</section>
+
+<!-- CONTENT -->
+<section class="py-24 bg-slate-50">
+
+    <div class="max-w-6xl mx-auto px-6 space-y-8">
+
+        <!-- CARD 1 -->
+        <div class="group bg-white rounded-2xl shadow-md border border-slate-100 p-8 hover:shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:bg-slate-50">
+            <div class="flex gap-6 items-start">
+                <!-- NUMBER BADGE -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-feu-green text-white flex items-center justify-center font-semibold text-sm shadow-sm transform group-hover:scale-110 transition-all duration-300">
+                    01
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2 animate__animated animate__fadeIn animate__delay-1s">
+                        Smart Learning Environment
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
+                        FEU Tech provides fully air-conditioned classrooms and laboratories equipped with high-tech computers, engineering tools, 24/7 security, library services, and campus-wide WiFi.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="group bg-white rounded-2xl shadow-md border border-slate-100 p-8 hover:shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:bg-slate-50">
+            <div class="flex gap-6 items-start">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-feu-yellow text-slate-900 flex items-center justify-center font-semibold text-sm shadow-sm transform group-hover:scale-110 transition-all duration-300">
+                    02
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2 animate__animated animate__fadeIn animate__delay-1s">
+                        Historic & Green Campus
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
+                        Located in FEU’s historic campus, featuring green spaces, Art Deco architecture, and a legacy of academic excellence spanning decades.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="group bg-white rounded-2xl shadow-md border border-slate-100 p-8 hover:shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:bg-slate-50">
+            <div class="flex gap-6 items-start">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-feu-green text-white flex items-center justify-center font-semibold text-sm shadow-sm transform group-hover:scale-110 transition-all duration-300">
+                    03
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800 mb-2 animate__animated animate__fadeIn animate__delay-1s">
+                        Modern Technology Hub
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
+                        A 17-story modern facility with advanced labs, gym, pool, digital library systems, and eco-friendly building infrastructure.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="py-24 bg-white border-t">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">Why Students Choose FEU Tech</h2>
+            <p class="text-slate-500 mt-2">Built for performance, safety, and innovation</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="p-6 rounded-xl border bg-slate-50 hover:bg-white hover:shadow-md hover:scale-105 transition-all duration-300">
+                <div class="w-10 h-10 rounded-lg bg-feu-green text-white flex items-center justify-center mb-4">
+                    ⚙
+                </div>
+                <h3 class="font-semibold text-slate-800 mb-2">Modern Learning Spaces</h3>
+                <p class="text-sm text-slate-600">
+                    Designed for focus and collaboration.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-xl border bg-slate-50 hover:bg-white hover:shadow-md hover:scale-105 transition-all duration-300">
+                <div class="w-10 h-10 rounded-lg bg-feu-yellow text-slate-900 flex items-center justify-center mb-4">
+                    ⚡
+                </div>
+                <h3 class="font-semibold text-slate-800 mb-2">Advanced Facilities</h3>
+                <p class="text-sm text-slate-600">
+                    Industry-grade tools and laboratories.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-xl border bg-slate-50 hover:bg-white hover:shadow-md hover:scale-105 transition-all duration-300">
+                <div class="w-10 h-10 rounded-lg bg-feu-green text-white flex items-center justify-center mb-4">
+                    🛡
+                </div>
+                <h3 class="font-semibold text-slate-800 mb-2">Secure Campus</h3>
+                <p class="text-sm text-slate-600">
+                    24/7 safety and smart monitoring systems.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="py-24 bg-feu-green text-white text-center">
+
+    <div class="max-w-4xl mx-auto px-6">
+
+        <h2 class="text-4xl font-bold animate__animated animate__fadeIn animate__delay-1s">
+            Experience FEU Tech
+        </h2>
+
+        <p class="mt-4 text-white/80 animate__animated animate__fadeIn animate__delay-2s">
+            A future-ready campus built for excellence.
+        </p>
+
+       <div class="flex flex-col sm:flex-row gap-4 justify-center animate__animated animate__fadeIn animate__delay-3s">
+            <a href="#apply" class="px-8 py-4 bg-feu-yellow text-slate-900 font-bold rounded-lg shadow-xl shadow-feu-yellow/20 hover:bg-yellow-400 hover:-translate-y-1 transition-all">
+                Apply Now
+            </a>
+            <a href="#courses" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all">
+                Explore Programs
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

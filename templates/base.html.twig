@@ -4,14 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}FEU Institute of Technology{% endblock %}</title>
-        <link rel="icon" href="https://feutech.edu.ph/assets/img/logo/feutech-icon.png">
+        <!-- Use local Tech Logo as favicon -->
+        <link rel="icon" href="/images/Tech_Logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         
         {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+        <script src="https://cdn.tailwindcss.com"></script>
         {% endblock %}
-
+        
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
@@ -68,22 +71,23 @@
                     </a>
                     
                     <!-- Menu Start -->
-                    <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
-                        <a href="/" class="whitespace-nowrap text-white font-semibold relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-white">HOME</a>
-                        
+                        <a href="/" class="whitespace-nowrap text-white">HOME</a>
+                                                
                         <!-- ABOUT Dropdown -->
                         <div class="relative group mt-1">
                             <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
                                 ABOUT <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
+                            </button> 
                             <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
                                 <div class="py-2 flex flex-col">
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facts and History</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Vision, Mission, Quality Policy</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facilities</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Executive Officers</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Directors</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Non-Academic Offices</a>
+                                    <a href="{{ path('app_facts_history') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facts and History</a>
+                                    <a href="{{ path('app_vision_mision') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Vision, Mission, Quality Policy</a>
+                                    <a href="{{ path('app_facilities') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facilities</a>
+                                    <a href="{{ path('app_executive_officers') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Executive Officers</a>
+                                    <a href="{{ path('app_academic_directors') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Directors</a>
+                                    <a href="{{ path('app_academic_services') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Services</a>
+                                    <a href="{{ path('app_non_academic_directors') }}"  class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Non-Academic Directors</a>
+                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Offices</a>
                                 </div>
                             </div>
                         </div>
