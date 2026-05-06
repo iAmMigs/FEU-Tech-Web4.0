@@ -3,198 +3,118 @@
 {% block body %}
 
 <style>
-@keyframes floatSlow {
-    0% { transform: translateY(0px) translateX(0px); }
-    50% { transform: translateY(-40px) translateX(20px); }
-    100% { transform: translateY(0px) translateX(0px); }
+@keyframes floatSoft {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
 }
 
-@keyframes floatMedium {
-    0% { transform: translateY(0px) translateX(0px); }
-    50% { transform: translateY(60px) translateX(-30px); }
-    100% { transform: translateY(0px) translateX(0px); }
+.bg-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 46, 31, 0.85),
+        rgba(11, 46, 31, 0.95)
+    );
 }
 
-@keyframes floatFast {
-    0% { transform: translateY(0px) translateX(0px); }
-    50% { transform: translateY(-30px) translateX(-20px); }
-    100% { transform: translateY(0px) translateX(0px); }
+.glass-card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.35s ease;
+}
+
+.glass-card:hover {
+    background: #febe10;
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    filter: blur(40px);
+    animation: floatSoft 12s infinite ease-in-out;
 }
 </style>
 
-<!-- HERO + MVV COMBINED -->
-<section class="relative w-full min-h-screen flex items-center overflow-hidden text-white">
+<section class="relative w-full min-h-screen flex items-center text-white overflow-hidden">
 
     <!-- Background -->
     <div class="absolute inset-0 z-0">
-        <img src="/images/About_TECH.jpg" 
-             alt="FEU Tech"
-             class="w-full h-full object-cover">
+        <img src="/images/About_TECH.jpg"
+             class="w-full h-full object-cover"
+             alt="FEU Tech">
 
-        <div class="absolute inset-0 bg-[#0b2e1f]/75"></div>
+        <div class="absolute inset-0 bg-overlay"></div>
 
-        <!-- ✨ FLOATING LIGHTS -->
-        <div class="absolute inset-0 overflow-hidden">
-
-            <div class="absolute w-72 h-72 bg-white/10 rounded-full blur-3xl top-10 left-10"
-                 style="animation: floatSlow 12s ease-in-out infinite;"></div>
-
-            <div class="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl bottom-10 right-10"
-                 style="animation: floatMedium 16s ease-in-out infinite;"></div>
-
-            <div class="absolute w-64 h-64 bg-white/10 rounded-full blur-2xl top-1/2 left-1/3"
-                 style="animation: floatFast 10s ease-in-out infinite;"></div>
-
-            <div class="absolute w-80 h-80 bg-white/5 rounded-full blur-3xl bottom-1/3 left-1/4"
-                 style="animation: floatSlow 18s ease-in-out infinite;"></div>
-
-        </div>
+        <!-- subtle glow effects -->
+        <div class="glow w-72 h-72 top-10 left-10"></div>
+        <div class="glow w-96 h-96 bottom-10 right-10 animation-delay-2000"></div>
     </div>
 
     <!-- Content -->
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-24">
-        <!-- BIG TITLE -->
-        <h1 class="text-4xl md:text-6xl font-extrabold uppercase leading-tight tracking-wide max-w-4xl">
-            Driven by Innovation,<br>
-            Excellence, and<br>
-            Nation-Building.
-        </h1>
 
-        <!-- SUBTEXT -->
-        <p class="mt-6 text-white/80 max-w-2xl">
-            Vision, Mission, and Quality Policy of FEU Institute of Technology
-        </p>
+        <!-- Heading -->
+        <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                Driven by <span class="text-[#febe10]">Innovation</span>,<br>
+                Excellence, and<br>
+                Nation-Building.
+            </h1>
 
-        <!-- TRAPEZOID ITEMS -->
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+            <p class="mt-6 text-white/70 text-lg">
+                Vision, Mission, and Quality Policy of FEU Institute of Technology
+            </p>
+        </div>
 
-            <!-- VISION -->
-            <div class="relative group transition-all duration-300 hover:scale-105"
-                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
+        <!-- Cards -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <div class="absolute inset-0 bg-transparent 
-                            group-hover:bg-[#febe10] 
-                            transition-all duration-300"
-                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
-                </div>
-
-                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path 
-                        d="M0 0 L85 0 L100 25"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="0.5"
-                        class="group-hover:stroke-[#008348] transition-all duration-300"
-                    />
-                </svg>
-
-                <div class="relative z-20 p-6 pr-10">
-                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
-                        Vision
-                    </h3>
-
-                    <p class="text-sm text-white/80 leading-relaxed text-justify group-hover:text-[#008348] transition-all duration-300">
-                        FEU Institute of Technology aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
-                    </p>
-                </div>
+            <!-- CARD -->
+            <div class="glass-card rounded-xl p-6">
+                <h3 class="uppercase text-xs tracking-widest text-[#febe10] mb-3">
+                    Vision
+                </h3>
+                <p class="text-sm leading-relaxed text-white/80">
+                    FEU Institute of Technology aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
+                </p>
             </div>
 
-            <!-- MISSION -->
-            <div class="relative group transition-all duration-300 hover:scale-105"
-                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
-
-                <div class="absolute inset-0 bg-transparent 
-                            group-hover:bg-[#febe10] 
-                            transition-all duration-300"
-                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
-                </div>
-
-                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path 
-                        d="M0 0 L85 0 L100 25"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="0.5"
-                        class="group-hover:stroke-[#008348] transition-all duration-300"
-                    />
-                </svg>
-
-                <div class="relative z-20 p-6 pr-10">
-                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
-                        Mission
-                    </h3>
-
-                    <p class="text-sm text-white/80 leading-relaxed text-justify group-hover:text-[#008348] transition-all duration-300">
-                        FEU Institute of Technology is dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of society.
-                    </p>
-                </div>
+            <!-- CARD -->
+            <div class="glass-card rounded-xl p-6">
+                <h3 class="uppercase text-xs tracking-widest text-[#febe10] mb-3">
+                    Mission
+                </h3>
+                <p class="text-sm leading-relaxed text-white/80">
+                    FEU Institute of Technology is dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of society.
+                </p>
             </div>
 
-            <!-- QUALITY POLICY -->
-            <div class="relative group transition-all duration-300 hover:scale-105"
-                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
-
-                <div class="absolute inset-0 bg-transparent 
-                            group-hover:bg-[#febe10] 
-                            transition-all duration-300"
-                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
-                </div>
-
-                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path 
-                        d="M0 0 L85 0 L100 25"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="0.5"
-                        class="group-hover:stroke-[#008348] transition-all duration-300"
-                    />
-                </svg>
-
-                <div class="relative z-20 p-6 pr-10">
-                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
-                        Quality Policy
-                    </h3>
-
-                    <p class="text-sm text-white/80 leading-relaxed text-justify group-hover:text-[#008348] transition-all duration-300">
-                        FEU Tech provides unique, quality learning experiences through innovative and globally relevant academic programs led by highly qualified educators, equipping students with technical and critical thinking skills to become leaders.
-                    </p>
-                </div>
+            <!-- CARD -->
+            <div class="glass-card rounded-xl p-6">
+                <h3 class="uppercase text-xs tracking-widest text-[#febe10] mb-3">
+                    Quality Policy
+                </h3>
+                <p class="text-sm leading-relaxed text-white/80">
+                    FEU Tech provides unique, quality learning experiences through innovative and globally relevant academic programs led by highly qualified educators, equipping students with technical and critical thinking skills to become leaders.
+                </p>
             </div>
 
-            <!-- ACHIEVED BY -->
-            <div class="relative group transition-all duration-300 hover:scale-105"
-                 style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
-
-                <div class="absolute inset-0 bg-transparent 
-                            group-hover:bg-[#febe10] 
-                            transition-all duration-300"
-                     style="clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 0 100%);">
-                </div>
-
-                <svg class="absolute inset-0 w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path 
-                        d="M0 0 L85 0 L100 25"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="0.5"
-                        class="group-hover:stroke-[#008348] transition-all duration-300"
-                    />
-                </svg>
-
-                <div class="relative z-20 p-6 pr-10">
-                    <h3 class="uppercase text-xs tracking-[0.3em] mb-4 font-bold text-white group-hover:text-[#008348] transition-all duration-300">
-                        Achieved By
-                    </h3>
-
-                    <ul class="text-sm text-white/80 space-y-2 leading-relaxed group-hover:text-[#008348] transition-all duration-300">
-                        <li>• Industry-relevant academic programs</li>
-                        <li>• Student-centered learning (MILES)</li>
-                        <li>• Highly-qualified instructors</li>
-                        <li>• Entrepreneurial training (FTIC)</li>
-                        <li>• Strong industry partnerships</li>
-                        <li>• Continuous quality improvement</li>
-                    </ul>
-                </div>
+            <!-- CARD -->
+            <div class="glass-card rounded-xl p-6">
+                <h3 class="uppercase text-xs tracking-widest text-[#febe10] mb-3">
+                    Achieved By
+                </h3>
+                <ul class="text-sm text-white/80 space-y-2">
+                    <li>• Industry-relevant academic programs</li>
+                    <li>• Student-centered learning (MILES)</li>
+                    <li>• Highly-qualified instructors</li>
+                    <li>• Entrepreneurial training (FTIC)</li>
+                    <li>• Strong industry partnerships</li>
+                    <li>• Continuous quality improvement</li>
+                </ul>
             </div>
 
         </div>

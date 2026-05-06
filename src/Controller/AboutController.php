@@ -21,11 +21,25 @@ final class AboutController extends AbstractController
         return $this->renderWithDefaults('About/facts_history.html.twig');
     }
 
+    #[Route('/facts-and-history-2', name: 'app_facts_history_2')]
+    public function factsHistory2(): Response
+    {
+        return $this->renderWithDefaults('About/facts_history_2.html.twig');
+    }
+
+
     #[Route('/vision-mision', name: 'app_vision_mision')]
     public function visionMision(): Response
     {
         return $this->renderWithDefaults('About/vision_mision.html.twig');
     }
+
+    #[Route('/vision-mision-2', name: 'app_vision_mision_2')]
+    public function visionMision2(): Response
+    {
+        return $this->renderWithDefaults('About/vision_mision_2.html.twig');
+    }
+
 
     #[Route('/facilities', name: 'app_facilities')]
     public function facilities(): Response

@@ -1,50 +1,77 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<style>
+    :root {
+        --feu-green: #008348;
+        --feu-yellow: #febe10;
+    }
 
+    /* Base card layout */
+    .director-card {
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0; /* slate-200 */
+        position: relative;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+
+    /* Hover State: Background remains white, no floating/transform */
+    .director-card:hover {
+        background-color: #ffffff !important; 
+        border-color: var(--feu-green);
+        /* Subtle glow instead of a deep shadow since it doesn't "lift" */
+        box-shadow: 0 4px 12px rgba(0, 131, 72, 0.08);
+    }
+
+    /* Text colors for white background hover */
+    .director-card:hover .program-title { color: var(--feu-green); }
+    .director-card:hover .director-name { color: #000000; } 
+    .director-card:hover .role-text { color: var(--feu-yellow); }
+    
+    /* Email link hover states */
+    .director-card .email-link { transition: color 0.2s ease; }
+    .director-card:hover .email-link { color: #64748b; } /* slate-500 */
+    .director-card .email-link:hover { color: var(--feu-green) !important; }
+
+    /* Accent line that grows on hover */
+    .hover-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background: var(--feu-green);
+        transition: width 0.4s ease;
+    }
+    
+    .director-card:hover .hover-line {
+        width: 100%;
+    }
+</style>
 <!-- Hero Section -->
-<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-end justify-center overflow-hidden">
+<section id="top" class="relative w-full h-[45vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black">
     <div class="absolute inset-0 z-0">
-        <img src="/images/EXECUTIVE_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+        <img src="/images/EXECUTIVE_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20"></div>
     </div>
 
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-16 md:pb-24">
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block animate-bounce">
-            About Us
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto">
+        <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Academic Leadership
         </span>
-
-        <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-lg">
-            Academic Directors of <span class="feu-gradient-text">FEU Tech</span>
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
+            Academic <span class="text-[#008348]">Directors</span>
         </h1>
+        <div class="w-24 h-1 bg-[#febe10] mx-auto mt-6"></div>
     </div>
 </section>
 
-
 <!-- Academic Directors Section -->
-<section class="py-24 bg-white relative overflow-hidden scroll-animate">
-
-    <!-- Background accents -->
-    <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-feu-green opacity-10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-feu-yellow opacity-10 rounded-full blur-3xl"></div>
-
+<section class="py-24 bg-slate-50 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        <!-- Header -->
-        <div class="text-center mb-20">
-            <span class="text-feu-green font-bold tracking-widest uppercase text-sm animate-pulse">
-                Academics
-            </span>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 mt-3">
-                Academic Directors
-            </h2>
-            <p class="text-slate-500 mt-4 max-w-2xl mx-auto">
-                Meet the program directors leading each academic discipline.
-            </p>
-        </div>
-
         <!-- Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {% set directors = [
                 ['Civil Engineering','Kevin Lawrence M. De Jesus, Ph.D.','Program Director','ce@feutech.edu.ph'],
@@ -52,7 +79,7 @@
                 ['Computer Science','Shaneth C. Ambat, Ph.D.','Program Director','ccs_cs@feutech.edu.ph'],
                 ['Electrical Engineering','Engr. Mark Anthony G. Teodoro','Program Director','eee@feutech.edu.ph'],
                 ['Electronics Engineering','Antipas T. Teologo, Jr. Ph.D.','Program Director','eee@feutech.edu.ph'],
-                ['Humanities, Social Sciences, and Communications','Ma. Ruth S. Que','Program Director','hsc@feutech.edu.ph'],
+                ['Humanities, Social Sciences, and Comm.','Ma. Ruth S. Que','Program Director','hsc@feutech.edu.ph'],
                 ['Information Technology','Roman M. De Angel, DIT','Program Director','ccs_it@feutech.edu.ph'],
                 ['Mathematics and Physical Sciences','Engr. Ivan Jerome Panis','Program Director','mps@feutech.edu.ph'],
                 ['Mechanical Engineering','Engr. Jaychris Georgette Y. Onia','Program Director','me@feutech.edu.ph'],
@@ -61,57 +88,42 @@
             ] %}
 
             {% for d in directors %}
-            <div class="group bg-slate-50 p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-500 hover:-translate-y-2 border border-slate-100">
-
+            <div class="director-card bg-white p-8 rounded-lg shadow-sm">
                 <!-- Program -->
-                <h3 class="text-feu-green font-bold text-lg mb-2">
+                <h3 class="program-title text-[#008348] font-black text-sm uppercase tracking-widest mb-4 transition-colors">
                     {{ d[0] }}
                 </h3>
 
                 <!-- Name -->
-                <p class="font-semibold text-slate-800 group-hover:text-feu-green transition">
+                <p class="director-name text-xl font-bold text-black transition-colors leading-snug">
                     {{ d[1] }}
                 </p>
 
                 <!-- Role -->
-                <p class="text-sm text-feu-yellow font-semibold mt-1">
+                <p class="role-text text-xs font-bold text-[#febe10] uppercase mt-2 tracking-wider transition-colors">
                     {{ d[2] }}
                 </p>
 
                 <!-- Email -->
                 {% if d[3] %}
-                <a href="mailto:{{ d[3] }}" 
-                   class="block mt-3 text-sm text-slate-500 hover:text-feu-green transition break-all">
-                    {{ d[3] }}
-                </a>
+                <div class="mt-6 pt-6 border-t border-slate-100">
+                    <a href="mailto:{{ d[3] }}" 
+                       class="email-link text-sm text-slate-500 font-medium transition-colors break-all flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        {{ d[3] }}
+                    </a>
+                </div>
                 {% endif %}
 
+                <!-- Hidden Hover Accent -->
+                <div class="hover-line"></div>
             </div>
             {% endfor %}
 
         </div>
     </div>
 </section>
-
-
-<!-- Scroll Animation Script -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".scroll-animate");
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("opacity-100", "translate-y-0");
-            }
-        });
-    }, { threshold: 0.2 });
-
-    elements.forEach(el => {
-        el.classList.add("opacity-0", "translate-y-10", "transition-all", "duration-1000");
-        observer.observe(el);
-    });
-});
-</script>
 
 {% endblock %}

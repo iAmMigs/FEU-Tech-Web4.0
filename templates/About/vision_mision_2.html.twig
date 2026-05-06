@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+
+    <div class="absolute inset-0 z-0">
+        <img src="/images/About_TECH.jpg" alt="Hero Background"
+             class="w-full h-full object-cover opacity-80 mix-blend-multiply">
+        <div class="absolute inset-0 bg-slate-900/60"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto py-10 md:py-14">
+
+        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block">
+            About Us
+        </span>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
+            Vision, Mission, and Quality Policy <span class="feu-gradient-text">FEU Tech</span>
+        </h1>
+
+        <p class="text-base md:text-lg text-slate-200 font-light max-w-2xl mx-auto">
+            Driven by innovation, excellence, and nation-building.
+        </p>
+
+    </div>
+</section>
+
+<!-- Mission Vision Section -->
+<section id="mvv"
+    class="relative z-20 mx-4 lg:mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-14 pb-24 scroll-animate">
+
+    {% set cardBase = "relative bg-white rounded-3xl p-8 pt-16 text-center shadow-lg overflow-visible transition-shadow duration-300 hover:shadow-xl" %}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+
+        <!-- Vision -->
+        <div class="{{ cardBase }}">
+            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
+                <div class="w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
+                    🎯
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-800 mb-6">
+                Vision
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                FEU Institute of Technology aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
+            </p>
+        </div>
+
+        <!-- Mission -->
+        <div class="{{ cardBase }}">
+            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
+                <div class="w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
+                    💡
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-800 mb-6">
+                Mission
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                FEU Institute of Technology is dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of the society.
+            </p>
+        </div>
+
+        <!-- Quality Policy -->
+        <div class="{{ cardBase }}">
+            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
+                <div class="w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
+                    📃
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-800 mb-6">
+                Quality Policy
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                FEU Tech and FEU Diliman are schools of innovation that provide unique, quality learning experiences for every learner. Through globally relevant academic programs led by highly qualified educators, we equip students with technical and critical thinking skills for leadership in their fields.
+            </p>
+        </div>
+
+        <!-- Achieved By -->
+        <div class="{{ cardBase }}">
+            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
+                <div class="w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
+                    🗹
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-800 mb-6">
+                These will be achieved by:
+            </h3>
+
+            <ul class="text-slate-500 text-sm space-y-2 text-justify list-none">
+                <li>✔ Offering industry-relevant and globally competitive academic programs</li>
+                <li>✔ Introducing student-centric learning methodology with MILES</li>
+                <li>✔ Providing access to highly-qualified instructors</li>
+                <li>✔ Equipping students with entrepreneurial skills via FTIC</li>
+                <li>✔ Strengthening industry partnerships and internships</li>
+                <li>✔ Continuous improvement of the quality management system</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Bottom Highlight -->
+    <div class="mt-24 bg-[#008348] text-white rounded-[2rem] p-10 text-center shadow-xl">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-4">
+            Guided by Core Values
+        </h3>
+        <p class="max-w-2xl mx-auto text-white/90">
+            Fortitude, Excellence, and Uprightness shape every FEU Tech student into a socially responsible and morally grounded innovator.
+        </p>
+    </div>
+
+</section>
+
+{% endblock %}

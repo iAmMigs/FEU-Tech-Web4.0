@@ -83,12 +83,18 @@
 
             <div class="relative grid grid-cols-[150px_1fr] gap-6 items-start timeline-item opacity-0 transition-all duration-700 ease-out group">
 
-                <!-- DOT (aligned with line) -->
+                <!-- DOT -->
                 <span class="dot absolute left-[174px] -translate-x-1/2 w-5 h-5 rounded-full bg-green-600 border-4 border-white shadow-md opacity-0 scale-75 transition-all duration-500"></span>
 
                 <!-- LEFT: YEAR -->
                 <div class="text-right pr-5">
-                    <h2 class="text-xl md:text-2xl font-extrabold text-green-600 leading-tight break-words transition-colors duration-300 group-hover:text-[#febe10]">
+                    <h2 class="
+                        {% if item.date == 'September 30, 1998' or item.date == 'February 24, 2000' %}
+                            text-lg md:text-xl
+                        {% else %}
+                            text-xl md:text-2xl
+                        {% endif %}
+                        font-extrabold text-green-600 leading-tight break-words transition-colors duration-300 group-hover:text-[#febe10]">
                         {{ item.date }}
                     </h2>
                 </div>
@@ -96,7 +102,7 @@
                 <!-- RIGHT: CONTENT -->
                 <div class="relative ml-6 pl-6 border-l-2 border-green-200 bg-white rounded-lg shadow-md p-5
                             transition-all duration-300 ease-in-out
-                            transform group-hover:-translate-y-2 group-hover:shadow-xl
+                            group-hover:shadow-xl
                             group-hover:bg-[#008348] group-hover:text-white">
                     
                     <p class="leading-relaxed transition-colors duration-300 group-hover:text-white">
