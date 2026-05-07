@@ -92,7 +92,27 @@
                                     <a href="{{ path('app_academic_directors') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Directors</a>
                                     <a href="{{ path('app_academic_services') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Services</a>
                                     <a href="{{ path('app_non_academic_directors') }}"  class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Non-Academic Directors</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Offices</a>
+                                    <div class="relative group">
+                                        <!-- Parent -->
+                                        <div class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors flex items-center justify-between cursor-pointer">
+                                            Offices
+                                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                        </div>
+
+                                        <!-- Submenu -->
+                                        <div class="absolute top-0 left-full ml-1 w-44 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-x-2 group-hover:translate-x-0 z-50">
+                                            <div class="py-2 flex flex-col">
+                                                <a href="{{ path('app_communications_office') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                    CO
+                                                </a>
+                                                <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                    AERO
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,50 +1,81 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<style>
+    :root {
+        --feu-green: #008348;
+        --feu-yellow: #febe10;
+    }
+
+    /* Base card layout */
+    .service-card {
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+
+    /* Hover State */
+    .service-card:hover {
+        background-color: #ffffff !important;
+        border-color: var(--feu-green);
+        box-shadow: 0 4px 12px rgba(0, 131, 72, 0.08);
+    }
+
+    /* Text colors */
+    .service-card:hover .service-title {
+        color: var(--feu-green);
+    }
+
+    .service-card:hover .service-name {
+        color: #000000;
+    }
+
+    .service-card:hover .role-text {
+        color: var(--feu-yellow);
+    }
+
+    /* Accent line */
+    .hover-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background: var(--feu-green);
+        transition: width 0.4s ease;
+    }
+
+    .service-card:hover .hover-line {
+        width: 100%;
+    }
+</style>
 
 <!-- Hero Section -->
-<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-end justify-center overflow-hidden">
+<section id="top" class="relative w-full h-[45vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black">
     <div class="absolute inset-0 z-0">
-        <img src="/images/EXECUTIVE_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+        <img src="/images/EXECUTIVE_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20"></div>
     </div>
 
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-16 md:pb-24">
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block animate-bounce">
-            About Us
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto">
+        <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Student Support
         </span>
-
-        <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-lg">
-            Academic Services of <span class="feu-gradient-text">FEU Tech</span>
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
+            Academic <span class="text-[#008348]">Services</span>
         </h1>
+        <div class="w-24 h-1 bg-[#febe10] mx-auto mt-6"></div>
     </div>
 </section>
 
-
 <!-- Academic Services Section -->
-<section class="py-24 bg-slate-50 relative overflow-hidden scroll-animate">
-
-    <!-- Background accents -->
-    <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-feu-green opacity-10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-feu-yellow opacity-10 rounded-full blur-3xl"></div>
-
+<section class="py-24 bg-slate-50 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        <!-- Header -->
-        <div class="text-center mb-20">
-            <span class="text-feu-green font-bold tracking-widest uppercase text-sm animate-pulse">
-                Support Services
-            </span>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 mt-3">
-                Academic Services
-            </h2>
-            <p class="text-slate-500 mt-4 max-w-2xl mx-auto">
-                Offices dedicated to supporting student development, well-being, and academic success.
-            </p>
-        </div>
-
         <!-- Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {% set services = [
                 ['Community Extension Services','Edison G. Atanacio, RSW','Director'],
@@ -57,51 +88,32 @@
             ] %}
 
             {% for s in services %}
-            <div class="group bg-white p-6 rounded-2xl shadow-lg border border-slate-100 transition duration-500 hover:-translate-y-3 hover:shadow-2xl">
+            <div class="service-card bg-white p-8 rounded-lg shadow-sm">
 
-                <!-- Office Name -->
-                <h3 class="text-feu-green font-bold text-lg mb-3">
+                <!-- Office -->
+                <h3 class="service-title text-[#008348] font-black text-sm uppercase tracking-widest mb-4 transition-colors">
                     {{ s[0] }}
                 </h3>
 
                 <!-- Name -->
-                <p class="font-semibold text-slate-800 group-hover:text-feu-green transition">
+                <p class="service-name text-xl font-bold text-black transition-colors leading-snug">
                     {{ s[1] }}
                 </p>
 
                 <!-- Role -->
                 {% if s[2] %}
-                <p class="text-feu-yellow font-semibold text-sm mt-2">
+                <p class="role-text text-xs uppercase mt-2 tracking-wider transition-colors">
                     {{ s[2] }}
                 </p>
                 {% endif %}
 
+                <!-- Hidden Hover Accent -->
+                <div class="hover-line"></div>
             </div>
             {% endfor %}
 
         </div>
     </div>
 </section>
-
-
-<!-- Scroll Animation Script -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".scroll-animate");
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("opacity-100", "translate-y-0");
-            }
-        });
-    }, { threshold: 0.2 });
-
-    elements.forEach(el => {
-        el.classList.add("opacity-0", "translate-y-10", "transition-all", "duration-1000");
-        observer.observe(el);
-    });
-});
-</script>
 
 {% endblock %}
