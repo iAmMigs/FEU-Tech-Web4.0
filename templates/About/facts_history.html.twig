@@ -21,91 +21,210 @@
 </section>
 
 <div class="bg-white min-h-screen py-12 px-4 md:px-10">
-    
 
     <!-- TIMELINE -->
-    <div class="relative max-w-5xl mx-auto" id="timeline">
+    <div class="relative max-w-7xl mx-auto" id="timeline">
 
-        <!-- FIXED LINE POSITION -->
-        <div class="absolute left-[162px] top-0 h-full border-l-4 border-green-200"></div>
-        <div id="timeline-line" class="absolute left-[162px] top-0 w-[4px] bg-green-600 h-0 transition-all duration-300"></div>
+        <!-- BACKGROUND LINE -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-green-200"></div>
+
+        <!-- ACTIVE LINE -->
+        <div id="timeline-line"
+             class="absolute left-1/2 transform -translate-x-1/2 top-0 w-[4px] bg-green-600 h-0 transition-all duration-300">
+        </div>
 
         <div class="space-y-16">
 
             {% set timeline = [
+
                 {
-                    date: '1936',
-                    content: 'In 1936, the Commonwealth was two years old and independence was promised a decade hence. The FEU, a private education pioneer, took stock of the emergent nation’s needs. Among its findings was a very pressing need for engineers and technologists to help build the nation. It felt itself challenged and it thus established the Institute of Technology. An increasing demand for trained engineers and technologists remained. With the government’s accelerated economic recovery program, private businesses establishing more and more factories, and agriculture shifting to mechanization, the demand for trained and skilled personnel was greater than ever. The Institute of Technology helped by filling the country’s needs in this respect.'
+                    'date': '1936',
+                    'content': 'Commonwealth was two years old and independence was promised a decade hence. The FEU, a private education pioneer, took stock of the emergent nation’s needs. Among its findings was a very pressing need for engineers and technologists to help build the nation. It felt itself challenged and it thus established the Institute of Technology. An increasing demand for trained engineers and technologists remained. With the government’s accelerated economic recovery program, private businesses establishing more and more factories, and agriculture shifting to mechanization, the demand for trained and skilled personnel was greater than ever. The Institute of Technology helped by filling the country’s needs in this respect.',
+                    'image': '/images/history/1936.jpg'
                 },
+
                 {
-                    date: '1936',
-                    content: 'In 1936, when it was founded, the Institute of Technology initially offered a complete course in civil engineering. The Institute has since added complete courses in six other major fields of technology: architecture, chemical engineering, mechanical engineering, electrical engineering, industrial engineering, and chemistry. A course in geodetic engineering was also started in 1952. However, in 1971, the Department of Architecture was elevated into the Institute of Architecture and Fine Arts and took over the architecture program; the course in chemistry was transferred to the Institute of Arts and Sciences in 1978.'
+                    'date': '1936',
+                    'content': 'The Institute of Technology initially offered a complete course in civil engineering. The Institute has since added complete courses in six other major fields of technology: architecture, chemical engineering, mechanical engineering, electrical engineering, industrial engineering, and chemistry.',
+                    'image': '/images/history/1930.jpg'
                 },
+
                 {
-                    date: '1991',
-                    content: 'SM Foundation and IBM Philippines set up the Asia Pacific Computer Technology Center (APCTC). Six months later, APCTC collaborated with Far Eastern University (FEU) and Intelligent Wave, Inc. (IWI) and set up a computer school, which was subsequently called East Asia Computer Center. Later, the name was changed to East Asia Institute of Computer Technology (EAICT). Initially, the only degree offered was a Bachelor of Science in Computer and Information Science (BSCIS).'
+                    'date': '1971',
+                    'content': 'Department of Architecture was elevated into the Institute of Architecture and Fine Arts and took over the architecture program',
+                    'image': '/images/history/1945.jpg'
                 },
+
                 {
-                    date: '1992',
-                    content: 'FEU takes pride in its relentless efforts for academic excellence. For this reason, it conducts a constant review of programs of major tertiary courses. After a thorough study of the Technology Program, the administration decided to phase it out in favor of a computer technology program forged with East Asia Computer Center, Inc., which offered degrees in Computer Science'
+                    'date': '1978',
+                    'content': 'The course in chemistry was transferred to the Institute of Arts and Sciences',
+                    'image': '/images/history/1978.jpg'
                 },
+
                 {
-                    date: '1994',
-                    content: 'EAICT started to offer the degree of Bachelor of Science in Computer Engineering (BSCOE).'
+                    'date': '1991',
+                    'content': 'SM Foundation and IBM Philippines set up the Asia Pacific Computer Technology Center (APCTC). Six months later, APCTC collaborated with Far Eastern University (FEU) and Intelligent Wave, Inc. (IWI) and set up a computer school, which was subsequently called East Asia Computer Center. Later, the name was changed to East Asia Institute of Computer Technology (EAICT). Initially, the only degree offered was a Bachelor of Science in Computer and Information Science (BSCIS).',
+                    'image': '/images/history/1991.jpg'
                 },
+
                 {
-                    date: 'September 30, 1998',
-                    content: 'The Commission on Higher Education (CHED) noted the change in the name of East Asia Institute of Computer Technology (EAICT) to East Asia College of Information Technology (EACIT).'
+                    'date': '1992',
+                    'content': 'FEU takes pride in its relentless efforts for academic excellence. For this reason, it conducts a constant review of programs of major tertiary courses. After a thorough study of the Technology Program, the administration decided to phase it out in favor of a computer technology program forged with East Asia Computer Center, Inc., which offered degrees in Computer Science',
+                    'image': '/images/loader.gif'
                 },
+
                 {
-                    date: 'February 24, 2000',
-                    content: 'EACIT was identified by CHED as a Center of Development for Excellence (CODE) in Information Technology Education in the National Capital Region.'
+                    'date': '1994',
+                    'content': 'EAICT started to offer the degree of Bachelor of Science in Computer Engineering (BSCOE).',
+                    'image': '/images/loader.gif'
                 },
+
                 {
-                    date: '2001',
-                    content: 'EACIT sought the approval of CHED to offer additional courses leading to the degrees of Bachelor of Science in Information Technology and Bachelor of Science in Information Management. Both courses gained full recognition in April 2004.'
+                    'date': 'September 30, 1998',
+                    'content': 'The Commission on Higher Education (CHED) noted the change in the name of East Asia Institute of Computer Technology (EAICT) to East Asia College of Information Technology (EACIT).',
+                    'image': '/images/loader.gif'
                 },
+
                 {
-                    date: '2002',
-                    content: 'FEU acquired the controlling stock of EACIT and gained full control of the College.'
+                    'date': 'February 24, 2000',
+                    'content': 'EACIT was identified by CHED as a Center of Development for Excellence (CODE).',
+                    'image': '/images/loader.gif'
                 },
+
                 {
-                    date: '2003',
-                    content: 'the FEU Administration took a big step in merging the College of Engineering and East Asia College of Information Technology. The combined resources and efforts of both Colleges resulted in the merged FEU – East Asia College (FEU—EAC) with the re-organized vision and mission.'
+                    'date': '2001',
+                    'content': 'EACIT sought approval to offer BSIT and BSIM degrees.',
+                    'image': '/images/loader.gif'
                 },
+
                 {
-                    date: '2014',
-                    content: 'FEU–East Asia College was re-named back to its roots as FEU Institute of Technology, also known as FEU Tech.'
+                    'date': '2002',
+                    'content': 'FEU acquired the controlling stock of EACIT.',
+                    'image': '/images/readingtamtam.gif'
+                },
+
+                {
+                    'date': '2003',
+                    'content': 'FEU merged Engineering and EACIT forming FEU–EAC.',
+                    'image': '/images/history/2000.png'
+                },
+
+                {
+                    'date': '2014',
+                    'content': 'FEU–EAC was renamed FEU Institute of Technology (FEU Tech).',
+                    'image': '/images/history/2014.jpg'
                 }
+
             ] %}
 
             {% for item in timeline %}
+                {% set isRight = loop.index is even %}
 
-            <div class="relative grid grid-cols-[150px_1fr] gap-6 items-start timeline-item opacity-0 transition-all duration-700 ease-out group">
+                <div class="relative flex items-stretch timeline-item opacity-0 transition-all duration-700 ease-out group"
+                     data-index="{{ loop.index0 }}">
 
-                <!-- DOT (aligned with line) -->
-                <span class="dot absolute left-[174px] -translate-x-1/2 w-5 h-5 rounded-full bg-green-600 border-4 border-white shadow-md opacity-0 scale-75 transition-all duration-500"></span>
+                    <!-- LEFT SIDE -->
+                    <div class="w-1/2 flex justify-end pr-10">
 
-                <!-- LEFT: YEAR -->
-                <div class="text-right pr-5">
-                    <h2 class="text-xl md:text-2xl font-extrabold text-green-600 leading-tight break-words transition-colors duration-300 group-hover:text-[#febe10]">
-                        {{ item.date }}
-                    </h2>
+                        {% if not isRight %}
+
+                        <div class="max-w-md ml-auto text-right h-full flex flex-col justify-center">
+
+                            <h2 class="text-2xl font-extrabold text-green-600 mb-3 group-hover:text-[#febe10] transition">
+                                {{ item.date }}
+                            </h2>
+
+                            <div class="relative border-r-2 border-green-200 pr-6 h-full">
+
+                                <div class="bg-white rounded-lg shadow-md p-5 h-full flex items-center group-hover:bg-[#008348] group-hover:text-white transition-all duration-300">
+
+                                    <p>{{ item.content }}</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% else %}
+
+                        <div class="flex justify-center h-full w-full">
+
+                            <div class="w-full max-w-sm h-full overflow-hidden rounded-xl shadow-xl bg-gray-100">
+
+                                <img
+                                    src="{{ item.image }}"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                                    alt="FEU Tech History Image"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    <!-- CENTER MARKER -->
+                    <div class="w-16 flex justify-center relative marker-container">
+
+                        <!-- DOT -->
+                        <span class="timeline-dot absolute w-6 h-6 rounded-full bg-green-600 border-4 border-white shadow-lg z-10 transition-all duration-300"></span>
+
+                        <!-- ACTIVE GIF (UPDATED: green border, no bounce) -->
+                        <img
+                            src="/images/readingtamtam2.gif"
+                            alt="Timeline Marker"
+                            class="timeline-gif w-14 h-14 object-contain opacity-0 scale-75 transition-all duration-300 z-20 pointer-events-none rounded-full border-4 border-transparent bg-white"
+                        >
+
+                    </div>
+
+                    <!-- RIGHT SIDE -->
+                    <div class="w-1/2 flex justify-start pl-10">
+
+                        {% if isRight %}
+
+                        <div class="max-w-md mr-auto text-left h-full flex flex-col justify-center">
+
+                            <h2 class="text-2xl font-extrabold text-green-600 mb-3 group-hover:text-[#febe10] transition">
+                                {{ item.date }}
+                            </h2>
+
+                            <div class="relative border-l-2 border-green-200 pl-6 h-full">
+
+                                <div class="bg-white rounded-lg shadow-md p-5 h-full flex items-center group-hover:bg-[#008348] group-hover:text-white transition-all duration-300">
+
+                                    <p>{{ item.content }}</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% else %}
+
+                        <div class="flex justify-center h-full w-full">
+
+                            <div class="w-full max-w-sm h-full overflow-hidden rounded-xl shadow-xl bg-gray-100">
+
+                                <img
+                                    src="{{ item.image }}"
+                                    class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                                    alt="FEU Tech History Image"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
                 </div>
-
-                <!-- RIGHT: CONTENT -->
-                <div class="relative ml-6 pl-6 border-l-2 border-green-200 bg-white rounded-lg shadow-md p-5
-                            transition-all duration-300 ease-in-out
-                            transform group-hover:-translate-y-2 group-hover:shadow-xl
-                            group-hover:bg-[#008348] group-hover:text-white">
-                    
-                    <p class="leading-relaxed transition-colors duration-300 group-hover:text-white">
-                        {{ item.content }}
-                    </p>
-                </div>
-
-            </div>
-
             {% endfor %}
 
         </div>
@@ -113,37 +232,104 @@
 </div>
 
 <script>
+
     const items = document.querySelectorAll('.timeline-item');
     const line = document.getElementById('timeline-line');
     const timeline = document.getElementById('timeline');
 
+    const visibleSet = new Set();
+
+    const getCurrentIndex = () => {
+
+        if (visibleSet.size === 0) return -1;
+
+        return Math.max(...visibleSet);
+
+    };
+
+    const updateLine = () => {
+
+        const currentIndex = getCurrentIndex();
+
+        const timelineTop =
+            timeline.getBoundingClientRect().top + window.scrollY;
+
+        if (currentIndex < 0) {
+
+            line.style.height = '0px';
+
+        } else {
+
+            const currentItem = items[currentIndex];
+
+            const marker =
+                currentItem.querySelector('.marker-container');
+
+            const markerTop =
+                marker.getBoundingClientRect().top + window.scrollY + 24;
+
+            line.style.height =
+                (markerTop - timelineTop) + 'px';
+        }
+
+        items.forEach((item, index) => {
+
+            const dot = item.querySelector('.timeline-dot');
+            const gif = item.querySelector('.timeline-gif');
+
+            if (index === currentIndex) {
+
+                dot.classList.add('opacity-0', 'scale-0');
+
+                gif.classList.remove('opacity-0', 'scale-75', 'border-transparent');
+                gif.classList.add('opacity-100', 'scale-100', 'border-green-500');
+
+            } else {
+
+                dot.classList.remove('opacity-0', 'scale-0');
+
+                gif.classList.remove('opacity-100', 'scale-100', 'border-green-500');
+                gif.classList.add('opacity-0', 'scale-75', 'border-transparent');
+
+            }
+
+        });
+
+    };
+
     const observer = new IntersectionObserver((entries) => {
+
         entries.forEach(entry => {
+
+            const index =
+                parseInt(entry.target.dataset.index);
+
             if (entry.isIntersecting) {
+
+                visibleSet.add(index);
+
+                entry.target.classList.remove('opacity-0');
                 entry.target.classList.add('opacity-100');
 
-                const dot = entry.target.querySelector('.dot');
-                if (dot) {
-                    dot.classList.remove('scale-75', 'opacity-0');
-                    dot.classList.add('scale-100', 'opacity-100');
-                }
+            } else {
+
+                visibleSet.delete(index);
+
             }
+
         });
-    }, { threshold: 0.2 });
+
+        updateLine();
+
+    }, {
+        threshold: 0.5
+    });
 
     items.forEach(item => observer.observe(item));
 
-    window.addEventListener('scroll', () => {
-        const rect = timeline.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+    window.addEventListener('scroll', updateLine);
+    window.addEventListener('resize', updateLine);
 
-        const visible = Math.min(
-            Math.max((windowHeight - rect.top) / rect.height, 0),
-            1
-        );
-
-        line.style.height = visible * 100 + '%';
-    });
 </script>
 
 {% endblock %}

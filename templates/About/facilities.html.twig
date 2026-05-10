@@ -1,129 +1,196 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Facilities Office | FEU Institute of Technology{% endblock %}
+
 {% block body %}
 
-<!-- Hero Section -->
-<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-end justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="/images/FACILITIES_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[50vh] flex items-end overflow-hidden bg-slate-800">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img src="/images/FEU_TECH.jpg"
+             alt="FEU Tech Facilities"
+             class="w-full h-full object-cover">
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-slate-950/70"></div>
+
+        <!-- Gradient Accent -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#003b25]/90 via-[#003b25]/60 to-transparent"></div>
+
+        <!-- Bottom Accent -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348]"></div>
     </div>
 
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-16 md:pb-24">
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block animate-bounce">
-            About Us
-        </span>
+    <!-- Decorative Glow -->
+    <div class="absolute top-20 right-[-120px] w-[400px] h-[400px] bg-[#febe10]/10 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-[-150px] left-[-100px] w-[350px] h-[350px] bg-[#008348]/20 blur-3xl rounded-full"></div>
 
-        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg animate__animated animate__fadeIn animate__delay-2s">
-            Facilities of <span class="feu-gradient-text">FEU Tech</span>
-        </h1>
-    </div>
-</section>
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20 w-full">
 
-<!-- CONTENT -->
-<section class="py-24 bg-slate-50">
+        <div class="max-w-3xl">
 
-    <div class="max-w-6xl mx-auto px-6 space-y-8">
+            <span class="inline-flex items-center px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-feu-yellow text-sm font-bold tracking-[0.25em] uppercase mb-7">
+                Campus Facilities
+            </span>
 
-        <!-- CARD 1 -->
-        <div class="group bg-white rounded-2xl shadow-md border border-slate-100 p-8 hover:shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:bg-slate-50">
-            <div class="flex gap-6 items-start">
-                <!-- NUMBER BADGE -->
-                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-feu-green text-white flex items-center justify-center font-semibold text-sm shadow-sm transform group-hover:scale-110 transition-all duration-300">
-                    01
-                </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tight">
+                Building the
+                <span class="text-feu-yellow">
+                    Future of Learning
+                </span>
+            </h1>
 
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-800 mb-2 animate__animated animate__fadeIn animate__delay-1s">
-                        Smart Learning Environment
-                    </h3>
-                    <p class="text-slate-600 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
-                        FEU Tech provides fully air-conditioned classrooms and laboratories equipped with high-tech computers, engineering tools, 24/7 security, library services, and campus-wide WiFi.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="group bg-white rounded-2xl shadow-md border border-slate-100 p-8 hover:shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:bg-slate-50">
-            <div class="flex gap-6 items-start">
-                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-feu-yellow text-slate-900 flex items-center justify-center font-semibold text-sm shadow-sm transform group-hover:scale-110 transition-all duration-300">
-                    02
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-800 mb-2 animate__animated animate__fadeIn animate__delay-1s">
-                        Historic & Green Campus
-                    </h3>
-                    <p class="text-slate-600 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
-                        Located in FEU’s historic campus, featuring green spaces, Art Deco architecture, and a legacy of academic excellence spanning decades.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="group bg-white rounded-2xl shadow-md border border-slate-100 p-8 hover:shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:bg-slate-50">
-            <div class="flex gap-6 items-start">
-                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-feu-green text-white flex items-center justify-center font-semibold text-sm shadow-sm transform group-hover:scale-110 transition-all duration-300">
-                    03
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-800 mb-2 animate__animated animate__fadeIn animate__delay-1s">
-                        Modern Technology Hub
-                    </h3>
-                    <p class="text-slate-600 leading-relaxed animate__animated animate__fadeIn animate__delay-1.5s">
-                        A 17-story modern facility with advanced labs, gym, pool, digital library systems, and eco-friendly building infrastructure.
-                    </p>
-                </div>
-            </div>
+            <p class="mt-8 text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl">
+                FEU Tech delivers modern academic environments, advanced learning spaces,
+                and student-centered facilities designed to empower innovation,
+                collaboration, wellness, and technological excellence.
+            </p>
         </div>
 
     </div>
 
 </section>
 
-<!-- FEATURES -->
-<section class="py-24 bg-white border-t">
+<!-- QUICK STATS -->
+<section class="relative z-20 -mt-14">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
 
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-900">Why Students Choose FEU Tech</h2>
-            <p class="text-slate-500 mt-2">Built for performance, safety, and innovation</p>
+            <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
+                <div class="text-5xl font-black text-feu-green">17</div>
+                <p class="text-slate-500 mt-3 text-sm font-medium">
+                    Floors of modern infrastructure
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
+                <div class="text-5xl font-black text-feu-yellow">24/7</div>
+                <p class="text-slate-500 mt-3 text-sm font-medium">
+                    Campus safety & monitoring
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
+                <div class="text-5xl font-black text-slate-800">WiFi</div>
+                <p class="text-slate-500 mt-3 text-sm font-medium">
+                    Building-wide connectivity
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
+                <div class="text-5xl font-black text-feu-green">Labs</div>
+                <p class="text-slate-500 mt-3 text-sm font-medium">
+                    Industry-standard facilities
+                </p>
+            </div>
+
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+    </div>
+</section>
 
-            <div class="p-6 rounded-xl border bg-slate-50 hover:bg-white hover:shadow-md hover:scale-105 transition-all duration-300">
-                <div class="w-10 h-10 rounded-lg bg-feu-green text-white flex items-center justify-center mb-4">
-                    ⚙
-                </div>
-                <h3 class="font-semibold text-slate-800 mb-2">Modern Learning Spaces</h3>
-                <p class="text-sm text-slate-600">
-                    Designed for focus and collaboration.
-                </p>
+<!-- MAIN FACILITIES SECTION -->
+<section id="facilities-section" class="py-24 bg-[#f8fafc] relative overflow-hidden">
+
+    <!-- Background Accents -->
+    <div class="absolute top-0 left-0 w-[450px] h-[450px] bg-feu-green/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-feu-yellow/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-16">
+
+            <span class="text-feu-green font-bold tracking-[0.25em] uppercase text-sm">
+                Explore the Campus
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mt-4">
+                World-Class Learning Spaces
+            </h2>
+
+            <p class="text-slate-500 max-w-3xl mx-auto mt-6 leading-relaxed">
+                Discover the spaces, infrastructure, and student-centered environments
+                that shape the FEU Tech experience.
+            </p>
+
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8">
+
+            <!-- LEFT NAVIGATION -->
+            <div class="space-y-5">
+
+                {% set facilities = [
+                    {
+                        number: '01',
+                        title: 'Campus Facilities',
+                        subtitle: 'Learning spaces & equipment',
+                        color: 'emerald'
+                    },
+                    {
+                        number: '02',
+                        title: 'Main Campus',
+                        subtitle: 'Heritage & environment',
+                        color: 'yellow'
+                    },
+                    {
+                        number: '03',
+                        title: 'Technology Building',
+                        subtitle: 'Modern infrastructure',
+                        color: 'slate'
+                    },
+                    {
+                        number: '04',
+                        title: 'Facilities Office',
+                        subtitle: 'Safety & maintenance',
+                        color: 'blue'
+                    },
+                    {
+                        number: '05',
+                        title: 'Student Support Offices',
+                        subtitle: 'Services & development',
+                        color: 'purple'
+                    }
+                ] %}
+
+                {% for item in facilities %}
+                <button onclick="showContent({{ loop.index0 }})"
+                        class="facility-btn {{ loop.first ? 'active' : '' }}">
+
+                    <div class="flex items-center gap-5">
+
+                        <div class="facility-icon {{ item.color }}">
+                            {{ item.number }}
+                        </div>
+
+                        <div class="text-left">
+                            <h3 class="font-extrabold text-slate-800 text-[15px]">
+                                {{ item.title }}
+                            </h3>
+
+                            <p class="text-sm text-slate-500 mt-1">
+                                {{ item.subtitle }}
+                            </p>
+                        </div>
+
+                    </div>
+
+                </button>
+                {% endfor %}
+
             </div>
 
-            <div class="p-6 rounded-xl border bg-slate-50 hover:bg-white hover:shadow-md hover:scale-105 transition-all duration-300">
-                <div class="w-10 h-10 rounded-lg bg-feu-yellow text-slate-900 flex items-center justify-center mb-4">
-                    ⚡
-                </div>
-                <h3 class="font-semibold text-slate-800 mb-2">Advanced Facilities</h3>
-                <p class="text-sm text-slate-600">
-                    Industry-grade tools and laboratories.
-                </p>
-            </div>
+            <!-- RIGHT VIEWER -->
+            <div id="viewer"
+                 class="relative overflow-hidden rounded-[2rem] bg-white border border-slate-200 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
 
-            <div class="p-6 rounded-xl border bg-slate-50 hover:bg-white hover:shadow-md hover:scale-105 transition-all duration-300">
-                <div class="w-10 h-10 rounded-lg bg-feu-green text-white flex items-center justify-center mb-4">
-                    🛡
-                </div>
-                <h3 class="font-semibold text-slate-800 mb-2">Secure Campus</h3>
-                <p class="text-sm text-slate-600">
-                    24/7 safety and smart monitoring systems.
-                </p>
+                <!-- Dynamic Content Here -->
+
             </div>
 
         </div>
@@ -132,30 +199,341 @@
 
 </section>
 
-<!-- CTA -->
-<section class="py-24 bg-feu-green text-white text-center">
+<!-- STYLES -->
+<style>
 
-    <div class="max-w-4xl mx-auto px-6">
+.facility-btn{
+    width:100%;
+    padding:1.25rem;
+    border-radius:1.75rem;
+    background:white;
+    border:1px solid #e2e8f0;
+    transition:all .3s ease;
+    box-shadow:0 4px 20px rgba(15,23,42,.03);
+}
 
-        <h2 class="text-4xl font-bold animate__animated animate__fadeIn animate__delay-1s">
-            Experience FEU Tech
-        </h2>
+.facility-btn:hover{
+    transform:translateY(-6px);
+    border-color:rgba(0,131,72,.2);
+    box-shadow:0 20px 45px rgba(15,23,42,.08);
+}
 
-        <p class="mt-4 text-white/80 animate__animated animate__fadeIn animate__delay-2s">
-            A future-ready campus built for excellence.
+.facility-btn.active{
+    background:#003b25;
+    border-color:#003b25;
+}
+
+.facility-btn.active h3,
+.facility-btn.active p{
+    color:white;
+}
+
+.facility-icon{
+    width:60px;
+    height:60px;
+    border-radius:1.25rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    font-size:1.1rem;
+    transition:.3s;
+}
+
+.facility-icon.emerald{
+    background:#ecfdf5;
+    color:#008348;
+}
+
+.facility-icon.yellow{
+    background:#fef9c3;
+    color:#ca8a04;
+}
+
+.facility-icon.slate{
+    background:#f1f5f9;
+    color:#0f172a;
+}
+
+.facility-icon.blue{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.facility-icon.purple{
+    background:#faf5ff;
+    color:#9333ea;
+}
+
+.facility-btn.active .facility-icon{
+    background:rgba(255,255,255,.1);
+    color:#febe10;
+}
+
+.facility-hero-btn{
+    padding:.95rem 1.75rem;
+    border-radius:1rem;
+    font-weight:700;
+    transition:.3s;
+}
+
+.facility-hero-btn:hover{
+    transform:translateY(-3px);
+}
+
+</style>
+
+<!-- SCRIPT -->
+<script>
+
+const data = [
+
+{
+    badge: "Facilities",
+    title: "Modern Learning & Campus Facilities",
+    image: "/images/FEU_TECH.jpg",
+    desc: `
+        <p>
+            FEU Tech provides fully-equipped air-conditioned classrooms and laboratories;
+            high-tech computers, engineering tools, and equipment; 24-hour security and monitoring;
+            full library services; canteen and student services; and building-wide WiFi accessibility.
         </p>
 
-       <div class="flex flex-col sm:flex-row gap-4 justify-center animate__animated animate__fadeIn animate__delay-3s">
-            <a href="#apply" class="px-8 py-4 bg-feu-yellow text-slate-900 font-bold rounded-lg shadow-xl shadow-feu-yellow/20 hover:bg-yellow-400 hover:-translate-y-1 transition-all">
-                Apply Now
-            </a>
-            <a href="#courses" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all">
-                Explore Programs
-            </a>
+        <p>
+            Students benefit from a safe, innovative, and technology-driven academic environment
+            designed to support learning, collaboration, and professional growth.
+        </p>
+    `,
+    stats: `
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-green">24/7</div>
+            <p>Campus security and monitoring systems</p>
         </div>
 
-    </div>
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-yellow">WiFi</div>
+            <p>Building-wide internet accessibility</p>
+        </div>
 
-</section>
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-slate-800">Labs</div>
+            <p>Industry-standard engineering facilities</p>
+        </div>
+    `
+},
+
+{
+    badge: "Heritage",
+    title: "The FEU Main Campus Experience",
+    image: "/images/ABOUT_TECH.jpg",
+    desc: `
+        <p>
+            The FEU Technology Building is located along Morayta within Far Eastern University’s
+            prestigious campus, which has been part of Manila’s educational legacy for over 90 years.
+        </p>
+
+        <p>
+            The Main Campus features grassy parks, shady trees, and award-winning Art Deco architecture,
+            including five buildings designed by National Artist Pablo Antonio.
+        </p>
+    `,
+    stats: `
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-green">90+</div>
+            <p>Years of educational excellence</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-yellow">5</div>
+            <p>Art Deco buildings by Pablo Antonio</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-slate-800">Green</div>
+            <p>Open parks and shaded campus spaces</p>
+        </div>
+    `
+},
+
+{
+    badge: "Innovation",
+    title: "The Modern FEU Technology Building",
+    image: "/images/FEU-TECHBLD.jpg",
+    desc: `
+        <p>
+            FEU Institute of Technology is housed in a modern 17-story building in the
+            heart of Manila’s University Belt.
+        </p>
+
+        <p>
+            The building includes scenic elevators, electronic library facilities,
+            a covered gym and basketball court, a 25-meter indoor swimming pool,
+            eco-friendly Green Building Technology, standby power supply systems,
+            and energy-efficient air conditioning.
+        </p>
+    `,
+    stats: `
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-green">17</div>
+            <p>Floors of modern infrastructure</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-yellow">25m</div>
+            <p>Indoor swimming pool facility</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-slate-800">Eco</div>
+            <p>Green Building Technology systems</p>
+        </div>
+    `
+},
+
+{
+    badge: "Operations",
+    title: "Facilities Office Responsibilities",
+    image: "/images/FACILITIES_TECH.jpg",
+    desc: `
+        <p>
+            The Facilities Office maintains an ideal academic physical setting
+            for the Institute while ensuring safety and efficiency across campus.
+        </p>
+
+        <p>
+            Its main responsibility is to create and maintain a safe environment
+            for students and associates while monitoring facility usage and
+            daily campus activities.
+        </p>
+    `,
+    stats: `
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-green">Safe</div>
+            <p>Secure learning environment</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-yellow">Daily</div>
+            <p>Facility activity monitoring</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-slate-800">Care</div>
+            <p>Campus maintenance management</p>
+        </div>
+    `
+},
+
+{
+    badge: "Student Services",
+    title: "Comprehensive Student Support Offices",
+    image: "/images/ABOUT_TECH.jpg",
+    desc: `
+        <p>
+            FEU Tech supports students through specialized offices including
+            AERO, GCO, SADO, Health Services Unit, ITSO, iCARE,
+            Library Services, IALAP, and the Registrar’s Office.
+        </p>
+
+        <p>
+            These offices provide academic support, wellness services,
+            career development, leadership opportunities, industry linkages,
+            technological assistance, and student-centered services.
+        </p>
+    `,
+    stats: `
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-green">iCARE</div>
+            <p>Academic enrichment services</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-feu-yellow">IALAP</div>
+            <p>Career and industry opportunities</p>
+        </div>
+
+        <div class="facility-stat-card">
+            <div class="text-5xl font-black text-slate-800">SADO</div>
+            <p>Leadership and student development</p>
+        </div>
+    `
+}
+
+];
+
+function showContent(index){
+
+    const viewer = document.getElementById("viewer");
+    const buttons = document.querySelectorAll(".facility-btn");
+
+    buttons.forEach(btn => btn.classList.remove("active"));
+    buttons[index].classList.add("active");
+
+    viewer.innerHTML = `
+
+        <div class="relative h-[320px] overflow-hidden">
+
+            <img src="${data[index].image}"
+                 class="w-full h-full object-cover">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+
+            <div class="absolute bottom-0 left-0 p-8 lg:p-10">
+
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-feu-yellow text-xs font-bold uppercase tracking-[0.2em] mb-5">
+                    ${data[index].badge}
+                </div>
+
+                <h2 class="text-4xl lg:text-5xl font-black text-white max-w-3xl leading-tight">
+                    ${data[index].title}
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="p-8 lg:p-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_.8fr] gap-10">
+
+                <div>
+
+                    <div class="space-y-6 text-slate-600 leading-relaxed text-[15px]">
+                        ${data[index].desc}
+                    </div>
+
+                </div>
+
+                <div class="grid grid-cols-1 gap-5">
+                    ${data[index].stats}
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
+showContent(0);
+
+</script>
+
+<style>
+
+.facility-stat-card{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:1.5rem;
+    padding:1.5rem;
+}
+
+.facility-stat-card p{
+    margin-top:.75rem;
+    font-size:.9rem;
+    color:#64748b;
+    line-height:1.6;
+}
+
+</style>
 
 {% endblock %}

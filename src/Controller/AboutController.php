@@ -56,4 +56,11 @@ final class AboutController extends AbstractController
     {
         return $this->renderWithDefaults('About/non_academic_directors.html.twig');
     }
+
+    //OFFICES
+    #[Route('/offices/co', name: 'app_communications_office')]
+    public function CommunicationsOffice(): Response
+    {
+        return $this->renderWithDefaults('About/offices/co.html.twig');
+    }
 }
