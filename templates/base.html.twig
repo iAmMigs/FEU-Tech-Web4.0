@@ -13,6 +13,8 @@
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/base.css') }}">
         <script src="https://cdn.tailwindcss.com"></script>
+    
+
         {% endblock %}
         
         {% block javascripts %}
@@ -81,38 +83,117 @@
                         <!-- ABOUT Dropdown -->
                         <div class="relative group mt-1">
                             <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
-                                ABOUT <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button> 
+                                ABOUT
+                                <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+
                             <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
                                 <div class="py-2 flex flex-col">
-                                    <a href="{{ path('app_facts_history') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facts and History</a>
-                                    <a href="{{ path('app_vision_mision') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Vision, Mission, Quality Policy</a>
-                                    <a href="{{ path('app_facilities') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facilities</a>
-                                    <a href="{{ path('app_executive_officers') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Executive Officers</a>
-                                    <a href="{{ path('app_academic_directors') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Directors</a>
-                                    <a href="{{ path('app_academic_services') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Services</a>
-                                    <a href="{{ path('app_non_academic_directors') }}"  class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Non-Academic Directors</a>
-                                    <div class="relative group">
+
+                                    <a href="{{ path('app_facts_history') }}"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        Facts and History
+                                    </a>
+
+                                    <a href="{{ path('app_vision_mision') }}"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        Vision, Mission, Quality Policy
+                                    </a>
+
+                                    <a href="{{ path('app_facilities') }}"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        Facilities
+                                    </a>
+
+                                    <a href="{{ path('app_executive_officers') }}"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        Executive Officers
+                                    </a>
+
+                                    <!-- Academic Directors Subgroup -->
+                                    <div class="relative group/directors">
+
+                                        <!-- Clickable Parent -->
+                                        <a href="{{ path('app_academic_directors') }}"
+                                        class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors flex items-center justify-between cursor-pointer">
+                                            
+                                            Academic Directors
+
+                                            <svg class="w-4 h-4 ml-2"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+
+                                        <!-- Submenu -->
+                                        <div class="absolute top-0 left-full ml-1 w-52 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover/directors:opacity-100 group-hover/directors:visible transition-all transform translate-x-2 group-hover/directors:translate-x-0 z-50">
+                                            
+                                            <div class="py-2 flex flex-col">
+
+                                                <a href="{{ path('app_academic_services') }}"
+                                                class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                    Academic Services
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="{{ path('app_non_academic_directors') }}"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        Non-Academic Directors
+                                    </a>
+
+                                    <!-- Offices Subgroup -->
+                                    <div class="relative group/office">
+
                                         <!-- Parent -->
                                         <div class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors flex items-center justify-between cursor-pointer">
                                             Offices
-                                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+
+                                            <svg class="w-4 h-4 ml-2"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M9 5l7 7-7 7"></path>
                                             </svg>
                                         </div>
 
                                         <!-- Submenu -->
-                                        <div class="absolute top-0 left-full ml-1 w-44 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-x-2 group-hover:translate-x-0 z-50">
+                                        <div class="absolute top-0 left-full ml-1 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover/office:opacity-100 group-hover/office:visible transition-all transform translate-x-2 group-hover/office:translate-x-0 z-50">
+
                                             <div class="py-2 flex flex-col">
-                                                <a href="{{ path('app_communications_office') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
-                                                    CO
-                                                </a>
-                                                <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
-                                                    AERO
-                                                </a>
+                                                <a href="{{ path('app_admissionsandexternalrelationsoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                AERO </a>
+                                                <a href="{{ path('app_communications_office') }}"class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                CO </a>
+                                                <a href="{{ path('app_facilitiesoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                FO </a>
+                                                <a href="{{ path('app_financeoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                FINANCE </a>
+                                                <a href="{{ path('app_humanresourcesoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                HRO </a>
+                                                <a href="{{ path('app_ialapoffice') }}"class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                IALAP </a>
+                                                <a href="{{ path('app_itsooffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                ITSO </a>
+                                                <a href="{{ path('app_qaooffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                QAO </a>
+
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -129,7 +210,7 @@
                                     <a href="{{ path('app_admission_second_degree') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Second Degree</a>
                                     <a href="{{ path('app_admission_international_students') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">International Students</a>
                                     <a href="{{ path('app_admission_cross_enrollees') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Cross-Enrollees</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Scholarships & Grants</a>
+                                    <a href="{{ path('app_admission_scholarships') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Scholarships & Grants</a>
                                     <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Tuition & Fees</a>
                                     <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">FAQs</a>
                                 </div>
@@ -139,14 +220,96 @@
                         <!-- ACADEMICS Dropdown -->
                         <div class="relative group mt-1">
                             <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
-                                ACADEMICS <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                ACADEMICS
+                                <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
                             </button>
-                            <div class="absolute left-0 mt-0 w-64 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
+
+                            <div class="absolute left-0 mt-0 w-72 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
+                                
                                 <div class="py-2 flex flex-col">
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">College of Engineering</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors leading-tight">College of Computer Studies & Multimedia Arts</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">General Education</a>
-                                    <a href="#" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Academic Services</a>
+
+                                    <!-- Educational Innovation and Technology Hub -->
+                                    <a href="https://paraverse.feutech.edu.ph/"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        Educational Innovation and Technology Hub
+                                    </a>
+
+                                    <!-- MILES -->
+                                    <a href="{{ path('app_miles') }}" 
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        MILES
+                                    </a>
+
+                                    <!-- CCSMA -->
+                                    <a href="#"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors leading-tight">
+                                        College of Computer Studies & Multimedia Arts
+                                    </a>
+
+                                    <!-- College of Engineering -->
+                                    <a href="#"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        College of Engineering
+                                    </a>
+
+
+                                    <!-- General Education -->
+                                    <a href="#"
+                                    class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                        General Education
+                                    </a>
+
+                                    <!-- Academic Services Subgroup -->
+                                    <div class="relative group/academicservices">
+
+                                        <!-- Parent -->
+                                        <a href="#"
+                                        class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors flex items-center justify-between cursor-pointer">
+                                            
+                                            Academic Services
+
+                                            <svg class="w-4 h-4 ml-2"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+
+                                        <!-- Submenu -->
+                                        <div class="absolute top-0 left-full ml-1 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover/academicservices:opacity-100 group-hover/academicservices:visible transition-all transform translate-x-2 group-hover/academicservices:translate-x-0 z-50">
+
+                                            <div class="py-2 flex flex-col">
+
+                                                <a href="#"
+                                                class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                    College Registrar
+                                                </a>
+
+                                                <a href="{{ asset('images/UPDATED-AY2526.png') }}" target="_blank" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                Academic Calendar </a>
+
+                                                <a href="#"
+                                                class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                                    Library
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <!-- FEU Tech Innovation Center -->
+                                        <a href="https://feutech.edu.ph/ftic"
+                                        class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">
+                                            FEU Tech Innovation Center
+                                        </a>
+
                                 </div>
                             </div>
                         </div>

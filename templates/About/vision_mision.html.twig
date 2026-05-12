@@ -2,125 +2,449 @@
 
 {% block body %}
 
-<!-- Hero Section -->
-<section id="top" class="relative w-full h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+<section id="top" class="relative isolate w-full min-h-[72vh] flex items-center overflow-hidden">
 
     <div class="absolute inset-0 z-0">
-        <img src="/images/About_TECH.jpg" alt="Hero Background"
-             class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-        <div class="absolute inset-0 bg-slate-900/60"></div>
+        <img src="/images/About_TECH.jpg"
+             alt="Hero Background"
+             class="w-full h-full object-cover scale-105">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-[#00180d]/95 via-[#002d19]/80 to-[#0f172a]/90"></div>
+
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-feu-yellow/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-feu-green/30 rounded-full blur-3xl"></div>
     </div>
 
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto py-10 md:py-14">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 w-full">
 
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-3 block">
-            About Us
-        </span>
+        <div class="max-w-4xl">
 
-        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
-            Vision, Mission, and Quality Policy <span class="feu-gradient-text">FEU Tech</span>
-        </h1>
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/10 backdrop-blur-md mb-8">
+                <span class="w-2.5 h-2.5 rounded-full bg-feu-yellow animate-pulse"></span>
+                <span class="text-white/90 uppercase tracking-[0.25em] text-xs font-semibold">
+                    About FEU Tech
+                </span>
+            </div>
 
-        <p class="text-base md:text-lg text-slate-200 font-light max-w-2xl mx-auto">
-            Driven by innovation, excellence, and nation-building.
-        </p>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95]">
+                Vision, Mission,
+                <span class="block text-feu-yellow mt-2">
+                    & Quality Policy
+                </span>
+            </h1>
+
+            <div class="mt-8 h-1.5 w-40 bg-gradient-to-r from-feu-yellow via-white to-feu-green rounded-full"></div>
+
+            <p class="mt-8 text-lg text-slate-200 max-w-2xl font-light">
+                Driven by innovation, excellence, and nation-building.
+            </p>
+
+        </div>
 
     </div>
+
 </section>
 
-<!-- Mission Vision Section -->
-<section id="mvv"
-    class="relative z-20 mx-4 lg:mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-14 pb-24 scroll-animate">
 
-    {% set cardBase = "relative bg-white rounded-3xl p-8 pt-16 text-center shadow-lg overflow-visible transition-shadow duration-300 hover:shadow-xl" %}
+<!-- MAIN SECTION -->
+<section class="relative py-28 bg-gradient-to-b from-slate-50 via-white to-slate-100 overflow-hidden">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+    <!-- Background Effects -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-feu-green opacity-[0.05] rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-feu-yellow opacity-[0.06] rounded-full blur-3xl"></div>
 
-        <!-- Vision -->
-        <div class="{{ cardBase }}">
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
-                <div class="w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    🎯
-                </div>
-            </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-            <h3 class="text-xl font-bold text-slate-800 mb-6">
-                Vision
-            </h3>
+        <!-- SECTION HEADER -->
+        <div class="text-center mb-20">
+            <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-feu-green/10 text-feu-green text-sm font-bold uppercase tracking-[0.2em]">
+                FEU Institute of Technology
+            </span>
 
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-                FEU Institute of Technology aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
+            <h2 class="mt-6 text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
+                Core Institutional
+                <span class="text-feu-green">Foundations</span>
+            </h2>
+
+            <p class="mt-6 max-w-3xl mx-auto text-slate-600 text-lg leading-relaxed">
+                FEU Tech continuously upholds academic excellence, innovation, and transformative education
+                through its guiding principles and commitment to quality learning experiences.
             </p>
         </div>
 
-        <!-- Mission -->
-        <div class="{{ cardBase }}">
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
-                <div class="w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    💡
+        <!-- CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
+
+            <!-- VISION -->
+            <div class="group relative bg-white rounded-[2rem] border border-slate-200 shadow-xl hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 overflow-visible">
+
+                <!-- GREEN CORNER DESIGN -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 transition-transform duration-500 group-hover:scale-110"></div>
+
+                <!-- Hover Color Overlay -->
+                <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-feu-green/5 via-transparent to-feu-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <!-- Top Accent -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-feu-green via-feu-yellow to-feu-green"></div>
+
+                <!-- Floating Circle Icon -->
+                <div class="absolute left-10 -top-12 z-20">
+
+                    <div class="relative w-24 h-24 rounded-full bg-feu-green border-[8px] border-white shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+
+                        <div class="absolute inset-0 rounded-full bg-feu-green opacity-20 blur-xl"></div>
+
+                        <svg class="relative z-10 w-10 h-10 text-white"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             viewBox="0 0 24 24">
+
+                            <circle cx="12" cy="12" r="8"></circle>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2M12 20v2M2 12h2M20 12h2"></path>
+                        </svg>
+
+                    </div>
+                </div>
+
+                <div class="p-10 pt-20 h-full flex flex-col relative z-10">
+
+                    <div class="flex items-center justify-between mb-8">
+
+                        <div>
+                            <p class="text-feu-green uppercase tracking-[0.25em] text-xs font-bold mb-2">
+                                FEU Tech
+                            </p>
+
+                            <h3 class="text-3xl font-extrabold text-slate-800">
+                                Vision
+                            </h3>
+                        </div>
+
+                        <span class="text-6xl font-black text-slate-200 group-hover:text-feu-green/10 transition-colors duration-300">
+                            01
+                        </span>
+                    </div>
+
+                    <div class="w-16 h-1 bg-feu-green rounded-full mb-6"></div>
+
+                    <p class="text-slate-600 leading-relaxed text-[15px] text-justify flex-grow">
+                        FEU Institute of Technology aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
+                    </p>
+
                 </div>
             </div>
 
-            <h3 class="text-xl font-bold text-slate-800 mb-6">
-                Mission
-            </h3>
 
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-                FEU Institute of Technology is dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of the society.
-            </p>
+            <!-- MISSION -->
+            <div class="group relative bg-white rounded-[2rem] border border-slate-200 shadow-xl hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 overflow-visible">
+
+                <!-- GREEN CORNER DESIGN -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 transition-transform duration-500 group-hover:scale-110"></div>
+
+                <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-feu-yellow/5 via-transparent to-feu-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-feu-yellow via-feu-green to-feu-yellow"></div>
+
+                <div class="absolute left-10 -top-12 z-20">
+
+                    <div class="relative w-24 h-24 rounded-full bg-feu-yellow border-[8px] border-white shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+
+                        <div class="absolute inset-0 rounded-full bg-feu-yellow opacity-20 blur-xl"></div>
+
+                        <svg class="relative z-10 w-10 h-10 text-slate-900"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             viewBox="0 0 24 24">
+
+                            <path d="M9 18h6"></path>
+                            <path d="M10 22h4"></path>
+                            <path d="M12 2a7 7 0 00-4 12c.6.6 1 1.3 1.2 2h5.6c.2-.7.6-1.4 1.2-2A7 7 0 0012 2z"></path>
+                        </svg>
+
+                    </div>
+                </div>
+
+                <div class="p-10 pt-20 h-full flex flex-col relative z-10">
+
+                    <div class="flex items-center justify-between mb-8">
+
+                        <div>
+                            <p class="text-feu-yellow uppercase tracking-[0.25em] text-xs font-bold mb-2">
+                                FEU Tech
+                            </p>
+
+                            <h3 class="text-3xl font-extrabold text-slate-800">
+                                Mission
+                            </h3>
+                        </div>
+
+                        <span class="text-6xl font-black text-slate-200 group-hover:text-feu-yellow/10 transition-colors duration-300">
+                            02
+                        </span>
+                    </div>
+
+                    <div class="w-16 h-1 bg-feu-yellow rounded-full mb-6"></div>
+
+                    <p class="text-slate-600 leading-relaxed text-[15px] text-justify flex-grow">
+                        FEU Institute of Technology is dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of the society.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- QUALITY POLICY -->
+            <div class="group relative bg-white rounded-[2rem] border border-slate-200 shadow-xl hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 overflow-visible">
+
+                <!-- GREEN CORNER DESIGN -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 transition-transform duration-500 group-hover:scale-110"></div>
+
+                <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-feu-green/5 via-transparent to-feu-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-feu-green via-feu-yellow to-feu-green"></div>
+
+                <div class="absolute left-10 -top-12 z-20">
+
+                    <div class="relative w-24 h-24 rounded-full bg-feu-green border-[8px] border-white shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+
+                        <div class="absolute inset-0 rounded-full bg-feu-green opacity-20 blur-xl"></div>
+
+                        <svg class="relative z-10 w-10 h-10 text-white"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             viewBox="0 0 24 24">
+
+                            <path d="M9 12h6m-6 4h6M7 4h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-10 pt-20 h-full flex flex-col relative z-10">
+
+                    <div class="flex items-center justify-between mb-8">
+
+                        <div>
+                            <p class="text-feu-green uppercase tracking-[0.25em] text-xs font-bold mb-2">
+                                FEU Tech
+                            </p>
+
+                            <h3 class="text-3xl font-extrabold text-slate-800">
+                                Quality Policy
+                            </h3>
+                        </div>
+
+                        <span class="text-6xl font-black text-slate-200 group-hover:text-feu-green/10 transition-colors duration-300">
+                            03
+                        </span>
+                    </div>
+
+                    <div class="w-16 h-1 bg-feu-green rounded-full mb-6"></div>
+
+                    <p class="text-slate-600 leading-relaxed text-[15px] text-justify flex-grow">
+                        FEU Tech and FEU Diliman are schools of innovation that provide unique, quality learning experiences for every learner. Through globally relevant academic programs led by highly qualified educators, we equip students with technical and critical thinking skills for leadership in their fields.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- ACHIEVED BY -->
+            <div class="group relative bg-white rounded-[2rem] border border-slate-200 shadow-xl hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 overflow-visible">
+
+                <!-- GREEN CORNER DESIGN -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 transition-transform duration-500 group-hover:scale-110"></div>
+
+                <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-feu-yellow/5 via-transparent to-feu-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-feu-yellow via-feu-green to-feu-yellow"></div>
+
+                <div class="absolute left-10 -top-12 z-20">
+
+                    <div class="relative w-24 h-24 rounded-full bg-feu-yellow border-[8px] border-white shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+
+                        <div class="absolute inset-0 rounded-full bg-feu-yellow opacity-20 blur-xl"></div>
+
+                        <svg class="relative z-10 w-10 h-10 text-slate-900"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             viewBox="0 0 24 24">
+
+                            <path d="M5 13l4 4L19 7"></path>
+                        </svg>
+
+                    </div>
+                </div>
+
+                <div class="p-10 pt-20 h-full flex flex-col relative z-10">
+
+                    <div class="flex items-center justify-between mb-8">
+
+                        <div>
+                            <p class="text-feu-yellow uppercase tracking-[0.25em] text-xs font-bold mb-2">
+                                FEU Tech
+                            </p>
+
+                            <h3 class="text-3xl font-extrabold text-slate-800 leading-tight">
+                                These will be achieved by
+                            </h3>
+                        </div>
+
+                        <span class="text-6xl font-black text-slate-200 group-hover:text-feu-yellow/10 transition-colors duration-300">
+                            04
+                        </span>
+                    </div>
+
+                    <div class="w-16 h-1 bg-feu-yellow rounded-full mb-8"></div>
+
+                    <ul class="space-y-5 text-slate-600 text-[15px]">
+
+                        <li class="flex items-start gap-4 group/item">
+                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+
+                            <span class="leading-relaxed">
+                                Offering industry-relevant and globally competitive academic programs
+                            </span>
+                        </li>
+
+                        <li class="flex items-start gap-4 group/item">
+                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+
+                            <span class="leading-relaxed">
+                                Introducing student-centric learning methodology with MILES
+                            </span>
+                        </li>
+
+                        <li class="flex items-start gap-4 group/item">
+                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+
+                            <span class="leading-relaxed">
+                                Providing access to highly-qualified instructors
+                            </span>
+                        </li>
+
+                        <li class="flex items-start gap-4 group/item">
+                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+
+                            <span class="leading-relaxed">
+                                Equipping students with entrepreneurial skills via FTIC
+                            </span>
+                        </li>
+
+                        <li class="flex items-start gap-4 group/item">
+                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+
+                            <span class="leading-relaxed">
+                                Strengthening industry partnerships and internships
+                            </span>
+                        </li>
+
+                        <li class="flex items-start gap-4 group/item">
+                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+
+                            <span class="leading-relaxed">
+                                Continuous improvement of the quality management system
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
         </div>
 
-        <!-- Quality Policy -->
-        <div class="{{ cardBase }}">
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
-                <div class="w-20 h-20 bg-[#008348] text-white rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    📃
+
+        <!-- BOTTOM FEATURE -->
+        <div class="mt-24 relative overflow-hidden rounded-[2.5rem] shadow-2xl">
+
+            <div class="absolute inset-0 bg-[#008348]"></div>
+
+            <div class="absolute -top-20 -right-20 w-96 h-96 bg-feu-yellow/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10 px-8 sm:px-12 py-16 text-center">
+
+                <h3 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                    Empowering Future Innovators
+                </h3>
+
+                <p class="mt-6 max-w-3xl mx-auto text-slate-200 text-lg leading-relaxed">
+                    FEU Tech remains committed to nurturing future-ready professionals equipped with
+                    innovation, leadership, technical expertise, and social responsibility to contribute
+                    meaningfully to the nation and the global community.
+                </p>
+
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+
+                    <div class="px-6 py-3 rounded-full bg-white/10 border border-white/10 backdrop-blur-md text-white text-sm font-semibold tracking-wide">
+                        Innovation
+                    </div>
+
+                    <div class="px-6 py-3 rounded-full bg-white/10 border border-white/10 backdrop-blur-md text-white text-sm font-semibold tracking-wide">
+                        Excellence
+                    </div>
+
+                    <div class="px-6 py-3 rounded-full bg-white/10 border border-white/10 backdrop-blur-md text-white text-sm font-semibold tracking-wide">
+                        Leadership
+                    </div>
+
+                    <div class="px-6 py-3 rounded-full bg-white/10 border border-white/10 backdrop-blur-md text-white text-sm font-semibold tracking-wide">
+                        Nation-Building
+                    </div>
+
                 </div>
+
             </div>
-
-            <h3 class="text-xl font-bold text-slate-800 mb-6">
-                Quality Policy
-            </h3>
-
-            <p class="text-slate-600 text-sm leading-relaxed text-justify">
-                FEU Tech and FEU Diliman are schools of innovation that provide unique, quality learning experiences for every learner. Through globally relevant academic programs led by highly qualified educators, we equip students with technical and critical thinking skills for leadership in their fields.
-            </p>
-        </div>
-
-        <!-- Achieved By -->
-        <div class="{{ cardBase }}">
-            <div class="absolute top-0 left-0 w-full flex justify-center -translate-y-1/2">
-                <div class="w-20 h-20 bg-[#f0b323] text-slate-900 rounded-full flex items-center justify-center border-[6px] border-white shadow-md text-3xl">
-                    🗹
-                </div>
-            </div>
-
-            <h3 class="text-xl font-bold text-slate-800 mb-6">
-                These will be achieved by:
-            </h3>
-
-            <ul class="text-slate-500 text-sm space-y-2 text-justify list-none">
-                <li>✔ Offering industry-relevant and globally competitive academic programs</li>
-                <li>✔ Introducing student-centric learning methodology with MILES</li>
-                <li>✔ Providing access to highly-qualified instructors</li>
-                <li>✔ Equipping students with entrepreneurial skills via FTIC</li>
-                <li>✔ Strengthening industry partnerships and internships</li>
-                <li>✔ Continuous improvement of the quality management system</li>
-            </ul>
         </div>
 
     </div>
-
-    <!-- Bottom Highlight -->
-    <div class="mt-24 bg-[#008348] text-white rounded-[2rem] p-10 text-center shadow-xl">
-        <h3 class="text-2xl md:text-3xl font-extrabold mb-4">
-            Guided by Core Values
-        </h3>
-        <p class="max-w-2xl mx-auto text-white/90">
-            Fortitude, Excellence, and Uprightness shape every FEU Tech student into a socially responsible and morally grounded innovator.
-        </p>
-    </div>
-
 </section>
 
 {% endblock %}
