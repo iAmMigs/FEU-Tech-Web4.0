@@ -1,0 +1,345 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Frequently Asked Questions | FEU Institute of Technology{% endblock %}
+
+{% block body %}
+
+<!-- Hero Section with Search -->
+<section class="relative w-full py-24 min-h-[40vh] flex items-center justify-center overflow-hidden bg-slate-900">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-feu-green/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-t from-feu-yellow/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348]"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto w-full">
+        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-4 block">
+            Admissions
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight drop-shadow-lg uppercase tracking-wider mb-6">
+            Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-feu-yellow to-emerald-400">Questions</span>
+        </h1>
+        <p class="text-slate-300 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10">
+            Find quick answers to your questions about enrollment, tuition, and academics.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto relative group">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-6 w-6 text-slate-400 group-focus-within:text-feu-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+            <input type="text" id="faq-search" class="block w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-white/20 bg-white/10 text-white placeholder-slate-300 focus:outline-none focus:ring-0 focus:border-feu-green focus:bg-white focus:text-slate-800 transition-all shadow-lg backdrop-blur-sm text-lg" placeholder="Search for tuition, requirements, courses...">
+        </div>
+    </div>
+</section>
+
+<!-- Main FAQ Section -->
+<section class="py-16 bg-[#f8fafc] min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12" id="category-tabs">
+            <button class="cat-btn active px-6 py-2 rounded-full font-semibold text-sm transition-colors bg-slate-900 text-white shadow-md hover:bg-slate-800" data-filter="all">All Questions</button>
+            <button class="cat-btn px-6 py-2 rounded-full font-semibold text-sm transition-colors bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-filter="admissions">Admissions</button>
+            <button class="cat-btn px-6 py-2 rounded-full font-semibold text-sm transition-colors bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-filter="financials">Financials & Scholarships</button>
+            <button class="cat-btn px-6 py-2 rounded-full font-semibold text-sm transition-colors bg-white text-slate-600 hover:bg-slate-100 border border-slate-200" data-filter="academics">Academics</button>
+        </div>
+
+        <!-- FAQ Container -->
+        <div id="faq-container" class="space-y-4">
+            
+            <!-- No Results State -->
+            <div id="no-results" class="hidden text-center py-12">
+                <svg class="mx-auto h-16 w-16 text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h3 class="text-xl font-bold text-slate-700">No questions found</h3>
+                <p class="text-slate-500 mt-2">Try adjusting your search terms or browsing by category.</p>
+            </div>
+
+            <!-- ADMISSIONS -->
+            <div class="faq-item" data-category="admissions">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">What is the enrollment process and requirements for incoming freshmen?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <ol class="list-decimal pl-5 space-y-3 text-slate-600">
+                            <li>Register and take the FEU Tech College Admissions Test (FEUCAT) here: <a href="http://bit.ly/feuregistration" target="_blank" class="text-feu-green font-semibold hover:underline">http://bit.ly/feuregistration</a></li>
+                            <li>
+                                Submit the following requirements to the Admissions Office:
+                                <ul class="list-disc pl-5 mt-2 space-y-1">
+                                    <li>Grade 12 report card</li>
+                                    <li>Good Moral Certificate</li>
+                                    <li>Original copy of PSA Birth Certificate</li>
+                                    <li>Admissions Form</li>
+                                    <li>FEUCAT Result</li>
+                                </ul>
+                                <p class="text-sm mt-2 text-slate-500">Original copies must be submitted to the 15F Admissions Office, FEU Tech Building, P. Paredes St., Sampaloc, Manila.</p>
+                            </li>
+                            <li>Pay your fees at any of our Bank Partners and upload your payment transaction to: <a href="https://tinyurl.com/FEUTechPayment" target="_blank" class="text-feu-green font-semibold hover:underline">https://tinyurl.com/FEUTechPayment</a></li>
+                            <li>Wait for the Admissions Office email regarding your Student Number, Portal Access, and LMS Access.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="admissions">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">When is the schedule of the College Admissions Test (FEUCAT)?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <p class="text-slate-600">The FEU Tech College Admissions Test (FEUCAT) is scheduled every <strong>Saturday at 8:00 a.m. and 1:00 p.m.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="admissions">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">How many terms do you have in an Academic Year?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <p class="text-slate-600">We have <strong>three (3) terms</strong> within an Academic Year (Trimester).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="admissions">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">What are the contact details of your Admission Office?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-feu-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> <strong>Email:</strong> <a href="mailto:admissions@feutech.edu.ph" class="ml-1 hover:text-feu-green">admissions@feutech.edu.ph</a></li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-feu-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> <strong>Landline:</strong> 8281-8888 loc. 130</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-feu-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> <strong>Mobile:</strong> 0917-828-0073</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-feu-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> <strong>Zoom (Virtual Office):</strong> <a href="http://bit.ly/FEUADT-VirtualCampus" target="_blank" class="ml-1 text-feu-green hover:underline">http://bit.ly/FEUADT-VirtualCampus</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FINANCIALS & SCHOLARSHIPS -->
+            <div class="faq-item" data-category="financials">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">How much is the tuition fee?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <p class="text-slate-600">For Freshmen, our tuition fee ranges from <strong>50,000 to 58,000 pesos per term</strong>. <br><em class="text-sm text-slate-500 mt-2 block">(Please note that this is tentative and subject to change.)</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="financials">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">What if I cannot pay my tuition in full? What are my other options?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <p class="text-slate-600 mb-4">We offer multiple scholarships that you may avail of to help finance your tuition.</p>
+                        <p class="text-slate-600">You also have the option to engage with our approved third-party partner, <strong>Bukas</strong>, for assistance with your educational loan. Utilizing the Bukas Tuition Installment Plans can cover your entire tuition upfront, allowing you to make payments over the course of 12 monthly installments at a later date.</p>
+                        <p class="mt-4"><a href="https://bukas.ph/partners/feutech/" target="_blank" class="inline-flex items-center font-semibold text-feu-green hover:underline">Apply for Bukas Installment <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="financials">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">What are the scholarships offered for incoming college students?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <p class="text-slate-600 mb-4">FEU Tech offers various scholarship grants for incoming college students:</p>
+                        <ul class="list-disc pl-5 space-y-2 text-slate-600 font-medium mb-4">
+                            <li>Entrance Merit Scholarship</li>
+                            <li>President Scholarship</li>
+                            <li>Elite Scholarship</li>
+                            <li>DOST Scholarship</li>
+                            <li>Ramon S. Ang Scholarship</li>
+                            <li>SM Foundation and FEU Tech Joint Scholarship</li>
+                            <li>Megaworld Scholarship</li>
+                            <li>Family Discount</li>
+                        </ul>
+                        <p class="text-slate-600 text-sm">Benefits range from 30% to 100% tuition discount and allowances up to Php5,000 per month plus Php2,500 book allowance per term depending on the grant. A student may receive up to Php1,000,000 total scholarship grant until they finish the program.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACADEMICS -->
+            <div class="faq-item" data-category="academics">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">What are the courses or degree programs offered?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <p class="text-slate-600 mb-4">FEU Tech offers programs in Computer Studies, Engineering, and Multimedia Arts.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h6 class="font-bold text-slate-800 mb-2">Computer Studies</h6>
+                                <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                                    <li>CS: Data Science</li>
+                                    <li>CS: Software Engineering</li>
+                                    <li>CS: Artificial Intelligence</li>
+                                    <li>IT: Animation and Game Development</li>
+                                    <li>IT: Business Analytics</li>
+                                    <li>IT: Cybersecurity</li>
+                                    <li>IT: Web and Mobile Applications</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6 class="font-bold text-slate-800 mb-2">Engineering & Arts</h6>
+                                <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                                    <li>Civil Engineering</li>
+                                    <li>Computer Engineering</li>
+                                    <li>Electrical Engineering</li>
+                                    <li>Electronics Engineering</li>
+                                    <li>Mechanical Engineering</li>
+                                    <li>Multimedia Arts (Digital Film and Animation)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="academics">
+                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+                    <button class="faq-toggle w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left">
+                        <span class="font-bold text-slate-800 text-lg pr-8">Do you offer a Bridging Program?</span>
+                        <div class="flex-shrink-0 text-feu-green transition-transform duration-300 transform faq-icon">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-2 border-t border-slate-50">
+                        <p class="text-slate-600">We offer <strong>iCARE (iTamarraw Center for Academic Resources and Enrichment)</strong>. It serves as an avenue for tutor-assisted learning, with a rich pool of learning resources and materials to encourage iTamaraws to improve their academic preference.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">Still have questions?</h2>
+        <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">Can't find the answer you're looking for? Our Admissions team is ready to help you with anything you need.</p>
+        <a href="mailto:admissions@feutech.edu.ph" class="inline-block px-8 py-4 bg-feu-yellow text-slate-900 font-bold rounded-full shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+            Contact Support
+        </a>
+    </div>
+</section>
+
+<!-- FAQ JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('faq-search');
+    const catButtons = document.querySelectorAll('.cat-btn');
+    const faqItems = document.querySelectorAll('.faq-item');
+    const noResults = document.getElementById('no-results');
+    
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    // Accordion Toggle
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            const isOpen = !content.classList.contains('hidden');
+            
+            // Close all other accordions (optional, but good for UX)
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+            if (!isOpen) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            }
+        });
+    });
+
+    // Filter Logic
+    function filterFaqs() {
+        let visibleCount = 0;
+
+        faqItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            const textContent = item.textContent.toLowerCase();
+            
+            const matchesCategory = currentFilter === 'all' || category === currentFilter;
+            const matchesSearch = textContent.includes(currentSearch);
+
+            if (matchesCategory && matchesSearch) {
+                item.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+
+        if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+        } else {
+            noResults.classList.add('hidden');
+        }
+    }
+
+    // Category Button Click
+    catButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Update active styling
+            catButtons.forEach(b => {
+                b.classList.remove('bg-slate-900', 'text-white', 'shadow-md', 'hover:bg-slate-800');
+                b.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-100');
+            });
+            e.target.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-100');
+            e.target.classList.add('bg-slate-900', 'text-white', 'shadow-md', 'hover:bg-slate-800');
+
+            currentFilter = e.target.getAttribute('data-filter');
+            filterFaqs();
+        });
+    });
+
+    // Search Input
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.toLowerCase();
+        filterFaqs();
+    });
+});
+</script>
+
+{% endblock %}
