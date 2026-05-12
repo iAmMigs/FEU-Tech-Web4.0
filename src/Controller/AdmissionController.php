@@ -44,4 +44,16 @@ final class AdmissionController extends AbstractController
     {
         return $this->renderWithDefaults('Admission/international_students.html.twig');
     }
+
+    #[Route('/scholarships-grants', name: 'app_admission_scholarships')]
+    public function scholarships(): Response
+    {
+        return $this->renderWithDefaults('Admission/scholarships.html.twig');
+    }
+
+    #[Route('/tuition-fees', name: 'app_admission_tuition_fees')]
+    public function tuitionFees(): Response
+    {
+        return $this->renderWithDefaults('Admission/tuition_fees.html.twig');
+    }
 }
