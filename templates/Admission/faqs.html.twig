@@ -264,7 +264,7 @@
 
 <!-- FAQ JavaScript -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+(function() {
     const searchInput = document.getElementById('faq-search');
     const catButtons = document.querySelectorAll('.cat-btn');
     const faqItems = document.querySelectorAll('.faq-item');
@@ -335,11 +335,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Search Input
-    searchInput.addEventListener('input', (e) => {
-        currentSearch = e.target.value.toLowerCase();
-        filterFaqs();
-    });
-});
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            filterFaqs();
+        });
+    }
+})();
 </script>
 
 {% endblock %}

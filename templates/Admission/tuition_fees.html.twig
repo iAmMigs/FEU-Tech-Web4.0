@@ -472,7 +472,7 @@
 
 <!-- Bank Selection Script -->
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    (function() {
         const bankBtns = document.querySelectorAll('.bank-btn');
         const contentSections = document.querySelectorAll('.content-section');
 
@@ -516,7 +516,7 @@
                 if(targetId === 'bank-gcash') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#007DFE]/50');
             });
         });
-    });
+    })();
 </script>
 
 {% endblock %}
