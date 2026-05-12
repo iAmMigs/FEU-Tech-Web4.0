@@ -1,0 +1,387 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}College of Computer Studies & Multimedia Arts | FEU Institute of Technology{% endblock %}
+
+{% block body %}
+
+<!-- HERO SECTION -->
+<section class="relative min-h-[92vh] overflow-hidden bg-[#03140d] flex items-center">
+
+    <!-- Background -->
+    <div class="absolute inset-0">
+        <img src="/images/offices/academic.png"
+             alt="CCSMA Hero"
+             class="w-full h-full object-cover opacity-20">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-[#02110b]/75 via-[#042416]/55 to-[#03140d]/75"></div>
+    </div>
+
+    <!-- Grid Overlay -->
+    <div class="absolute inset-0 opacity-[0.05]"
+         style="background-image:
+         linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+         linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+         background-size: 42px 42px;">
+    </div>
+
+    <!-- Glow -->
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+
+        <div class="max-w-4xl">
+
+            <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 text-emerald-300 text-sm font-semibold tracking-[0.2em] uppercase">
+
+                <!-- Sparkles Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.8"
+                     stroke="currentColor"
+                     class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9.813 15.904L9 18l-.813-2.096A4.5 4.5 0 005.904 13.5L3.75 12l2.154-1.5A4.5 4.5 0 008.187 8.096L9 6l.813 2.096A4.5 4.5 0 0012.096 10.5L14.25 12l-2.154 1.5a4.5 4.5 0 00-2.283 2.404z"/>
+                </svg>
+
+                Innovate • Create • Engineer
+            </span>
+
+            <h1 class="mt-8 text-5xl md:text-7xl font-black text-white uppercase leading-[0.95]">
+                College of
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-feu-yellow via-emerald-300 to-cyan-300">
+                    Computer Studies
+                </span>
+                & Multimedia Arts
+            </h1>
+
+            <p class="mt-8 text-lg md:text-2xl text-slate-300 max-w-3xl leading-relaxed">
+                Empowering future innovators through advanced computing,
+                multimedia arts, cybersecurity, fintech,
+                and digital transformation.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+
+                <a href="#programs"
+                   class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-feu-green hover:bg-[#006839] text-white font-bold transition-all duration-300 hover:scale-105 shadow-lg shadow-emerald-500/20">
+
+                    Explore Programs
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="2"
+                         stroke="currentColor"
+                         class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STICKY NAV -->
+<div class="sticky top-[80px] z-40 bg-[#03140d]/85 backdrop-blur-xl border-y border-white/5">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex overflow-x-auto gap-8 py-4 text-sm font-semibold uppercase tracking-wide text-slate-300 scrollbar-hide">
+
+            <a href="#overview" class="hover:text-feu-yellow transition whitespace-nowrap">
+                Overview
+            </a>
+
+            <a href="#programs" class="hover:text-feu-yellow transition whitespace-nowrap">
+                Programs
+            </a>
+
+            <a href="#advantages" class="hover:text-feu-yellow transition whitespace-nowrap">
+                Why CCSMA
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview" class="py-28 bg-[#f8fafc] scroll-mt-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- LEFT -->
+            <div>
+
+                <span class="text-feu-green font-bold uppercase tracking-[0.2em] text-sm">
+                    About CCSMA
+                </span>
+
+                <h2 class="mt-5 text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                    Building Future-Ready
+                    Technology Professionals
+                </h2>
+
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                    The College of Computer Studies & Multimedia Arts develops
+                    globally competitive graduates equipped with technical expertise,
+                    creativity, innovation, and industry-ready skills.
+                </p>
+
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                    Through advanced programs in computing, cybersecurity,
+                    multimedia arts, digital marketing, and financial technology,
+                    students gain transformative learning experiences designed
+                    for the digital future.
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="grid grid-cols-2 gap-6">
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-5xl font-black text-feu-green">6</h3>
+                    <p class="mt-3 text-slate-600 font-medium">
+                        Degree Programs
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-5xl font-black text-cyan-600">100%</h3>
+                    <p class="mt-3 text-slate-600 font-medium">
+                        Industry-Focused
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-5xl font-black text-violet-600">AI</h3>
+                    <p class="mt-3 text-slate-600 font-medium">
+                        Emerging Technologies
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="py-28 bg-white scroll-mt-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800">
+                Programs
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+            <!-- BSCS -->
+            <div class="group border rounded-3xl p-8 hover:shadow-xl transition">
+
+                <div class="flex items-center gap-4 mb-4">
+                    <!-- Heroicon: cpu-chip -->
+                    <svg class="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M8 8h8v8H8V8z"/>
+                    </svg>
+
+                    <h3 class="text-xl font-black uppercase">
+                        BACHELOR OF SCIENCE IN COMPUTER SCIENCE
+                    </h3>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    Includes the study of computing concepts and theories, algorithmic foundations, and new developments in computing. The program prepares students to design and create algorithmically complex software and develop new and effective algorithms for solving computing problems. Graduates of this program can expect a successful and rewarding career in specification design, coding, and software testing. It also focuses on software engineering, database, and large-scale software.
+                </p>
+            </div>
+
+
+            <!-- BSIT -->
+            <div class="group border rounded-3xl p-8 hover:shadow-xl transition">
+
+                <div class="flex items-center gap-4 mb-4">
+                    <!-- Heroicon: server -->
+                    <svg class="w-10 h-10 text-cyan-600" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M5 12h14M5 6h14M5 18h14"/>
+                    </svg>
+
+                    <h3 class="text-xl font-black uppercase">
+                        BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY
+                    </h3>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    The study of the use of computers and computer software to plan, install, customize, operate, manage, administer, and maintain information technology infrastructure. The program also deals with the study of design, development, and implementation of solutions that integrate information technology into businesses and organizations. It aims to prepare students to be IT professionals, well-versed in IT infrastructure development and administration, and experts in systems design and development for implementation in an organization.
+                </p>
+            </div>
+
+
+            <!-- MMA -->
+            <div class="group border rounded-3xl p-8 hover:shadow-xl transition">
+
+                <div class="flex items-center gap-4 mb-4">
+                    <!-- Heroicon: paint-brush -->
+                    <svg class="w-10 h-10 text-violet-600" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M9 19l-2 2m0-2l2 2m6-14l2-2m0 2l-2-2"/>
+                    </svg>
+
+                    <h3 class="text-xl font-black uppercase">
+                        BACHELOR OF MULTIMEDIA ARTS
+                    </h3>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    The program aligns itself with the rapid convergence of media technologies and practices by developing conceptual, technical, aesthetic, and professional competencies for effective, critical, and innovative storytelling.
+                </p>
+            </div>
+
+
+            <!-- CYBER -->
+            <div class="group border rounded-3xl p-8 hover:shadow-xl transition">
+
+                <div class="flex items-center gap-4 mb-4">
+                    <!-- Heroicon: shield-check -->
+                    <svg class="w-10 h-10 text-rose-600" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M12 3l7 4v5c0 5-3 9-7 9s-7-4-7-9V7l7-4z"/>
+                    </svg>
+
+                    <h3 class="text-xl font-black uppercase">
+                        BACHELOR OF SCIENCE IN CYBERSECURITY
+                    </h3>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    The program is designed to provide students with a comprehensive education in the principles and practices of cybersecurity, covering fundamental concepts of computer systems, networks, and software. As well as advanced topics in cybersecurity, including threat analysis, risk management, and incident response.
+                </p>
+            </div>
+
+
+            <!-- DIGITAL MARKETING -->
+            <div class="group border rounded-3xl p-8 hover:shadow-xl transition">
+
+                <div class="flex items-center gap-4 mb-4">
+                    <!-- Heroicon: megaphone -->
+                    <svg class="w-10 h-10 text-amber-500" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M11 5h2m-1 14v-6"/>
+                    </svg>
+
+                    <h3 class="text-xl font-black uppercase">
+                        BACHELOR OF DIGITAL MARKETING AND MANAGEMENT
+                    </h3>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    The program focuses on developing students’ skills in planning, designing, and executing digital marketing campaigns while ensuring adherence to ethical standards, data privacy, and sustainability.
+                </p>
+            </div>
+
+
+            <!-- FINTECH -->
+            <div class="group border rounded-3xl p-8 hover:shadow-xl transition">
+
+                <div class="flex items-center gap-4 mb-4">
+                    <!-- Heroicon: banknotes -->
+                    <svg class="w-10 h-10 text-slate-700" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M12 8c-3 0-5 1-5 3s2 3 5 3 5 1 5 3-2 3-5 3"/>
+                    </svg>
+
+                    <h3 class="text-xl font-black uppercase">
+                        BACHELOR OF SCIENCE IN FINANCIAL TECHNOLOGY ENGINEERING
+                    </h3>
+                </div>
+
+                <p class="text-slate-600 leading-relaxed">
+                    This program integrates finance, technology, and engineering principles to develop cutting-edge financial solutions. It covers blockchain, artificial intelligence (AI) in finance, cybersecurity, data analytics, and financial systems engineering, preparing students to create secure, efficient, and innovative financial products.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section id="advantages" class="py-28 bg-[#03140d] text-white scroll-mt-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-20">
+
+            <span class="text-feu-yellow font-bold uppercase tracking-[0.2em] text-sm">
+                Why Choose CCSMA
+            </span>
+
+            <h2 class="mt-5 text-4xl md:text-5xl font-black">
+                Experience Modern
+                Technology Education
+            </h2>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="rounded-3xl bg-white/5 border border-white/10 p-8 backdrop-blur-md">
+                <h3 class="text-2xl font-bold mb-4">
+                    Industry-Focused Curriculum
+                </h3>
+                <p class="text-slate-300">
+                    Programs designed around real-world technologies,
+                    innovation, and evolving industry demands.
+                </p>
+            </div>
+
+            <div class="rounded-3xl bg-white/5 border border-white/10 p-8 backdrop-blur-md">
+                <h3 class="text-2xl font-bold mb-4">
+                    Modern Laboratories
+                </h3>
+                <p class="text-slate-300">
+                    Specialized laboratories and collaborative environments
+                    for immersive hands-on learning experiences.
+                </p>
+            </div>
+
+            <div class="rounded-3xl bg-white/5 border border-white/10 p-8 backdrop-blur-md">
+                <h3 class="text-2xl font-bold mb-4">
+                    Innovation-Driven Learning
+                </h3>
+                <p class="text-slate-300">
+                    Encouraging creativity, research,
+                    digital transformation, and leadership.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

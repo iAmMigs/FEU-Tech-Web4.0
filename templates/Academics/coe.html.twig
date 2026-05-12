@@ -1,0 +1,271 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}College of Engineering | FEU Institute of Technology{% endblock %}
+
+{% block body %}
+
+<!-- HERO SECTION -->
+<section class="relative min-h-[92vh] overflow-hidden bg-[#03140d] flex items-center">
+
+    <div class="absolute inset-0">
+        <img src="/images/offices/academic.png"
+             alt="COE Hero"
+             class="w-full h-full object-cover opacity-20">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-[#02110b]/80 via-[#06261a]/60 to-[#03140d]/85"></div>
+    </div>
+
+    <div class="absolute inset-0 opacity-[0.06]"
+         style="background-image:
+         linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+         linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+         background-size: 42px 42px;">
+    </div>
+
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/25 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-500/15 rounded-full blur-3xl"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+
+        <div class="max-w-4xl">
+
+            <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 text-emerald-300 text-sm font-semibold tracking-[0.2em] uppercase">
+                ⚙ Build • Design • Engineer
+            </span>
+
+            <h1 class="mt-8 text-5xl md:text-7xl font-black text-white uppercase leading-[0.95]">
+                College of
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-feu-yellow via-emerald-300 to-cyan-300">
+                    Engineering
+                </span>
+            </h1>
+
+            <p class="mt-8 text-lg md:text-2xl text-slate-300 max-w-3xl leading-relaxed">
+                Developing globally competitive engineers equipped with analytical thinking,
+                innovation, and technical mastery in infrastructure, systems, electronics,
+                and sustainable engineering solutions.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- STICKY NAV -->
+<div class="sticky top-[80px] z-40 bg-[#03140d]/85 backdrop-blur-xl border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex overflow-x-auto gap-8 py-4 text-sm font-semibold uppercase tracking-wide text-slate-300 scrollbar-hide">
+            <a href="#overview" class="hover:text-emerald-300 transition whitespace-nowrap">Overview</a>
+            <a href="#programs" class="hover:text-emerald-300 transition whitespace-nowrap">Programs</a>
+            <a href="#peo" class="hover:text-emerald-300 transition whitespace-nowrap">Objectives</a>
+            <a href="#outcomes" class="hover:text-emerald-300 transition whitespace-nowrap">Outcomes</a>
+        </div>
+    </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview" class="py-28 bg-[#f8fafc] scroll-mt-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <div>
+
+                <span class="text-emerald-600 font-bold uppercase tracking-[0.2em] text-sm">
+                    About COE
+                </span>
+
+                <h2 class="mt-5 text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                    Engineering the Future of Infrastructure & Innovation
+                </h2>
+
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                    The College of Engineering develops globally competitive professionals
+                    with strong foundations in science, mathematics, design, and innovation.
+                </p>
+
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                    Students are trained in modern engineering fields including civil,
+                    mechanical, electrical, electronics, computer engineering, and construction systems.
+                </p>
+
+            </div>
+
+            <div class="grid grid-cols-2 gap-6">
+
+                <div class="bg-white p-8 rounded-3xl border shadow-sm hover:shadow-md transition hover:-translate-y-1 duration-300">
+                    <h3 class="text-5xl font-black text-emerald-600">6</h3>
+                    <p class="mt-3 text-slate-600 font-medium">Engineering Programs</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border shadow-sm hover:shadow-md transition hover:-translate-y-1 duration-300">
+                    <h3 class="text-5xl font-black text-green-600">BIM</h3>
+                    <p class="mt-3 text-slate-600 font-medium">Modern Tools</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border shadow-sm hover:shadow-md transition hover:-translate-y-1 duration-300">
+                    <h3 class="text-5xl font-black text-lime-600">Design</h3>
+                    <p class="mt-3 text-slate-600 font-medium">Systems & Innovation</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="py-28 bg-white scroll-mt-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800">
+                Engineering Programs
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+            <div class="border rounded-3xl p-8 hover:shadow-xl transition duration-300 hover:-translate-y-2">
+                <h3 class="text-xl font-black uppercase text-emerald-700">Civil Engineering</h3>
+                <p class="mt-4 text-slate-600">Infrastructure planning, design, and development for nation-building.</p>
+            </div>
+
+            <div class="border rounded-3xl p-8 hover:shadow-xl transition duration-300 hover:-translate-y-2">
+                <h3 class="text-xl font-black uppercase text-green-700">Computer Engineering</h3>
+                <p class="mt-4 text-slate-600">Hardware, software, and embedded systems integration.</p>
+            </div>
+
+            <div class="border rounded-3xl p-8 hover:shadow-xl transition duration-300 hover:-translate-y-2">
+                <h3 class="text-xl font-black uppercase text-lime-700">Electrical Engineering</h3>
+                <p class="mt-4 text-slate-600">Power systems, circuitry, and electrical infrastructure.</p>
+            </div>
+
+            <div class="border rounded-3xl p-8 hover:shadow-xl transition duration-300 hover:-translate-y-2">
+                <h3 class="text-xl font-black uppercase text-emerald-800">Electronics Engineering</h3>
+                <p class="mt-4 text-slate-600">Communication systems and modern electronics technology.</p>
+            </div>
+
+            <div class="border rounded-3xl p-8 hover:shadow-xl transition duration-300 hover:-translate-y-2">
+                <h3 class="text-xl font-black uppercase text-green-800">Mechanical Engineering</h3>
+                <p class="mt-4 text-slate-600">Machines, robotics, manufacturing, and system design.</p>
+            </div>
+
+            <div class="border rounded-3xl p-8 hover:shadow-xl transition duration-300 hover:-translate-y-2">
+                <h3 class="text-xl font-black uppercase text-lime-800">Construction Engineering & Management</h3>
+                <p class="mt-4 text-slate-600">BIM, safety systems, and construction project management.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PROGRAM EDUCATIONAL OBJECTIVES (REDESIGNED) -->
+<section id="peo" class="py-28 bg-gradient-to-br from-[#03140d] via-[#05261a] to-[#02110b] text-white scroll-mt-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-4xl md:text-5xl font-black">
+                Program Educational Objectives
+            </h2>
+            <p class="mt-4 text-slate-300">
+                Guiding principles shaping future-ready engineers
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- CARD -->
+            <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition duration-300 hover:-translate-y-2">
+                <div class="text-emerald-300 text-3xl mb-4">⚙</div>
+                <h3 class="font-bold text-lg mb-2">Innovation</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Engage in engineering practice, innovation, or technopreneurship.
+                </p>
+            </div>
+
+            <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition duration-300 hover:-translate-y-2">
+                <div class="text-emerald-300 text-3xl mb-4">🏆</div>
+                <h3 class="font-bold text-lg mb-2">Leadership</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Assume leadership roles in engineering organizations.
+                </p>
+            </div>
+
+            <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition duration-300 hover:-translate-y-2">
+                <div class="text-emerald-300 text-3xl mb-4">🤝</div>
+                <h3 class="font-bold text-lg mb-2">Engagement</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Participate in civic and professional engineering communities.
+                </p>
+            </div>
+
+            <div class="group p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition duration-300 hover:-translate-y-2">
+                <div class="text-emerald-300 text-3xl mb-4">📚</div>
+                <h3 class="font-bold text-lg mb-2">Lifelong Learning</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Pursue continuous professional development and growth.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PROGRAM OUTCOMES -->
+<section id="outcomes" class="py-28 bg-white scroll-mt-32">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black text-slate-800">
+                Program Outcomes
+            </h2>
+            <p class="mt-4 text-slate-500">
+                What every engineering graduate is expected to demonstrate
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {% set outcomes = [
+                "Apply knowledge of mathematics, natural science, engineering fundamentals and an engineering specialization to the solution of complex engineering problems.",
+                "Conduct investigations of complex engineering problems using research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of information to provide valid conclusions.",
+                "Design solutions for complex engineering problems and design systems, components or processes that meet specified needs with appropriate consideration for public health and safety, cultural, societal, and environmental considerations.",
+                "Function effectively as an individual, and as a member or leader in diverse teams and in multi-disciplinary settings.",
+                "Identify, formulate, research literature and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences and engineering sciences.",
+                "Apply ethical principles and commit to professional ethics and responsibilities and norms of engineering practice.",
+                "Communicate effectively on complex engineering activities with the engineering community and with society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.",
+                "Understand and evaluate the sustainability and impact of professional engineering work in the solution of complex engineering problems in societal and environmental context.",
+                "Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change.",
+                "Apply reasoning informed by contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to professional engineering practice and solutions to complex engineering problems.",
+                "Create, select and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modelling, to complex engineering problems with an understanding of the limitations.",
+                "Demonstrate knowledge and understanding of engineering management principles and economic decision-making and apply these to one’s own work, as a member and leader in a team, to manage projects and in multidisciplinary environments."
+            ] %}
+
+            {% for item in outcomes %}
+                <div class="relative p-6 rounded-2xl border bg-gradient-to-br from-slate-50 to-white hover:shadow-lg transition duration-300 hover:-translate-y-1 group">
+
+                    <div class="absolute -top-3 -left-3 w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-black shadow-md group-hover:scale-110 transition">
+                        {{ loop.index }}
+                    </div>
+
+                    <p class="text-slate-700 leading-relaxed pl-6">
+                        {{ item }}
+                    </p>
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

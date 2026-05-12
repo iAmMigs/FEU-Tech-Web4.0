@@ -7,7 +7,7 @@
 <!-- HERO SECTION -->
 <section class="relative overflow-hidden bg-[#02150d] text-white">
 
-    <!-- Animated Background -->
+    <!-- Background -->
     <div class="absolute inset-0">
 
         <div class="absolute inset-0 bg-gradient-to-br from-[#014421] via-[#012818] to-[#02150d]"></div>
@@ -63,11 +63,13 @@
                          fill="none"
                          stroke="currentColor"
                          viewBox="0 0 24 24">
+
                         <path stroke-linecap="round"
                               stroke-linejoin="round"
                               stroke-width="2"
                               d="M14 5l7 7m0 0l-7 7m7-7H3">
                         </path>
+
                     </svg>
 
                 </a>
@@ -107,18 +109,15 @@
                 <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
 
                     <p>
-                        Mastery learning emphasizes the importance of understanding prerequisite
-                        concepts before moving forward to more advanced lessons.
+                       MILES stands for Mastery-based Individualized Learning Enhancement System. It is a pioneering educational system that extends the capability of Canvas to ensure mastery and individualized learning.
                     </p>
 
                     <p>
-                        Through individualized learning and mentoring, MILES empowers students
-                        to learn at their own pace while strengthening confidence and academic performance.
+                        Mastery learning is an innovative strategy in education that emphasizes the need for students to achieve a level of mastery in prerequisite topics before moving on to learn subsequent topics. This helps build a solid foundation for present and future learning. The learning environment is enhanced further by individualized learning where faculty members provide mentoring and tutoring support to individual students.
                     </p>
 
                     <p>
-                        Students engage with interactive lessons, assessments, collaboration tools,
-                        and guided learning experiences designed to help them achieve mastery.
+                        With MILES, students learn and practice their lessons using well-designed content and assessments geared toward mastery of the lesson—encouraging students to reach higher levels of achievement and develop more confidence in their ability to learn. Canvas is FEU Alabang, FEU Diliman, and FEU Tech’s learning management system (LMS).
                     </p>
 
                 </div>
@@ -128,19 +127,17 @@
             <!-- RIGHT -->
             <div class="relative">
 
-                <!-- Glow -->
                 <div class="absolute inset-0 bg-feu-green/20 blur-3xl rounded-full"></div>
 
-                <div class="relative bg-gradient-to-br from-[#014421] via-[#013220] to-[#02150d] rounded-[2rem] p-10 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.35)] overflow-hidden">
+                <div class="relative bg-[#013220] rounded-[34px] p-10 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.35)] overflow-hidden">
 
-                    <!-- Decorative -->
                     <div class="absolute top-0 right-0 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
 
                     <div class="relative z-10">
 
                         <div class="flex items-center gap-5 mb-10">
 
-                            <div class="w-20 h-20 rounded-3xl bg-white/10 backdrop-blur-lg flex items-center justify-center border border-white/10">
+                            <div class="w-20 h-20 rounded-[24px] bg-white/10 backdrop-blur-lg flex items-center justify-center border border-white/10">
 
                                 <svg class="w-10 h-10 text-yellow-400"
                                      fill="none"
@@ -230,10 +227,7 @@
 </section>
 
 <!-- ADDONS -->
-<section id="addons" class="relative py-28 bg-slate-50 overflow-hidden">
-
-    <!-- Background -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(1,68,33,0.05),transparent_35%)]"></div>
+<section id="addons" class="relative py-28 bg-[#f7f8fa] overflow-hidden">
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -255,117 +249,89 @@
 
         </div>
 
-        <!-- GRID -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        {% set addons = [
+            {
+                title: 'Canvas',
+                subtitle: 'Learning Management System',
+                image: 'canvas.png',
+                description: 'Canvas is the most popular learning management system used by the world’s leading universities including Yale and Harvard. It is designed to empower both teachers and students by making an engaging learning environment with video-based learning and collaboration tools.',
+                accent: 'bg-[#E9711C]'
+            },
+            {
+                title: 'BigBlueButton',
+                subtitle: 'Virtual Classroom',
+                image: 'bbb_icon.jpeg',
+                description: 'Supports synchronous online classes, consultations, and real-time communication within Canvas.',
+                accent: 'bg-[#2D8CFF]'
+            },
+            {
+                title: 'G Suite',
+                subtitle: 'Google Workspace',
+                image: 'google.png',
+                description: 'Includes Google Drive, Docs, Sheets, Slides, and Forms for cloud-based productivity and collaboration.',
+                accent: 'bg-[#34A853]'
+            },
+            {
+                title: 'Microsoft Teams',
+                subtitle: 'Communication Platform',
+                image: 'msteams_icon.png',
+                description: 'Enables collaboration through messaging, meetings, file sharing, and integrated communication tools.',
+                accent: 'bg-[#6264A7]'
+            },
+            {
+                title: 'Microsoft Office 365',
+                subtitle: 'Productivity Cloud',
+                image: 'o365.png',
+                description: 'Provides access to familiar productivity applications like Word, Excel, PowerPoint, and OneNote.',
+                accent: 'bg-[#D83B01]'
+            }
+        ] %}
 
-            {% set addons = [
-                {
-                    title: 'Canvas',
-                    subtitle: 'Learning Management System',
-                    image: 'canvas.png',
-                    description: 'Canvas is the most popular learning management system used by the world’s leading universities including Yale and Harvard. It is designed to empower both teachers and students by making an engaging learning environment with video-based learning and collaboration tools.',
-                    accent: 'from-[#E9711C] to-[#D35400]'
-                },
-                {
-                    title: 'BigBlueButton',
-                    subtitle: 'Virtual Classroom',
-                    image: 'bigbluebutton.png',
-                    description: 'Supports synchronous online classes, consultations, and real-time communication within Canvas.',
-                    accent: 'from-[#2D8CFF] to-[#005FCC]'
-                },
-                {
-                    title: 'G Suite',
-                    subtitle: 'Google Workspace',
-                    image: 'gsuite.png',
-                    description: 'Includes Google Drive, Docs, Sheets, Slides, and Forms for cloud-based productivity and collaboration.',
-                    accent: 'from-[#34A853] to-[#0F9D58]'
-                },
-                {
-                    title: 'Microsoft Teams',
-                    subtitle: 'Communication Platform',
-                    image: 'teams.png',
-                    description: 'Enables collaboration through messaging, meetings, file sharing, and integrated communication tools.',
-                    accent: 'from-[#6264A7] to-[#464775]'
-                },
-                {
-                    title: 'Microsoft Office 365',
-                    subtitle: 'Productivity Cloud',
-                    image: 'office365.png',
-                    description: 'Provides access to familiar productivity applications like Word, Excel, PowerPoint, and OneNote.',
-                    accent: 'from-[#D83B01] to-[#A4262C]'
-                }
-            ] %}
+        <!-- EXACT CARD STYLE LIKE SCREENSHOT -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
 
             {% for addon in addons %}
 
-            <div class="group relative overflow-hidden rounded-[2rem] bg-white border border-slate-200 shadow-sm hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all duration-500">
+            <div class="group bg-white rounded-[34px] border border-[#e8edf2] overflow-hidden min-h-[520px] flex flex-col shadow-[0_4px_14px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_40px_rgba(15,23,42,0.08)] transition-all duration-300">
 
-                <!-- Animated Top Bar -->
-                <div class="h-1.5 w-full bg-gradient-to-r {{ addon.accent }}"></div>
+                <!-- TOP LINE -->
+                <div class="h-[6px] w-full {{ addon.accent }}"></div>
 
-                <!-- Glow -->
-                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white to-slate-50"></div>
+                <div class="p-10 flex flex-col flex-1">
 
-                <div class="relative p-8">
+                    <!-- HEADER -->
+                    <div class="flex items-start gap-6 mb-10">
 
-                    <!-- Logo -->
-                    <div class="flex items-start justify-between mb-8">
+                        <!-- ICON -->
+                        <div class="w-[88px] h-[88px] rounded-[22px] border border-[#e5e7eb] bg-[#f8fafc] flex items-center justify-center shrink-0">
 
-                        <div class="flex items-center gap-5">
+                            <img src="{{ asset('images/miles/' ~ addon.image) }}"
+                                 alt="{{ addon.title }}"
+                                 class="w-12 h-12 object-contain">
 
-                            <div class="relative">
+                        </div>
 
-                                <!-- Ring Animation -->
-                                <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-feu-green/20 group-hover:scale-125 transition-all duration-500"></div>
+                        <!-- TITLE -->
+                        <div class="pt-1">
 
-                                <div class="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:bg-white transition-all duration-300">
+                            <h3 class="text-[1.7rem] leading-none font-black text-[#07132b] mb-3">
+                                {{ addon.title }}
+                            </h3>
 
-                                    <img src="{{ asset('images/miles/' ~ addon.image) }}"
-                                         alt="{{ addon.title }}"
-                                         class="h-12 w-12 object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-
-                                </div>
-
-                            </div>
-
-                            <div>
-
-                                <h3 class="text-2xl font-bold text-slate-900">
-                                    {{ addon.title }}
-                                </h3>
-
-                                <p class="text-feu-green font-semibold text-sm mt-1">
-                                    {{ addon.subtitle }}
-                                </p>
-
-                            </div>
+                            <p class="text-[#13804b] text-lg font-semibold leading-snug">
+                                {{ addon.subtitle }}
+                            </p>
 
                         </div>
 
                     </div>
 
-                    <!-- Description -->
-                    <p class="text-slate-600 leading-relaxed text-[15px]">
-                        {{ addon.description }}
-                    </p>
+                    <!-- DESCRIPTION -->
+                    <div class="flex-1">
 
-                    <!-- Bottom Accent -->
-                    <div class="mt-8 flex items-center gap-2 text-feu-green font-semibold text-sm">
-
-                        Learn More
-
-                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                             fill="none"
-                             stroke="currentColor"
-                             viewBox="0 0 24 24">
-
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M14 5l7 7m0 0l-7 7m7-7H3">
-                            </path>
-
-                        </svg>
+                        <p class="text-[1rem] leading-[2.2rem] text-[#556070] font-medium">
+                            {{ addon.description }}
+                        </p>
 
                     </div>
 
@@ -376,18 +342,23 @@
             {% endfor %}
 
             <!-- FEATURE CARD -->
-            <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#014421] via-[#013220] to-[#02150d] p-10 text-white shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+            <div class="relative overflow-hidden rounded-[34px] bg-[#013220] p-10 text-white min-h-[520px] shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
 
-                <!-- Decorative -->
-                <div class="absolute -top-10 -right-10 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
+                <div class="absolute inset-0">
+
+                    <div class="absolute top-0 right-0 w-72 h-72 bg-green-400/10 blur-3xl rounded-full"></div>
+
+                    <div class="absolute bottom-0 left-0 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full"></div>
+
+                </div>
 
                 <div class="relative z-10 h-full flex flex-col justify-between">
 
                     <div>
 
-                        <div class="w-20 h-20 rounded-3xl bg-white/10 border border-white/10 flex items-center justify-center mb-8">
+                        <div class="w-[92px] h-[92px] rounded-[24px] bg-white/10 border border-white/10 flex items-center justify-center mb-12">
 
-                            <svg class="w-10 h-10 text-yellow-400"
+                            <svg class="w-11 h-11 text-yellow-400"
                                  fill="none"
                                  stroke="currentColor"
                                  viewBox="0 0 24 24">
@@ -402,17 +373,22 @@
 
                         </div>
 
-                        <h3 class="text-4xl font-black leading-tight mb-6">
-                            Connected Learning Experience
+                        <h3 class="text-[2.5rem] font-black leading-[1.05] mb-8">
+                            Connected
+                            <br>
+                            Learning
+                            <br>
+                            Experience
                         </h3>
 
-                        <p class="text-slate-300 leading-relaxed text-lg">
+                        <p class="text-slate-300 text-m leading-[2rem] max-w-md">
                             MILES brings together powerful educational technologies into
                             one connected ecosystem focused on innovation, accessibility,
                             collaboration, and academic excellence.
                         </p>
 
                     </div>
+
                 </div>
 
             </div>
