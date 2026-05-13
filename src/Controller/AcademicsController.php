@@ -32,4 +32,22 @@ final class AcademicsController extends AbstractController
     {
         return $this->renderWithDefaults('Academics/coe.html.twig');
     }
+
+    #[Route('/academics/gened', name: 'app_gened')]
+    public function GENED(): Response
+    {
+        return $this->renderWithDefaults('Academics/gened.html.twig');
+    }
+    
+    #[Route('/academics/registrar', name: 'app_registrar')]
+    public function REGISTRAR(): Response
+    {
+        return $this->renderWithDefaults('Academics/registrar.html.twig');
+    }
+
+        #[Route('/academics/library', name: 'app_library')]
+    public function LIBRARY(): Response
+    {
+        return $this->renderWithDefaults('Academics/library.html.twig');
+    }
 }

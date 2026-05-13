@@ -1,0 +1,296 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registrar's Office | FEU Institute of Technology{% endblock %}
+
+{% block body %}
+
+<!-- HERO SECTION -->
+<section class="relative overflow-hidden bg-[linear-gradient(135deg,#012b17_0%,#014d2a_50%,#013220_100%)] text-white">
+
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-3xl"></div>
+
+        <div class="absolute inset-0 opacity-[0.05]"
+            style="background-image: linear-gradient(to right, white 1px, transparent 1px),
+            linear-gradient(to bottom, white 1px, transparent 1px);
+            background-size: 60px 60px;">
+        </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- LEFT -->
+            <div class="animate-[fadeInUp_1s_ease-out]">
+
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-semibold uppercase tracking-wider">
+                    Academic Services
+                </div>
+
+                <h1 class="mt-8 text-5xl md:text-6xl font-black leading-tight">
+                    Registrar’s <span class="text-yellow-400">Office</span>
+                </h1>
+
+                <p class="mt-8 text-lg leading-relaxed text-slate-200 max-w-2xl">
+                    The Registrar’s Office safeguards student academic records with integrity,
+                    professionalism, and excellence while ensuring quality service for students,
+                    alumni, and partner institutions.
+                </p>
+
+                <div class="mt-10 flex flex-wrap gap-5">
+
+                    <a href="mailto:registrar@feutech.edu.ph"
+                        class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-yellow-400 text-black font-bold hover:scale-105 transition">
+                        Contact Registrar
+                    </a>
+
+                    <a href="#details"
+                        class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md font-semibold hover:bg-white hover:text-green-800 transition">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="relative">
+
+                <div class="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full"></div>
+
+                <div class="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-8 shadow-2xl text-white">
+
+                    <div class="flex items-center gap-5">
+
+                        <!-- HEROICON: BOOK -->
+                        <div class="w-20 h-20 rounded-3xl bg-yellow-400 text-black flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v11.494m0-11.494C10.832 5.406 9.416 5 8 5
+                                    H6a2 2 0 00-2 2v10a2 2 0 002 2h2c1.416 0 2.832.406
+                                    4 1.253m0-13.494C13.168 5.406 14.584 5 16 5h2a2
+                                    2 0 012 2v10a2 2 0 01-2 2h-2c-1.416 0-2.832.406-4 1.253" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <p class="text-sm uppercase tracking-widest text-slate-300">
+                                Academic Calendar
+                            </p>
+                            <h3 class="text-3xl font-black">2025–2026</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="bg-[#f8fafc] py-24">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <!-- ABOUT -->
+        <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100">
+
+            <div class="grid lg:grid-cols-2">
+
+                <!-- LEFT -->
+                <div class="p-12 lg:p-14">
+
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 font-bold uppercase text-sm">
+                        Registrar's Office
+                    </div>
+
+                    <h2 class="mt-8 text-4xl font-black text-slate-800">
+                        Academic Records with Integrity & Excellence
+                    </h2>
+
+                    <p class="mt-8 text-slate-600 leading-relaxed">
+                       The Registrar’s Office is responsible for the school records of all students. It is the principal contact unit with the government’s regulatory and monitoring agencies like the CHED, DepEd, TESDA, BID, and others. It also coordinates with private agencies that grant scholarships and financial assistance to students. 
+                    </p>
+
+                    <p class="mt-6 text-slate-600 leading-relaxed">
+                        The Office of the Registrar, in accordance with existing laws and regulations and the school’s rules and procedures contained in the foregoing, shall be solely responsible for the issuance of students’ records.
+                    </p>
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="relative bg-[linear-gradient(135deg,#013220_0%,#014d2a_50%,#012b17_100%)] p-12 lg:p-14 text-white overflow-hidden">
+
+                    <div class="absolute inset-0 opacity-10"
+                        style="background-image: linear-gradient(to right, white 1px, transparent 1px),
+                        linear-gradient(to bottom, white 1px, transparent 1px);
+                        background-size: 50px 50px;">
+                    </div>
+
+                    <div class="relative z-10">
+
+                        <span class="inline-flex px-4 py-2 rounded-full bg-white/10 text-yellow-300 text-sm">
+                            Registrar Goals
+                        </span>
+
+                        <h3 class="mt-8 text-4xl font-black">
+                            General Objective
+                        </h3>
+
+                        <div class="mt-8 space-y-6">
+
+                            <div class="p-6 rounded-2xl bg-white text-slate-800">
+                                The Registrar’s Office aims to produce scholastic records with utmost integrity and credibility. Its goal is to draw a clear line of systematic functions giving emphasis to matters concerning enrollment, registration, processing, and issuance of academic records, verification, scheduling, archiving, and other related processes that are of relevance.
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-yellow-400 text-black">
+                              It mainly focuses on providing meaningful and accurate information when and where it is needed and must necessarily ensure the integrity of curricular records.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MISSION & VISION -->
+        <div class="grid lg:grid-cols-2 gap-10 mt-16">
+
+            <div class="rounded-[2rem] p-10 bg-gradient-to-br from-yellow-300 to-yellow-500">
+                <h3 class="text-3xl font-black">Mission</h3>
+                <div class="mt-6 p-5 bg-white/20 rounded-xl">
+                    The FEU Tech Registrar and RO associates are committed to excellence and professionalism in provision of services. Corollary, they seek to provide relevant and accessible programs that address the needs of the students based on principles of academic freedom, equity, transparency, merit, and accountability.
+                </div>
+            </div>
+
+            <div class="rounded-[2rem] p-10 text-white bg-gradient-to-br from-green-900 to-green-700">
+                <h3 class="text-3xl font-black">Vision</h3>
+                <div class="mt-6 p-5 bg-white/10 rounded-xl">
+                    The FEU Tech Registrar and RO associates are dedicated to delivering quality service in accordance to government and school regulations, ensuring students and alumni requests are delivered promptly, thereby enabling students and alumni job application and further education.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CONTACT (FIXED + HEROICONS) -->
+        <div class="relative mt-20 rounded-[2rem] overflow-hidden bg-[linear-gradient(135deg,#013220_0%,#014d2a_50%,#012b17_100%)] text-white">
+
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: linear-gradient(to right, white 1px, transparent 1px),
+                linear-gradient(to bottom, white 1px, transparent 1px);
+                background-size: 60px 60px;">
+            </div>
+
+            <div class="relative grid lg:grid-cols-2">
+
+                <!-- LEFT -->
+                <div class="p-12">
+
+                    <h2 class="text-4xl font-black">Get in Touch</h2>
+
+                    <div class="mt-10 space-y-6">
+
+                        <!-- Location -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                                <!-- HEROICON MAP PIN -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Location</p>
+                                <p class="text-slate-300 text-sm">Room 1507</p>
+                            </div>
+                        </div>
+
+                        <!-- Office Hours -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                                <!-- HEROICON CLOCK -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Office Hours</p>
+                                <p class="text-slate-300 text-sm">Mon–Fri 8:00 a.m. – 5:00 p.m.</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                                <!-- HEROICON PHONE -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h1.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Trunkline</p>
+                                <p class="text-slate-300 text-sm">(02) 8281-8888 loc. 114</p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                                <!-- HEROICON MAIL -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <p class="text-slate-300 text-sm">registrar@feutech.edu.ph</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="bg-white text-black p-12 flex flex-col justify-center">
+
+                    <h3 class="text-3xl font-black">Danna May C. Mansul</h3>
+                    <p class="text-green-700 font-semibold">Registrar</p>
+
+                    <div class="mt-6 space-y-2">
+                        <p>Room 1507</p>
+                        <p>(02) 8281-8888 loc. 114</p>
+                        <p>registrar@feutech.edu.ph</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+@keyframes fadeInUp {
+    from {opacity:0; transform:translateY(40px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
+
+{% endblock %}

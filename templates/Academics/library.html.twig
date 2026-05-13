@@ -1,0 +1,1088 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FEU Tech Library | Knowledge Hub{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        :root {
+            --feu-green: #008348;
+            --feu-yellow: #febe10;
+        }
+        .text-feu-green { color: var(--feu-green); }
+        .bg-feu-green { background-color: var(--feu-green); }
+        .text-feu-yellow { color: var(--feu-yellow); }
+        .bg-feu-yellow { background-color: var(--feu-yellow); }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 131, 72, 0.9), rgba(0, 45, 25, 0.95)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .scroll-section {
+            scroll-margin-top: 100px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--feu-green);
+            border-radius: 10px;
+        }
+
+        .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ACTIVE DIRECTORY HIGHLIGHT */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link.active {
+            background: var(--feu-green);
+            color: white !important;
+            transform: translateX(4px);
+        }
+        .nav-link.active::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 60%;
+            background: var(--feu-yellow);
+            border-radius: 10px;
+        }
+
+        /* FLOATING CIRCLES */
+        .floating-circles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 10s infinite ease-in-out;
+        }
+        .circle.one { width: 120px; height: 120px; background: #fff; top: 10%; left: 5%; }
+        .circle.two { width: 80px; height: 80px; background: var(--feu-yellow); bottom: 15%; right: 10%; animation-duration: 14s; }
+        .circle.three { width: 160px; height: 160px; background: #ffffff; top: 40%; right: 20%; animation-duration: 18s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<main class="bg-slate-50">
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20 px-4 mb-12">
+        <div class="max-w-7xl mx-auto text-center animate-fade-in">
+            <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight">FEU TECH <span class="text-feu-yellow">LIBRARY</span></h1>
+            <p class="text-xl max-w-2xl mx-auto font-light opacity-90 italic">"The center of excellence in providing knowledge and quality information."</p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#services" class="bg-feu-yellow text-feu-green px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">Browse Services</a>
+                <a href="#service-hours" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-feu-green transition-all">Check Hours</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 pb-20">
+        <div class="flex flex-col lg:flex-row gap-12">
+
+            <!-- Quick Navigation Sidebar -->
+            <aside class="lg:w-1/4">
+                <div class="sticky top-28 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="text-feu-green font-bold text-lg mb-6 flex items-center gap-2 border-b pb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        DIRECTORY
+                    </h3>
+
+                    <nav class="space-y-1">
+                        {% for item in ['Vision & Mission', 'History', 'Service Hours', 'Services', 'Policies', 'Journals and Publications', 'Library Areas', 'E-Library'] %}
+                            <a href="#{{ item|lower|replace({' ': '-', '&': 'and'}) }}"
+                               class="nav-link block px-4 py-3 text-slate-600 hover:bg-feu-green hover:text-white rounded-xl transition-all font-medium">
+                                {{ item }}
+                            </a>
+                        {% endfor %}
+                    </nav>
+
+                    <div class="mt-8 p-4 bg-feu-green/5 rounded-xl border border-feu-green/10">
+                        <h4 class="text-feu-green font-bold text-sm uppercase mb-2">Quick Contact</h4>
+                        <p class="text-xs text-slate-600">Local 120/150</p>
+                        <p class="text-xs text-slate-600">library@feutech.edu.ph</p>
+                    </div>
+                </div>
+            </aside>
+
+
+            <!-- Main Content Area -->
+            <div class="lg:w-3/4 space-y-20">
+
+             <!-- Contact & Location Footer -->
+                <section class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="flex items-center gap-6">
+                        <div class="bg-feu-green text-white p-4 rounded-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-400 text-xs uppercase tracking-widest">Location</h4>
+                            <p class="text-xl font-bold text-feu-green">Room 1401</p>
+                            <p class="text-sm text-slate-500">FEU Institute of Technology</p>
+                        </div>
+                    </div>
+                    <div class="h-10 w-px bg-slate-100 hidden md:block"></div>
+                    <div class="text-center md:text-right">
+                        <h4 class="font-bold text-slate-400 text-xs uppercase tracking-widest mb-2">Trunkline</h4>
+                        <p class="text-lg font-bold text-slate-700">(02) 8281 8888</p>
+                        <p class="text-sm font-medium text-feu-green">Local 120/150</p>
+                    </div>
+                </section>
+
+                <!-- Vision & Mission Section -->
+                <section id="vision-and-mission" class="scroll-section">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        
+                        <!-- Vision Card -->
+                        <div class="group relative bg-white p-8 rounded-3xl border-t-8 border-feu-green shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Decorative Background Mascot -->
+                            <div class="absolute -right-4 -bottom-6 w-32 h-32 opacity-10 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-500 pointer-events-none">
+                                <img src="\images\offices\tammywave.png" alt="Mascot" class="w-full h-full object-contain grayscale group-hover:grayscale-0">
+                            </div>
+                            
+                            <div class="relative z-10">
+                                <span class="text-feu-yellow font-black text-5xl opacity-20 absolute -top-4 -left-2">01</span>
+                                <h2 class="text-2xl font-black mb-4 text-feu-green uppercase tracking-tight flex items-center gap-2">
+                                    Vision
+                                </h2>
+                                <p class="text-slate-600 leading-relaxed font-medium">
+                                    The FEU Tech Library aims to be the center of excellence in providing knowledge and quality information, supporting the College's commitment to produce quality individuals in the field of Engineering and Information Technology.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mission Card -->
+                        <div class="group relative bg-white p-8 rounded-3xl border-t-8 border-feu-yellow shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Decorative Background Mascot (Flipped) -->
+                            <div class="absolute -right-4 -bottom-6 w-32 h-32 opacity-10 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-500 pointer-events-none transform -scale-x-100">
+                                <img src="\images\offices\tammyjump.png" alt="Mascot" class="w-full h-full object-contain grayscale group-hover:grayscale-0">
+                            </div>
+
+                            <div class="relative z-10">
+                                <span class="text-feu-green font-black text-5xl opacity-10 absolute -top-4 -left-2">02</span>
+                                <h2 class="text-2xl font-black mb-4 text-feu-green uppercase tracking-tight">
+                                    Mission
+                                </h2>
+                                <p class="text-slate-600 leading-relaxed font-medium">
+                                    The mission of the FEU Tech Library is to provide service and develop a collection that will support the instructional, curricular, research and industry needs of the College.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Goal Card -->
+                        <div class="group relative bg-white p-8 rounded-3xl border-t-8 border-feu-green shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                            <!-- Decorative Background Mascot (Peeking from Left) -->
+                            <div class="absolute -left-4 -bottom-6 w-32 h-32 opacity-10 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500 pointer-events-none">
+                                <img src="\images\offices\tammywave.png" alt="Mascot" class="w-full h-full object-contain grayscale group-hover:grayscale-0">
+                            </div>
+
+                            <div class="relative z-10">
+                                <span class="text-feu-yellow font-black text-5xl opacity-20 absolute -top-4 -right-2 text-right">03</span>
+                                <h2 class="text-2xl font-black mb-4 text-feu-green uppercase tracking-tight">
+                                    Goal
+                                </h2>
+                                <p class="text-slate-600 leading-relaxed font-medium">
+                                    To provide a dynamic environment of academic learning by utilizing information technology, bibliographic management, and efficient library service in the dissemination of resources.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                    <!-- Core Values -->
+                    <div class="mt-12 bg-feu-green text-white p-10 rounded-[3rem] relative overflow-hidden">
+                        <div class="floating-circles">
+                            <div class="circle one"></div>
+                            <div class="circle two"></div>
+                            <div class="circle three"></div>
+                        </div>
+
+                        <h3 class="text-3xl font-bold mb-8 text-center text-feu-yellow">Core Values</h3>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                            <div>
+                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Innovation</h4>
+                                <p class="text-sm opacity-90">While respecting current practices, the Library also strives for innovation. We value not just the new, but that which is new and better.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Communication</h4>
+                                <p class="text-sm opacity-90">The Library understands that the unrestricted, effective, and frequent exchange of ideas, information, and experience is absolutely necessary for the realization of our vision and the achievement of our goals.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Collaboration</h4>
+                                <p class="text-sm opacity-90">The Library believes in Collaboration and teamwork, both within and outside of its formal structure. Working together, we gain strength and find solutions; we are more than the sum of our parts.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Positive Attitude</h4>
+                                <p class="text-sm opacity-90">The Library believes that a positive attitude will enchance the library experience. We will achieve a positive attitude by supporting the Library's mission, finding enjoyment and satisfaction in our work, and being empathetic toward others.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- History Section -->
+                    <section id="history" class="scroll-section relative overflow-hidden bg-white p-12 rounded-3xl shadow-sm border border-slate-100">
+                        <!-- Decorative background element -->
+                        <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-feu-green/5 rounded-full blur-3xl"></div>
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-feu-yellow/10 rounded-full -mr-16 -mt-16"></div>
+                        
+                        <h2 class="text-4xl font-black mb-12 text-feu-green flex items-center gap-4">
+                            <span class="bg-feu-yellow w-12 h-1"></span> 
+                            HISTORY
+                        </h2>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                            <!-- Image Content (Span 5) -->
+                            <div class="lg:col-span-5 order-2 lg:order-1">
+                                <div class="relative group">
+                                    <div class="absolute -inset-2 border-2 border-feu-yellow/30 rounded-2xl translate-x-3 translate-y-3 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
+                                    
+                                    <div class="relative overflow-hidden rounded-2xl shadow-2xl border-4 border-white">
+                                        <img 
+                                            src="/images/offices/library_history.jpg" 
+                                            alt="FEU Tech Library Archive" 
+                                            class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-110"
+                                        >
+                                        <!-- Subtle Vintage Overlay -->
+                                        <div class="absolute inset-0 bg-gradient-to-t from-feu-green/60 to-transparent opacity-40"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Text Content (Span 7) -->
+                            <div class="lg:col-span-7 order-1 lg:order-2 space-y-8">
+                                <div class="relative pl-8 border-l-4 border-feu-yellow/20">
+                                    <span class="absolute -left-[10px] top-0 w-4 h-4 rounded-full bg-feu-yellow shadow-[0_0_10px_rgba(234,179,8,0.5)]"></span>
+                                    <p class="text-slate-600 text-lg leading-relaxed italic">
+                                        "The beginnings of the FEU Tech Library can be traced back to <span class="text-feu-green font-bold">1993</span> when it was still called <span class="font-bold text-feu-green">EAST ASIA INSTITUTE OF COMPUTER TECHNOLOGY</span>."
+                                        The journey began with a modest collection of just <span class="font-semibold text-slate-900">386 volumes</span>. Following the landmark merger of the Engineering and IT colleges in 2003, our resource hub underwent a massive transformation to meet the demands of a new era in technology.
+                                    </p>
+                                </div>
+
+                                <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+                                    <p class="bg-slate-50 p-6 rounded-2xl border-l-4 border-feu-green">
+                                        Today, we bridge the gap between tradition and innovation—where <span class="font-bold text-feu-green">physical archives meet digital intelligence</span>, ensuring our Tamaraws have the fastest access to global knowledge.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                <!-- Service Hours Section -->
+                <section id="service-hours" class="scroll-section p-10 bg-feu-green/5 rounded-3xl border border-slate-100">
+                    <div class="relative mb-12">
+                        <h2 class="text-4xl font-black text-feu-green uppercase tracking-tighter relative z-10">Service  Hours</h2>
+                        <div class="absolute -bottom-2 left-0 w-32 h-2 bg-feu-yellow rounded-full"></div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-10 items-stretch">
+                        <!-- Regular Term Card -->
+                        <div class="bg-feu-green p-10 rounded-3xl text-white relative overflow-hidden shadow-2xl group hover:shadow-feu-yellow/20 transition-shadow duration-300">
+                            <!-- Background Visuals -->
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-feu-yellow/20 rounded-full -mr-20 -mt-20 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                            
+                            <h3 class="text-2xl font-extrabold mb-10 flex items-center gap-3 relative z-10 text-feu-yellow">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Regular Term
+                            </h3>
+                            
+                            <div class="space-y-6 relative z-10">
+                                <div class="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 pb-4">
+                                    <span class="font-medium text-white/80">Monday — Friday</span>
+                                    <span class="font-bold text-lg sm:text-xl text-feu-yellow">7:00 am — 8:00 pm</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 pb-4">
+                                    <span class="font-medium text-white/80">Saturday</span>
+                                    <span class="font-bold text-lg sm:text-xl text-feu-yellow">8:00 am — 5:00 pm</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Mascot Placement (Regular Term) -->
+                            <div class="absolute -bottom-10 -right-10 w-48 h-48 opacity-20 group-hover:opacity-100 group-hover:-translate-y-4 transition-all duration-500 ease-out z-0">
+                                <img src="\images\offices\tammywave.png" alt="Tammy the Mascot waving" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+
+                        <!-- Outside Researchers Card -->
+                        <div class="bg-white p-10 rounded-3xl border-2 border-slate-100 shadow-lg relative overflow-hidden group hover:border-feu-green/30 transition-all duration-300">
+                            <!-- Background Visuals -->
+                            <div class="absolute top-0 left-0 w-64 h-64 bg-feu-green/5 rounded-full -ml-20 -mt-20 blur-2xl opacity-50"></div>
+
+                            <h3 class="text-2xl font-extrabold mb-10 text-feu-green flex items-center gap-3 relative z-10">
+                                <svg class="w-8 h-8 text-feu-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                Outside Researchers
+                            </h3>
+                            
+                            <div class="space-y-6 text-slate-700 relative z-10">
+                                <div class="flex flex-col sm:flex-row sm:justify-between border-b border-slate-100 pb-4">
+                                    <span class="font-medium text-slate-500">Wednesday & Saturday</span>
+                                    <span class="font-bold text-lg sm:text-xl text-feu-green">8:00 am — 5:00 pm</span>
+                                </div>
+                                <p class="text-sm italic font-medium text-red-500 bg-red-50 p-4 rounded-xl inline-block mt-6">Note: No service during Trimestral Break</p>
+                            </div>
+
+                            <!-- Mascot Placement (Outside Researchers - Subtle Outline) -->
+                            <div class="absolute -bottom-8 -left-8 w-40 h-40 opacity-10 group-hover:opacity-100 group-hover:translate-x-4 group-hover:rotate-6 transition-all duration-500 ease-out z-0">
+                                <img src="\images\offices\tammywave.png" alt="Tammy the Mascot waving" class="w-full h-full object-contain filter grayscale opacity-60">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Library Services Section -->
+                <section id="services" class="scroll-section">
+                    <h2 class="text-3xl font-black mb-8 text-feu-green uppercase">Library Services</h2>
+
+                    <div class="space-y-12">
+
+                        <!-- Readers' Services (RE-DESIGNED AS A BOOK) -->
+                        <div class="relative bg-[#fdfcf8] p-8 md:p-12 rounded-lg shadow-2xl border-l-[12px] border-feu-green overflow-hidden">
+                            <!-- Decorative Book Spine Effect -->
+                            <div class="absolute top-0 left-0 w-4 h-full bg-gradient-to-r from-black/10 to-transparent"></div>
+                            
+                            <div class="relative flex flex-col md:flex-row md:items-start justify-between mb-12 gap-8">
+                                <div class="max-w-2xl">
+                                    <h3 class="text-4xl font-serif font-bold text-feu-green mb-4 flex items-center gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                        </svg>
+                                        Readers' Services
+                                    </h3>
+                                    <p class="text-slate-700 font-serif italic text-lg leading-relaxed border-b border-feu-yellow/30 pb-4">
+                                        The largest of the Library's departments, it serves the students, staff of the College, as well as visiting researchers and the general public who need to access the library's resources and services.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- "Pages" Grid -->
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                <!-- Circulation Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <div class="absolute -top-1 -left-1 w-full h-full bg-slate-100 -z-10 transform rotate-1 group-hover:rotate-0 transition-transform"></div>
+                                    <h4 class="font-bold text-feu-green mb-3 flex items-center gap-2 border-b border-feu-yellow pb-2">
+                                        Circulation
+                                    </h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        Circulation Section houses books of various subject areas that may be loaned by students and faculty. Majority of the books found in this section are about Social Sciences, Pure and Applied Sciences, Mathematics, Technology, and Engineering. Part of this section is the circulation counter. Among the functions of the counter are:
+                                        <span class="block mt-2 font-semibold">• Daily activities related to circulation</span>
+                                        <span class="block">• Receive payment of fines</span>
+                                        <span class="block">• Book reservation requests</span>
+                                    </p>
+                                </div>
+
+                                <!-- Filipiniana Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <div class="absolute -top-1 -left-1 w-full h-full bg-slate-100 -z-10 transform -rotate-1 group-hover:rotate-0 transition-transform"></div>
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">Filipiniana</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        Filipiniana Section houses books that are written by Filipino authors or by foreign authors about the Philippines. These may be books published abroad but reprinted in the Philippines.
+                                    </p>
+                                </div>
+
+                                <!-- Reserve Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <div class="absolute -top-1 -left-1 w-full h-full bg-slate-100 -z-10 transform rotate-1 group-hover:rotate-0 transition-transform"></div>
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">Reserve Section</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        Reserved Book Section houses books in the field of Information Technology and Engineering mostly prescribed by professors to be read by students in connection with their lessons.
+                                    </p>
+                                </div>
+
+                                <!-- Periodical Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">Periodical</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        Journals, magazines, newspaper, vertical files, and FEU Tech Publications are housed in this section. These materials are for library use only but can be borrowed for photocopying purposes.
+                                    </p>
+                                </div>
+
+                                <!-- Reference Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">General Reference Section</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        Provides general information and reference services. Dictionaries, encyclopedia, atlases, almanacs, handbooks, and manuals covering general and specific fields are housed in this section.
+                                    </p>
+                                </div>
+
+                                <!-- Fiction Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">Fiction</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        This section offers a variety of well selected stories and novels of famous authors available for recreational reading.
+                                    </p>
+                                </div>
+
+                                <!-- Research Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">Undergraduate Research</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        This section aims to showcase and preserve FEU Tech's exemplary undergraduate research in IT and Engineering disciplines.
+                                    </p>
+                                </div>
+
+                                <!-- E-Library Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">E-Library</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        The e-library aims to provide and deliver a highly effective learning experience to the academic community through Web and Internet technologies.
+                                    </p>
+                                </div>
+
+                                <!-- Instructional Media Page -->
+                                <div class="relative group bg-white p-6 shadow-sm border-t border-r border-slate-200 hover:shadow-md transition-all">
+                                    <h4 class="font-bold text-feu-green mb-3 border-b border-feu-yellow pb-2">Instructional Media</h4>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        This is the multimedia resources center featuring films, videos, interactive CD-ROMs, and Kindle (E-books).
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Book Corner Accent -->
+                            <div class="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-slate-200 to-transparent pointer-events-none"></div>
+                        </div>
+
+                        <!-- Technical Services (Keep as original or minimal adjustment) -->
+                        <div class="bg-feu-green text-white p-8 rounded-3xl">
+                            <h3 class="text-2xl font-bold mb-6 text-feu-yellow">Technical Services</h3>
+                            <p class="mb-8 opacity-90">
+                                Working collaborately with other departments, the Technical Services section works to select, acquire, organize, process, and provide access to information resources in all formats to enchance and support research and life-long learning through the Online Library System for the FEU Tech community.
+                            </p>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="bg-white/10 p-6 rounded-2xl">
+                                    <h4 class="font-bold mb-2">Library Acquisitions</h4>
+                                    <p class="text-sm">
+                                        Library Acquisitions is responsible for acquiring books and non-print materials, ordering and receiving, processing invoices, and maintenance of necessary records related to acquisition.
+                                    </p>
+                                </div>
+
+                                <div class="bg-white/10 p-6 rounded-2xl">
+                                    <h4 class="font-bold mb-2">Cataloging</h4>
+                                    <p class="text-sm">
+                                        Cataloging includes shelf preparation, physical processing, and other activities in the preparation of bibliographic records for a catalog.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Auxiliary Services -->
+                        <div class="relative bg-[#fdfcf8] p-8 md:p-12 rounded-lg shadow-2xl border-l-[12px] border-slate-400 overflow-hidden group">
+                            <!-- Decorative Book Spine Effect (Grey for Auxiliary/Appendix) -->
+                            <div class="absolute top-0 left-0 w-4 h-full bg-gradient-to-r from-black/5 to-transparent"></div>
+                            
+
+                            <div class="relative z-10">
+                                <h3 class="text-4xl font-bold text-feu-green mb-10 flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-feu-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                    </svg>
+                                    Auxiliary & Other Services
+                                </h3>
+
+                                <div class="grid gap-4">
+                                    <!-- Photocopying -->
+                                    <div class="flex flex-col md:flex-row gap-6 p-6 border-b border-feu-yellow/20 hover:bg-white/50 transition-colors rounded-xl">
+                                        <span class="font-black min-w-[200px] text-feu-green uppercase tracking-tighter text-lg">Photocopying</span>
+                                        <p class="text-sm text-slate-600 leading-relaxed">
+                                            A vital resource management service. We provide high-quality photocopying to students, faculty, and walk-in researchers to ensure information is portable and accessible.
+                                        </p>
+                                    </div>
+
+                                    <!-- Printing (Styled as a Price List) -->
+                                    <div class="flex flex-col md:flex-row gap-6 p-6 border-b border-feu-yellow/20 hover:bg-white/50 transition-colors rounded-xl bg-feu-yellow/5">
+                                        <span class="font-black min-w-[200px] text-feu-green uppercase tracking-tighter text-lg">Printing Hub</span>
+                                        <div class="text-sm text-slate-700 grid grid-cols-2 gap-4 flex-grow">
+                                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                                <p class="font-bold text-feu-green mb-1 border-b pb-1">Black & White</p>
+                                                <p>Short: <span class="font-bold">P1.50</span> / Long: <span class="font-bold">P2.00</span></p>
+                                            </div>
+                                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                                <p class="font-bold text-feu-green mb-1 border-b pb-1">Full Color</p>
+                                                <p>Short: <span class="font-bold">P5.00</span> / Long: <span class="font-bold">P6.00</span></p>
+                                            </div>
+                                            <p class="col-span-2 text-xs italic text-red-500 mt-2">Note: Lost and found items are claimed at the printing counter.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Referral Service -->
+                                    <div class="flex flex-col md:flex-row gap-6 p-6 border-b border-feu-yellow/20 hover:bg-white/50 transition-colors rounded-xl">
+                                        <span class="font-black min-w-[200px] text-feu-green uppercase tracking-tighter text-lg">Referrals</span>
+                                        <p class="text-sm text-slate-600 leading-relaxed">
+                                            Expanding your research boundaries. We issue formal referral letters to bonafide students and faculty, granting access to the specialized collections of other institutional libraries.
+                                        </p>
+                                    </div>
+
+                                    <!-- Library Orientation -->
+                                    <div class="flex flex-col md:flex-row gap-6 p-6 border-b border-feu-yellow/20 hover:bg-white/50 transition-colors rounded-xl">
+                                        <span class="font-black min-w-[200px] text-feu-green uppercase tracking-tighter text-lg">Orientation</span>
+                                        <p class="text-sm text-slate-600 leading-relaxed">
+                                            Master your library. Our guided tours and skills workshops at the start of the academic year are designed to turn every Tamaraw into a proficient information navigator.
+                                        </p>
+                                    </div>
+
+                                    <!-- Alumni Assistance -->
+                                    <div class="flex flex-col md:flex-row gap-6 p-6 hover:bg-white/50 transition-colors rounded-xl">
+                                        <span class="font-black min-w-[200px] text-feu-green uppercase tracking-tighter text-lg">Alumni Access</span>
+                                        <p class="text-sm text-slate-600 leading-relaxed">
+                                            Once a Tamaraw, always a Tamaraw. We provide continued access to our educational resources for alumni, ensuring lifelong learning (researcher rules apply).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decorative Corner Page Fold -->
+                            <div class="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-slate-200 to-transparent pointer-events-none opacity-50"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Policies Section -->
+                <section id="policies" class="scroll-section">
+                    <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
+                        <!-- High-Impact Header -->
+                        <div class="bg-feu-green p-12 text-white relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-feu-gold/10 rounded-full -mr-20 -mt-20"></div>
+                            <div class="relative z-10">
+                                <h2 class="text-4xl font-black uppercase tracking-tighter mb-3">Policies</h2>
+                                <div class="h-1 w-20 bg-feu-gold mb-4"></div>
+                                <p class="text-lg opacity-90 max-w-2xl font-light">Rules and guidelines designed to foster a productive and professional learning environment for the FEU Tech community.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-8 md:p-12 space-y-16">
+                            
+                            <!-- Top Tier Grid: Users, ID, and Access -->
+                            <div class="grid lg:grid-cols-3 gap-8">
+                                <!-- Authorized Users -->
+                                <div class="flex flex-col">
+                                    <h3 class="text-xl font-bold text-feu-green mb-6 flex items-center">
+                                        <span class="bg-feu-green/10 p-2 rounded-xl mr-3 text-feu-green">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </span>
+                                        Authorized Users
+                                    </h3>
+                                    <div class="space-y-3 flex-grow">
+                                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start space-x-3 transition-hover hover:shadow-md">
+                                            <div class="h-2 w-2 rounded-full bg-feu-gold mt-2 flex-shrink-0"></div>
+                                            <span class="text-slate-700 font-medium text-sm leading-tight">Bonafide students of FEU Institute of Technology</span>
+                                        </div>
+                                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start space-x-3 transition-hover hover:shadow-md">
+                                            <div class="h-2 w-2 rounded-full bg-feu-gold mt-2 flex-shrink-0"></div>
+                                            <span class="text-slate-700 font-medium text-sm leading-tight">Bonafide members of the academic community</span>
+                                        </div>
+                                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start space-x-3 transition-hover hover:shadow-md">
+                                            <div class="h-2 w-2 rounded-full bg-feu-gold mt-2 flex-shrink-0"></div>
+                                            <span class="text-slate-700 font-medium text-sm leading-tight">Visiting users with referral letters</span>
+                                        </div>
+                                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start space-x-3 transition-hover hover:shadow-md">
+                                            <div class="h-2 w-2 rounded-full bg-feu-gold mt-2 flex-shrink-0"></div>
+                                            <span class="text-slate-700 font-medium text-sm leading-tight">Alumni with valid alumni ID</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Library ID -->
+                                <div class="flex flex-col">
+                                    <h3 class="text-xl font-bold text-feu-green mb-6 flex items-center">
+                                        <span class="bg-feu-green/10 p-2 rounded-xl mr-3 text-feu-green">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                                            </svg>
+                                        </span>
+                                        Library ID
+                                    </h3>
+                                    <div class="p-6 rounded-[2rem] bg-slate-50 border border-slate-100 flex-grow transition-hover hover:shadow-md">
+                                        <p class="text-slate-600 leading-relaxed italic">
+                                            The School ID will serve as library card and shall be used when borrowing and returning library materials.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Access to the collection -->
+                                <div class="flex flex-col">
+                                    <h3 class="text-xl font-bold text-feu-green mb-6 flex items-center">
+                                        <span class="bg-feu-green/10 p-2 rounded-xl mr-3 text-feu-green">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                            </svg>
+                                        </span>
+                                        Access to the collection
+                                    </h3>
+                                    <div class="p-6 rounded-[2rem] bg-slate-50 border border-slate-100 flex-grow transition-hover hover:shadow-md">
+                                        <p class="text-slate-600 leading-relaxed">
+                                            The FEU Institute of Technology Library maintains an open stack system. Books are arranged on the shelves according to the Library Congress Classification Scheme (LCC). Periodicals are arranged alphabetically by title.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- GENERAL BORROWING POLICIES FOR STUDENTS (2 columns per row) -->
+                            <div class="pt-8 border-t border-slate-100">
+                                <div class="flex items-center space-x-4 mb-10">
+                                    <div class="h-10 w-2 bg-feu-gold rounded-full"></div>
+                                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-tight">GENERAL BORROWING POLICIES FOR STUDENTS</h3>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <!-- Loan -->
+                                    <div class="relative p-8 rounded-[2rem] bg-feu-green text-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold mb-4 flex items-center uppercase tracking-tight">Loan</h4>
+                                        <ul class="text-white/80 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Students may borrow a maximum of two (2) books for three (3) days with one renewal privilege from the Filipiniana Collection and the Circulation Section.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Fiction books maybe loaned for a week and subject for renewal for another week if not in demand.Reference and Reserve Books, Periodicals, Vertical Files, Audio-Visual materials, Kindle (E-books), and Undergraduate Research Collection are restricted for library/room use only.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Loan period of books end one (1) week before the start of the final examinations.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Fines -->
+                                    <div class="relative p-8 rounded-[2rem] border-2 border-feu-green bg-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold text-feu-green mb-4 flex items-center uppercase tracking-tight">Fines</h4>
+                                        <ul class="text-slate-600 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Materials returned late are subject to overdue fine of Php 8.00/book/day. Overdue Fine Slip is signed by the librarian before payment is made to the Cashier.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Borrowers with overdue books and outstanding obligations will not be allowed to borrow unless all library accounts are settled.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Lost Books -->
+                                    <div class="relative p-8 rounded-[2rem] border-2 border-feu-green bg-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold text-feu-green mb-4 flex items-center uppercase tracking-tight">Lost Books</h4>
+                                        <ul class="text-slate-600 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> A lost book while out on loan must be reported immediately to the Librarian.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Lost book must be replaced by the borrower with the same title and edition and pay the accumulated fines.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Damaged Materials -->
+                                    <div class="relative p-8 rounded-[2rem] bg-feu-green text-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold mb-4 flex items-center uppercase tracking-tight">Damaged Materials</h4>
+                                        <ul class="text-white/80 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Missing pages in any borrowed book must be reported immediately to the librarian.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Library materials damaged beyond normal usage must be replaced with the same title, preferably the latest edition.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Photocopying -->
+                                    <div class="relative p-8 rounded-[2rem] bg-feu-green text-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold mb-4 flex items-center uppercase tracking-tight">Photocopying</h4>
+                                        <ul class="text-white/80 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Philippine copyright law prohibits photocopying of the entire book.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Photocopying of undergraduate research/thesis is strictly prohibited.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Photocopying of books is limited to 15 pages only.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Security Control -->
+                                    <div class="relative p-8 rounded-[2rem] border-2 border-feu-green bg-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold text-feu-green mb-4 flex items-center uppercase tracking-tight">Security Control</h4>
+                                        <ul class="text-slate-600 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> The library is equipped with CCTV system to ensure safety and security of the library users.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Library staff roam around for security purposes.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> A security gate is placed at the entrance of the library to alert the librarian of users who would bring out library materials without permission.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Suspension -->
+                                    <div class="relative p-8 rounded-[2rem] border-2 border-feu-green bg-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold text-feu-green mb-4 flex items-center uppercase tracking-tight">Suspension of Library Privileges</h4>
+                                        <p class="text-slate-600 font-bold text-xs mb-3">The following acts of misconduct are covered by the FEU Institute of Technology Student Handbook which provides for corresponding sanction:</p>
+                                        <ul class="text-slate-600 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Pilferage, defacement and mutilations of any library materials.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Dishonesty in the form of bringing out library materials without permission.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Discourtesy or any misdemeanour towards any Library Associate.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Conduct -->
+                                    <div class="relative p-8 rounded-[2rem] bg-feu-green text-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold mb-4 flex items-center uppercase tracking-tight">Conduct Inside the Library</h4>
+                                        <ul class="text-white/80 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Users are expected to conduct themselves in such a way that will not disturb peace and order in the library.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Eating, sleeping, drinking, littering, and the use of mobile phones are not allowed.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> SILENCE is the golden rule in the library.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- GENERAL BORROWING POLICIES FOR FACULTY AND ASSOCIATES -->
+                            <div class="pt-8 border-t border-slate-100">
+                                <div class="flex items-center space-x-4 mb-10">
+                                    <div class="h-10 w-2 bg-feu-gold rounded-full"></div>
+                                    <h3 class="text-2xl font-black text-slate-800 uppercase tracking-tight">GENERAL BORROWING POLICIES FOR FACULTY AND ASSOCIATES</h3>
+                                </div>
+                                
+                                <div class="grid lg:grid-cols-2 gap-8">
+                                    <!-- Book Borrowing Card -->
+                                    <div class="relative p-8 rounded-[2rem] bg-feu-green text-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <div class="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-tl-full -mb-10 -mr-10"></div>
+                                        <h4 class="text-xl font-bold mb-4 flex items-center uppercase tracking-tight">Book Borrowing</h4>
+                                        <ul class="text-white/80 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> All associates, including part-time faculty, may borrow a maximum of four (4) books from FEU Tech Library.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Books borrowed can be loaned for a period of one (1) week. Associates who fail to return the book on due date will be charged an overdue fine of Php 10.00/book/day.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-gold">•</span> Associates with overdue books or with any other accountability will not be cleared or allowed to borrow books, unless all obligations are settled.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Book Renewal Card -->
+                                    <div class="relative p-8 rounded-[2rem] border-2 border-feu-green bg-white overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+                                        <h4 class="text-xl font-bold text-feu-green mb-4 flex items-center uppercase tracking-tight">Book Renewal</h4>
+                                        <ul class="text-slate-600 space-y-3 text-sm leading-relaxed list-none">
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Borrowed books can be renewed only once.</li>
+                                            <li class="flex items-start"><span class="mr-2 text-feu-green">•</span> Renewal of books may be done personally or electronically through Library OPAC or the library email-address at library@feutech.edu.ph</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Journals and Publications Section -->
+                <section id="journals-and-publications" class="scroll-section">
+                    <div class="relative bg-[#fdfcf8] p-8 md:p-12 rounded-lg shadow-2xl border-l-[12px] border-feu-yellow overflow-hidden">
+                        <!-- Decorative Book Spine Effect (Yellow for Journals) -->
+                        <div class="absolute top-0 left-0 w-4 h-full bg-gradient-to-r from-black/5 to-transparent"></div>
+                        
+                        <!-- Header Section -->
+                        <div class="relative mb-12 border-b border-feu-yellow/30 pb-8">
+                            <h2 class="text-4xl font-serif font-bold text-feu-green mb-4 flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H14" />
+                                </svg>
+                                Journals & Publications
+                            </h2>
+                            <p class="text-slate-700 text-lg leading-relaxed">
+                                FEU Tech Library subscribes to a wide-range of journals for Information Technology and Engineering Education.
+                            </p>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-12 relative z-10">
+                            <!-- CCS COLUMN (Styled as a Journal Index) -->
+                            <div class="space-y-8">
+                                <h3 class="text-2xl font-serif font-bold text-feu-green bg-feu-yellow/10 py-2 px-4 rounded-r-full border-l-4 border-feu-yellow">
+                                    College of Computer Studies
+                                </h3>
+                                
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <!-- Computer Science -->
+                                    <div class="relative group">
+                                        <h4 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4 border-b-2 border-feu-green pb-1">Computer Science</h4>
+                                        <ul class="text-[13px] space-y-2 text-slate-600 font-medium">
+                                            <li class="hover:text-feu-green transition-colors">• Computers in Education Journal</li>
+                                            <li class="hover:text-feu-green transition-colors">• iPhone Life</li>
+                                            <li class="hover:text-feu-green transition-colors">• Journal of the ACM</li>
+                                            <li class="hover:text-feu-green transition-colors">• Journal of Computer Information Systems</li>
+                                            <li class="hover:text-feu-green transition-colors">• Journal of Information Systems Education</li>
+                                            <li class="hover:text-feu-green transition-colors">• Mac Life</li>
+                                            <li class="hover:text-feu-green transition-colors">• MIT Technology Review</li>
+                                            <li class="hover:text-feu-green transition-colors">• Philippine Computing Journal</li>
+                                            <li class="hover:text-feu-green transition-colors">• Transactions on Internet Technology</li>
+                                            <li class="hover:text-feu-green transition-colors">• Transactions on Web</li>
+                                            <li class="hover:text-feu-green transition-colors">• Web Designer</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Information Technology -->
+                                    <div class="relative group">
+                                        <h4 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4 border-b-2 border-feu-green pb-1">Information Technology</h4>
+                                        <ul class="text-[13px] space-y-2 text-slate-600 font-medium">
+                                            <li class="hover:text-feu-green transition-colors">• 3D Artist / 3D World</li>
+                                            <li class="hover:text-feu-green transition-colors">• Animation Magazine</li>
+                                            <li class="hover:text-feu-green transition-colors">• Computer Arts Magazine</li>
+                                            <li class="hover:text-feu-green transition-colors">• Electronic Gaming Monthly</li>
+                                            <li class="hover:text-feu-green transition-colors">• Journal of Educational Multimedia</li>
+                                            <li class="hover:text-feu-green transition-colors">• MIS Quarterly</li>
+                                            <li class="hover:text-feu-green transition-colors">• Philippine IT Journal</li>
+                                            <li class="hover:text-feu-green transition-colors">• Photoshop Creative</li>
+                                            <li class="hover:text-feu-green transition-colors">• Security Management</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- COE COLUMN -->
+                            <div class="space-y-8">
+                                <h3 class="text-2xl font-serif font-bold text-feu-green bg-feu-yellow/10 py-2 px-4 rounded-r-full border-l-4 border-feu-yellow">
+                                    College of Engineering
+                                </h3>
+                                
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <!-- EE / CIVIL -->
+                                    <div class="space-y-6">
+                                        <div>
+                                            <h4 class="text-xs font-bold text-feu-green uppercase mb-3 flex items-center gap-2">
+                                                <span class="w-2 h-2 bg-feu-yellow rounded-full"></span> EE / ECE
+                                            </h4>
+                                            <ul class="text-[13px] space-y-1 text-slate-600 pl-4 border-l border-slate-200">
+                                                <li>EC & M</li>
+                                                <li>Electric Light & Power</li>
+                                                <li>Sound + Vision</li>
+                                                <li>Electronic Design</li>
+                                                <li>Nuts & Volts</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xs font-bold text-feu-green uppercase mb-3 flex items-center gap-2">
+                                                <span class="w-2 h-2 bg-feu-yellow rounded-full"></span> Civil
+                                            </h4>
+                                            <ul class="text-[13px] space-y-1 text-slate-600 pl-4 border-l border-slate-200">
+                                                <li>Civil + Structural Engineer</li>
+                                                <li>Fine Homebuilding</li>
+                                                <li>Modern Steel Construction</li>
+                                                <li>Philippine Engineering Journal</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- MECH / COMP -->
+                                    <div class="space-y-6">
+                                        <div>
+                                            <h4 class="text-xs font-bold text-feu-green uppercase mb-3 flex items-center gap-2">
+                                                <span class="w-2 h-2 bg-feu-yellow rounded-full"></span> Mechanical
+                                            </h4>
+                                            <ul class="text-[13px] space-y-1 text-slate-600 pl-4 border-l border-slate-200">
+                                                <li>Machine Design</li>
+                                                <li>Mechanical Engineering</li>
+                                                <li>Plant & Works Engineering</li>
+                                                <li>Popular Mechanics</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xs font-bold text-feu-green uppercase mb-3 flex items-center gap-2">
+                                                <span class="w-2 h-2 bg-feu-yellow rounded-full"></span> Computer
+                                            </h4>
+                                            <ul class="text-[13px] space-y-1 text-slate-600 pl-4 border-l border-slate-200">
+                                                <li>Circuit Cellar</li>
+                                                <li>Gadgets / HWM</li>
+                                                <li>Wired</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Catalog (Gen Ed / Science / Interests) -->
+                        <div class="mt-16 pt-8 border-t-2 border-dashed border-slate-200 grid md:grid-cols-3 gap-8 relative z-10">
+                            <div class="bg-white/50 p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-serif font-bold text-feu-green mb-3 uppercase tracking-tighter">General Education</h4>
+                                <p class="text-[11px] text-slate-500 leading-relaxed italic">Art in America, English Journal, Philippine Journal of History, Teaching of English.</p>
+                            </div>
+                            <div class="bg-white/50 p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-serif font-bold text-feu-green mb-3 uppercase tracking-tighter">Math & Science</h4>
+                                <p class="text-[11px] text-slate-500 leading-relaxed italic">Mathematics Education Research, College Science Teaching, Philippines Statistician.</p>
+                            </div>
+                            <div class="bg-white/50 p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-serif font-bold text-feu-green mb-3 uppercase tracking-tighter">General Interests</h4>
+                                <p class="text-[11px] text-slate-500 leading-relaxed italic">National Geographic, Reader’s Digest, Time, Architectural Digest, Forbes Asia.</p>
+                            </div>
+                        </div>
+
+                        <!-- Book Corner Accent -->
+                        <div class="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-feu-yellow/10 to-transparent pointer-events-none"></div>
+                    </div>
+                </section>
+
+
+                <!-- Library Areas Section -->
+               <section id="library-areas" class="scroll-section p-12 rounded-[3rem] relative overflow-hidden">
+                    <div class="max-w-6xl mx-auto px-6">
+                        
+                        <!-- Section Header -->
+                        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                            <div>
+                                <h2 class="text-6xl font-black text-feu-green tracking-tighter uppercase leading-none">Library <br>Areas</h2>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            
+                            <!-- 01. Discussion Room -->
+                            <div class="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-feu-green">
+                                <div class="flex flex-col md:flex-row">
+                                    <!-- Index Number -->
+                                    <div class="bg-feu-green p-8 flex items-center justify-center text-feu-yellow md:w-32">
+                                        <span class="text-4xl font-black font-mono">01</span>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="p-8 md:p-10 flex-grow">
+                                        <h3 class="text-2xl font-bold text-feu-green mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">Discussion Room / Group Study Area</h3>
+                                        <p class="text-slate-600 text-lg max-w-2xl leading-relaxed">
+                                            The library provides an opportunity for the students to discuss course content and group works at the discussion area.
+                                        </p>
+                                    </div>
+                                    <!-- Visual Accent -->
+                                    <div class="hidden lg:flex items-center pr-10">
+                                        <div class="h-20 w-px bg-slate-200 group-hover:bg-feu-yellow transition-colors"></div>
+                                        <div class="pl-10 opacity-10 group-hover:opacity-100 transition-opacity">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#006838" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6.1H3"/><path d="M21 12.1H3"/><path d="M15.1 18H3"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 02. Silent Area (Featured Card) -->
+                            <div class="group relative bg-feu-green rounded-3xl overflow-hidden transition-all duration-500 shadow-xl">
+                                <div class="flex flex-col md:flex-row">
+                                    <!-- Index Number -->
+                                    <div class="bg-feu-yellow p-8 flex items-center justify-center text-feu-green md:w-32">
+                                        <span class="text-4xl font-black font-mono">02</span>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="p-8 md:p-10 flex-grow text-white">
+                                        <h3 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Silent Area / Individual Reading Area</h3>
+                                        <p class="text-white/80 text-lg max-w-2xl leading-relaxed mb-8">
+                                            A space has been set for individual reading & silent study. Study spaces in the rest of the library are Quiet Zones, where short, whispered conversations will be tolerated.
+                                        </p>
+                                        
+                                        <!-- Mini Rules Grid -->
+                                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/20">
+                                            <div class="flex flex-col">
+                                                <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">Device Policy</span>
+                                                <span class="text-sm font-medium">Silent mode only. No headphone leakage.</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">Calls</span>
+                                                <span class="text-sm font-medium">Take all phone calls outside the library.</span>
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">Refreshments</span>
+                                                <span class="text-sm font-medium">Bottled water only. No food permitted.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 03. Faculty Area -->
+                            <div class="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-feu-green">
+                                <div class="flex flex-col md:flex-row">
+                                    <!-- Index Number -->
+                                    <div class="bg-feu-yellow p-8 flex items-center justify-center text-slate-400 group-hover:bg-feu-green group-hover:text-white transition-colors md:w-32">
+                                        <span class="text-4xl font-black font-mono">03</span>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="p-8 md:p-10 flex-grow">
+                                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-feu-green/10 text-feu-green rounded-full text-[10px] font-black uppercase tracking-widest mb-4">
+                                            Faculty Only
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-feu-green mb-4 uppercase tracking-tight">Faculty Area</h3>
+                                        <p class="text-slate-600 text-lg max-w-2xl leading-relaxed italic">
+                                            "An office-like work space provided for the faculty members of the FEU Institute of Technology."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- E-Library Section -->
+                <section id="e-library" class="scroll-section bg-feu-green text-white p-12 rounded-[3rem] relative overflow-hidden">
+                    <div class="floating-circles">
+                        <div class="circle one"></div>
+                        <div class="circle two"></div>
+                        <div class="circle three"></div>
+                    </div>
+
+                    <div class="absolute bottom-0 right-0 opacity-10 translate-x-10 translate-y-10">
+                        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2h-4zM4 5h16v11H4V5z"></path></svg>
+                    </div>
+
+                    <div class="relative z-10">
+                        <h2 class="text-4xl font-black mb-6">E-LIBRARY</h2>
+                        <p class="max-w-2xl text-lg mb-10 opacity-90">Highly effective learning experience through Web and Internet technologies. This section houses Audio-visual collections and <span class="text-feu-yellow font-bold">Kindle (E-books)</span>.</p>
+
+                        <div class="grid lg:grid-cols-2 gap-10">
+                            <div class="bg-white/10 p-8 rounded-3xl backdrop-blur-sm">
+                                <h3 class="font-bold text-feu-yellow mb-4 uppercase tracking-widest text-sm">Service Hours</h3>
+                                <p class="text-2xl font-bold">8:00 AM — 5:00 PM</p>
+                                <p class="text-sm opacity-70">Monday — Friday</p>
+                                <p class="mt-4 text-xs italic font-medium text-feu-yellow">Requirement: School I.D.</p>
+                            </div>
+
+                            <div class="space-y-6">
+                                <h3 class="font-bold text-feu-yellow mb-2 uppercase tracking-widest text-sm">Kindle & Instructional Media Procedures</h3>
+                                <div class="space-y-4">
+                                    <div class="flex gap-4">
+                                        <span class="bg-feu-yellow text-feu-green font-bold w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 text-xs">1</span>
+                                        <p class="text-sm">Present a valid school ID and fill out Borrowing Agreement Form.</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <span class="bg-feu-yellow text-feu-green font-bold w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 text-xs">2</span>
+                                        <p class="text-sm">Use the EBR and IM at the designated area in the library.</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <span class="bg-feu-yellow text-feu-green font-bold w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 text-xs">3</span>
+                                        <p class="text-sm">Present the inspection form (IF) to the librarian in charge upon return.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Smooth scroll
+    document.querySelectorAll('aside nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // ACTIVE SECTION HIGHLIGHT (SCROLLSPY)
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 150) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+{% endblock %}
