@@ -28,7 +28,7 @@
         <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
     </head>
-    <body class="flex flex-col min-h-screen">
+    <body class="flex flex-col min-h-screen overflow-x-hidden">
         {# Page Loader Overlay #}
         <div id="page-loader" class="fixed inset-0 z-[99999] bg-[#FCFCFC] flex flex-col items-center justify-center transition-opacity duration-500">
             <img src="{{ asset('images/loader.gif') }}" alt="Loading..." class="w-48 h-48 object-contain">
