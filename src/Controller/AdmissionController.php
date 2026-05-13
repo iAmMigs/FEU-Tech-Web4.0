@@ -56,10 +56,4 @@ final class AdmissionController extends AbstractController
     {
         return $this->renderWithDefaults('Admission/tuition_fees.html.twig');
     }
-
-    #[Route('/faqs', name: 'app_admission_faqs')]
-    public function faqs(): Response
-    {
-        return $this->renderWithDefaults('Admission/faqs.html.twig');
-    }
 }

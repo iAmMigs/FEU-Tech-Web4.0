@@ -61,28 +61,28 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
 
             <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
-                <div class="text-5xl font-black text-feu-green">17</div>
+                <div class="text-4xl font-black text-feu-green">17</div>
                 <p class="text-slate-500 mt-3 text-sm font-medium">
                     Floors of modern infrastructure
                 </p>
             </div>
 
             <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
-                <div class="text-5xl font-black text-feu-yellow">24/7</div>
+                <div class="text-4xl font-black text-feu-yellow">24/7</div>
                 <p class="text-slate-500 mt-3 text-sm font-medium">
                     Campus safety & monitoring
                 </p>
             </div>
 
             <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
-                <div class="text-5xl font-black text-slate-800">WiFi</div>
+                <div class="text-4xl font-black text-slate-800">WiFi</div>
                 <p class="text-slate-500 mt-3 text-sm font-medium">
                     Building-wide connectivity
                 </p>
             </div>
 
             <div class="bg-white rounded-3xl p-7 shadow-2xl border border-slate-100">
-                <div class="text-5xl font-black text-feu-green">Labs</div>
+                <div class="text-4xl font-black text-feu-green">Labs</div>
                 <p class="text-slate-500 mt-3 text-sm font-medium">
                     Industry-standard facilities
                 </p>
@@ -101,29 +101,10 @@
     <div class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-feu-yellow/10 rounded-full blur-3xl"></div>
 
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-
-        <!-- Section Heading -->
-        <div class="text-center mb-16">
-
-            <span class="text-feu-green font-bold tracking-[0.25em] uppercase text-sm">
-                Explore the Campus
-            </span>
-
-            <h2 class="text-4xl md:text-5xl font-black text-slate-800 mt-4">
-                World-Class Learning Spaces
-            </h2>
-
-            <p class="text-slate-500 max-w-3xl mx-auto mt-6 leading-relaxed">
-                Discover the spaces, infrastructure, and student-centered environments
-                that shape the FEU Tech experience.
-            </p>
-
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8">
 
             <!-- LEFT NAVIGATION -->
-            <div class="space-y-5">
+            <div class="space-y-4">
 
                 {% set facilities = [
                     {
@@ -142,19 +123,19 @@
                         number: '03',
                         title: 'Technology Building',
                         subtitle: 'Modern infrastructure',
-                        color: 'slate'
+                        color: 'emerald'
                     },
                     {
                         number: '04',
                         title: 'Facilities Office',
                         subtitle: 'Safety & maintenance',
-                        color: 'blue'
+                        color: 'yellow'
                     },
                     {
                         number: '05',
                         title: 'Student Support Offices',
                         subtitle: 'Services & development',
-                        color: 'purple'
+                        color: 'emerald'
                     }
                 ] %}
 
@@ -162,18 +143,18 @@
                 <button onclick="showContent({{ loop.index0 }})"
                         class="facility-btn {{ loop.first ? 'active' : '' }}">
 
-                    <div class="flex items-center gap-5">
+                    <div class="flex items-center gap-4">
 
                         <div class="facility-icon {{ item.color }}">
                             {{ item.number }}
                         </div>
 
                         <div class="text-left">
-                            <h3 class="font-extrabold text-slate-800 text-[15px]">
+                            <h3 class="font-bold text-slate-800 text-sm">
                                 {{ item.title }}
                             </h3>
 
-                            <p class="text-sm text-slate-500 mt-1">
+                            <p class="text-xs text-slate-500 mt-1">
                                 {{ item.subtitle }}
                             </p>
                         </div>
@@ -204,8 +185,8 @@
 
 .facility-btn{
     width:100%;
-    padding:1.25rem;
-    border-radius:1.75rem;
+    padding:1rem;
+    border-radius:1.4rem;
     background:white;
     border:1px solid #e2e8f0;
     transition:all .3s ease;
@@ -213,9 +194,9 @@
 }
 
 .facility-btn:hover{
-    transform:translateY(-6px);
+    transform:translateY(-4px);
     border-color:rgba(0,131,72,.2);
-    box-shadow:0 20px 45px rgba(15,23,42,.08);
+    box-shadow:0 16px 35px rgba(15,23,42,.08);
 }
 
 .facility-btn.active{
@@ -229,14 +210,15 @@
 }
 
 .facility-icon{
-    width:60px;
-    height:60px;
-    border-radius:1.25rem;
+    width:44px;
+    height:44px;
+    min-width:44px;
+    border-radius:.9rem;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:900;
-    font-size:1.1rem;
+    font-weight:800;
+    font-size:.8rem;
     transition:.3s;
 }
 
@@ -281,6 +263,53 @@
     transform:translateY(-3px);
 }
 
+.facility-stat-card{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:1.25rem;
+    padding:1.2rem;
+}
+
+.facility-stat-card .stat-title{
+    font-size:2rem;
+    font-weight:900;
+    line-height:1;
+}
+
+.facility-stat-card p{
+    margin-top:.55rem;
+    font-size:.82rem;
+    color:#64748b;
+    line-height:1.5;
+}
+
+.facility-main-image{
+    transition: opacity .35s ease;
+}
+
+.gallery-thumb{
+    width:80px;
+    height:80px;
+    overflow:hidden;
+    border-radius:1rem;
+    border:3px solid rgba(255,255,255,.7);
+    background:white;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.gallery-thumb:hover{
+    transform:translateY(-5px) scale(1.05);
+    border-color:#febe10;
+}
+
+.gallery-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
 </style>
 
 <!-- SCRIPT -->
@@ -290,8 +319,15 @@ const data = [
 
 {
     badge: "Facilities",
+
     title: "Modern Learning & Campus Facilities",
-    image: "/images/FEU_TECH.jpg",
+
+    images: [
+        "/images/facility/campus_facilities_1.jpg",
+        "/images/facility/campus_facilities_2.jpg",
+        "/images/facility/campus_facilities_3.jpg",
+    ],
+
     desc: `
         <p>
             FEU Tech provides fully-equipped air-conditioned classrooms and laboratories;
@@ -304,28 +340,36 @@ const data = [
             designed to support learning, collaboration, and professional growth.
         </p>
     `,
+
     stats: `
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-green">24/7</div>
-            <p>Campus security and monitoring systems</p>
+            <div class="stat-title text-feu-green">E-Library</div>
+            <p>A go-to place when you need to study</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-yellow">WiFi</div>
+            <div class="stat-title text-feu-yellow">WiFi</div>
             <p>Building-wide internet accessibility</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-slate-800">Labs</div>
-            <p>Industry-standard engineering facilities</p>
+            <div class="stat-title text-slate-800">Labs</div>
+            <p>Industry-standard engineering facilities and high-tech computers</p>
         </div>
     `
 },
 
 {
     badge: "Heritage",
+
     title: "The FEU Main Campus Experience",
-    image: "/images/ABOUT_TECH.jpg",
+
+    images: [
+        "/images/facility/Main_campus.jpg",
+        "/images/facility/Main_campus_2.jpg",
+        "/images/facility/Main_campus_3.jpg"
+    ],
+
     desc: `
         <p>
             The FEU Technology Building is located along Morayta within Far Eastern University’s
@@ -337,19 +381,20 @@ const data = [
             including five buildings designed by National Artist Pablo Antonio.
         </p>
     `,
+
     stats: `
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-green">90+</div>
+            <div class="stat-title text-feu-green">90+</div>
             <p>Years of educational excellence</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-yellow">5</div>
+            <div class="stat-title text-feu-yellow">5</div>
             <p>Art Deco buildings by Pablo Antonio</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-slate-800">Green</div>
+            <div class="stat-title text-slate-800">Green</div>
             <p>Open parks and shaded campus spaces</p>
         </div>
     `
@@ -357,8 +402,15 @@ const data = [
 
 {
     badge: "Innovation",
+
     title: "The Modern FEU Technology Building",
-    image: "/images/FEU-TECHBLD.jpg",
+
+    images: [
+        "/images/facility/Modern (1).jpg",
+        "/images/facility/Modern (2).jpg",
+        "/images/facility/Modern (3).jpg"
+    ],
+
     desc: `
         <p>
             FEU Institute of Technology is housed in a modern 17-story building in the
@@ -372,19 +424,20 @@ const data = [
             and energy-efficient air conditioning.
         </p>
     `,
+
     stats: `
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-green">17</div>
+            <div class="stat-title text-feu-green">17</div>
             <p>Floors of modern infrastructure</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-yellow">25m</div>
+            <div class="stat-title text-feu-yellow">25m</div>
             <p>Indoor swimming pool facility</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-slate-800">Eco</div>
+            <div class="stat-title text-slate-800">Eco</div>
             <p>Green Building Technology systems</p>
         </div>
     `
@@ -392,8 +445,15 @@ const data = [
 
 {
     badge: "Operations",
+
     title: "Facilities Office Responsibilities",
-    image: "/images/FACILITIES_TECH.jpg",
+
+    images: [
+        "/images/facility/facilities_1.jpg",
+        "/images/facility/facilities_2.jpg",
+        "/images/facility/facilities_3.png"
+    ],
+
     desc: `
         <p>
             The Facilities Office maintains an ideal academic physical setting
@@ -406,19 +466,20 @@ const data = [
             daily campus activities.
         </p>
     `,
+
     stats: `
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-green">Safe</div>
+            <div class="stat-title text-feu-green">Safe</div>
             <p>Secure learning environment</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-yellow">Daily</div>
+            <div class="stat-title text-feu-yellow">Daily</div>
             <p>Facility activity monitoring</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-slate-800">Care</div>
+            <div class="stat-title text-slate-800">Care</div>
             <p>Campus maintenance management</p>
         </div>
     `
@@ -426,8 +487,15 @@ const data = [
 
 {
     badge: "Student Services",
+
     title: "Comprehensive Student Support Offices",
-    image: "/images/ABOUT_TECH.jpg",
+
+    images: [
+        "/images/facility/student_support_1.png",
+        "/images/facility/student_support_1.jpg",
+        "/images/facility/student_support_3.jpg"
+    ],
+
     desc: `
         <p>
             FEU Tech supports students through specialized offices including
@@ -441,25 +509,38 @@ const data = [
             technological assistance, and student-centered services.
         </p>
     `,
+
     stats: `
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-green">iCARE</div>
+            <div class="stat-title text-feu-green">iCARE</div>
             <p>Academic enrichment services</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-feu-yellow">IALAP</div>
+            <div class="stat-title text-feu-yellow">IALAP</div>
             <p>Career and industry opportunities</p>
         </div>
 
         <div class="facility-stat-card">
-            <div class="text-5xl font-black text-slate-800">SADO</div>
+            <div class="stat-title text-slate-800">SADO</div>
             <p>Leadership and student development</p>
         </div>
     `
 }
 
 ];
+
+function changeGalleryImage(src){
+
+    const mainImage = document.getElementById("mainFacilityImage");
+
+    mainImage.style.opacity = "0";
+
+    setTimeout(() => {
+        mainImage.src = src;
+        mainImage.style.opacity = "1";
+    }, 200);
+}
 
 function showContent(index){
 
@@ -471,22 +552,44 @@ function showContent(index){
 
     viewer.innerHTML = `
 
-        <div class="relative h-[320px] overflow-hidden">
+        <div class="relative overflow-hidden">
 
-            <img src="${data[index].image}"
-                 class="w-full h-full object-cover">
+            <!-- MAIN IMAGE -->
+            <div class="relative h-[420px] overflow-hidden">
 
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+                <img 
+                    id="mainFacilityImage"
+                    src="${data[index].images[0]}"
+                    class="w-full h-full object-cover facility-main-image">
 
-            <div class="absolute bottom-0 left-0 p-8 lg:p-10">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
 
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-feu-yellow text-xs font-bold uppercase tracking-[0.2em] mb-5">
-                    ${data[index].badge}
+                <div class="absolute bottom-16 left-0 p-8 lg:p-10">
+
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-bold uppercase tracking-[0.2em] mb-5">
+                        ${data[index].badge}
+                    </div>
+
+                    <h2 class="text-4xl lg:text-5xl font-black text-white max-w-3xl leading-tight">
+                        ${data[index].title}
+                    </h2>
+
                 </div>
 
-                <h2 class="text-4xl lg:text-5xl font-black text-white max-w-3xl leading-tight">
-                    ${data[index].title}
-                </h2>
+            </div>
+
+            <!-- THUMBNAILS -->
+            <div class="absolute bottom-6 right-6 flex gap-4 z-20">
+
+                ${data[index].images.map((img) => `
+                    <button 
+                        onclick="changeGalleryImage('${img}')"
+                        class="gallery-thumb">
+
+                        <img src="${img}" class="w-full h-full object-cover">
+
+                    </button>
+                `).join('')}
 
             </div>
 
@@ -498,13 +601,13 @@ function showContent(index){
 
                 <div>
 
-                    <div class="space-y-6 text-slate-600 leading-relaxed text-[15px]">
+                    <div class="space-y-7 text-slate-600 leading-loose text-[16px] lg:text-[17px] font-medium">
                         ${data[index].desc}
                     </div>
 
                 </div>
 
-                <div class="grid grid-cols-1 gap-5">
+                <div class="grid grid-cols-1 gap-4">
                     ${data[index].stats}
                 </div>
 
@@ -517,23 +620,5 @@ function showContent(index){
 showContent(0);
 
 </script>
-
-<style>
-
-.facility-stat-card{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:1.5rem;
-    padding:1.5rem;
-}
-
-.facility-stat-card p{
-    margin-top:.75rem;
-    font-size:.9rem;
-    color:#64748b;
-    line-height:1.6;
-}
-
-</style>
 
 {% endblock %}

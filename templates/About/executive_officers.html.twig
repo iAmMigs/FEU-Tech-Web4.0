@@ -7,7 +7,7 @@
         --feu-yellow: #febe10;
     }
 
-    /* Card style (MATCHED) */
+    /* Card style */
     .officer-card {
         transition: all 0.3s ease;
         border: 1px solid #e2e8f0;
@@ -27,7 +27,7 @@
     }
 
     .officer-card:hover .role {
-        color: var(--feu-yellow);
+        color: #febe10;
     }
 
     /* Bottom accent line */
@@ -46,7 +46,7 @@
     }
 </style>
 
-<!-- Hero Section (MATCHED) -->
+<!-- Hero Section -->
 <section id="top" class="relative w-full h-[45vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black">
     <div class="absolute inset-0 z-0">
         <img src="/images/EXECUTIVE_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-40">
@@ -59,7 +59,7 @@
         </span>
 
         <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
-            Executive <span class="text-[#008348]">Officers</span>
+            Executive <span class="text-[#febe10]">Officers</span>
         </h1>
 
         <div class="w-24 h-1 bg-[#febe10] mx-auto mt-6"></div>
@@ -70,25 +70,49 @@
 <section class="py-24 bg-slate-50 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        <!-- Grid (MATCHED gap) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% set featured_officers = [
+            ['Juan Miguel R. Montinola','President'],
+            ['Benson T. Tan, Ph.D.','Senior Executive Director'],
+            ['Edna M. Anicete','Executive Director for Finance'],
+            ['Rossana T. Adao','Executive Director']
+        ] %}
 
-            {% set officers = [
-                ['Juan Miguel R. Montinola','President'],
-                ['Benson T. Tan, Ph.D.','Senior Executive Director'],
-                ['Edna M. Anicete','Executive Director for Finance'],
-                ['Rossana T. Adao','Executive Director'],
-                ['Romano Q. Neyra, D.T., Asean Engineer','Senior Director for Engineering'],
-                ['Ace C. Lagman, DIT','Senior Director for Computer Studies and Multimedia Arts'],
-                ['Manuel B. Garcia, DIT, LPT','Senior Director for Educational Technology and Digital Learning'],
-                ['Engr. Daryl D. David','Senior Director for Innovation and Research'],
-                ['Remella A. Cabreros, D.B.A.','Senior Director for Academic Services'],
-                ['Jarvis C. Muyargas','Senior Director for Student Success'],
-                ['Engr. Rolando B. Cauriz','Senior Director for Facilities'],
-                ['Jacklyn Anne C. Mantolino','Senior Director for Human Resources'],
-                ['Ana Liza G. Velasquez','Senior Director for Information Technology Services'],
-                ['Ma. Christina N. Nalipay','Senior Director for Finance']
-            ] %}
+        {% set officers = [
+            ['Romano Q. Neyra, D.T., Asean Engineer','Senior Director for Engineering'],
+            ['Ace C. Lagman, DIT','Senior Director for Computer Studies and Multimedia Arts'],
+            ['Manuel B. Garcia, DIT, LPT','Senior Director for Educational Technology and Digital Learning'],
+            ['Engr. Daryl D. David','Senior Director for Innovation and Research'],
+            ['Remella A. Cabreros, D.B.A.','Senior Director for Academic Services'],
+            ['Jarvis C. Muyargas','Senior Director for Student Success'],
+            ['Engr. Rolando B. Cauriz','Senior Director for Facilities'],
+            ['Jacklyn Anne C. Mantolino','Senior Director for Human Resources'],
+            ['Ana Liza G. Velasquez','Senior Director for Information Technology Services'],
+            ['Ma. Christina N. Nalipay','Senior Director for Finance']
+        ] %}
+
+        <!-- TOP OFFICERS (1 per row, centered text only) -->
+        <div class="space-y-6 mb-12">
+            {% for o in featured_officers %}
+            <div class="officer-card bg-white p-8 rounded-lg shadow-sm text-center">
+
+                <!-- Name -->
+                <p class="name text-2xl font-bold text-black transition-colors leading-snug">
+                    {{ o[0] }}
+                </p>
+
+                <!-- Role -->
+                <p class="role text-sm text-[#008348] uppercase mt-2 tracking-wider transition-colors">
+                    {{ o[1] }}
+                </p>
+
+                <!-- Hover line -->
+                <div class="hover-line"></div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- REMAINING OFFICERS (3 COLUMNS) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {% for o in officers %}
             <div class="officer-card bg-white p-8 rounded-lg shadow-sm">
@@ -99,7 +123,7 @@
                 </p>
 
                 <!-- Role -->
-                <p class="role text-s text-[#008348] uppercase mt-2 tracking-wider transition-colors">
+                <p class="role text-sm text-[#008348] uppercase mt-2 tracking-wider transition-colors">
                     {{ o[1] }}
                 </p>
 

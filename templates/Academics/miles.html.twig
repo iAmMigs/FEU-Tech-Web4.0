@@ -1,0 +1,402 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MILES | FEU Institute of Technology{% endblock %}
+
+{% block body %}
+
+<!-- HERO SECTION -->
+<section class="relative overflow-hidden bg-[#02150d] text-white">
+
+    <!-- Background -->
+    <div class="absolute inset-0">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-[#014421] via-[#012818] to-[#02150d]"></div>
+
+        <div class="absolute top-0 left-0 w-[700px] h-[700px] bg-feu-green/20 rounded-full blur-3xl"></div>
+
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-yellow-400/10 rounded-full blur-3xl"></div>
+
+        <div class="absolute inset-0 opacity-[0.03]"
+             style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 28px 28px;">
+        </div>
+
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+
+        <div class="max-w-4xl">
+
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md mb-8">
+
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse"></span>
+
+                <span class="uppercase tracking-[0.25em] text-sm font-semibold text-slate-200">
+                    Learning Enhancement System
+                </span>
+
+            </div>
+
+            <!-- Heading -->
+            <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-6 leading-none">
+                MILES
+            </h1>
+
+            <p class="text-2xl md:text-3xl text-slate-100 font-medium leading-relaxed mb-8">
+                Mastery-based Individualized Learning Enhancement System
+            </p>
+
+            <p class="text-lg text-slate-300 leading-relaxed max-w-3xl">
+                A pioneering educational ecosystem that extends the capabilities of Canvas
+                to provide mastery-based and individualized learning for FEU Tech students.
+            </p>
+
+            <!-- CTA -->
+            <div class="mt-10 flex flex-wrap gap-4">
+
+                <a href="#addons"
+                   class="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-feu-yellow text-slate-900 font-bold hover:bg-yellow-300 transition-all duration-300 shadow-2xl shadow-yellow-400/20">
+
+                    Explore Platforms
+
+                    <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                         fill="none"
+                         stroke="currentColor"
+                         viewBox="0 0 24 24">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M14 5l7 7m0 0l-7 7m7-7H3">
+                        </path>
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INTRO -->
+<section class="relative py-28 bg-white overflow-hidden">
+
+    <!-- Decorations -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-feu-green/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- LEFT -->
+            <div>
+
+                <span class="text-feu-green font-bold uppercase tracking-[0.2em] text-sm">
+                    What is MILES?
+                </span>
+
+                <h2 class="text-5xl md:text-6xl font-black text-slate-900 leading-tight mt-5 mb-8">
+                    A Smarter
+                    <span class="text-feu-green">
+                        Way to Learn
+                    </span>
+                </h2>
+
+                <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+
+                    <p>
+                       MILES stands for Mastery-based Individualized Learning Enhancement System. It is a pioneering educational system that extends the capability of Canvas to ensure mastery and individualized learning.
+                    </p>
+
+                    <p>
+                        Mastery learning is an innovative strategy in education that emphasizes the need for students to achieve a level of mastery in prerequisite topics before moving on to learn subsequent topics. This helps build a solid foundation for present and future learning. The learning environment is enhanced further by individualized learning where faculty members provide mentoring and tutoring support to individual students.
+                    </p>
+
+                    <p>
+                        With MILES, students learn and practice their lessons using well-designed content and assessments geared toward mastery of the lesson—encouraging students to reach higher levels of achievement and develop more confidence in their ability to learn. Canvas is FEU Alabang, FEU Diliman, and FEU Tech’s learning management system (LMS).
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="relative">
+
+                <div class="absolute inset-0 bg-feu-green/20 blur-3xl rounded-full"></div>
+
+                <div class="relative bg-[#013220] rounded-[34px] p-10 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.35)] overflow-hidden">
+
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
+
+                    <div class="relative z-10">
+
+                        <div class="flex items-center gap-5 mb-10">
+
+                            <div class="w-20 h-20 rounded-[24px] bg-white/10 backdrop-blur-lg flex items-center justify-center border border-white/10">
+
+                                <svg class="w-10 h-10 text-yellow-400"
+                                     fill="none"
+                                     stroke="currentColor"
+                                     viewBox="0 0 24 24">
+
+                                    <path stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2"
+                                          d="M12 14l9-5-9-5-9 5 9 5z"></path>
+
+                                    <path stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2"
+                                          d="M12 14l6.16-3.422A12.083 12.083 0 0120 17.5
+                                          M12 14l-6.16-3.422A12.083 12.083 0 004 17.5
+                                          M12 14v7"></path>
+
+                                </svg>
+
+                            </div>
+
+                            <div>
+
+                                <h3 class="text-3xl font-bold text-white">
+                                    Powered by Canvas
+                                </h3>
+
+                                <p class="text-slate-300 mt-1">
+                                    FEU Alabang, FEU Diliman & FEU Tech LMS
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="grid gap-5">
+
+                            {% set features = [
+                                'Individualized learning support',
+                                'Mastery-based assessments',
+                                'Interactive collaboration tools',
+                                'Integrated online learning ecosystem'
+                            ] %}
+
+                            {% for feature in features %}
+
+                            <div class="group flex items-center gap-4 bg-white/5 border border-white/5 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+
+                                <div class="w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center border border-yellow-400/20 group-hover:rotate-6 transition-transform duration-300">
+
+                                    <svg class="w-5 h-5 text-yellow-400"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         viewBox="0 0 24 24">
+
+                                        <path stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="2"
+                                              d="M5 13l4 4L19 7">
+                                        </path>
+
+                                    </svg>
+
+                                </div>
+
+                                <p class="text-slate-100 font-medium">
+                                    {{ feature }}
+                                </p>
+
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ADDONS -->
+<section id="addons" class="relative py-28 bg-[#f7f8fa] overflow-hidden">
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Heading -->
+        <div class="text-center mb-20">
+
+            <span class="text-feu-green font-bold uppercase tracking-[0.25em] text-sm">
+                Integrated Platforms
+            </span>
+
+            <h2 class="text-5xl md:text-6xl font-black text-slate-900 mt-5 mb-6">
+                MILES Add-ons
+            </h2>
+
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed">
+                Industry-leading platforms integrated into one seamless learning ecosystem
+                for collaboration, productivity, communication, and mastery learning.
+            </p>
+
+        </div>
+
+        {% set addons = [
+            {
+                title: 'Canvas',
+                subtitle: 'Learning Management System',
+                image: 'canvas.png',
+                description: 'Canvas is the most popular learning management system used by the world’s leading universities including Yale and Harvard. It is designed to empower both teachers and students by making an engaging learning environment with video-based learning and collaboration tools.',
+                accent: 'bg-[#E9711C]'
+            },
+            {
+                title: 'BigBlueButton',
+                subtitle: 'Virtual Classroom',
+                image: 'bbb_icon.jpeg',
+                description: 'Supports synchronous online classes, consultations, and real-time communication within Canvas.',
+                accent: 'bg-[#2D8CFF]'
+            },
+            {
+                title: 'G Suite',
+                subtitle: 'Google Workspace',
+                image: 'google.png',
+                description: 'Includes Google Drive, Docs, Sheets, Slides, and Forms for cloud-based productivity and collaboration.',
+                accent: 'bg-[#34A853]'
+            },
+            {
+                title: 'Microsoft Teams',
+                subtitle: 'Communication Platform',
+                image: 'msteams_icon.png',
+                description: 'Enables collaboration through messaging, meetings, file sharing, and integrated communication tools.',
+                accent: 'bg-[#6264A7]'
+            },
+            {
+                title: 'Microsoft Office 365',
+                subtitle: 'Productivity Cloud',
+                image: 'o365.png',
+                description: 'Provides access to familiar productivity applications like Word, Excel, PowerPoint, and OneNote.',
+                accent: 'bg-[#D83B01]'
+            }
+        ] %}
+
+        <!-- EXACT CARD STYLE LIKE SCREENSHOT -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+
+            {% for addon in addons %}
+
+            <div class="group bg-white rounded-[34px] border border-[#e8edf2] overflow-hidden min-h-[520px] flex flex-col shadow-[0_4px_14px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_40px_rgba(15,23,42,0.08)] transition-all duration-300">
+
+                <!-- TOP LINE -->
+                <div class="h-[6px] w-full {{ addon.accent }}"></div>
+
+                <div class="p-10 flex flex-col flex-1">
+
+                    <!-- HEADER -->
+                    <div class="flex items-start gap-6 mb-10">
+
+                        <!-- ICON -->
+                        <div class="w-[88px] h-[88px] rounded-[22px] border border-[#e5e7eb] bg-[#f8fafc] flex items-center justify-center shrink-0">
+
+                            <img src="{{ asset('images/miles/' ~ addon.image) }}"
+                                 alt="{{ addon.title }}"
+                                 class="w-12 h-12 object-contain">
+
+                        </div>
+
+                        <!-- TITLE -->
+                        <div class="pt-1">
+
+                            <h3 class="text-[1.7rem] leading-none font-black text-[#07132b] mb-3">
+                                {{ addon.title }}
+                            </h3>
+
+                            <p class="text-[#13804b] text-lg font-semibold leading-snug">
+                                {{ addon.subtitle }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- DESCRIPTION -->
+                    <div class="flex-1">
+
+                        <p class="text-[1rem] leading-[2.2rem] text-[#556070] font-medium">
+                            {{ addon.description }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            <!-- FEATURE CARD -->
+            <div class="relative overflow-hidden rounded-[34px] bg-[#013220] p-10 text-white min-h-[520px] shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+
+                <div class="absolute inset-0">
+
+                    <div class="absolute top-0 right-0 w-72 h-72 bg-green-400/10 blur-3xl rounded-full"></div>
+
+                    <div class="absolute bottom-0 left-0 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full"></div>
+
+                </div>
+
+                <div class="relative z-10 h-full flex flex-col justify-between">
+
+                    <div>
+
+                        <div class="w-[92px] h-[92px] rounded-[24px] bg-white/10 border border-white/10 flex items-center justify-center mb-12">
+
+                            <svg class="w-11 h-11 text-yellow-400"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 viewBox="0 0 24 24">
+
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M13 10V3L4 14h7v7l9-11h-7z">
+                                </path>
+
+                            </svg>
+
+                        </div>
+
+                        <h3 class="text-[2.5rem] font-black leading-[1.05] mb-8">
+                            Connected
+                            <br>
+                            Learning
+                            <br>
+                            Experience
+                        </h3>
+
+                        <p class="text-slate-300 text-m leading-[2rem] max-w-md">
+                            MILES brings together powerful educational technologies into
+                            one connected ecosystem focused on innovation, accessibility,
+                            collaboration, and academic excellence.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
