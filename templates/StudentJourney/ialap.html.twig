@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IALAP - FEU Institute of Technology{% endblock %}
+
+{% block body %}
+<style>
+    :root {
+        --feu-green: #008348;
+        --feu-yellow: #febe10;
+    }
+</style>
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
+    <div class="absolute inset-0 z-0">
+        <!-- Background Imagery -->
+        <div class="w-full h-full bg-slate-800 absolute"></div>
+        <img src="/images/carousel_bg3.jpg" class="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" alt="">
+        
+        <!-- Large Mascot Detail (Mirrored from iCARE) -->
+        <img src="/images/Tamtam/Graduating_Tammy.png" class="absolute w-[800px] opacity-10 mix-blend-screen left-[-150px] top-[-100px] transform -scale-x-100" alt="">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-green-900/40 to-slate-900/80"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto transform translate-y-4 animate-fade-in-up">
+        <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Student Journey
+        </span>
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
+            Alumni & <span class="text-[#febe10]">Placement</span>
+        </h1>
+        <p class="mt-4 text-white/80 uppercase tracking-widest text-sm font-semibold max-w-2xl mx-auto">
+            Industry-Academe Linkage, Alumni, and Placement
+        </p>
+        <p class="mt-6 text-slate-300 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Continuing the journey beyond graduation: life-long learning, cherished memories, and career opportunities.
+        </p>
+        <div class="w-24 h-1 bg-[#febe10] mx-auto mt-8 rounded-full"></div>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="py-20 bg-slate-50 relative overflow-hidden">
+    <!-- Subtle Mascot Detail -->
+    <div class="absolute bottom-10 right-[5%] opacity-30 z-0 hidden lg:block hover:opacity-100 transition-opacity duration-300">
+        <img src="/images/Tamtam/Graduating_Tammy.png" alt="Graduating Tammy" class="w-48 h-auto">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+                <h2 class="text-3xl font-black text-slate-900 mb-6">Welcome Back, Tamaraws!</h2>
+                <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                    <p>
+                        Thank you for visiting our Alumni page. We know that your time at FEU Institute of Technology was filled with life-long learning and cherished memories of friendship.
+                    </p>
+                    <p>
+                        Whether you want to check out upcoming events wherein you could participate, connect with other alumni, or know about job opportunities to further improve your career, the Industry-Academe Linkage, Alumni and Placement Office is ready to assist you.
+                    </p>
+                    <p>
+                        And next time you are on campus, please stop by the IALAP Office, we’d love to meet our exceptional alumni in person. See you soon!
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-green-50 text-feu-green rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-2">FEU Tech Alumni Card</h3>
+                <p class="text-feu-yellow font-black text-xl mb-4">Get yours now for only P500.00!</p>
+                <p class="text-slate-500 text-sm mb-6">
+                    Please take note that the process for the Alumni Card request in FEU Tech is different from FEU Manila. Should you wish to apply for an FEU Alumni Card, please contact the IALAP Office directly.
+                </p>
+                <a href="https://www.feu.edu.ph/index.php/alumni-relations/alumni-id/" target="_blank" class="bg-feu-green text-white px-6 py-3 rounded-full font-bold hover:bg-green-700 transition-colors inline-flex items-center gap-2">
+                    Learn More
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Block -->
+<section class="py-16 bg-feu-green text-white border-t border-green-800">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-black uppercase mb-6 text-[#febe10]">Keep in Touch</h2>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-sm font-medium mt-8">
+            <div class="flex items-center gap-3 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
+                <svg class="w-5 h-5 text-[#febe10]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                <span>Room 1601</span>
+            </div>
+            <div class="flex items-center gap-3 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
+                <svg class="w-5 h-5 text-[#febe10]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span>ialap@feutech.edu.ph</span>
+            </div>
+            <div class="flex items-center gap-3 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
+                <svg class="w-5 h-5 text-[#febe10]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                <span>Local 119</span>
+            </div>
+        </div>
+        
+        <div class="mt-8">
+            <a href="https://www.facebook.com/feutech.ialap" target="_blank" class="inline-flex items-center gap-2 text-white font-bold hover:underline hover:text-[#febe10] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Join the FEU Tech Alumni Community on Facebook
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

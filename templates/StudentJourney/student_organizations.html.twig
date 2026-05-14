@@ -1,0 +1,221 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student Organizations - FEU Institute of Technology{% endblock %}
+
+{% block body %}
+<style>
+    :root {
+        --feu-green: #008348;
+        --feu-yellow: #febe10;
+    }
+
+    .org-card {
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .org-card:hover {
+        transform: translateY(-20px);
+        box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.2);
+        border-color: var(--feu-green);
+    }
+</style>
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
+    <div class="absolute inset-0 z-0">
+        <img src="/images/FACILITIES_TECH.jpg" alt="Student Organizations" class="w-full h-full object-cover opacity-40 mix-blend-overlay">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/50"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto transform translate-y-4 animate-fade-in-up">
+        <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Student Journey
+        </span>
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
+            Student <span class="text-[#febe10]">Organizations</span>
+        </h1>
+        <p class="mt-6 text-slate-300 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Fostering critical thinking, camaraderie, and academic excellence through student-led initiatives.
+        </p>
+        <div class="w-24 h-1 bg-[#febe10] mx-auto mt-8 rounded-full"></div>
+    </div>
+</section>
+
+<!-- Main Bodies Section -->
+<section class="py-20 bg-slate-50 relative overflow-hidden">
+    <!-- Subtle Mascot Detail -->
+    <div class="absolute top-20 right-[5%] opacity-30 z-0 hidden lg:block hover:opacity-100 transition-opacity duration-300">
+        <img src="/images/Tamtam/Megaphone_Tammy.png" alt="Tammy" class="w-40 h-auto transform -rotate-12">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- SCC -->
+            <div class="bg-white p-10 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border-2 border-slate-900/10 org-card relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-green-50 rounded-full blur-2xl"></div>
+                <div class="w-16 h-16 bg-feu-green text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-200">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h3 class="text-3xl font-black text-slate-900 mb-4">Student Coordinating Council (SCC)</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    The highest governing student body of FEU Tech. It fosters an atmosphere where critical thinking prevails and enjoins students to act as one in addressing their concerns, welfare, and rights.
+                </p>
+            </div>
+
+            <!-- The Innovator -->
+            <div class="bg-white p-10 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border-2 border-slate-900/10 org-card relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-yellow-50 rounded-full blur-2xl"></div>
+                <div class="w-16 h-16 bg-[#febe10] text-slate-900 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-yellow-200/50">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                </div>
+                <h3 class="text-3xl font-black text-slate-900 mb-4">The Innovator</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    The official publication of FEU Tech. It promotes campus journalism, defending the rights of students to information and freedom of expression through truthful and unbiased news.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Organizations -->
+<section class="py-20 relative overflow-hidden bg-white">
+    <!-- Green Overlay & Background Image -->
+    <div class="absolute inset-0 z-0 bg-feu-green/10"></div>
+    <div class="absolute inset-0 z-0">
+        <img src="/images/facility/student_support_1.jpg" alt="Background" class="w-full h-full object-cover opacity-[0.15] grayscale mix-blend-multiply">
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">Academic Organizations</h2>
+            <div class="w-16 h-1 bg-feu-green mx-auto rounded-full"></div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-8">
+            {% set academicOrgs = [
+                {'abbr': 'ACES', 'name': 'Association of Civil Engineering Students', 'desc': 'The local student chapter of the Philippine Institute of Civil Engineering (PICE).', 'logo': 'ACES.png'},
+                {'abbr': 'ACM', 'name': 'Association for Computing Machinery', 'desc': 'Promotes increased knowledge in science, design, and applications of modern computing.', 'logo': 'ACM.png'},
+                {'abbr': 'AITS', 'name': 'Alliance of Information Technology Students', 'desc': 'Forms an alliance between different IT specializations in the college.', 'logo': 'AITS.png'},
+                {'abbr': 'CpEO', 'name': 'Computer Engineering Organization', 'desc': 'Develops students skills towards excellence in Computer Engineering.', 'logo': 'CPEO.png'},
+                {'abbr': 'ECESS', 'name': 'Electronics Engineering Students Society', 'desc': 'Local chapter of IECEP-MSC, enhancing rapport among ECE students.', 'logo': 'ECESS.png'},
+                {'abbr': 'EESA', 'name': 'Electrical Engineering Student’s Association', 'desc': 'Aims for academic excellence and development in Electrical Engineering.', 'logo': 'EESA.png'},
+                {'abbr': 'JPCS', 'name': 'Junior Philippine Computer Society', 'desc': 'Enhances knowledge and skills in ICT to produce world-class IT professionals.', 'logo': 'JCPS.png'},
+                {'abbr': 'MEChS', 'name': 'Mechanical Engineering Chain of Societies', 'desc': 'Honing students to become competitive future mechanical engineers.', 'logo': 'MECHs.png'}
+            ] %}
+
+            {% for org in academicOrgs %}
+            <div class="relative group w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] h-72 z-10 hover:z-50 org-hover-wrapper">
+                
+                <!-- Peeking Tammy -->
+                <img src="/images/Tamtam/Leaping_Tammy.png" class="tammy-peek-img absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-auto opacity-0 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:opacity-100 group-hover:-top-20 group-hover:-translate-y-8 z-0 pointer-events-none drop-shadow-xl" alt="Tammy">
+                
+                <div class="relative bg-slate-50 border-2 border-slate-900/10 rounded-3xl w-full h-full overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.2)] group-hover:-translate-y-8 group-hover:border-feu-green transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] z-10">
+                    <!-- Front (Default state) -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-4 z-10 bg-slate-50">
+                        <img src="/images/orgs/{{ org.logo }}" alt="{{ org.abbr }} Logo" class="h-28 w-auto object-contain mb-6 transition-transform duration-500 group-hover:scale-110">
+                        <h4 class="text-3xl font-black text-slate-900 tracking-tight">{{ org.abbr }}</h4>
+                    </div>
+                    
+                    <!-- Back (Hover state) -->
+                    <div class="absolute inset-0 flex flex-col justify-center p-8 bg-feu-green text-white opacity-0 transform translate-y-8 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 z-20">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-3xl font-black text-white">{{ org.abbr }}</h4>
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                <img src="/images/orgs/{{ org.logo }}" alt="Logo" class="h-6 w-auto object-contain drop-shadow-md">
+                            </div>
+                        </div>
+                        <h5 class="text-sm font-bold text-[#febe10] mb-4 uppercase tracking-widest leading-relaxed">{{ org.name }}</h5>
+                        <p class="text-green-50 text-base leading-relaxed border-t border-white/20 pt-4">{{ org.desc }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Non-Academic & Special Orgs -->
+<section class="py-20 bg-slate-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-black uppercase tracking-tight mb-4">Special Interest Organizations</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Providing venues for students to develop holistically beyond the academic curriculum.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% set specialOrgs = [
+                {'name': 'Artist Connection (AC)', 'desc': 'Provides a venue for members to exhibit talents in singing, dancing, acting, and cheer dancing.', 'color': 'text-purple-400', 'bg': 'bg-purple-400/10'},
+                {'name': 'College-Y Club', 'desc': 'Student chapter of the YMCA. Non-academic in nature for holistic self-development.', 'color': 'text-blue-400', 'bg': 'bg-blue-400/10'},
+                {'name': 'Scholars Guild', 'desc': 'Promotes academic excellence and enhances Math and Physics skills.', 'color': 'text-yellow-400', 'bg': 'bg-yellow-400/10'},
+                {'name': 'Recreation and Athletics Club (RAC)', 'desc': 'Endeavors to promote a healthy lifestyle through sports and representation in competitions.', 'color': 'text-red-400', 'bg': 'bg-red-400/10'},
+                {'name': 'Youth for Christ (YFC)', 'desc': 'Provides a healthy, Christian-support environment through peer counseling and prayer meetings.', 'color': 'text-green-400', 'bg': 'bg-green-400/10'},
+                {'name': 'International Students Association (ISA)', 'desc': 'Unites foreign students, promoting international friendships and cultural appreciation.', 'color': 'text-cyan-400', 'bg': 'bg-cyan-400/10'}
+            ] %}
+
+            {% for org in specialOrgs %}
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                <div class="w-10 h-10 rounded-lg {{ org.bg }} {{ org.color }} flex items-center justify-center mb-4">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                </div>
+                <h4 class="text-lg font-bold mb-2">{{ org.name }}</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">{{ org.desc }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+    (function() {
+        const tammyImages = [
+            '/images/Tamtam/Leaping_Tammy.png',
+            '/images/Tamtam/Jumping_Tammy.png',
+            '/images/Tamtam/Wave_Tammy.png'
+        ];
+        
+        let lastImage = null;
+        let consecutiveCount = 0;
+
+        // Preload to prevent flicker
+        tammyImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        function initTammy() {
+            const orgWrappers = document.querySelectorAll('.org-hover-wrapper');
+            orgWrappers.forEach(wrapper => {
+                // Use onmouseenter to avoid duplicate event listeners if initialized multiple times
+                wrapper.onmouseenter = function() {
+                    const peekImg = this.querySelector('.tammy-peek-img');
+                    if (peekImg) {
+                        let nextImage;
+                        
+                        // Keep picking until we find one that doesn't break the 'no thrice in a row' rule
+                        do {
+                            const randomIndex = Math.floor(Math.random() * tammyImages.length);
+                            nextImage = tammyImages[randomIndex];
+                        } while (nextImage === lastImage && consecutiveCount >= 2);
+
+                        // Update tracking variables
+                        if (nextImage === lastImage) {
+                            consecutiveCount++;
+                        } else {
+                            lastImage = nextImage;
+                            consecutiveCount = 1;
+                        }
+
+                        peekImg.src = nextImage;
+                    }
+                };
+            });
+        }
+
+        // Initialize immediately
+        initTammy();
+
+        // Re-initialize if the page is loaded via Turbo
+        document.addEventListener('turbo:load', initTammy);
+    })();
+</script>
+
+{% endblock %}
