@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}iCARE - FEU Institute of Technology{% endblock %}
+
+{% block body %}
+<style>
+    :root {
+        --feu-green: #008348;
+        --feu-yellow: #febe10;
+    }
+</style>
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
+    <div class="absolute inset-0 z-0">
+        <!-- Assuming a library/study area placeholder -->
+        <div class="w-full h-full bg-slate-800 absolute"></div>
+        <img src="/images/Tamtam/Reading_Book_Tammy.png" class="absolute w-[800px] opacity-10 mix-blend-screen right-[-100px] top-[-50px]" alt="">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/60"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto transform translate-y-4 animate-fade-in-up">
+        <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Student Journey
+        </span>
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
+            i<span class="text-[#febe10]">CARE</span>
+        </h1>
+        <p class="mt-4 text-white/80 uppercase tracking-widest text-sm font-semibold max-w-2xl mx-auto">
+            iTamaraw Center for Academic Resources and Enrichment
+        </p>
+        <p class="mt-6 text-slate-300 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Committed to providing resources and enriching students' learning skills to enhance academic and communication abilities.
+        </p>
+        <div class="w-24 h-1 bg-[#febe10] mx-auto mt-8 rounded-full"></div>
+    </div>
+</section>
+
+<!-- Main Services Section -->
+<section class="py-20 bg-slate-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">Academic Services</h2>
+            <div class="w-16 h-1 bg-feu-green mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <!-- Consultations -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:border-feu-green transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-green-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <div class="w-14 h-14 bg-feu-green text-white rounded-xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-green-200">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4 relative z-10">Consultation Sessions</h3>
+                <p class="text-slate-600 leading-relaxed relative z-10">
+                    A venue for faculty consultations giving students the convenience of clarifying academic standings, consulting about difficulties, missed examinations, and other concerns.
+                </p>
+            </div>
+
+            <!-- Tutorials -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:border-feu-yellow transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <div class="w-14 h-14 bg-[#febe10] text-slate-900 rounded-xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-yellow-200/50">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4 relative z-10">Tutorials</h3>
+                <div class="space-y-3 relative z-10">
+                    <p class="text-slate-600 text-sm"><strong>Peer Tutorials:</strong> Friendly, non-intimidating sessions led by student scholars who excel in Mathematics.</p>
+                    <p class="text-slate-600 text-sm"><strong>Faculty-Facilitated:</strong> Guides providing supplementary lectures or entertaining queries about specific topics.</p>
+                </div>
+            </div>
+
+            <!-- Review Classes -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:border-blue-500 transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <div class="w-14 h-14 bg-blue-500 text-white rounded-xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-blue-200">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4 relative z-10">Review & Enhancement Classes</h3>
+                <p class="text-slate-600 leading-relaxed relative z-10">
+                    Preparation sessions for major exams. Faculty members schedule classes to review topics that need mastery. Open to anyone who wishes to join.
+                </p>
+            </div>
+
+            <!-- Individual/Group Study -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:border-purple-500 transition-colors relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-purple-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                <div class="w-14 h-14 bg-purple-500 text-white rounded-xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-purple-200">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4 relative z-10">Independent Study</h3>
+                <p class="text-slate-600 leading-relaxed relative z-10">
+                    Promotes independent learning. Students are provided with instructional modules with minimal intervention to develop confidence in problem-solving skills.
+                </p>
+            </div>
+        </div>
+
+        <!-- Mental Health Section -->
+        <div class="bg-white border border-slate-100 rounded-[2.5rem] p-10 md:p-14 relative overflow-hidden shadow-xl shadow-slate-200/50">
+            <!-- Decorative circle -->
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-green-50/50 rounded-full"></div>
+            
+            <div class="relative z-10 md:w-2/3">
+                <span class="text-[#febe10] font-black tracking-widest uppercase text-xs mb-3 block">Holistic Wellness</span>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">Mental Health <span class="text-feu-green">Support</span></h2>
+                <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                    Learning does not stop inside the classroom. iCARE conducts motivational talks covering study habits, time management, and emotional wellness.
+                </p>
+                <p class="text-slate-600 text-lg leading-relaxed">
+                    In collaboration with the <span class="text-feu-green font-bold underline decoration-yellow-400 decoration-2 underline-offset-4">Guidance & Counseling Office (GCO)</span>, we provide tele and web counseling services, ensuring students' overall well-being is always prioritized.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Block -->
+<section class="py-16 bg-white border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-black uppercase mb-6 text-slate-900">Reach Out to iCARE</h2>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-sm font-medium mt-8">
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-full text-slate-700 hover:border-feu-green transition-colors">
+                <svg class="w-5 h-5 text-feu-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                <span>Room F1402/F1403, 14th Floor, FIT Building</span>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 px-6 py-3 rounded-full text-slate-700 hover:border-feu-green transition-colors">
+                <svg class="w-5 h-5 text-feu-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span>icare@feutech.edu.ph</span>
+            </div>
+        </div>
+        
+        <div class="mt-8">
+            <a href="https://www.facebook.com/iCareFEU" target="_blank" class="inline-flex items-center gap-2 text-[#0866FF] font-bold hover:underline">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Visit our official Facebook page
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

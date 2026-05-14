@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Community Extension Services - FEU Institute of Technology{% endblock %}
+
+{% block body %}
+<style>
+    :root {
+        --feu-green: #008348;
+        --feu-yellow: #febe10;
+    }
+
+    .program-card {
+        transition: all 0.3s ease;
+    }
+    .program-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border-color: var(--feu-green);
+    }
+</style>
+
+<!-- Hero Section -->
+<section id="top" class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
+    <div class="absolute inset-0 z-0">
+        <img src="/images/carousel_bg2.jpg" alt="Community Extension" class="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-green-900/40 to-slate-900/80"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto transform translate-y-4 animate-fade-in-up">
+        <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+            Student Journey
+        </span>
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
+            Community <span class="text-[#febe10]">Extension</span>
+        </h1>
+        <p class="mt-6 text-slate-300 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Mobilizing innovative technologies and modern approaches to develop communities through Social Responsibility, Integrity, and Ethics.
+        </p>
+        <div class="w-24 h-1 bg-[#febe10] mx-auto mt-8 rounded-full"></div>
+    </div>
+</section>
+
+<!-- Values & Framework -->
+<section class="py-20 bg-slate-50 relative overflow-hidden">
+    <!-- Mascot Integration -->
+    <div class="absolute bottom-10 left-[5%] opacity-40 z-0 hidden lg:block hover:opacity-100 transition-opacity duration-300">
+        <img src="/images/Tamtam/Backpack_Tammy.png" alt="Tammy Volunteer" class="w-48 h-auto">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:border-feu-green transition-colors">
+                <div class="w-16 h-16 bg-green-50 text-feu-green rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Advocacy</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Supporting local and national concerns through social forums and promotions of personal responsibility in nation-building.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:border-feu-yellow transition-colors">
+                <div class="w-16 h-16 bg-yellow-50 text-feu-yellow rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Compassion</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Providing services to meet changing needs. We embrace and celebrate the rich dimensions of diversity within each individual.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:border-blue-500 transition-colors">
+                <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Empowerment</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Working towards clientele efficiency in solving problems with utmost skills and innovative technologies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Community Oriented Programs -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">iTam Programs</h2>
+            <div class="w-16 h-1 bg-[#febe10] mx-auto rounded-full"></div>
+            <p class="mt-6 text-slate-600 max-w-2xl mx-auto">Our specialized initiatives aligned with UN Sustainable Development Goals.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {% set programs = [
+                {'title': 'iTamMakakalikasan', 'desc': 'Improving, protecting, preserving and restoring the natural environment in support of SDG 13, 14, and 15.', 'acts': 'Tree Planting, Waste Management, Clean & Green Projects'},
+                {'title': 'iTamBayani', 'desc': 'Recognizing the spirit of volunteerism. A week-long activity uniting the College in charity work.', 'acts': 'Project Eskwela, NGO Fair, Bloodletting Drive'},
+                {'title': 'iTamKalinangan', 'desc': 'Empowerment of students, associates, and alumni aligned with Quality Education and Decent Work SDGs.', 'acts': 'Literacy Programs, Skills Training, Livelihood Programs'},
+                {'title': 'iTamKaalaman', 'desc': 'Sharing thoughts and insights on current social issues addressing No Poverty and Good Health SDGs.', 'acts': 'Seminars on Social Issues, First Aid, Disaster Preparedness'},
+                {'title': 'iTamBahaginan', 'desc': 'Demonstrating the Bayanihan spirit in times of crisis through resource generation and relief operations.', 'acts': 'Relief Goods Donation, Fund Raising, Christmas Gift-giving'},
+                {'title': 'iTamTeknolohiya', 'desc': 'Sharing expertise in engineering and technology to heighten the technological knowhow of partner communities.', 'acts': 'Technology Transfer, Systems Development, Tech Consultancy'}
+            ] %}
+
+            {% for p in programs %}
+            <div class="program-card border border-slate-200 rounded-2xl p-8 bg-white relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-green-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                
+                <h3 class="text-2xl font-bold text-feu-green mb-3 relative z-10">{{ p.title }}</h3>
+                <p class="text-slate-600 mb-6 text-sm leading-relaxed relative z-10">{{ p.desc }}</p>
+                
+                <div class="bg-slate-50 p-4 rounded-xl relative z-10 border border-slate-100">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Key Activities</h4>
+                    <p class="text-slate-700 text-sm font-medium">{{ p.acts }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact Block -->
+<section class="py-16 bg-feu-green text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-black uppercase mb-6 text-[#febe10]">Get Involved</h2>
+        <p class="text-green-100 mb-8 max-w-xl mx-auto">Ready to make a difference? Visit us or drop an email to learn more about our upcoming outreach programs.</p>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 text-sm font-medium">
+            <div class="flex items-center gap-3 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
+                <svg class="w-5 h-5 text-[#febe10]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                <span>Room 1501</span>
+            </div>
+            <div class="flex items-center gap-3 bg-white/10 px-6 py-3 rounded-full backdrop-blur-sm">
+                <svg class="w-5 h-5 text-[#febe10]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span>communityextension@feutech.edu.ph</span>
+            </div>
+        </div>
+        
+        <div class="mt-10">
+            <a href="/assets/files/CESU_Manual_2020.pdf" target="_blank" class="inline-flex items-center gap-2 text-sm text-green-100 hover:text-white underline underline-offset-4 decoration-green-100/50 hover:decoration-white transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                Download CESU Manual
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

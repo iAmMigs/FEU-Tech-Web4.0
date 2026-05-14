@@ -472,51 +472,58 @@
 
 <!-- Bank Selection Script -->
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const bankBtns = document.querySelectorAll('.bank-btn');
-        const contentSections = document.querySelectorAll('.content-section');
+    (function() {
+        function initTuitionTabs() {
+            const bankBtns = document.querySelectorAll('.bank-btn');
+            const contentSections = document.querySelectorAll('.content-section');
 
-        bankBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const targetId = btn.getAttribute('data-target');
-                
-                // 1. Hide all content sections
-                contentSections.forEach(section => {
-                    section.classList.add('hidden');
-                });
-                
-                // 2. Remove active styling from all buttons
-                bankBtns.forEach(b => {
-                    b.classList.remove('ring-4', 'ring-offset-2', 'scale-[1.02]', 'z-10');
-                    b.classList.add('bg-slate-50');
+            if (!bankBtns.length) return; // Guard clause
+
+            bankBtns.forEach(btn => {
+                // Use onclick to avoid duplicate event listeners if initialized multiple times
+                btn.onclick = () => {
+                    const targetId = btn.getAttribute('data-target');
                     
-                    // Specific color rings based on bank
-                    if(b.getAttribute('data-target') === 'bank-bpi') b.classList.remove('ring-[#b11116]/50');
-                    if(b.getAttribute('data-target') === 'bank-bdo') b.classList.remove('ring-[#0038A8]/50');
-                    if(b.getAttribute('data-target') === 'bank-robinsons') b.classList.remove('ring-[#F21A22]/50');
-                    if(b.getAttribute('data-target') === 'bank-landbank') b.classList.remove('ring-[#007A33]/50');
-                    if(b.getAttribute('data-target') === 'bank-gcash') b.classList.remove('ring-[#007DFE]/50');
-                });
+                    // 1. Hide all content sections
+                    contentSections.forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    
+                    // 2. Remove active styling from all buttons
+                    bankBtns.forEach(b => {
+                        b.classList.remove('ring-4', 'ring-offset-2', 'scale-[1.02]', 'z-10');
+                        b.classList.add('bg-slate-50');
+                        
+                        // Specific color rings based on bank
+                        b.classList.remove('ring-[#b11116]/50', 'ring-[#0038A8]/50', 'ring-[#F21A22]/50', 'ring-[#007A33]/50', 'ring-[#007DFE]/50');
+                    });
 
-                // 3. Show target content section
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.remove('hidden');
-                }
+                    // 3. Show target content section
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
 
-                // 4. Add active styling to clicked button
-                btn.classList.add('scale-[1.02]', 'z-10', 'bg-white');
-                btn.classList.remove('bg-slate-50');
-                
-                // Add specific ring color
-                if(targetId === 'bank-bpi') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#b11116]/50');
-                if(targetId === 'bank-bdo') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#0038A8]/50');
-                if(targetId === 'bank-robinsons') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#F21A22]/50');
-                if(targetId === 'bank-landbank') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#007A33]/50');
-                if(targetId === 'bank-gcash') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#007DFE]/50');
+                    // 4. Add active styling to clicked button
+                    btn.classList.add('scale-[1.02]', 'z-10', 'bg-white');
+                    btn.classList.remove('bg-slate-50');
+                    
+                    // Add specific ring color
+                    if(targetId === 'bank-bpi') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#b11116]/50');
+                    if(targetId === 'bank-bdo') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#0038A8]/50');
+                    if(targetId === 'bank-robinsons') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#F21A22]/50');
+                    if(targetId === 'bank-landbank') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#007A33]/50');
+                    if(targetId === 'bank-gcash') btn.classList.add('ring-4', 'ring-offset-2', 'ring-[#007DFE]/50');
+                };
             });
-        });
-    });
+        }
+
+        // Initialize immediately
+        initTuitionTabs();
+
+        // Re-initialize if the page is loaded via Turbo
+        document.addEventListener('turbo:load', initTuitionTabs);
+    })();
 </script>
 
 {% endblock %}
