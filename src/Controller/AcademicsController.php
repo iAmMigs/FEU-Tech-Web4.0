@@ -27,6 +27,13 @@ final class AcademicsController extends AbstractController
         return $this->renderWithDefaults('Academics/ccsma.html.twig');
     }
 
+            #[Route('/academics/bscs', name: 'app_bscs')]
+            public function BSCS(): Response
+            {
+                return $this->renderWithDefaults('Academics/ccsma/bscs.html.twig');
+            }
+
+
     #[Route('/academics/coe', name: 'app_coe')]
     public function COE(): Response
     {

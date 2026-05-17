@@ -1,33 +1,157 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-<section id="top" class="relative w-full h-[25vh] min-h-[250px] flex items-end justify-center overflow-hidden">
+<section id="top" class="relative w-full h-[20vh] min-h-[200px] flex items-end justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="/images/About_TECH.jpg"
+        <img src="/images/history/1936.jpg"
              alt="Hero Background"
              class="w-full h-full object-cover opacity-80 mix-blend-multiply">
         <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
     </div>
-
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-10 md:pb-18">
+        <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-10 md:pb-18">
         <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
             History of <span class="feu-gradient-text">FEU Tech</span>
         </h1>
-        <p class="text-lg md:text-xl text-slate-200 mb-10 font-light max-w-2xl mx-auto drop-shadow-md">
-            Facts and History
-        </p>
+    </div>
+
+</section>
+
+<!-- Flow-up animation applied to this section -->
+<section class="bg-[#fdfdfd] py-20 px-6 border-b border-gray-100 reveal-on-scroll opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+            <div class="max-w-2xl">
+                <h2 class="text-green-800 font-bold tracking-widest uppercase text-sm mb-2">Campus Heritage</h2>
+                <h1 class="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">The Evolution of <br><span class="text-green-700">Institutional Identity</span></h1>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            
+            <div class="flex flex-col items-center group">
+                <div class="w-full aspect-square max-w-[280px] mb-8 relative p-8 bg-white rounded-full shadow-inner border border-gray-50 flex items-center justify-center overflow-hidden">
+                    <img src="/images/history/logo (2).png" class="w-full h-full object-contain group-hover:grayscale-0 transition duration-500" alt="Historical FEU Logo">
+                    <div class="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                </div>
+                <div class="text-center px-4">
+                    <h3 class="text-2xl font-bold text-green-900 mb-4 uppercase tracking-tighter">The Early Roots</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        logo from 2026logo from 2026logo from 2026logo from 2026logo from 2026
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center group">
+                <div class="w-full aspect-square max-w-[280px] mb-8 relative p-8 bg-white rounded-full shadow-inner border border-gray-50 flex items-center justify-center overflow-hidden">
+                    <img src="/images/history/logo (3).png" class="w-full h-full object-contain group-hover:grayscale-0 transition duration-500" alt="FEU EAC Logo">
+                    <div class="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                </div>
+                <div class="text-center px-4">
+                    <h3 class="text-2xl font-bold text-green-900 mb-4 uppercase tracking-tighter">Artistic Heritage</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        logo from 2026
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center group">
+                <div class="w-full aspect-square max-w-[280px] mb-8 relative p-8 bg-white rounded-full shadow-inner border border-gray-50 flex items-center justify-center overflow-hidden">
+                    <img src="/images/Tech_Logo.png" class="w-full h-full object-contain group-hover:grayscale-0 transition duration-500" alt="Historical FEU Logo">
+                    <div class="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                </div>
+                <div class="text-center px-4">
+                    <h3 class="text-2xl font-bold text-green-900 mb-4 uppercase tracking-tighter">The Rebirth</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        logo from 2026
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
-<div class="bg-white min-h-screen py-12 px-4 md:px-10">
+<!-- Flow-up animation applied to this section -->
+<section class="bg-[#f8f9fa] py-20 px-6 overflow-hidden reveal-on-scroll opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+            <div class="hidden md:block w-32 h-px bg-gray-300"></div>
+            <p class="text-slate-500 max-w-sm italic text-right">"Tracing our roots from the Far Eastern College of 1919 to the modern pinnacle of Engineering and IT excellence."</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-500 relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 opacity-5 text-8xl font-bold text-slate-900 select-none">1919</div>
+                <div class="flex justify-center mb-8 h-48 items-center">
+                    <img src="/images/history/logo (2).png" class="max-h-full object-contain drop-shadow-md transform hover:rotate-3 transition duration-500" alt="FEU EAC Logo">
+                </div>
+                <h3 class="text-xl font-bold text-green-800 mb-4 border-b-2 border-yellow-400 pb-2 inline-block">The Roots & Culture</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Founded in 1919 as Far Eastern College, the institution flourished under Dr. Nicanor Reyes. Long before the Tech building rose, the site was a <strong>humble cigarette factory</strong> at C.M. Recto.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    By the 1950s, the FEU Auditorium became the <strong>"Cultural Center of the Philippines,"</strong> hosting National Artists like Pablo Antonio and operas like <em>La Traviata</em>.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-500 relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 opacity-5 text-8xl font-bold text-slate-900 select-none">1992</div>
+                <div class="flex justify-center mb-8 h-48 items-center">
+                    <img src="/images/history/logo (3).jpg" class="max-h-full object-contain drop-shadow-md transform hover:-rotate-3 transition duration-500" alt="EACIT Logo">
+                </div>
+                <h3 class="text-xl font-bold text-green-800 mb-4 border-b-2 border-yellow-400 pb-2 inline-block">Global Standards</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    The Institute of Technology established a reputation comparable to <strong>MIT, Cornell, and Michigan</strong>. With modern laboratories and a highly skilled faculty, it became a benchmark for engineering excellence.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Despite a temporary closure in 1996 due to financial pressures, the spirit of innovation led to the <strong>"Power of Two"</strong>—merging Engineering and IT education.
+                </p>
+            </div>
+
+            <div class="bg-green-900 p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                <div class="relative z-10">
+                    <div class="absolute -right-4 -top-4 opacity-10 text-8xl font-bold text-white select-none">NOW</div>
+                    <div class="flex justify-center mb-8 h-48 items-center">
+                        <img src="/images/Tech_Logo.png" class="max-h-full object-contain brightness-0 invert drop-shadow-2xl group-hover:scale-110 transition duration-500" alt="Current FEU Tech Logo">
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-4 border-b-2 border-yellow-500 pb-2 inline-block">The Modern Pinnacle</h3>
+                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                        In 2014, the name <strong>FEU Institute of Technology</strong> was restored, reclaiming its historical identity. Today, it stands as a premier hub for trimestral, industry-immersed education.
+                    </p>
+                    <div class="mt-6 flex items-center gap-3 text-yellow-400 font-bold text-xs uppercase tracking-widest">
+                        <span>Excellence</span>
+                        <span class="w-1 h-1 bg-yellow-400 rounded-full"></span>
+                        <span>Innovation</span>
+                        <span class="w-1 h-1 bg-yellow-400 rounded-full"></span>
+                        <span>Heritage</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- YELLOW START: Gradient begins here at the header section -->
+<div style="background: linear-gradient(to bottom, #ffffff 2%, #fffee0 100%);" class="pt-20 pb-10">
+    <div class="flex flex-col items-center text-center">
+        <h2 class="text-green-800 font-bold tracking-[0.3em] uppercase text-xs mb-3">FEU Institute of Technology</h2>
+        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 italic"> Timeline</h1>
+        <div class="w-16 h-1 bg-[#febe10]"></div>
+    </div>
+</div>
+
+
+<!-- TIMELINE CONTAINER: Yellow fades to white within the top 1/8 (12.5%) of this section -->
+<div class="min-h-screen py-12 px-4 md:px-10" 
+     style="background: linear-gradient(to bottom, #fffee0 8%, #ffffff 12.5%, #ffffff 100%);">
 
     <div class="relative max-w-7xl mx-auto" id="timeline">
 
-        <!-- Background line -->
         <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-green-200"></div>
 
-        <!-- Active scrolling line -->
         <div id="timeline-line"
              class="absolute left-1/2 transform -translate-x-1/2 top-0 w-[4px] bg-green-700 h-0 transition-all duration-300 z-10">
         </div>
@@ -45,7 +169,7 @@
                 { 'date': '1994', 'content': 'EAICT started to offer the degree of Bachelor of Science in Computer Engineering (BSCOE).', 'image': '/images/history/1994.jpg' },
                 { 'date': 'September 30, 1998', 'content': 'The Commission on Higher Education (CHED) noted the change in the name of East Asia Institute of Computer Technology (EAICT) to East Asia College of Information Technology (EACIT).', 'image': '/images/history/1998.jpg' },
                 { 'date': 'February 24, 2000', 'content': 'EACIT sought the approval of CHED to offer additional courses leading to the degrees of Bachelor of Science in Information Technology and Bachelor of Science in Information Management. Both courses gained full recognition in April 2004.', 'image': '/images/history/2000.jpg' },
-                { 'date': '2001', 'content': 'FEU acquired the controlling stock of EACIT and gained full control of the College.', 'image': '/images/history/2001.jpg' },
+                { 'date': '2001', 'content': 'ACIT sought the approval of CHED to offer additional courses leading to the degrees of Bachelor of Science in Information Technology and Bachelor of Science in Information Management. Both courses gained full recognition in April 2004.', 'image': '/images/history/2001.jpg' },
                 { 'date': '2002', 'content': 'FEU acquired the controlling stock of EACIT.', 'image': '/images/history/2002.jpg' },
                 { 'date': '2003', 'content': 'FEU merged Engineering and EACIT forming FEU–EAC.', 'image': '/images/history/2003.jpg' },
                 { 'date': '2014', 'content': 'FEU–EAC was renamed FEU Institute of Technology (FEU Tech).', 'image': '/images/history/2014.jpg' }
@@ -78,16 +202,13 @@
                         </div>
                     </div>
 
-                    <!-- CENTER MARKER -->
                     <div class="w-16 flex flex-col items-center marker-container relative z-20">
                         <div class="h-11"></div>
 
                         <div class="flex-1 w-full relative flex items-center justify-center">
 
-                            <!-- DEFAULT DOT -->
                             <span class="timeline-dot absolute w-6 h-6 rounded-full bg-green-600 border-4 border-white shadow-lg z-10 transition-all duration-300"></span>
 
-                            <!-- ACTIVE GIF -->
                             <img src="/images/readingtamtam2.gif"
                                  class="timeline-gif absolute w-14 h-14 object-contain opacity-0 scale-75 transition-all duration-300 z-20 pointer-events-none rounded-full border-4 border-transparent bg-white">
                         </div>
@@ -122,6 +243,19 @@
 </div>
 
 <script>
+    // Reveal Observer for Section Flow Animation
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(section => revealObserver.observe(section));
+
+
     const items = document.querySelectorAll('.timeline-item');
     const line = document.getElementById('timeline-line');
     const timeline = document.getElementById('timeline');
@@ -133,8 +267,6 @@
 
         items.forEach((item, index) => {
             const rect = item.getBoundingClientRect();
-
-            // Item becomes active once it crosses viewport middle
             if (rect.top < viewportMiddle) {
                 activeIndex = index;
             }
@@ -143,101 +275,55 @@
         const timelineTop =
             timeline.getBoundingClientRect().top + window.scrollY;
 
-        // If no active item yet
         if (activeIndex < 0) {
             line.style.height = '0px';
         } else {
-
-            // LAST ITEM SPECIAL CASE
-            // Make the dark line continue to the very bottom
             if (activeIndex === items.length - 1) {
-
                 const timelineBottom =
                     timeline.getBoundingClientRect().bottom + window.scrollY;
-
                 line.style.height =
                     (timelineBottom - timelineTop) + 'px';
-
             } else {
-
-                // Normal behavior
                 const currentItem = items[activeIndex];
                 const dot = currentItem.querySelector('.timeline-dot');
-
                 const dotCenter =
                     dot.getBoundingClientRect().top +
                     window.scrollY +
                     (dot.offsetHeight / 2);
-
                 line.style.height =
                     (dotCenter - timelineTop) + 'px';
             }
         }
 
-        // Handle icon visibility
         items.forEach((item, index) => {
-
             const dot = item.querySelector('.timeline-dot');
             const gif = item.querySelector('.timeline-gif');
 
             if (index === activeIndex) {
-
                 dot.classList.add('opacity-0', 'scale-0');
-
-                gif.classList.remove(
-                    'opacity-0',
-                    'scale-75',
-                    'border-transparent'
-                );
-
-                gif.classList.add(
-                    'opacity-100',
-                    'scale-100',
-                    'border-green-500'
-                );
-
+                gif.classList.remove('opacity-0', 'scale-75', 'border-transparent');
+                gif.classList.add('opacity-100', 'scale-100', 'border-green-500');
             } else {
-
                 dot.classList.remove('opacity-0', 'scale-0');
-
-                gif.classList.remove(
-                    'opacity-100',
-                    'scale-100',
-                    'border-green-500'
-                );
-
-                gif.classList.add(
-                    'opacity-0',
-                    'scale-75',
-                    'border-transparent'
-                );
+                gif.classList.remove('opacity-100', 'scale-100', 'border-green-500');
+                gif.classList.add('opacity-0', 'scale-75', 'border-transparent');
             }
         });
     };
 
-    // Fade in animation
-    const observer = new IntersectionObserver((entries) => {
-
+    const timelineObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-
             if (entry.isIntersecting) {
-
                 entry.target.classList.remove('opacity-0');
                 entry.target.classList.add('opacity-100');
             }
         });
+    }, { threshold: 0.2 });
 
-    }, {
-        threshold: 0.2
-    });
+    items.forEach(item => timelineObserver.observe(item));
 
-    items.forEach(item => observer.observe(item));
-
-    // Scroll listeners
     window.addEventListener('scroll', updateLine);
     window.addEventListener('resize', updateLine);
-
-    // Initial load
     updateLine();
 </script>
 
