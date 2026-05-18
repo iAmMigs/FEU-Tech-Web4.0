@@ -1,0 +1,491 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Careers | FEU Institute of Technology{% endblock %}
+
+{% block body %}
+<style>
+    :root {
+        --feu-green: #008348;
+        --feu-yellow: #febe10;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Modal Animation */
+    .modal-enter {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    .modal-enter-active {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 300ms ease-out, transform 300ms ease-out;
+    }
+    .modal-exit {
+        opacity: 1;
+        transform: scale(1);
+    }
+    .modal-exit-active {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 200ms ease-in, transform 200ms ease-in;
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="relative w-full py-24 min-h-[500px] flex items-center justify-center overflow-hidden">
+    <!-- Background Imagery -->
+    <div class="absolute inset-0 z-0">
+        <img src="/images/facility/campus_facilities_1.jpg" alt="Campus Facilities" class="w-full h-full object-cover">
+        <!-- Strong, consistent green tint across the whole background -->
+        <div class="absolute inset-0 bg-[#008348] opacity-80 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-[#008348] opacity-40"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="md:w-1/2 text-left">
+            <span class="text-feu-yellow font-black tracking-[0.3em] uppercase text-sm mb-4 block drop-shadow-md">
+                Join Our Team
+            </span>
+            <h1 class="text-6xl md:text-8xl font-black text-feu-yellow leading-none tracking-tighter mb-2 drop-shadow-lg">
+                WE'RE
+            </h1>
+            <h1 class="text-7xl md:text-9xl font-black text-white leading-none tracking-tighter mb-6 drop-shadow-lg">
+                HIRING
+            </h1>
+            <p class="text-green-50 text-xl font-medium max-w-lg leading-relaxed mb-8">
+                Be part of an institution driven by innovation. Shape the future of technology and education with us.
+            </p>
+            <a href="#open-positions" class="inline-flex items-center gap-2 bg-feu-yellow text-slate-900 px-8 py-4 rounded-full font-black uppercase tracking-wider hover:bg-white transition-colors shadow-xl hover:shadow-2xl transform hover:-translate-y-1 duration-300">
+                View Open Positions
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+        
+        <div class="md:w-1/2 relative hidden md:block">
+            <!-- Megaphone Tammy Hero -->
+            <div class="relative w-full h-[450px] flex items-end justify-center">
+                <img src="/images/Tamtam/Megaphone_Tammy.png" alt="Megaphone Tammy" class="relative z-10 w-[400px] h-auto drop-shadow-2xl transform hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Job Postings Grid -->
+<section id="open-positions" class="py-24 bg-slate-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">Current Opportunities</h2>
+            <div class="w-16 h-1 bg-feu-green mx-auto rounded-full mb-6"></div>
+            <p class="text-slate-600 text-lg max-w-2xl mx-auto">Click on a position to view full qualifications and details.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            {% set jobs = [
+                {
+                    id: 'job-5',
+                    title: 'Social Science Part Time Faculty',
+                    type: 'Part Time',
+                    department: 'FEU Tech',
+                    mascot: 'Wave_Tammy.png',
+                    color: 'indigo',
+                    image: '/images/HRO/188-SupportingDocs1.png',
+                    qualifications: [
+                        "Must possess a Bachelor's Degree in Social Science, Philosophy, Political Science, Psychology, or other relevant degree.",
+                        "Must possess a Master's Degree in the related field.",
+                        "At least 1-2 years of teaching experience, preferably at the Tertiary level.",
+                        "Excellent communication and classroom management skills.",
+                        "Proficient in online and in-person teaching modalities.",
+                        "Familiar and willing to learn Canvas as a learning management system.",
+                        "Demonstrates AI literacy, including understanding of generative AI tools and responsible AI use."
+                    ]
+                },
+                {
+                    id: 'job-6',
+                    title: 'Quality Assurance Coordinator',
+                    type: 'Full Time',
+                    department: 'FEU Tech',
+                    mascot: 'Thumbsup_Halfbody_Tammy.png',
+                    color: 'emerald',
+                    image: '/images/HRO/188-SupportingDocs2.png',
+                    qualifications: [
+                        "A bachelor's degree in engineering, IT, CS, quality assurance, or a closely related field is required.",
+                        "Must possess a Master's Degree.",
+                        "Licensed in the field of expertise/specialization (if applicable).",
+                        "At least 2-3 years of experience in a relevant field."
+                    ]
+                },
+                {
+                    id: 'job-7',
+                    title: 'Operations and Compliance Assistant',
+                    type: 'Full Time',
+                    department: 'FEU Tech',
+                    mascot: 'Idle_Tammy.png',
+                    color: 'blue',
+                    image: '/images/HRO/188-SupportingDocs3.png',
+                    qualifications: [
+                        "Graduate of Internal Auditing, Accountancy, or any related course.",
+                        "With 1–2 years of relevant work experience.",
+                        "Preferably with experience in performing audit procedures or process documentation.",
+                        "Knowledgeable in the preparation of audit and observation reports."
+                    ]
+                },
+                {
+                    id: 'job-8',
+                    title: 'NSTP Part Time Faculty',
+                    type: 'Part Time',
+                    department: 'FEU Tech',
+                    mascot: 'Jumping_Tammy.png',
+                    color: 'orange',
+                    image: '/images/HRO/188-SupportingDocs4.png',
+                    qualifications: [
+                        "Preferably a degree holder of Bachelor of Science in Education, Social Science, Community Development, or a related field.",
+                        "At least three (3) years of experience in a University/College National Service Training Program.",
+                        "Knowledge and practical experience in first aid and basic life support.",
+                        "Committed to ongoing professional development and staying current with trends and best practices in service learning, civic education, and community engagement.",
+                        "Creative and innovative approach to developing service learning projects and integrating real-world experiences into the curriculum.",
+                        "Demonstrates AI literacy, including understanding of generative AI tools and responsible AI use."
+                    ]
+                },
+                {
+                    id: 'job-9',
+                    title: 'Multimedia Arts Full Time Faculty',
+                    type: 'Full Time',
+                    department: 'FEU Tech',
+                    mascot: 'Jumping_Tammy_Pencil.png',
+                    color: 'pink',
+                    image: '/images/HRO/188-SupportingDocs5.png',
+                    qualifications: [
+                        "Bachelor's degree in Multimedia Arts, Fine Arts, Digital Media, Design, Communication Arts, or a related field; a Master's degree in Multimedia Arts, Creative Industries, or related discipline is an advantage.",
+                        "Relevant industry or professional experience in multimedia arts, design, or creative industries.",
+                        "Demonstrated capability to teach undergraduate Multimedia Arts courses using outcomes-based and learner-centered approaches.",
+                        "AI-ready educator with the ability to integrate AI-assisted creative tools, generative technologies, and ethical AI practices into instruction and assessment.",
+                        "Proficient in creative software, learning management systems, and instructional technologies for studio-based, laboratory, and blended learning environments.",
+                        "Strong commitment to continuous professional development and research, aligned with FEU Tech's mission of innovation and industry relevance."
+                    ]
+                },
+                {
+                    id: 'job-10',
+                    title: 'Mobile Developer',
+                    type: 'Full Time',
+                    department: 'FEU Tech',
+                    mascot: 'Thumbsup_Fullbody_Happy_Tammy.png',
+                    color: 'cyan',
+                    image: '/images/HRO/188-SupportingDocs6.png',
+                    qualifications: [
+                        "A bachelor's degree in information technology, computer science, or a related field.",
+                        "Proven experience in mobile application development for both Android and iOS.",
+                        "Familiarity with web development, including front-end and back-end technologies.",
+                        "Having a portfolio is a plus.",
+                        "Willing to work onsite."
+                    ]
+                },
+                {
+                    id: 'job-11',
+                    title: 'IT Full Time Faculty',
+                    type: 'Full Time',
+                    department: 'FEU Tech',
+                    mascot: 'Leaping_Tammy.png',
+                    color: 'sky',
+                    image: '/images/HRO/188-SupportingDocs7.png',
+                    qualifications: [
+                        "Bachelor's and Master's degrees in Information Technology or a closely related field (MIT, MSIT, DIT, or equivalent); a doctoral degree is an advantage.",
+                        "At least three (3) years of relevant IT industry experience in areas such as software development, systems analysis, networking, or cybersecurity.",
+                        "Demonstrated capability to teach undergraduate IT courses using outcomes-based and learner-centered approaches.",
+                        "AI-ready educator with the ability to integrate artificial intelligence tools, concepts, and the ethical use of AI into instruction and assessment.",
+                        "Proficient in the use of learning management systems and educational technologies for blended and flexible learning modalities.",
+                        "Strong commitment to continuous professional development and research, aligned with FEU Tech's mission of innovation and industry relevance."
+                    ]
+                },
+                {
+                    id: 'job-12',
+                    title: 'Guidance Facilitator',
+                    type: 'Full Time',
+                    department: 'FEU Tech',
+                    mascot: 'Backpack_Tammy.png',
+                    color: 'teal',
+                    image: '/images/HRO/188-SupportingDocs8.png',
+                    qualifications: [
+                        "Must have a Bachelor's Degree in Psychology or Guidance and Counseling.",
+                        "Must be a graduate or currently enrolled in a Master's program (MA/MS) in Guidance and Counseling.",
+                        "Registered Guidance Counselor is also acceptable.",
+                        "At least two to three years of experience as a Guidance Counselor in a school setting."
+                    ]
+                },
+                {
+                    id: 'job-13',
+                    title: 'English Part Time Faculty',
+                    type: 'Part Time',
+                    department: 'FEU Tech',
+                    mascot: 'Reading_Book_Tammy.png',
+                    color: 'rose',
+                    image: '/images/HRO/188-SupportingDocs9.png',
+                    qualifications: [
+                        "Must be a graduate of AB Communication, Literature, or BSE English.",
+                        "Must possess a Master's Degree in English Language Teaching or Communication.",
+                        "Must have relevant experience in teaching English courses online and face-to-face for at least 1-2 years.",
+                        "Can manage online materials and handle classes in an online platform.",
+                        "Willing to conduct face-to-face classes.",
+                        "Excellent communication and classroom management skills.",
+                        "Proficient in online and in-person teaching modalities.",
+                        "Familiar and willing to learn Canvas as a learning management system.",
+                        "Demonstrates AI literacy, including understanding of generative AI tools and responsible AI use."
+                    ]
+                },
+                {
+                    id: 'job-14',
+                    title: 'Computer Science Full Time Faculty',
+                    type: 'Full Time',
+                    department: 'FEU Tech',
+                    mascot: 'ChargedUp_Tammy.png',
+                    color: 'amber',
+                    image: '/images/HRO/188-SupportingDocs10.png',
+                    qualifications: [
+                        "Bachelor's and Master's degrees in Computer Science or a closely related field (MSCS or equivalent); a doctoral degree is an advantage.",
+                        "At least three (3) years of relevant industry experience in computer science or software development-related roles.",
+                        "Demonstrated capability to teach undergraduate Computer Science courses using outcomes-based and learner-centered approaches.",
+                        "AI-ready educator with the ability to integrate AI concepts, tools, and ethical use of AI into instruction, programming practice, and assessment.",
+                        "Proficient in the use of learning management systems, programming environments, and educational technologies for blended and flexible learning.",
+                        "Strong commitment to continuous professional development and research, aligned with FEU Tech's mission of innovation and industry relevance."
+                    ]
+                }
+            ] %}
+
+            {% for job in jobs %}
+            <!-- Job Card -->
+            <button onclick="openModal('{{ job.id }}')" class="job-card group relative bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-2xl hover:border-feu-green/50 transition-all duration-300 text-left overflow-hidden flex flex-col justify-between min-h-[250px]">
+                
+                <!-- Peeking Mascot -->
+                <div class="absolute -bottom-10 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 group-hover:-translate-y-6 transition-all duration-500 ease-out z-0 pointer-events-none">
+                    <img src="/images/Tamtam/{{ job.mascot }}" alt="Mascot" class="w-full h-full object-contain drop-shadow-xl transform group-hover:scale-110 transition-transform duration-700">
+                </div>
+
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full">{{ job.department }}</span>
+                        <span class="px-3 py-1 bg-green-50 text-feu-green text-xs font-bold uppercase tracking-wider rounded-full">{{ job.type }}</span>
+                    </div>
+                    
+                    <h3 class="text-2xl md:text-3xl font-black text-slate-900 group-hover:text-feu-green transition-colors leading-tight pr-20">{{ job.title }}</h3>
+                </div>
+
+                <div class="mt-8 flex items-center justify-between relative z-10">
+                    <span class="text-feu-yellow font-bold uppercase tracking-widest text-sm flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
+                        View Details
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </span>
+                </div>
+            </button>
+
+            <!-- Job Modal -->
+            <div id="{{ job.id }}" class="job-modal fixed inset-0 z-50 hidden">
+                <!-- Backdrop -->
+                <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm modal-backdrop transition-opacity duration-300 opacity-0" onclick="closeModal('{{ job.id }}')"></div>
+                
+                <!-- Modal Content -->
+                <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+                    <div class="modal-panel bg-white w-full max-w-3xl max-h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col pointer-events-auto transition-all duration-300 transform scale-95 opacity-0">
+                        
+                        <!-- Modal Header -->
+                        <div class="bg-slate-50 border-b border-slate-100 p-8 relative">
+                            <button onclick="closeModal('{{ job.id }}')" class="absolute top-6 right-6 w-10 h-10 bg-white rounded-full flex items-center justify-center text-slate-400 hover:text-red-500 hover:bg-red-50 shadow-sm transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                            
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">{{ job.department }}</span>
+                                <span class="px-3 py-1 bg-green-50 text-feu-green text-xs font-bold uppercase tracking-wider rounded-full">{{ job.type }}</span>
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-black text-slate-900">{{ job.title }}</h2>
+                        </div>
+
+                        <!-- Modal Body -->
+                        <div class="p-8 overflow-y-auto">
+                            {% if job.image is defined and job.image is not null %}
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                                    <!-- Left Column: Official Poster -->
+                                    <div class="flex flex-col items-center justify-center bg-slate-50 rounded-2xl p-4 border border-slate-100 shadow-inner group sticky top-0">
+                                        <div class="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-transform duration-300 group-hover:scale-[1.02] cursor-pointer" onclick="openLightbox('{{ job.image }}')">
+                                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
+                                                <svg class="w-12 h-12 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                            </div>
+                                            <img src="{{ job.image }}" alt="Official Job Posting Poster" class="w-full h-auto max-h-[600px] object-contain relative z-0">
+                                        </div>
+                                        <p class="text-xs text-slate-400 mt-3 flex items-center gap-1 font-medium tracking-wide">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                            Official HRO Posting Poster
+                                        </p>
+                                    </div>
+                                    
+                                    <!-- Right Column: Qualifications List -->
+                                    <div>
+                                        <h4 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                                            <svg class="w-6 h-6 text-feu-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            Qualifications:
+                                        </h4>
+                                        <ul class="space-y-4">
+                                            {% for qual in job.qualifications %}
+                                            <li class="flex items-start gap-3 text-slate-600 leading-relaxed">
+                                                <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-feu-green flex-shrink-0"></div>
+                                                <span>{{ qual }}</span>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <!-- Original Full Width Design for jobs without an image -->
+                                <h4 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                                    <svg class="w-6 h-6 text-feu-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Qualifications:
+                                </h4>
+                                <ul class="space-y-4">
+                                    {% for qual in job.qualifications %}
+                                    <li class="flex items-start gap-3 text-slate-600 leading-relaxed">
+                                        <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-feu-green flex-shrink-0"></div>
+                                        <span>{{ qual }}</span>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        <!-- Modal Footer -->
+                        <div class="bg-slate-50 border-t border-slate-100 p-6 flex items-center justify-between">
+                            <p class="text-slate-500 text-sm hidden md:block">Ready to join our team?</p>
+                            <a href="#how-to-apply" onclick="closeModal('{{ job.id }}')" class="w-full md:w-auto text-center px-8 py-3 bg-feu-green text-white font-bold uppercase tracking-wider rounded-full hover:bg-green-700 shadow-lg hover:shadow-xl transition-all">
+                                Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+<!-- How to Apply Section -->
+<section id="how-to-apply" class="py-24 bg-white relative border-t border-slate-100 overflow-hidden">
+    <div class="absolute left-0 bottom-0 w-64 h-64 bg-feu-yellow/10 rounded-tr-full z-0"></div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="text-4xl font-black text-slate-900 uppercase tracking-tight mb-8">How to Apply</h2>
+        
+        <div class="bg-feu-yellow/20 border-2 border-feu-yellow p-10 md:p-12 rounded-3xl inline-block max-w-2xl w-full shadow-lg">
+            <p class="text-xl text-slate-800 font-medium mb-6">For interested applicants, send your resume to:</p>
+            
+            <a href="mailto:hr@feutech.edu.ph" class="text-3xl md:text-4xl font-black text-feu-green hover:underline decoration-4 underline-offset-4 mb-8 block drop-shadow-sm">
+                hr@feutech.edu.ph
+            </a>
+            
+            <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white">
+                <p class="text-slate-600 font-semibold mb-2 uppercase tracking-widest text-sm">With the following subject line:</p>
+                <code class="text-lg md:text-xl font-bold text-slate-900 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm block break-all">
+                    Position_LastName, FirstName
+                </code>
+            </div>
+        </div>
+        
+        <p class="mt-12 text-slate-500 font-medium italic">
+            Technology Driven By Innovation<br>
+            <span class="text-feu-green font-bold">#TheSchoolofInnovation</span>
+        </p>
+    </div>
+</section>
+
+<!-- Image Lightbox Modal -->
+<div id="image-lightbox" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-slate-900/90 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Enlarged Poster" class="max-w-[95vw] max-h-[95vh] object-contain transform scale-95 transition-transform duration-300 shadow-2xl rounded-lg">
+</div>
+
+<script>
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        const backdrop = modal.querySelector('.modal-backdrop');
+        const panel = modal.querySelector('.modal-panel');
+        
+        modal.classList.remove('hidden');
+        
+        // Trigger reflow
+        void modal.offsetWidth;
+        
+        backdrop.classList.remove('opacity-0');
+        backdrop.classList.add('opacity-100');
+        
+        panel.classList.remove('scale-95', 'opacity-0');
+        panel.classList.add('scale-100', 'opacity-100');
+        
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        const backdrop = modal.querySelector('.modal-backdrop');
+        const panel = modal.querySelector('.modal-panel');
+        
+        backdrop.classList.remove('opacity-100');
+        backdrop.classList.add('opacity-0');
+        
+        panel.classList.remove('scale-100', 'opacity-100');
+        panel.classList.add('scale-95', 'opacity-0');
+        
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300); // Wait for transition to finish
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModals = document.querySelectorAll('.job-modal:not(.hidden)');
+            openModals.forEach(modal => closeModal(modal.id));
+            
+            const lightbox = document.getElementById('image-lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        }
+    });
+
+    function openLightbox(src) {
+        const lightbox = document.getElementById('image-lightbox');
+        const img = document.getElementById('lightbox-img');
+        img.src = src;
+        
+        lightbox.classList.remove('hidden');
+        void lightbox.offsetWidth; // trigger reflow
+        
+        lightbox.classList.remove('opacity-0');
+        lightbox.classList.add('opacity-100');
+        
+        img.classList.remove('scale-95');
+        img.classList.add('scale-100');
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('image-lightbox');
+        const img = document.getElementById('lightbox-img');
+        
+        lightbox.classList.remove('opacity-100');
+        lightbox.classList.add('opacity-0');
+        
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
+        
+        setTimeout(() => {
+            lightbox.classList.add('hidden');
+        }, 300);
+    }
+</script>
+
+{% endblock %}
