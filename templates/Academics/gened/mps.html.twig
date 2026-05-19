@@ -1,0 +1,529 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mathematics and Physical Sciences{% endblock %}
+
+{% block body %}
+
+<style>
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
+            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
+            #f8fafc;
+    }
+
+    .scroll-section {
+        scroll-margin-top: 120px;
+    }
+
+    .nav-link.active {
+        background: #008348;
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .glass-card {
+        backdrop-filter: blur(14px);
+        background: rgba(255,255,255,.72);
+    }
+
+    .faculty-card {
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .faculty-card:hover {
+        transform: translateY(-8px);
+
+        box-shadow:
+            0 20px 50px rgba(0,131,72,.18),
+            0 10px 30px rgba(254,190,16,.12);
+    }
+
+    .float-animation {
+        animation: floating 5s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+
+        0%,100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-14px);
+        }
+    }
+
+    .glow-hover {
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .glow-hover:hover {
+
+        transform: translateY(-8px);
+
+        box-shadow:
+            0 20px 50px rgba(0,131,72,.18),
+            0 10px 30px rgba(254,190,16,.12);
+    }
+
+</style>
+
+<!-- HERO -->
+<section class="relative z-10 overflow-hidden border-b border-slate-100">
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
+
+            <img src="/images/Academics/mps.jpg"
+                 class="w-full h-auto block transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                 alt="MPS Hero">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<main class="relative py-12">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
+
+            <!-- SIDEBAR -->
+            <aside class="hidden lg:block sticky top-10 self-start">
+
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
+
+                    <div class="flex items-center gap-4 mb-8">
+
+                        <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                             class="w-20 object-contain float-animation"
+                             alt="TamTam">
+
+                        <div>
+
+                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
+                                FEU TECH
+                            </p>
+
+                            <h2 class="text-2xl font-black text-feu-green">
+                                MPS
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <nav class="space-y-3">
+
+                        <a href="#overview" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Overview
+                        </a>
+
+                        <a href="#faculty" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Faculty
+                        </a>
+
+                        <a href="#contact" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Contact
+                        </a>
+
+                    </nav>
+
+                </div>
+
+            </aside>
+
+            <!-- CONTENT -->
+            <div class="space-y-16">
+
+                <!-- OVERVIEW -->
+                <section id="overview" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                 class="w-24 object-contain float-animation"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Department Overview
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    General Information
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            Striving to be a leader in establishing solid foundations in engineering and technology, the Mathematics and Physical Sciences (MPS) Department commits itself in providing quality instruction through continuous professional advancement of its Associates. Furthermore, it adheres to give constant support to other departments and to the FEU-TECH community engaging in creative pursuits by doing relevant research while actively participating in community extension services.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- FACULTY -->
+                <section id="faculty" class="scroll-section">
+
+                    <div class="mb-10">
+
+                        <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                            Mathematics and Physical Sciences Department
+                        </p>
+
+                        <h2 class="text-4xl font-black text-feu-green uppercase">
+                            Full Time Faculty Members
+                        </h2>
+
+                    </div>
+
+                    <div class="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
+
+                        {% set faculty = [
+
+                            {
+                                name: 'Jocelyn C. Antonio',
+                                role: 'Faculty Member',
+                                education: 'BS ChE, Mapua Institute of Technology
+MAT Mathematics, University Rizal System
+PhD Educational Management (On-going), University Rizal System',
+                                specialization: 'Math & Chemistry',
+                                credentials: 'Registered Chemical Engineer
+Licensed Professional Teacher',
+                                affiliation: 'PICHE, PACSA'
+                            },
+
+                            {
+                                name: 'Aileen A. Castaneda',
+                                role: 'Faculty Member',
+                                education: 'BS ChE, Mapua Institute of Technology
+MS Environmental Engineering, University of the Philippines – Diliman
+PhD Environmental Engineering (Candidate), University of the Philippines – Diliman',
+                                specialization: 'Chemistry & Environmental Engineering',
+                                credentials: 'Registered Chemical Engineer',
+                                affiliation: 'PICHE'
+                            },
+
+                            {
+                                name: 'Mercy Grace C. Flores',
+                                role: 'Faculty Member',
+                                education: 'BS in Mathematics, Central Mindanao University
+MS in Mathematics, University of the Philippines - Diliman',
+                                specialization: 'Approximation Theory & Functional Analysis',
+                                credentials: '',
+                                affiliation: ''
+                            },
+
+                            {
+                                name: 'Ma. Editha A. Grande',
+                                role: 'Faculty Member',
+                                education: 'BS ECE, FEATI University
+MAED – Major in Supervision & Admin, FEATI University
+PhD TE (On-going), Rizal Technological University',
+                                specialization: 'Communications & Signal Processing',
+                                credentials: 'Professional Electronics Engineer
+Registered Electronics Engineer',
+                                affiliation: 'IECEP'
+                            },
+
+                            {
+                                name: 'Lilian J. Gumban',
+                                role: 'Faculty Member',
+                                education: 'BS ECE, St. Louis University
+MAT – Major in Mathematics, Manuel L. Quezon University
+D Ed. In Educational Management & Planning, Manuel L. Quezon University',
+                                specialization: 'Physics & Networking',
+                                credentials: '',
+                                affiliation: 'PSITE'
+                            },
+
+                            {
+                                name: 'Eleazar M. Lagman',
+                                role: 'Faculty Member',
+                                education: 'BS ChE, University of Sto. Tomas
+MA in Mathematics, University of the Philippines – Diliman
+PhD Mathematics Education (Candidate), Nueva Ecija University of Science & Technology',
+                                specialization: 'Mathematics & Chemistry',
+                                credentials: 'Registered Chemical Engineer',
+                                affiliation: 'PICHE'
+                            },
+
+                            {
+                                name: 'Kennedy P. Limbo',
+                                role: 'Faculty Member',
+                                education: 'BS ChE, University of the Philippines - Los Banos',
+                                specialization: 'Chemistry & Sugar Technology',
+                                credentials: 'Registered Chemical Engineer',
+                                affiliation: 'PICHE'
+                            },
+
+                            {
+                                name: 'Ivan Jerome C. Panis',
+                                role: 'Faculty Member',
+                                education: 'BS Applied Physics, University of the Philippines - Los Banos',
+                                specialization: 'Computational Physics',
+                                credentials: '',
+                                affiliation: 'PHYSIKA, SPP'
+                            },
+
+                            {
+                                name: 'Randell D. Pareja',
+                                role: 'Faculty Member',
+                                education: 'BS ECE, Central Colleges of the Philippines
+MSECE (On-going), Batangas State University',
+                                specialization: 'Machine Learning',
+                                credentials: 'Registered Electronics Engineer',
+                                affiliation: 'IECEP'
+                            },
+
+                            {
+                                name: 'Sharol C. Petinez',
+                                role: 'Faculty Member',
+                                education: 'BS CpE, Polytechnic University of the Philippines
+MA Mathematics, University of the Philippines - Diliman',
+                                specialization: 'Mathematics',
+                                credentials: '',
+                                affiliation: 'MSP'
+                            },
+
+                            {
+                                name: 'Doreen Shiela F. San Pedro',
+                                role: 'Faculty Member',
+                                education: 'BSE major in Math & Physics, Far Eastern University
+MS Mathematics Education, Pamantasan ng Lungsod ng Maynila',
+                                specialization: 'Math & Physics',
+                                credentials: '',
+                                affiliation: ''
+                            }
+
+                        ] %}
+
+                        {% for item in faculty %}
+
+                        <div class="faculty-card bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100">
+
+                            <div class="w-20 h-20 rounded-full bg-feu-green flex items-center justify-center text-white text-2xl font-black mb-6 float-animation">
+                                {{ item.name|split(' ')[0]|first }}
+                            </div>
+
+                            <h3 class="text-2xl font-black text-feu-green mb-2">
+                                {{ item.name }}
+                            </h3>
+
+                            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-5">
+                                {{ item.role }}
+                            </p>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Education</p>
+                                <p class="text-slate-600 whitespace-pre-line">{{ item.education }}</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Specialization / Research Area</p>
+                                <p class="text-slate-600">{{ item.specialization }}</p>
+                            </div>
+
+                            {% if item.credentials %}
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Credentials</p>
+                                <p class="text-slate-600 whitespace-pre-line">{{ item.credentials }}</p>
+                            </div>
+                            {% endif %}
+
+                            {% if item.affiliation %}
+                            <div>
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Affiliation</p>
+                                <p class="text-slate-600">{{ item.affiliation }}</p>
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </section>
+
+                <!-- CONTACT -->
+                <section id="contact" class="scroll-section">
+
+                    <div class="bg-feu-green rounded-[3rem] p-12 text-white relative overflow-hidden">
+
+                        <div class="absolute bottom-0 right-0 opacity-10">
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-80"
+                                 alt="TamTam">
+                        </div>
+
+                        <div class="relative z-10">
+
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
+                               Mathematics and Physical Science Department
+                            </p>
+
+                            <h2 class="text-5xl font-black uppercase mb-10">
+                                Contact Details
+                            </h2>
+
+                            <div class="grid md:grid-cols-2 gap-10">
+
+                                <div class="space-y-5">
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Office
+                                        </p>
+
+                                        <p class="text-xl">
+                                            Room 1102
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Office Hours
+                                        </p>
+
+                                        <p class="text-xl">
+                                            Monday - Friday <br>
+                                            8:00 a.m. to 5:00 p.m.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Trunkline
+                                        </p>
+
+                                        <p class="text-xl">
+                                            (02) 8281 8888 Local 418
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Email
+                                        </p>
+
+                                        <p class="text-xl text-feu-yellow">
+                                            <a href="mailto:mps@feutech.edu.ph"
+                                            class="hover:text-white transition-colors duration-300 underline underline-offset-4">
+                                                mps@feutech.edu.ph
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
+    
+                                    <img src="/images/Tamtam/Wave_Tammy.png"
+                                        class="absolute bottom-0 right-0 w-40 opacity-40 pointer-events-none select-none"
+                                        alt="TamTam background">
+
+                                    <p class="uppercase tracking-[0.3em] text-feu-green font-black text-xs mb-3">
+                                        Director
+                                    </p>
+
+                                    <h3 class="text-3xl font-black text-black uppercase mb-3">
+                                        ENGR. DARYL D. DAVID
+                                    </h3>
+
+                                    <p class="text-slate-600 leading-relaxed">
+                                        Director of Mathematics and Physical Sciences
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    navLinks.forEach(link => {
+
+        link.addEventListener('click', function (e) {
+
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+        });
+
+    });
+
+    function updateActiveLink() {
+
+        let currentSection = '';
+
+        sections.forEach(section => {
+
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                currentSection = section.id;
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove('active');
+
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+
+        });
+
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+
+    updateActiveLink();
+
+</script>
+
+{% endblock %}

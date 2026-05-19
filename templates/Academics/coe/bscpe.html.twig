@@ -1,0 +1,969 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bachelor of Science in Computer Engineering{% endblock %}
+
+{% block body %}
+
+<style>
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
+            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
+            #f8fafc;
+    }
+
+    .scroll-section {
+        scroll-margin-top: 120px;
+    }
+
+    .nav-link.active {
+        background: #008348;
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .glass-card {
+        backdrop-filter: blur(14px);
+        background: rgba(255,255,255,.72);
+    }
+
+    .faculty-card {
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .faculty-card:hover {
+        transform: translateY(-8px);
+
+        box-shadow:
+            0 20px 50px rgba(0,131,72,.18),
+            0 10px 30px rgba(254,190,16,.12);
+    }
+
+    .blueprint-bg {
+        background-image:
+            linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+
+        background-size: 24px 24px;
+    }
+
+    .float-animation {
+        animation: floating 5s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+
+        0%,100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-14px);
+        }
+    }
+
+    .glow-hover {
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .glow-hover:hover {
+
+        transform: translateY(-8px);
+
+        box-shadow:
+            0 20px 50px rgba(0,131,72,.18),
+            0 10px 30px rgba(254,190,16,.12);
+    }
+
+    .shimmer {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .shimmer::before {
+
+        content: '';
+
+        position: absolute;
+
+        top: 0;
+        left: -120%;
+
+        width: 70%;
+        height: 100%;
+
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
+
+        transform: skewX(-20deg);
+    }
+
+    .shimmer:hover::before {
+        animation: shimmerMove 1.1s ease;
+    }
+
+    @keyframes shimmerMove {
+
+        100% {
+            left: 160%;
+        }
+    }
+
+    .competency-pill {
+
+        border: 2px solid #008348;
+
+        background: white;
+
+        color: #008348;
+
+        transition:
+            all .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .competency-pill:hover {
+
+        background: #008348;
+
+        color: white;
+
+        box-shadow:
+            0 15px 30px rgba(0,131,72,.22);
+    }
+
+    .careers-pill {
+
+        border: 2px solid #febe10;
+
+        background: white;
+
+        color: #5b5c5c;
+
+        transition:
+            all .35s ease,
+            box-shadow .35s ease;
+        
+    }
+
+    .careers-pill:hover {
+
+        background: #febe10;
+
+        color: white;
+
+        box-shadow:
+            0 15px 30px rgba(0,131,72,.22);
+    }
+
+    .lab-image {
+        transition:
+            transform .6s ease,
+            filter .4s ease;
+    }
+
+    .lab-image:hover {
+        transform: scale(1.03);
+        filter: brightness(1.04);
+    }
+
+</style>
+
+<!-- HERO -->
+<section class="relative z-10 overflow-hidden border-b border-slate-100">
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
+
+            <img src="/images/Academics/bscpe.png"
+                 class="w-full h-auto block transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                 alt="Computer Engineering Hero">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<main class="relative py-12">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
+
+            <!-- SIDEBAR -->
+            <aside class="hidden lg:block sticky top-10 self-start">
+
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
+
+                    <div class="flex items-center gap-4 mb-8">
+
+                        <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                             class="w-20 object-contain float-animation"
+                             alt="TamTam">
+
+                        <div>
+
+                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
+                                FEU TECH
+                            </p>
+
+                            <h2 class="text-2xl font-black text-feu-green">
+                                BSCPE
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <nav class="space-y-3">
+
+                        <a href="#overview" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Overview
+                        </a>
+
+                        <a href="#objectives" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Objectives
+                        </a>
+
+                        <a href="#outcomes" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Outcomes
+                        </a>
+
+                        <a href="#specialization" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Tracks
+                        </a>
+
+                        <a href="#careers" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Careers
+                        </a>
+
+                        <a href="#facilities" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Laboratories
+                        </a>
+
+                        <a href="#faculty" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Faculty
+                        </a>
+
+                        <a href="#contact" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Contact
+                        </a>
+
+                    </nav>
+
+                </div>
+
+            </aside>
+
+            <!-- CONTENT -->
+            <div class="space-y-16">
+
+                <!-- OVERVIEW -->
+                <section id="overview" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                 class="w-24 object-contain float-animation"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Program Overview
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    General Description of the Program
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            The Bachelor of Science in Computer Engineering (BSCpE) is a program that embodies the science and technology of design, development, implementation, maintenance, and integration of software and hardware components in modern computing systems and computer-controlled equipment.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            This program will produce computer engineers who are versatile and knowledgeable in computer science and electrical engineering, as well as in the foundations of mathematics and sciences.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            Also, computer engineers are expected to be life-long learners to maintain their knowledge and skills within their chosen discipline.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- OBJECTIVES -->
+                <section id="objectives" class="scroll-section library-card-wrapper">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Academic Goals
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Program Educational Objectives
+                                </h2>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-lg mb-8">
+                            Three to five years after graduation, the Computer Engineering alumni shall have:
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Professional Growth
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Engaged in the practice of Computer Engineering or technopreneurship and innovation.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Leadership
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Assumed significant roles with key responsibilities in their workplace.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Organizations
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Involved themselves in professional, socio-civic, government, or non-government organizations.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Community Impact
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Demonstrated continuous professional development through certifications, attendance to training, seminars, and conferences and/or pursuit of graduate studies in engineering or related fields.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OUTCOMES -->
+                <section id="outcomes" class="scroll-section">
+
+                    <div class="bg-feu-green rounded-[3rem] p-10 text-white overflow-hidden relative">
+
+                        <div class="absolute right-0 bottom-0 opacity-10">
+                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                 class="w-72"
+                                 alt="TamTam">
+                        </div>
+
+                        <div class="relative z-10">
+
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
+                                Graduate Competencies
+                            </p>
+
+                            <h2 class="text-4xl font-black uppercase mb-10">
+                                Program/Student Outcomes
+                            </h2>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+
+                                {% set outcomes = [
+                                    'Apply knowledge of mathematics, natural science, engineering fundamentals and an engineering specialization to the solution of complex engineering problems.',
+                                    'Conduct investigations of complex engineering problems using research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of information to provide valid conclusions.',
+                                    'Design solutions for complex engineering problems and design systems, components or processes that meet specified needs with appropriate consideration for public health and safety, cultural, societal, and environmental considerations.',
+                                    'Function effectively as an individual, and as a member or leader in diverse teams and in multi-disciplinary settings.',
+                                    'Identify, formulate, research literature and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences and engineering sciences.',
+                                    'Apply ethical principles and commit to professional ethics and responsibilities and norms of engineering practice.',
+                                    'Communicate effectively on complex engineering activities with the engineering community and with society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.',
+                                    'Understand and evaluate the sustainability and impact of professional engineering work in the solution of complex engineering problems in societal and environmental context.',
+                                    'Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change.',
+                                    'Apply reasoning informed by contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to professional engineering practice and solutions to complex engineering problems.',
+                                    'Create, select and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modelling, to complex engineering problems with an understanding of the limitations.',
+                                    'Demonstrate knowledge and understanding of engineering management principles and economic decision-making and apply these to one’s own work, as a member and leader in a team, to manage projects and in multidisciplinary environments.'
+                                ] %}
+
+                                {% for item in outcomes %}
+                                    <div class="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
+                                        
+                                        <div class="flex gap-4">
+
+                                            <span class="bg-feu-yellow text-feu-green
+                                                        w-10 h-10 shrink-0
+                                                        rounded-full
+                                                        flex items-center justify-center
+                                                        font-black text-sm">
+                                                {{ range('A', 'Z')[loop.index0] }}
+                                            </span>
+
+                                            <p class="text-white/90 leading-relaxed">
+                                                {{ item }}
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- specialization -->
+                <section id="specialization" class="scroll-section library-card-wrapper">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Track Electives
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Internet of Things (IoT) & Data Analytics
+                                </h3>
+
+                                <p class="text-slate-600 mb-4">
+                                    Internet of Things (IoT) is the concept of a giant network where interrelated computing devices, objects or people can transfer data over the network without the need for human-to-human or human-to-computer interaction.
+                                </p>
+
+                                <p class="text-slate-600 mb-4">
+                                    Analytics, on another note, is the science of analyzing raw data, interpreting its meaningful patterns, aiming to provide meaningful insights to improve a business or a process.
+                                </p>
+
+                                <p class="text-slate-600">
+                                    The BS Computer Engineering program, major in IoT and Analytics prepares students to be skilled professionals in the world where anything can be connected will be connected. This specialization will provide students a depth-track on Identifying problems that might be addressed by IoT Technology and Data Analysis to provide useful information and aid decision-making.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Network Administration and Cybersecurity
+                                </h3>
+
+                                <p class="text-slate-600 mb-4">
+                                    Network Administration is the discipline of administering and managing computer networks that includes provisioning of networks, performance management, troubleshooting, and sustaining the reliability of a network.
+                                </p>
+
+                                <p class="text-slate-600 mb-4">
+                                    Cybersecurity goes hand in hand with Network Administration as it is the practice of protecting the digital platforms from theft or damage.
+                                </p>
+
+                                <p class="text-slate-600">
+                                    The BS Computer Engineering program, major in Network Administration and Cybersecurity prepares students to perform a wide-array of tasks in the day-to-day operation of networks and cybersecurity. This program will shape them into highly effective future network administrators and cybersecurity experts who are critical thinkers, problem solvers, and innovators.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Career Opportunities -->
+                <section id="careers" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <div class="mb-10">
+                            <h2 class="text-3xl font-black text-feu-green uppercase">
+                                Career Opportunities
+                            </h2>
+
+                            <p class="uppercase tracking-[0.3em] text-slate-600 text-xs mb-2">
+                                Computer Engineering graduates may pursue a career in one of the following occupation:
+                            </p>
+
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+
+                            {% set attributes = [
+                                'Applications Programmer/Developer',
+                                'Cybersecurity Specialist',
+                                'Data Analyst',
+                                'Database Programmer/Designer',
+                                'Database Administrator',
+                                'Design Engineer',
+                                'Engineering Educator',
+                                'Incident Analyst',
+                                'IoT Specialist/Engineer',
+                                'Project Manager / Engineer',
+                                'Network Administrator',
+                                'Network Engineer / Specialist',
+                                'Sales Engineer',
+                                'Semiconductor Device Fabrication / Manufacturing Engineer',
+                                'Security Operations Engineer',
+                                'Software Engineer',
+                                'Technopreneur'
+                            ] %}
+
+                            {% for item in attributes %}
+
+                                <div class="careers-pill px-6 py-4 rounded-full font-bold shadow-md">
+                                    {{ item }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- FACILITIES -->
+                <section id="facilities" class="scroll-section space-y-10">
+
+                    <div>
+
+                        <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                            Facilities & Laboratories
+                        </p>
+
+                        <h2 class="text-4xl font-black text-feu-green uppercase">
+                            Engineering Laboratories
+                        </h2>
+
+                    </div>
+
+                    <!-- Digital Electronics Laboratory -->
+                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <img src="/images/Academics/Electronics.png"
+                             class="rounded-[2rem] object-cover w-full h-full lab-image"
+                             alt="Digital Electronics Laboratory">
+
+                        <div>
+
+                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                Computer Engineering Laboratory
+                            </div>
+
+                            <h3 class="text-3xl font-black text-feu-green mb-5">
+                                Digital Electronics Laboratory
+                            </h3>
+
+                            <p class="text-slate-600 leading-relaxed">
+                                The Digital Electronics Laboratory caters to students taking up digital electronics courses. It is equipped with tools and equipment for performing experiments in basic and advanced electronics, microprocessors, microcontrollers, and robotics. The laboratory can accommodate a total of 40 students with ample tools and equipment for eight groups.
+                            </p>
+
+                            <p class="text-slate-600 leading-relaxed mt-4">
+                                The laboratory is equipped with the basic hand tools such as long nose pliers and wire strippers, tests equipment such as digital multimeters, oscilloscopes and digital storage oscilloscopes, digital electronics trainers, robotics trainer kits, and microprocessor/microcontroller trainer.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Network Laboratory -->
+                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <img src="/images/Academics/netlab.png"
+                             class="rounded-[2rem] object-cover w-full h-full lab-image"
+                             alt="Network Laboratory">
+
+                        <div>
+
+                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                Cisco Networking Academy
+                            </div>
+
+                            <h3 class="text-3xl font-black text-feu-green mb-5">
+                                Network Laboratory
+                            </h3>
+
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                This laboratory is for students taking up the Networking course track. It simulates Local Area Networking (wired and wireless) as well as Wide Area Networking services and connectivity to be able to deploy client/server networking applications and systems.
+                            </p>
+
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                It also uses Desktop-based platform and Server-Based Platform for instruction. The courses taught and simulated in the network laboratory follows the curriculum of the industry-recognized network leader Cisco. FEU Tech is currently a Cisco Networking Academy.
+                            </p>
+
+                            <p class="text-slate-600 leading-relaxed">
+                                A maximum of 20 students per networking class are allowed to use this laboratory. The activities done here are all hands-on networking activities and PC configuration activities and are recommended to be taught in a small class size setting.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Network/PC Assembly and Troubleshooting Laboratory -->
+                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <img src="/images/Academics/assembly.png"
+                             class="rounded-[2rem] object-cover w-full h-full lab-image"
+                             alt="Network PC Assembly Laboratory">
+
+                        <div>
+
+                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                Computer Hardware Laboratory
+                            </div>
+
+                            <h3 class="text-3xl font-black text-feu-green mb-5">
+                                Network/PC Assembly and Troubleshooting Laboratory
+                            </h3>
+
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                Aside from being a network laboratory, this is also a PC Assembly Laboratory. It simulates LAN operation to be able to install and configure different networking services as well as assemble and troubleshoot a computer system.
+                            </p>
+
+                            <p class="text-slate-600 leading-relaxed">
+                                A maximum of 20 students per networking class are allowed to use this laboratory. The activities done here are all hands-on networking activities and PC configuration activities and are recommended to be taught in a small class size setting.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- FACULTY -->
+                <section id="faculty" class="scroll-section">
+
+                    <div class="mb-10">
+
+                        <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                            Computer Engineering Department
+                        </p>
+
+                        <h2 class="text-4xl font-black text-feu-green uppercase">
+                            Full Time Faculty Members
+                        </h2>
+
+                    </div>
+
+                    <div class="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
+
+                        {% set faculty = [
+
+                            {
+                                name: 'Mona Earl P. Bayono',
+                                role: 'Faculty Member',
+                                "information-1": 'Doctor of Engineering in Computer Engineering - Technological Institute of the Philippines (ongoing)
+Master of Engineering with Specialization in Computer Engineering - Pamantasan ng Lungsod ng Maynila
+Bachelor of Science in Computer Engineering - City College of Manila',
+                                specialization: 'Software Engineering',
+                                "information-2": 'Institute of Computer Engineers of the Philippines - Lifetime Member',
+                                affiliation: 'Institute of Computer Engineers of the Philippines'
+                            },
+
+                            {
+                                name: 'Jamie Adrian D. Jamasali',
+                                role: 'Faculty Member',
+                                "information-1": 'Master of Engineering with Specialization in Computer Engineering - Pamantasan ng Lungsod ng Maynila
+Bachelor of Science in Computer Engineering - East Asia Institute of Computer Technology',
+                                specialization: 'Robotics and Embedded Systems',
+                                "information-2": 'Professional Computer Engineer',
+                                affiliation: 'Institute of Computer Engineers of the Philippines - Lifetime Member'
+                            },
+
+                            {
+                                name: 'Moises F. Jardiniano',
+                                role: 'Faculty Member',
+                                "information-1": 'Master of Engineering with Specialization in Computer Engineering - Pamantasan ng Lungsod ng Maynila
+Bachelor of Science in Computer Engineering - East Asia Institute of Computer Technology',
+                                specialization: 'Network Administration and Cloud Computing',
+                                "information-2": 'Professional Computer Engineer, AWS Certified Cloud Practitioner',
+                                affiliation: 'Institute of Computer Engineers of the Philippines - Lifetime Member
+Mechatronics and Robotics Society of the Philippines - Member'
+                            },
+
+                            {
+                                name: 'Estrelita T. Manansala',
+                                role: 'Faculty Member',
+                                "information-1": 'Doctor of Information Technology - University of the East (ongoing)
+Master in Information Technology - FEU East Asia College
+Bachelor of Science in Computer Engineering - Adamson University',
+                                specialization: 'Software Engineering',
+                                "information-2": 'Professional Computer Engineer',
+                                affiliation: 'Institute of Computer Engineers of the Philippines - Lifetime Member'
+                            },
+
+                            {
+                                name: 'Niño E. Merencilla',
+                                role: 'Faculty Member',
+                                "information-1": 'Doctor in Engineering Management - Polytechnic University of the Philippines (ongoing)
+Master of Engineering in Computer Engineering - Pamantasan ng Lungsod ng Maynila
+Bachelor of Science with Specialization in Computer Engineering - Technological Institute of the Philippines',
+                                specialization: 'Network Administration and Embedded Systems',
+                                "information-2": 'Professional Computer Engineer',
+                                affiliation: 'Institute of Computer Engineers of the Philippines - Lifetime Member'
+                            },
+
+                            {
+                                name: 'Maribel A. Misola',
+                                role: 'Faculty Member',
+                                "information-1": 'Master of Engineering with Specialization in Computer Engineering - Pamantasan ng Lungsod ng Maynila
+Bachelor of Science in Computer Engineering - Adamson University',
+                                specialization: 'Embedded Systems',
+                                "information-2": 'Professional Computer Engineer',
+                                affiliation: 'Institute of Computer Engineers of the Philippines - Lifetime Member'
+                            },
+
+                            {
+                                name: 'Nino U. Pilueta',
+                                role: 'Program Director',
+                                "information-1": 'Master of Engineering with Specialization in Computer Engineering - Pamantasan ng Lungsod ng Maynila
+Bachelor of Science in Computer Engineering - City College of Manila',
+                                specialization: 'Network Administration and Security',
+                                "information-2": 'Professional Computer Engineer',
+                                affiliation: 'Institute of Computer Engineers of the Philippines - Lifetime Member'
+                            }
+
+                        ] %}
+
+                        {% for item in faculty %}
+
+                        <div class="faculty-card bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100">
+
+                            <div class="w-20 h-20 rounded-full bg-feu-green flex items-center justify-center text-white text-2xl font-black mb-6 float-animation">
+                                {{ item.name|split(' ')[0]|first }}
+                            </div>
+
+                            <h3 class="text-2xl font-black text-feu-green mb-2">
+                                {{ item.name }}
+                            </h3>
+
+                            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-5">
+                                {{ item.role }}
+                            </p>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Degree</p>
+                                <p class="text-slate-600 whitespace-pre-line">{{ item["information-1"] }}</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Specialization</p>
+                                <p class="text-slate-600">{{ item.specialization }}</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Professional Certification</p>
+                                <p class="text-slate-600">{{ item["information-2"] }}</p>
+                            </div>
+
+                            <div>
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Affiliation</p>
+                                <p class="text-slate-600 whitespace-pre-line">{{ item.affiliation }}</p>
+                            </div>
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </section>
+
+                <!-- CONTACT -->
+                <section id="contact" class="scroll-section">
+
+                    <div class="bg-feu-green rounded-[3rem] p-12 text-white relative overflow-hidden">
+
+                        <div class="absolute bottom-0 right-0 opacity-10">
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-80"
+                                 alt="TamTam">
+                        </div>
+
+                        <div class="relative z-10">
+
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
+                               Computer Engineering Department
+                            </p>
+
+                            <h2 class="text-5xl font-black uppercase mb-10">
+                                Contact Details
+                            </h2>
+
+                            <div class="grid md:grid-cols-2 gap-10">
+
+                                <div class="space-y-5">
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Office
+                                        </p>
+
+                                        <p class="text-xl">
+                                            Room 1012
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Office Hours
+                                        </p>
+
+                                        <p class="text-xl">
+                                            Monday to Friday <br>
+                                            8:00 a.m. ─ 5:00 p.m.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Trunkline
+                                        </p>
+
+                                        <p class="text-xl">
+                                            (02) 8281 8888 Local 221
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Email
+                                        </p>
+
+                                        <p class="text-xl text-feu-yellow">
+                                            <a href="mailto:cpe@feutech.edu.ph"
+                                            class="hover:text-white transition-colors duration-300 underline underline-offset-4">
+                                                cpe@feutech.edu.ph
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
+    
+                                    <img src="/images/Tamtam/Wave_Tammy.png"
+                                        class="absolute bottom-0 right-0 w-40 opacity-40 pointer-events-none select-none"
+                                        alt="TamTam background">
+
+                                    <p class="uppercase tracking-[0.3em] text-feu-green font-black text-xs mb-3">
+                                        Program Director
+                                    </p>
+
+                                    <h3 class="text-3xl font-black text-black uppercase mb-3">
+                                        ENGR. NINO U. PILUETA
+                                    </h3>
+
+                                    <p class="text-slate-600 leading-relaxed">
+                                        Program Director of Computer Engineering
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    navLinks.forEach(link => {
+
+        link.addEventListener('click', function (e) {
+
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+        });
+
+    });
+
+    function updateActiveLink() {
+
+        let currentSection = '';
+
+        sections.forEach(section => {
+
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                currentSection = section.id;
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove('active');
+
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+
+        });
+
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+
+    updateActiveLink();
+
+</script>
+
+{% endblock %}

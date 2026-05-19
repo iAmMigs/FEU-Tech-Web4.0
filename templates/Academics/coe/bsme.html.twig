@@ -1,0 +1,1165 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bachelor of Science in Mechanical Engineering{% endblock %}
+
+{% block body %}
+
+<style>
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
+            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
+            #f8fafc;
+    }
+
+    .scroll-section {
+        scroll-margin-top: 120px;
+    }
+
+    .nav-link.active {
+        background: #008348;
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .glass-card {
+        backdrop-filter: blur(14px);
+        background: rgba(255,255,255,.72);
+    }
+
+    .faculty-card {
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .faculty-card:hover {
+        transform: translateY(-8px);
+
+        box-shadow:
+            0 20px 50px rgba(0,131,72,.18),
+            0 10px 30px rgba(254,190,16,.12);
+    }
+
+    .float-animation {
+        animation: floating 5s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+
+        0%,100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-14px);
+        }
+    }
+
+    .glow-hover {
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .glow-hover:hover {
+
+        transform: translateY(-8px);
+
+        box-shadow:
+            0 20px 50px rgba(0,131,72,.18),
+            0 10px 30px rgba(254,190,16,.12);
+    }
+
+    .competency-pill {
+
+        border: 2px solid #008348;
+
+        background: white;
+
+        color: #008348;
+
+        transition:
+            all .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .competency-pill:hover {
+
+        background: #008348;
+
+        color: white;
+
+        box-shadow:
+            0 15px 30px rgba(0,131,72,.22);
+    }
+
+    .careers-pill {
+
+        border: 2px solid #febe10;
+
+        background: white;
+
+        color: #5b5c5c;
+
+        transition:
+            all .35s ease,
+            box-shadow .35s ease;
+        
+    }
+
+    .careers-pill:hover {
+
+        background: #febe10;
+
+        color: white;
+
+        box-shadow:
+            0 15px 30px rgba(0,131,72,.22);
+    }
+
+    .lab-image {
+        transition:
+            transform .6s ease,
+            filter .4s ease;
+    }
+
+    .lab-image:hover {
+        transform: scale(1.03);
+        filter: brightness(1.04);
+    }
+
+</style>
+
+<!-- HERO -->
+<section class="relative z-10 overflow-hidden border-b border-slate-100">
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
+
+            <img src="/images/Academics/bsme.png"
+                 class="w-full h-auto block transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                 alt="Mechanical Engineering Hero">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<main class="relative py-12">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
+
+            <!-- SIDEBAR -->
+            <aside class="hidden lg:block sticky top-10 self-start">
+
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
+
+                    <div class="flex items-center gap-4 mb-8">
+
+                        <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                             class="w-20 object-contain float-animation"
+                             alt="TamTam">
+
+                        <div>
+
+                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
+                                FEU TECH
+                            </p>
+
+                            <h2 class="text-2xl font-black text-feu-green">
+                                BSME
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <nav class="space-y-3">
+
+                        <a href="#overview" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Overview 
+                        </a>
+
+                        <a href="#objectives" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Objectives
+                        </a>
+
+                        <a href="#outcomes" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Outcomes & Competencies
+                        </a>
+
+                        <a href="#specialization" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Tracks
+                        </a>
+
+                        <a href="#careers" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Careers
+                        </a>
+
+                        <a href="#facilities" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Laboratories
+                        </a>
+
+                        <a href="#faculty" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Faculty
+                        </a>
+
+                        <a href="#contact" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Contact
+                        </a>
+
+                    </nav>
+
+                </div>
+
+            </aside>
+
+            <!-- CONTENT -->
+            <div class="space-y-16">
+
+                <!-- OVERVIEW -->
+                <section id="overview" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                 class="w-24 object-contain float-animation"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Program Overview
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    General Description of the Program
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            The field of mechanical engineering covers two broad areas: the thermal system and the mechanical system.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            The traditional courses in mechanical engineering that include power plant engineering, industrial plant engineering and machine design are supplemented by new and emerging fields such as renewable energy systems, mechatronics, control system and computer applications.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            The Bachelor of Science in Mechanical Engineering program has the following distinctive features: elective courses in the new and emerging technologies; industry immersion or on-the-job training; research project; and a culminating design project.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            The program also offers new courses such as technopreneurship, design thinking and bio-engineering.
+                        </p>
+
+                    </div>
+
+                    <div class="bg-white rounded-[3rem] mt-12 p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Educational Philosophy
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    FEU Tech Philosophy
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            FEU Tech's educational philosophy is rooted in transformative learning, emphasizing innovation, relevance, and social responsibility. We aim to cultivate an ecosystem of learning that shapes the next generation of leaders and innovators, driving positive change both locally and globally.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- OBJECTIVES -->
+                <section id="objectives" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Academic Goals
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Program Educational Objectives
+                                </h2>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-lg mb-8">
+                            By the time of graduation, the students should have/ be able to:
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Professional Practice
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Engaged in the practice of Mechanical Engineering or technopreneurship and innovation.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Leadership
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Assumed significant roles with key responsibilities in their workplace.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Organizations
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Involved in professional, socio-civic, government, or non-government organizations.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Continuous Development
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Demonstrated continuous professional development through certifications, attendance to training, seminars, and conferences and/or pursuit of graduate studies in engineering or related fields.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OUTCOMES -->
+                <section id="outcomes" class="scroll-section">
+
+                    <div class="bg-feu-green rounded-[3rem] p-10 text-white overflow-hidden relative">
+
+                        <div class="absolute right-0 bottom-0 opacity-10">
+                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                 class="w-72"
+                                 alt="TamTam">
+                        </div>
+
+                        <div class="relative z-10">
+
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
+                                Graduate Competencies
+                            </p>
+
+                            <h2 class="text-4xl font-black uppercase mb-10">
+                                Program/Student Outcomes
+                            </h2>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+
+                                {% set outcomes = [
+                                    'Apply knowledge of mathematics, natural science, engineering fundamentals and an engineering specialization to the solution of complex engineering problems.',
+                                    'Conduct investigations of complex engineering problems using research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of information to provide valid conclusions.',
+                                    'Design solutions for complex engineering problems and design systems, components or processes that meet specified needs with appropriate consideration for public health and safety, cultural, societal, and environmental considerations.',
+                                    'Function effectively as an individual, and as a member or leader in diverse teams and in multi-disciplinary settings.',
+                                    'Identify, formulate, research literature and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences and engineering sciences.',
+                                    'Apply ethical principles and commit to professional ethics and responsibilities and norms of engineering practice.',
+                                    'Communicate effectively on complex engineering activities with the engineering community and with society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.',
+                                    'Understand and evaluate the sustainability and impact of professional engineering work in the solution of complex engineering problems in societal and environmental context.',
+                                    'Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change',
+                                    'Apply reasoning informed by contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to professional engineering practice and solutions to complex engineering problems.',
+                                    'Create, select and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modelling, to complex engineering problems with an understanding of the limitations.',
+                                    'Demonstrate knowledge and understanding of engineering management principles and economic decision-making and apply these to one’s own work, as a member and leader in a team, to manage projects and in multidisciplinary environments.'
+                                ] %}
+
+                                {% for item in outcomes %}
+                                    <div class="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
+                                        
+                                        <div class="flex gap-4">
+
+                                            <span class="bg-feu-yellow text-feu-green
+                                                        w-10 h-10 shrink-0
+                                                        rounded-full
+                                                        flex items-center justify-center
+                                                        font-black text-sm">
+                                                {{ range('A', 'Z')[loop.index0] }}
+                                            </span>
+
+                                            <p class="text-white/90 leading-relaxed">
+                                                {{ item }}
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[3rem] p-10 mt-12 shadow-2xl border border-slate-100 glow-hover">
+
+                        <div class="mb-10">
+
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                Graduate Attributes
+                            </p>
+
+                            <h2 class="text-4xl font-black text-feu-green uppercase">
+                                Engineering Competencies
+                            </h2>
+
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+
+                            {% set attributes = [
+                                'Engineering Knowledge',
+                                'Problem Analysis',
+                                'Design/ development of solutions',
+                                'Investigation',
+                                'Modern Tool Usage',
+                                'The Engineer and Society',
+                                'Environment and Sustainability',
+                                'Ethics',
+                                'Individual and Teamwork',
+                                'Communication',
+                                'Project Management and Finance',
+                                'Lifelong Learning'
+                            ] %}
+
+                            {% for item in attributes %}
+
+                                <div class="competency-pill px-6 py-4 rounded-full font-bold shadow-md">
+                                    {{ item }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- TRACKS -->
+                <section id="specialization" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Tracks
+                                </h2>
+                                <p class="text-slate-600">
+                                    Students may choose their track of interest
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Mechatronics
+                                </h3>
+                            
+                                <p class="text-slate-600">
+                                    Mechatronics focuses on a multidisciplinary field that refers to the skill sets and knowledge needed in the contemporary, advanced automated manufacturing industry. It is at the intersection of mechanics, electronics, and computing.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                <h3 class="font-black text-feu-green mb-4 uppercase">
+                                    Materials Science and Engineering
+                                </h3>
+
+                                <p class="text-slate-600">
+                                    Materials Science and Engineering (MSE) focuses on the combination of engineering, physics, and chemistry principles to solve real-world problems including those that are associated with nanotechnology, biotechnology, information technology, energy, manufacturing and other major engineering disciplines.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Career Opportunities -->
+                <section id="careers" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <div class="mb-10">
+                            <h2 class="text-3xl font-black text-feu-green uppercase">
+                                Career Opportunities
+                            </h2>
+
+                            <p class="uppercase tracking-[0.3em] text-slate-600 text-xs mb-2">
+                                Graduates of B.S.M.E. program may opt to work as:
+                            </p>
+
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+
+                            {% set careers = [
+                                'Automotive Engineer',
+                                'Maintenance Engineer',
+                                'Facilities Engineer',
+                                'Instrumentation and Controls Engineer',
+                                'Mechanical Designer',
+                                'Industrial Product Designer',
+                                'Plant Safety Engineer',
+                                'Power Plant Engineer',
+                                'HVAC & R Engineer',
+                                'R&D Engineer',
+                                'College Instructor'
+                            ] %}
+
+                            {% for item in careers %}
+
+                                <div class="careers-pill px-6 py-4 rounded-full font-bold shadow-md">
+                                    {{ item }}
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- FACILITIES -->
+                <section id="facilities" class="scroll-section space-y-10">
+
+                    <div>
+
+                        <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                            Facilities & Laboratories
+                        </p>
+
+                        <h2 class="text-4xl font-black text-feu-green uppercase">
+                            Mechanical Engineering Laboratories
+                        </h2>
+
+                    </div>
+
+                    <!-- Thermo Fluid Laboratory -->
+                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <img src="/images/Academics/COE_Tammy.png"
+                             class="rounded-[2rem] object-cover w-full h-full lab-image"
+                             alt="Thermo Fluid Laboratory">
+
+                        <div>
+
+                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                F-1107
+                            </div>
+
+                            <h3 class="text-3xl font-black text-feu-green mb-5">
+                                Thermo Fluid Laboratory
+                            </h3>
+
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                Thermo Fluid Laboratory consists of equipment for thermodynamic properties measurement & calibration and fluid machineries such as pumps, compressors and fans.
+                            </p>
+
+                            <ul class="list-disc pl-5 text-slate-600 space-y-1">
+                                <li>Series/Parallel Pumps Bench</li>
+                                <li>TD400 Temperature Measurement and Calibration</li>
+                                <li>MFP105 Centrifugal Compressor Main</li>
+                                <li>HM 135 Settling Velocity</li>
+                                <li>HM 150.02 Dead Weight Piston Gauge</li>
+                                <li>HM 150.13 Methods of Flow Measurement</li>
+                                <li>HM 280 Radial Fan</li>
+                                <li>HM 282 Axial Fan</li>
+                                <li>HM 285 Piston Pump</li>
+                                <li>HM 286 Gear Pump</li>
+                                <li>HM 292 Radial Compressor</li>
+                                <li>WL 203 Pressure Measurement</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Machine Shop -->
+                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <img src="/images/Academics/COE_Tammy.png"
+                             class="rounded-[2rem] object-cover w-full h-full lab-image"
+                             alt="Machine Shop">
+
+                        <div>
+
+                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                F-1108
+                            </div>
+
+                            <h3 class="text-3xl font-black text-feu-green mb-5">
+                                Machine Shop
+                            </h3>
+
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                Machine Shop consists of machines utilized for common machining techniques for wood and metals such as milling, drilling, forming, rolling and cutting.
+                            </p>
+
+                            <ul class="list-disc pl-5 text-slate-600 space-y-1">
+                                <li>ASH360B Precision Gap Bed Lathe w/ Stand Model</li>
+                                <li>SP/180 Conventional Lathe Machine</li>
+                                <li>FK-H4822 Bending Machine</li>
+                                <li>Multi-grind (4.0kW)</li>
+                                <li>TB-2 Rolling Machine</li>
+                                <li>Bench Grinder (1/2 hp)</li>
+                                <li>Vertical Milling Machine</li>
+                                <li>GTS 10J Table Saw</li>
+                                <li>MJ7115 Manual Surface Grinder (3/4 hp)</li>
+                                <li>Concept Turn58 CNC Lathe Machine</li>
+                                <li>Control Keyboards Series 21</li>
+                                <li>CPU Neutron Deluxe</li>
+                                <li>Concept MILL55</li>
+                                <li>FN-M616 Squaring Machine</li>
+                                <li>ASH-1000 Wood Lathe (3/4 hp)</li>
+                                <li>Drill Press (1hp-5levels)</li>
+                                <li>Single Stage Compressor w/ Drive Unit (1/2 hp)</li>
+                                <li>Power Hacksaw</li>
+                                <li>14? Band Saw (1/2 hp)</li>
+                                <li>Power Planer (1/2 hp)</li>
+                                <li>Wood Vise</li>
+                                <li>Machinist Vise</li>
+                                <li>Anvil</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Instrumentation and Control -->
+                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <img src="/images/Academics/COE_Tammy.png"
+                             class="rounded-[2rem] object-cover w-full h-full lab-image"
+                             alt="Instrumentation and Control Laboratory">
+
+                        <div>
+
+                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                F-1110
+                            </div>
+
+                            <h3 class="text-3xl font-black text-feu-green mb-5">
+                                Instrumentation and Control/Thermal Cycles Laboratory
+                            </h3>
+
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                Instrumentation and Control/Thermal Cycles Laboratory consists of equipment for instrumentation, control engineering, refrigeration, air-conditioning, heating and power generation.
+                            </p>
+
+                            <ul class="list-disc pl-5 text-slate-600 space-y-1">
+                                <li>PCT-100 Process Control Trainer</li>
+                                <li>Steam-Turbine Power System</li>
+                                <li>Computer Controlled Steam Turbine</li>
+                                <li>Steam Generator, Three-Phase, 6kW</li>
+                                <li>FGA/EV testo 330-1 LL Flue Gas Analyzer</li>
+                                <li>KMO/EV Oil Hydraulics Practical System</li>
+                                <li>SPT/EV Pneumatic Trainer</li>
+                                <li>TG/EV Ice Maker Trainer</li>
+                                <li>ET 915 Refrigeration and Air Conditioning, Base Unit</li>
+                                <li>ET 915.01 Refrigerator Model</li>
+                                <li>ET 915.06 Simple Air Conditioning System</li>
+                                <li>RT 395 Valve and Actuator Trainer</li>
+                                <li>IA 120 Principles of Industrial Sensors</li>
+                                <li>TD360 Heat Exchanger Service Module</li>
+                                <li>TD360A Tubular Heat Exchanger</li>
+                                <li>TD360B Plate Heat Exchanger</li>
+                                <li>TD360C Shell and Tube Heat Exchanger</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Welding Room -->
+                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+
+                        <img src="/images/Academics/COE_Tammy.png"
+                             class="rounded-[2rem] object-cover w-full h-full lab-image"
+                             alt="Welding Room">
+
+                        <div>
+
+                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                F-101
+                            </div>
+
+                            <h3 class="text-3xl font-black text-feu-green mb-5">
+                                Welding/Material Science Room
+                            </h3>
+
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                Welding/Material Science Room consists of machines used for welding and mechanical testing of materials.
+                            </p>
+
+                            <ul class="list-disc pl-5 text-slate-600 space-y-1">
+                                <li>Miller millermatic 212 w/ autoset</li>
+                                <li>Lincoln Precision TIG 225 w/ cart</li>
+                                <li>Lincoln Power MIG 216 welder</li>
+                                <li>Nabertherm Melting Furnace</li>
+                                <li>CO2 Tank (50lbs)</li>
+                                <li>Argon Tank (50lbs)</li>
+                                <li>Oxygen Tank</li>
+                                <li>Acetylene Tank</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- FACULTY -->
+                <section id="faculty" class="scroll-section">
+
+                    <!-- FULL TIME -->
+                    <div class="mb-10">
+
+                        <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                            Mechanical Engineering Department
+                        </p>
+
+                        <h2 class="text-4xl font-black text-feu-green uppercase">
+                            Full Time Faculty Members
+                        </h2>
+
+                    </div>
+
+                    <div class="grid md:grid-cols-2 xl:grid-cols-2 gap-8 mb-20">
+
+                        {% set faculty = [
+
+                            {
+                                name: 'Jaychris Georgette Y. Onia',
+                                role: 'Director',
+                                education: 'Doctor of Philosophy in Materials Science and Engineering (Candidate) - Mapua University
+                Master of Engineering in Mechanical Engineering - University of San Carlos Talamban Campus
+                Bachelor of Science in Mechanical Engineering - Silliman University',
+                                specialization: 'Nanomaterials, Biocomposiles, Gasification of Solid Wastes',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: ''
+                            },
+
+                            {
+                                name: 'Jerome D. Lopena',
+                                role: 'Faculty Member',
+                                education: 'PhD in Materials Science and Engineering - Mapua University
+                Master of Science in Mechanical Engineering - Mapua University
+                Bachelor of Science in Mechanical Engineering - Mapua University',
+                                specialization: 'Nanomaterials, Biocomposites, Robotics & HVAC',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: 'Philippine Society of Mechanical Engineers (PSME) – Member'
+                            },
+
+                            {
+                                name: 'Hans Felix R. Bosshard',
+                                role: 'Faculty Member',
+                                education: 'Master of Science in Environmental Engineering - Mapua University
+                Bachelor of Science in Mechanical Engineering - De La Salle University',
+                                specialization: 'Indoor Environmental Quality, Engineering Education',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: ''
+                            },
+
+                            {
+                                name: 'Ritchard Q. Dizon',
+                                role: 'Faculty Member',
+                                education: 'Bachelor of Science in Mechanical Engineering - Pamantasan ng Lungsod ng Maynila',
+                                specialization: 'Renewable Energy, Sustainable Technologies and Engineering Management',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: ''
+                            },
+
+                            {
+                                name: 'Tony Rey R. Escalona',
+                                role: 'Faculty Member',
+                                education: 'Bachelor of Science in Mechanical Engineering - Technological University of the Philippines',
+                                specialization: 'Machining, Welding and Manufacturing Process',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: 'Philippine Society of Mechanical Engineers (PSME) Member'
+                            },
+
+                            {
+                                name: 'Ernett L. Maceda',
+                                role: 'Faculty Member',
+                                education: 'Bachelor of Science in Mechanical Engineering - Mapua University',
+                                specialization: 'HVAC-R and Mechatronics',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: 'Philippine Society of Mechanical Engineers (PSME) Member
+                American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE) Member/Faculty Adviser'
+                            },
+
+                            {
+                                name: 'John Nico N. Omlang',
+                                role: 'Faculty Member',
+                                education: 'Bachelor of Science in Mechanical Engineering - Technological University of the Philippines',
+                                specialization: 'Thermo-Fluids',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: 'Philippine Society of Mechanical Engineers (PSME) Member'
+                            },
+
+                            {
+                                name: 'Henry John Ricamara',
+                                role: 'Faculty Member',
+                                education: 'Bachelor of Science in Mechanical Engineering - Mapua University',
+                                specialization: 'HVAC, Renewable Energy',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: ''
+                            },
+
+                            {
+                                name: 'Diana Rose T. Rivera',
+                                role: 'Faculty Member',
+                                education: 'Master of Science in Mechanical Engineering - De La Salle University
+                Bachelor of Science in Mechanical Engineering - Polytechnic University of the Philippines',
+                                specialization: 'Bioenergy and Environment',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: ''
+                            },
+
+                            {
+                                name: 'Reynaldo S. Soldevilla',
+                                role: 'Faculty Member',
+                                education: 'Master of Engineering - University of Santo Tomas
+                Bachelor of Science in Mechanical Engineering - Technological Institute of the Philippines',
+                                specialization: 'Energy and Environment, Fluid',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: ''
+                            },
+
+                            {
+                                name: 'Alexis Mervin T. Sy',
+                                role: 'Faculty Member',
+                                education: 'Master of Engineering in Mechanical Engineering - De La Salle University
+                Bachelor of Science in Mechanical Engineering - De La Salle University',
+                                specialization: 'Optimization, Energy Systems Modeling',
+                                credentials: 'Registered Mechanical Engineer',
+                                affiliation: ''
+                            }
+
+                        ] %}
+
+                        {% for item in faculty %}
+
+                        <div class="faculty-card bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100">
+
+                            <div class="w-20 h-20 rounded-full bg-feu-green flex items-center justify-center text-white text-2xl font-black mb-6 float-animation">
+                                {{ item.name|split(' ')[0]|first }}
+                            </div>
+
+                            <h3 class="text-2xl font-black text-feu-green mb-2">
+                                {{ item.name }}
+                            </h3>
+
+                            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-5">
+                                {{ item.role }}
+                            </p>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Education</p>
+                                <p class="text-slate-600 whitespace-pre-line">{{ item.education }}</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Research Area</p>
+                                <p class="text-slate-600">{{ item.specialization }}</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Credentials</p>
+                                <p class="text-slate-600">{{ item.credentials }}</p>
+                            </div>
+
+                            {% if item.affiliation %}
+                            <div>
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Affiliation</p>
+                                <p class="text-slate-600 whitespace-pre-line">{{ item.affiliation }}</p>
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <!-- PART TIME -->
+                    <div class="mb-10">
+
+                        <h2 class="text-4xl font-black text-feu-green uppercase">
+                            Part-Time Faculty Members
+                        </h2>
+
+                    </div>
+
+                    <div class="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
+
+                        {% set parttimeFaculty = [
+
+                            {
+                                name: 'Khansun T. Baravio',
+                                role: 'Part-Time Faculty',
+                                education: 'Bachelor of Science in Mechanical Engineering - FEU Institute of Technology',
+                                specialization: 'Smart Systems and Software Development',
+                                credentials: 'Registered Mechanical Engineer'
+                            },
+
+                            {
+                                name: 'Manuel C. Belino',
+                                role: 'Part-Time Faculty',
+                                education: 'PhD in Engineering Education - De La Salle University
+                Master of Engineering - De La Salle University
+                Bachelor of Science in Mechanical Engineering - Mapua University',
+                                specialization: 'HVAC, Indoor Outdoor Air Quality, Engineering Education',
+                                credentials: 'Registered Mechanical Engineer'
+                            }
+
+                        ] %}
+
+                        {% for item in parttimeFaculty %}
+
+                        <div class="faculty-card bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100">
+
+                            <div class="w-20 h-20 rounded-full bg-feu-green flex items-center justify-center text-white text-2xl font-black mb-6 float-animation">
+                                {{ item.name|split(' ')[0]|first }}
+                            </div>
+
+                            <h3 class="text-2xl font-black text-feu-green mb-2">
+                                {{ item.name }}
+                            </h3>
+
+                            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-5">
+                                {{ item.role }}
+                            </p>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Education</p>
+                                <p class="text-slate-600 whitespace-pre-line">{{ item.education }}</p>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Research Area</p>
+                                <p class="text-slate-600">{{ item.specialization }}</p>
+                            </div>
+
+                            <div>
+                                <p class="font-black text-feu-green text-sm uppercase mb-1">Credentials</p>
+                                <p class="text-slate-600">{{ item.credentials }}</p>
+                            </div>
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </section>
+
+                <!-- CONTACT -->
+                <section id="contact" class="scroll-section">
+
+                    <div class="bg-feu-green rounded-[3rem] p-12 text-white relative overflow-hidden">
+
+                        <div class="absolute bottom-0 right-0 opacity-10">
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-80"
+                                 alt="TamTam">
+                        </div>
+
+                        <div class="relative z-10">
+
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
+                               Mechanical Engineering Department
+                            </p>
+
+                            <h2 class="text-5xl font-black uppercase mb-10">
+                                Contact Details
+                            </h2>
+
+                            <div class="grid md:grid-cols-2 gap-10">
+
+                                <div class="space-y-5">
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Office
+                                        </p>
+
+                                        <p class="text-xl">
+                                            Room 1104
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Office Hours
+                                        </p>
+
+                                        <p class="text-xl">
+                                            Monday to Friday <br>
+                                            8:00 a.m. ─ 5:00 p.m.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Trunkline
+                                        </p>
+
+                                        <p class="text-xl">
+                                            (02) 8281 8888 Local 121
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                            Email
+                                        </p>
+
+                                        <p class="text-xl text-feu-yellow">
+                                            <a href="mailto:me@feutech.edu.ph"
+                                            class="hover:text-white transition-colors duration-300 underline underline-offset-4">
+                                                me@feutech.edu.ph
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
+    
+                                    <img src="/images/Tamtam/Wave_Tammy.png"
+                                        class="absolute bottom-0 right-0 w-40 opacity-40 pointer-events-none select-none"
+                                        alt="TamTam background">
+
+                                    <p class="uppercase tracking-[0.3em] text-feu-green font-black text-xs mb-3">
+                                        Program Director
+                                    </p>
+
+                                    <h3 class="text-3xl font-black text-black uppercase mb-3">
+                                        ENGR. JAYCHRIS GEORGETTE Y. ONIA
+                                    </h3>
+
+                                    <p class="text-slate-600 leading-relaxed">
+                                        Program Director of Mechanical Engineering
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    navLinks.forEach(link => {
+
+        link.addEventListener('click', function (e) {
+
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+        });
+
+    });
+
+    function updateActiveLink() {
+
+        let currentSection = '';
+
+        sections.forEach(section => {
+
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                currentSection = section.id;
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove('active');
+
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+
+        });
+
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+
+    updateActiveLink();
+
+</script>
+
+{% endblock %}

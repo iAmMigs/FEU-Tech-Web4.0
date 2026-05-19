@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bachelor of Science in Computer Science{% endblock %}
+{% block title %}Bachelor of Science in Information Technology{% endblock %}
 
 {% block body %}
 
@@ -73,30 +73,9 @@
         overflow: visible;
     }
 
-    .tammy-peek {
-        position: absolute;
-        top: -75px;
-        right: 25px;
-        z-index: 30;
-        pointer-events: none;
-    }
-
-    .tammy-peek-img {
-        width: 110px;
-        opacity: 0;
-        transform: translateY(20px) scale(.8);
-        transition: all .5s ease;
-        filter: drop-shadow(0 10px 20px rgba(0,0,0,.15));
-    }
-
-    .library-card-wrapper:hover .tammy-peek-img {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
     .glass-card {
         backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 100);
+        background: rgba(255,255,255);
     }
 </style>
 
@@ -104,11 +83,12 @@
 <section class="relative z-10 overflow-hidden border-b border-slate-100">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
-            <img src="/images/Academics/bscs.jpg" class="w-full h-auto block transform group-hover:scale-[1.01] transition-transform duration-700 ease-out" alt="Cybersecurity Hero">
+            <img src="/images/Academics/bsit.jpg" class="w-full h-auto block transform group-hover:scale-[1.01] transition-transform duration-700 ease-out" alt="Cybersecurity Hero">
             <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-80"></div>
         </div>
     </div>
 </section>
+
 
 <main class="relative py-12">
 
@@ -132,7 +112,7 @@
                             </p>
 
                             <h2 class="text-2xl font-black text-feu-green leading-tight">
-                                BSCS
+                                BSIT
                             </h2>
                         </div>
                     </div>
@@ -172,7 +152,6 @@
                 <!-- OVERVIEW -->
                 <section id="overview" class="scroll-section library-card-wrapper">
 
-
                     <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
 
                         <div class="flex items-center gap-5 mb-8">
@@ -192,15 +171,15 @@
                         </div>
 
                         <p class="text-slate-600 leading-relaxed text-lg mb-6">
-                            The Bachelor of Science in Computer Science includes the study of computing concepts and theories, algorithmic foundations, and new developments in computing.
+                            The Bachelor of Science in Information Technology is the study of the use of computers and computer software to plan, install, customize, operate, manage, administer, and maintain information technology infrastructure. 
                         </p>
 
                         <p class="text-slate-600 leading-relaxed text-lg mb-6">
-                            The program prepares students to design and create algorithmically complex software and develop new and effective algorithms for solving computing problems.
+                           The program also deals with the study of design, development, and implementation of solutions that integrate information technology into businesses and organizations. 
                         </p>
 
                         <p class="text-slate-600 leading-relaxed text-lg">
-                            Graduates of this program can expect a successful and rewarding career in specification design, coding, and software testing. It also focuses on software engineering, database, and large-scale software.
+                            It aims to prepare students to be IT professionals, well-versed in IT infrastructure development and administration, and experts in systems design and development for implementation in an organization.
                         </p>
                     </div>
                 </section>
@@ -227,7 +206,7 @@
                         </div>
 
                         <p class="text-slate-600 text-lg mb-8">
-                            Within 3 to 5 years after graduation, graduates of the Bachelor of Science in Computer Science program are:
+                            Within 3 to 5 years after graduation, graduates of the Bachelor of Science in Information Technology program are:
                         </p>
 
                         <div class="grid md:grid-cols-3 gap-6">
@@ -238,7 +217,7 @@
                                 </h3>
 
                                 <p class="text-slate-600">
-                                    Engaged in further professional development and have an interest in or aptitude for advanced studies or training in computing.
+                                    Engaged in further professional development and interested in advanced studies or training in computing.
                                 </p>
                             </div>
 
@@ -290,25 +269,26 @@
                             <div class="grid md:grid-cols-2 gap-6">
 
                                 {% set outcomes = [
-                                    'Apply knowledge of computing appropriate to the discipline.',
-                                    'Analyze a complex problem and identify and define the computing requirements appropriate to its solution.',
-                                    'Design, implement, and evaluate computer-based systems or applications to meet desired needs and requirements.',
-                                    'Function effectively as a member or leader of a development team recognizing the different roles within a team to accomplish a common goal.',
+                                    'Apply computing knowledge appropriate to the discipline',
+                                    'Analyze a complex problem and identify and define the computing requirements appropriate to its solution',
+                                    'Design, implement, and evaluate computer-based systems or applications to meet desired needs and requirements',
+                                    'Function effectively both as a member and a leader of a development team recognizing the different roles to accomplish a common goal',
                                     'Understand professional, ethical, legal, security, and social issues and responsibilities in the utilization of information technology',
-                                    'Communicate effectively with the computing community and with society at large about complex computing activities through logical writing, presentations, and clear.',
-                                    'Analyze the local and global impact of computing information technology on individuals, organizations, and society.',
-                                    'Recognize the need for and engage in planning self-learning and improving performance as a foundation for continuing professional development.',
+                                    'Communicate effectively with the computing community and with society at large about complex computing activities through logical writing and presentations',
+                                    'Analyze local and global impacts of computing information technology on individuals, organizations, and society',
+                                    'Recognize the need for and engage in planning self-learning and improving performance as a foundation for continuing professional development',
                                     'Apply knowledge through the use of current techniques and tools necessary for the IT profession',
-                                    'Apply mathematical foundations, algorithmic, principles, and computer science theory in the modeling and design of computer-based systems in a way that demonstrates comprehension of the tradeoffs involved in design choices and applicable standards',
-                                    'Apply design and development principles in the construction of software systems of varying complexity in accordance with applicable standards.',
-                                    'Apply mastery in their field of specialization.'
+                                    'Use and apply current technical concepts and practices in the core information technologies, human-computer interaction, information management, programming, networking, and web systems and technologies',
+                                    'Identify and analyze user needs, applying them in the selection, creation, evaluation, and administration of computer-based systems',
+                                    'Integrate IT-based solutions into the user environment effectively',
+                                    'Understand the application of best practices and standards',
+                                    'Assist in the creation of an effective IT project plan',
+                                    'Demonstrate understanding and proficiency in IT specialization'
                                 ] %}
 
                                 {% for item in outcomes %}
                                     <div class="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
-                                        
                                         <div class="flex gap-4">
-
                                             <span class="bg-feu-yellow text-feu-green
                                                         w-10 h-10 shrink-0
                                                         rounded-full
@@ -322,7 +302,6 @@
                                             </p>
 
                                         </div>
-
                                     </div>
                                 {% endfor %}
                             </div>
@@ -333,7 +312,7 @@
                 <!-- SPECIALIZATIONS -->
                 <section id="specializations" class="scroll-section space-y-10">
 
-                    <!-- Artificial Intelligence -->
+                    <!-- CYBERSECURITY -->
                     <div class="library-card-wrapper">
 
                         <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
@@ -349,69 +328,46 @@
                                     </p>
 
                                     <h2 class="text-4xl font-black text-feu-green uppercase">
-                                        Artificial Intelligence (New)
+                                        Cybersecurity (New)
                                     </h2>
                                 </div>
                             </div>
 
                             <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                The <strong> Artificial Intelligence specialization </strong> aims to give students the essential competencies that can emulate cognitive functions, adapt and enhance performance over time, and tackle complex tasks that are comparable to human performance.
+                                The primary goal of the <strong> Cybersecurity specialization</strong> is to give students the essential know-how and competencies needed to recognize, counter, and prevent cybersecurity threats and vulnerabilities inside an organization's IT infrastructure.
                             </p>
 
                             <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                Furthermore, the <strong> Artificial Intelligence specialization </strong> covers expansive topics on problem-solving, reasoning, understanding natural language, speech recognition, and computer vision. The curriculum is created to give students the skills and expertise they need to deploy artificial intelligence algorithmic solutions that adhere to industry standards and best practices.
+                                 <strong> BSIT with specialization in Cybersecurity </strong> covers expansive topics on network security, information security, ethical hacking, cryptography, and cybercrime investigation. The curriculum is created to give students the skills and expertise they need to deploy cybersecurity solutions that adhere to industry standards and best practices.
                             </p>
 
                             <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                               Graduates of the <strong> BSCS Program with specialization in Artificial Intelligence </strong> should be capable of managing efficiency and automation, personalization, data analysis and insights, capable of creating predictive and prescriptive solutions with enhanced decision-making and innovative solutions.
+                                Graduates of the Cybersecurity Program specialization course should be capable of managing cybersecurity risks, protecting organizational data, and designing and implementing cybersecurity solutions to defend against online threats.
                             </p>
 
+                            <div>
 
-                            <div class="grid lg:grid-cols-2 gap-8">
-
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-2xl font-black text-feu-green mb-6 uppercase">
+                                <div class="bg-feu-green rounded-[2rem] p-8">
+                                    <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
                                         Career Opportunities
                                     </h3>
 
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Machine Learning Engineer</li>
-                                        <li>• Data Scientist</li>
-                                        <li>• AI Research Scientist</li>
-                                        <li>• Robotics Engineer</li>
-                                        <li>• Natural Language Processing (NLP) Engineer</li>
-                                        <li>• Computer Vision Engineer</li>
-                                        <li>• AI Ethics and Bias Specialist</li>
-                                        <li>• AI Product Manager</li>
-                                        <li>• AI Consultant</li>
-                                        <li>• AI Software Developer</li>
-                                        <li>• AI in Healthcare Specialist</li>
-                                        <li>• Cybersecurity Analyst specializing in AI</li>
+                                    <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-white font-medium">
+                                        <li>• Ethical hacker</li>
+                                        <li>• Cybersecurity consultants</li>
+                                        <li>• Cybersecurity manager</li>
+                                        <li>• Network security engineer</li>
+                                        <li>• Cybersecurity analyst</li>
+                                        <li>• Computer network architect</li>
+                                        <li>• Digital forensic investigator</li>
                                     </ul>
                                 </div>
-
-                                <div class="bg-feu-green rounded-[2rem] p-8 text-white">
-                                    <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
-                                        Unique Value Proposition
-                                    </h3>
-
-                                    <ul class="space-y-3 text-white/90">
-                                        <li>• Efficiency and Automation</li>
-                                        <li>• Personalization</li>
-                                        <li>• Data Analysis and Insights</li>
-                                        <li>• Predictive Capabilities</li>
-                                        <li>• Continuous Learning and Adaptability</li>
-                                        <li>• Enhanced Decision-Making</li>
-                                        <li>• Innovative Solutions</li>
-                                    </ul>
-                                </div>
-
                             </div>
                         </div>
                     </div>
 
-                    <!-- DATA SCIENCE -->
-                     <div class="library-card-wrapper">
+                    <!-- WEB AND MOBILE -->
+                    <div class="library-card-wrapper">
 
                         <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
 
@@ -426,75 +382,51 @@
                                     </p>
 
                                     <h2 class="text-4xl font-black text-feu-green uppercase">
-                                        Data Science (New)
+                                        Web and Mobile Application
                                     </h2>
                                 </div>
                             </div>
 
                             <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                               <strong> Data Science</strong> seeks to understand and investigate data in various forms using scientific methods, processes, algorithms, and frameworks to extricate knowledge and insights to see genuine peculiarities. It utilizes methods and various hypotheses from software engineering, mathematics, statistics, and other related disciplines. It trains students to understand different data science algorithms to generate and derive meaningful results for application in any domain.
+                                Students taking up BSIT with specialization in Web and Mobile Application are introduced to different techniques of technology assimilation and deployment in the real-world environment.
                             </p>
 
                             <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                The <strong> BSCS program with a specialization in Data Science </strong> helps produce students who are computing professionals equipped with mathematics and statistics foundations, algorithmic principles, and computer science theory appropriate to identify, analyze, formulate, research literature, and solve complex problems in the relevant domain disciplines. With this program, Tamaraws can become data-driven decision-makers.
+                                They will design, employ, and deploy the needs of information resources to support an organization. By specializing in Web and Mobile Applications, they will gain a broad foundation in user interaction and global communication as well as digital technologies using state-of-the-art computer systems focused on the development of the mobile web.
                             </p>
 
+                            <div>
 
-                            <div class="grid lg:grid-cols-3 gap-8">
-
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Soft Skills and Values
-                                    </h3>
-                                    
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Communication Skills</li>
-                                        <li>• Problem-Solving Skills</li>
-                                        <li>• Adaptability to Change</li>
-                                        <li>• Professional Ethics</li>
-                                        <li>• Lifelong Learning Skills</li>
-                                        <li>• Creativity and Innovation</li>
-                                        <li>• Team Work</li>
-                                        <li>• Leadership</li>
-                                    </ul>
-                                </div>
-
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Technical Skills
+                                <div class="bg-feu-green rounded-[2rem] p-8">
+                                    <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
+                                        Career Opportunities
                                     </h3>
 
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Programming Skills</li>
-                                        <li>• Software Engineering</li>
-                                        <li>• Design and Analysis Skills</li>
-                                        <li>• Project Management</li>
-                                        <li>• Math and Statistics</li>
-                                        <li>• Security Skills</li>
-                                        <li>• Data Management</li>
+                                    <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-white font-medium">
+                                        <li>• Web Designer</li>
+                                        <li>• Web Developer/Programmer</li>
+                                        <li>• Application System Analyst</li>
+                                        <li>• Application System Developer</li>
+                                        <li>• Computer Programmer</li>
+                                        <li>• Computer Graphics Designer</li>
+                                        <li>• Network Support Specialist</li>
+                                        <li>• IT Technical Support Specialist</li>
+                                        <li>• IT Educator</li>
+                                        <li>• Mobile Applications Developer</li>
+                                        <li>• Web Administrator</li>
+                                        <li>• Platform Technology Support</li>
+                                        <li>• System Analyst</li>
+                                        <li>• System Administrator</li>
+                                        <li>• Database Administrator</li>
+                                        <li>• Network Administrator</li>
+                                        <li>• Network Engineer/Network Specialist</li>
                                     </ul>
                                 </div>
-
-                                <div class="bg-feu-green rounded-[2rem] p-8 text-white">
-                                    <h3 class="text-l font-black text-feu-yellow mb-6 uppercase">
-                                        Additional Technical Skills from Specialization
-                                    </h3>
-                                    
-                                    <ul class="space-y-3 text-white/90">
-                                        <li>• Analytics and Modeling</li>
-                                        <li>• Machine Learning Methods</li>
-                                        <li>• Data Visualization and Storytelling</li>
-                                        <li>• Artificial Intelligence</li>
-                                        <li>• Business Expertise</li>
-                                        <li>• Research Methods</li>
-                                    </ul>
-                                </div>
-
                             </div>
                         </div>
                     </div>
 
-                    <!-- SOFTWARE ENGINEERING -->
+                    <!-- ANIMATION -->
                     <div class="library-card-wrapper">
 
                         <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
@@ -510,71 +442,135 @@
                                     </p>
 
                                     <h2 class="text-4xl font-black text-feu-green uppercase">
-                                       Software Engineering
+                                        Animation and Game Development
                                     </h2>
                                 </div>
                             </div>
 
                             <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                The <strong> BSCS program with a specialization in Software Engineering </strong> aims to train students to focus on the design of efficient, reliable, and quality software applications.
+                                By specializing in Animation and Game Design, students will be introduced to different theories and practices in gaming environments and 3D animation.
                             </p>
 
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                They will also unleash their potential as future game programmers and designers. Students will also obtain skills and knowledge in game conceptualization, mechanics, story, interactivity, design, and 3D animation.
+                            </p>
 
-                            <div class="grid lg:grid-cols-3 gap-8">
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                The discipline is geared towards game studies, game genres, and software packages that deliver games across different platforms.
+                            </p>
 
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-2xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Soft Skills and Values
+                            <div>
+
+                                <div class="bg-feu-green rounded-[2rem] p-8">
+                                    <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
+                                        Career Opportunities
                                     </h3>
 
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Communication Skills</li>
-                                        <li>• Problem-Solving Skills</li>
-                                        <li>• Adaptability to Change</li>
-                                        <li>• Professional Ethics</li>
-                                        <li>• Lifelong Learning</li>
-                                        <li>• Creativity and Innovation</li>
-                                        <li>• Team Work</li>
-                                        <li>• Leadership</li>
+                                    <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-white font-medium">
+                                        <li>• Web Designer</li>
+                                        <li>• Web Programmer</li>
+                                        <li>• Application System Analyst</li>
+                                        <li>• Application System Developer</li>
+                                        <li>• Computer Programmer</li>
+                                        <li>• Computer Graphics Designer</li>
+                                        <li>• Network Support Specialist</li>
+                                        <li>• IT Technical Support Specialist</li>
+                                        <li>• IT Educator</li>
+                                        <li>• 2D conceptual and texture artist</li>
+                                        <li>• 2D cut scene artist</li>
+                                        <li>• 2D animator</li>
+                                        <li>• 3D model and character builder</li>
+                                        <li>• 3D character animator</li>
+                                        <li>• Level builder</li>
+                                        <li>• Art Technician and Director</li>
+                                        <li>• Game Programmer</li>
+                                        <li>• Game Designer</li>
+                                        <li>• Producer</li>
+                                        <li>• Game Technology Educator</li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-2xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Technical Skills
+                    <!-- BUSINESS ANALYTICS -->
+                    <div class="library-card-wrapper">
+
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                            <div class="flex items-center gap-5 mb-8">
+                                <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                     class="w-24"
+                                     alt="TamTam">
+
+                                <div>
+                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                        Specialization
+                                    </p>
+
+                                    <h2 class="text-4xl font-black text-feu-green uppercase">
+                                        Business Analytics
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                Business Analytics is a specialization that will educate students about the different sources of data, data management techniques, the importance of data, and how it can be utilized to make informed business decisions.
+                            </p>
+
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                Students will also develop an awareness of required ethical norms, compliance with the corporate code of ethics, policies, rules, and regulations as well as the applicable laws governing data confidentiality and non-disclosure agreements in business.
+                            </p>
+
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                Using an integrated approach, the BSIT with specialization in Business Analytics program will provide students with an overview of the current trends in information technology that drives businesses.
+                            </p>
+
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                It will focus on the interrelationships among the functional areas of business as well as sensitivity to the economic, social, technical, legal, and international environment in which the business must operate.
+                            </p>
+
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                The program aims to improve competencies in understanding data structures, data analysis, and data interpretation to aid in achieving the organization’s business goals and address operational challenges in any industry.
+                            </p>
+
+                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                                Further, this program aspires to instill and nurture the important qualities and skills essential for business leadership and organizational success.
+                            </p>
+
+                            <div>
+
+                                <div class="bg-feu-green rounded-[2rem] p-8">
+                                    <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
+                                        Career Opportunities
                                     </h3>
 
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                         <li>• Programming Skills</li>
-                                        <li>• Software Engineering</li>
-                                        <li>• Design and Analysis</li>
-                                        <li>• Project Management</li>
-                                        <li>• Math and Statistics</li>
-                                        <li>• Security Skills</li>
-                                        <li>• Data Management</li>
+                                    <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-white font-medium">
+                                        <li>• Web Designer</li>
+                                        <li>• Web Developer/Programmer</li>
+                                        <li>• Application System Analyst</li>
+                                        <li>• Application System Developer</li>
+                                        <li>• Computer Programmer</li>
+                                        <li>• Computer Graphics Designer</li>
+                                        <li>• Network Support Specialist</li>
+                                        <li>• IT Technical Support Specialist</li>
+                                        <li>• IT Educator</li>
+                                        <li>• Database Developer</li>
+                                        <li>• Data Engineer</li>
+                                        <li>• Business Intelligence Developer</li>
+                                        <li>• System Analyst</li>
+                                        <li>• Data Analyst</li>
+                                        <li>• Risk Analyst</li>
+                                        <li>• Business Analyst</li>
+                                        <li>• Website Analyst</li>
                                     </ul>
                                 </div>
-
-                                <div class="bg-feu-green rounded-[2rem] p-8 text-white">
-                                    <h3 class="text-l font-black text-feu-yellow mb-6 uppercase">
-                                        Additional Technical Skills from Specialization
-                                    </h3>
-
-                                    <ul class="space-y-3 text-white/90">
-                                        <li>• Mobile Programming</li>
-                                        <li>• Modeling and Simulation</li>
-                                        <li>• Image Processing</li>
-                                        <li>• Artificial Intelligence</li>
-                                        <li>• Research and Development</li>
-                                    </ul>
-                                </div>
-
                             </div>
                         </div>
                     </div>
 
                 </section>
+
                 <!-- CONTACT -->
                 <section id="contact" class="scroll-section">
 
@@ -589,7 +585,7 @@
                         <div class="relative z-10">
 
                             <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
-                                Computer Science Department
+                                Information Technology Department
                             </p>
 
                             <h2 class="text-5xl font-black uppercase mb-10">
@@ -637,16 +633,16 @@
                                         </p>
 
                                         <p class="text-xl text-feu-yellow">
-                                            <a href="mailto:ccs_cs@feutech.edu.ph"
+                                            <a href="mailto:ccs_it@feutech.edu.ph"
                                             class="hover:text-white transition-colors duration-300 underline underline-offset-4">
-                                                ccs_cs@feutech.edu.ph
+                                                ccs_it@feutech.edu.ph
                                             </a>
-                                        </p>                                        
+                                        </p>                                            
                                     </div>
 
                                 </div>
 
-                               <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
+                                <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
     
                                     <!-- Background Tammy -->
                                     <img src="/images/Tamtam/Wave_Tammy.png"
@@ -658,11 +654,11 @@
                                     </p>
 
                                     <h3 class="text-3xl font-black text-black uppercase mb-3">
-                                        SHANETH C. AMBAT, PhD
+                                        ROMAN M. DE ANGEL, DIT
                                     </h3>
 
                                     <p class="text-slate-600 leading-relaxed">
-                                        Program Director of Computer Science
+                                        Program Director of Information Technology
                                     </p>
                                 </div>
 
@@ -677,39 +673,45 @@
 </main>
 
 <script>
-    document.querySelectorAll('aside nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+            const target = document.querySelector(this.getAttribute('href'));
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         });
     });
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.scroll-section');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
+    function updateActiveLink() {
+        let currentSection = '';
 
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
+            const rect = section.getBoundingClientRect();
 
-            if (pageYOffset >= sectionTop - 150) {
-                current = section.getAttribute('id');
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                currentSection = section.id;
             }
         });
 
         navLinks.forEach(link => {
             link.classList.remove('active');
 
-            if (link.getAttribute('href').includes(current)) {
+            if (link.getAttribute('href') === `#${currentSection}`) {
                 link.classList.add('active');
             }
         });
-    });
+    }
 
+    window.addEventListener('scroll', updateActiveLink);
+
+    updateActiveLink();
 </script>
 
 {% endblock %}

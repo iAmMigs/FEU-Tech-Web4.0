@@ -1,0 +1,488 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bachelor of Digital Marketing and Management{% endblock %}
+
+{% block body %}
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
+            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
+            #f8fafc;
+    }
+
+    .scroll-section {
+        scroll-margin-top: 120px;
+    }
+
+    .nav-link.active {
+        background: #008348;
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .glass-card {
+        backdrop-filter: blur(12px);
+        background: rgba(255,255,255);
+    }
+</style>
+
+<!-- HERO -->
+<section class="relative z-10 overflow-hidden border-b border-slate-100">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
+            <img src="/images/Academics/bdmm.png"
+                 class="w-full h-auto block transform group-hover:scale-[1.01] transition-transform duration-700 ease-out"
+                 alt="BDMM Hero">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-80"></div>
+        </div>
+    </div>
+</section>
+
+<main class="relative py-12">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
+
+            <!-- SIDEBAR -->
+            <aside class="hidden lg:block sticky top-10 self-start">
+
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
+
+                    <div class="flex items-center gap-4 mb-8">
+
+                        <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                             class="w-20 object-contain"
+                             alt="TamTam">
+
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
+                                FEU TECH
+                            </p>
+
+                            <h2 class="text-2xl font-black text-feu-green leading-tight">
+                                BDMM
+                            </h2>
+                        </div>
+
+                    </div>
+
+                    <nav class="space-y-3">
+
+                        <a href="#overview"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Overview
+                        </a>
+
+                        <a href="#outcomes"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Student Outcomes
+                        </a>
+
+                        <a href="#skills"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Skills
+                        </a>
+
+                        <a href="#careers"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Career Opportunities
+                        </a>
+
+                    </nav>
+
+                </div>
+
+            </aside>
+
+            <!-- CONTENT -->
+            <div class="space-y-16">
+
+                <!-- OVERVIEW -->
+                <section id="overview" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                 class="w-24 object-contain"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Program Overview
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    General Description of the Program
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            The Bachelor of Digital Marketing and Management (BDMM) program aims to produce highly competent professionals equipped with technical expertise in digital marketing, project management, and emerging industry technologies. The program focuses on developing students’ skills in planning, designing, and executing digital marketing campaigns while ensuring adherence to ethical standards, data privacy, and sustainability.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            Aligned with FEU Institute of Technology's vision to be the global standard of innovation in education, research, and nation-building, the BDMM program prepares graduates to lead and manage digital marketing projects efficiently. By applying innovative solutions to industry challenges, graduates will contribute to the development of effective and responsible marketing strategies, embodying the core values of Fortitude, Excellence, and Uprightness.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            The program fosters lifelong learning, research, and professional growth to enhance graduates' global competitiveness. Through a combination of theoretical knowledge, hands-on training, and industry exposure, students will gain the necessary competencies to excel in digital marketing, project management, and related fields. The program ensures that graduates are industry-ready, adaptable to technological advancements, and capable of addressing the evolving needs of the digital marketing sector.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- STUDENT OUTCOMES -->
+                <section id="outcomes" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-5 mb-10">
+
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Graduate Competencies
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Student Outcomes
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div class="space-y-10 text-slate-600">
+
+                            <div>
+                                <h3 class="text-2xl font-black text-feu-green mb-4">
+                                    Technical Proficiency and Digital Marketing Management
+                                </h3>
+
+                                <ul class="space-y-3 text-lg">
+                                    <li>• Apply marketing principles in the planning, design, and execution of digital marketing campaigns.</li>
+                                    <li>• Utilize modern digital marketing methods, tools, and software for campaign optimization.</li>
+                                    <li>• Develop and manage campaign schedules, budgets, and performance metrics.</li>
+                                    <li>• Ensure compliance with ethical standards, data privacy, and regulatory requirements in digital marketing activities.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="text-2xl font-black text-feu-green mb-4">
+                                    Strategic Thinking and Innovation
+                                </h3>
+
+                                <ul class="space-y-3 text-lg">
+                                    <li>• Analyze market trends and consumer behavior to inform strategic marketing decisions.</li>
+                                    <li>• Develop innovative marketing solutions to address industry challenges and opportunities.</li>
+                                    <li>• Implement creative strategies to enhance brand visibility and engagement across digital platforms.</li>
+                                    <li>• Foster a culture of continuous improvement and innovation within marketing teams.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="text-2xl font-black text-feu-green mb-4">
+                                    Project Management and Leadership
+                                </h3>
+
+                                <ul class="space-y-3 text-lg">
+                                    <li>• Lead and manage digital marketing projects from conception to completion.</li>
+                                    <li>• Coordinate cross-functional teams to achieve project goals and deliverables.</li>
+                                    <li>• Apply project management methodologies to ensure timely and successful campaign execution.</li>
+                                    <li>• Develop leadership skills to inspire and motivate marketing teams.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="text-2xl font-black text-feu-green mb-4">
+                                    Analytical Skills and Data-Driven Decision Making
+                                </h3>
+
+                                <ul class="space-y-3 text-lg">
+                                    <li>• Utilize data analytics tools to measure and analyze campaign performance.</li>
+                                    <li>• Interpret data to make informed marketing decisions and optimize strategies.</li>
+                                    <li>• Develop and present data-driven insights and recommendations to stakeholders.</li>
+                                    <li>• Ensure the accuracy and integrity of marketing data and reports.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="text-2xl font-black text-feu-green mb-4">
+                                    Communication and Collaboration
+                                </h3>
+
+                                <ul class="space-y-3 text-lg">
+                                    <li>• Develop effective communication strategies to engage with target audiences.</li>
+                                    <li>• Collaborate with internal and external stakeholders to achieve marketing objectives.</li>
+                                    <li>• Create compelling content for various digital channels, including social media, email, and websites.</li>
+                                    <li>• Enhance interpersonal skills to build strong professional relationships.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="text-2xl font-black text-feu-green mb-4">
+                                    Ethical and Sustainable Marketing Practices
+                                </h3>
+
+                                <ul class="space-y-3 text-lg">
+                                    <li>• Promote ethical marketing practices that prioritize consumer trust and transparency.</li>
+                                    <li>• Ensure marketing activities align with sustainability goals and social responsibility.</li>
+                                    <li>• Address ethical dilemmas in digital marketing with integrity and professionalism.</li>
+                                    <li>• Advocate for responsible use of digital marketing technologies and data.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- SKILLS -->
+                <section id="skills" class="scroll-section space-y-10">
+
+                    <div class="grid lg:grid-cols-2 gap-8">
+
+                        <!-- SOFT SKILLS -->
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                            <div class="flex items-center gap-5 mb-8">
+
+                                <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                     class="w-24"
+                                     alt="TamTam">
+
+                                <div>
+
+                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                        Graduate Competencies
+                                    </p>
+
+                                    <h2 class="text-3xl font-black text-feu-green uppercase">
+                                        Soft Skills
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+                            <ul class="space-y-5 text-slate-600 font-medium">
+
+                                <li>
+                                    • Empathy
+                                    <ul class="ml-6 mt-2 space-y-1">
+                                        <li>- Understanding and relating to consumer behavior.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    • Communication
+                                    <ul class="ml-6 mt-2 space-y-1">
+                                        <li>- Engaging audiences and collaborating effectively.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    • Adaptability
+                                    <ul class="ml-6 mt-2 space-y-1">
+                                        <li>- Adjusting to evolving trends and technologies.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    • Collaboration
+                                    <ul class="ml-6 mt-2 space-y-1">
+                                        <li>- Building cohesive and integrated campaigns.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    • Creativity
+                                    <ul class="ml-6 mt-2 space-y-1">
+                                        <li>- Developing innovative marketing content.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    • Time Management
+                                    <ul class="ml-6 mt-2 space-y-1">
+                                        <li>- Executing campaigns efficiently and meeting deadlines.</li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <!-- TECHNICAL SKILLS -->
+                        <div class="bg-feu-green rounded-[3rem] p-10 text-white shadow-2xl">
+
+                            <div class="flex items-center gap-5 mb-8">
+
+                                <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                     class="w-24 object-contain"
+                                     alt="TamTam">
+
+                                <div>
+
+                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                        Technical Competencies
+                                    </p>
+
+                                    <h2 class="text-3xl font-black uppercase">
+                                        Technical Skills
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+                            <ul class="space-y-3 text-white/90 font-medium">
+                                <li>• Search Engine Optimization (SEO)</li>
+                                <li>• Data Analytics</li>
+                                <li>• Content Management Systems (CMS)</li>
+                                <li>• HTML & CSS</li>
+                                <li>• Social Media Marketing</li>
+                                <li>• Email Marketing</li>
+                                <li>• Marketing Automation</li>
+                                <li>• Graphic Design</li>
+                                <li>• Pay-Per-Click (PPC) Advertising</li>
+                                <li>• Video Editing</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- CAREERS -->
+                <section id="careers" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Digital Marketing
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Career Opportunities
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div class="bg-feu-green rounded-[2rem] p-8">
+
+                            <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
+                                Career Paths
+                            </h3>
+
+                            <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-white font-medium">
+                                <li>• Digital Marketing Manager</li>
+                                <li>• Content Strategist / Manager</li>
+                                <li>• SEO Specialist</li>
+                                <li>• SEM Specialist</li>
+                                <li>• Social Media Manager</li>
+                                <li>• Email Marketing Specialist</li>
+                                <li>• PPC Specialist</li>
+                                <li>• Digital Analytics Specialist</li>
+                                <li>• E-Commerce Manager</li>
+                                <li>• Marketing Automation Manager</li>
+                                <li>• Influence Marketing Manager</li>
+                                <li>• Advertising Manager</li>
+                                <li>• User Experience (UX) Designer</li>
+                                <li>• Data Analyst</li>
+                                <li>• AI Specialist</li>
+                                <li>• Virtual Reality (VR) Developer</li>
+                                <li>• Brand Manager</li>
+                                <li>• Market Research Analyst</li>
+                                <li>• Public Relations (PR) Specialist</li>
+                                <li>• Digital Project Manager</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    function updateActiveLink() {
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                currentSection = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+
+    updateActiveLink();
+</script>
+
+{% endblock %}

@@ -1,0 +1,402 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BS in Financial Technology Engineering{% endblock %}
+
+{% block body %}
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
+            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
+            #f8fafc;
+    }
+
+    .scroll-section {
+        scroll-margin-top: 120px;
+    }
+
+    .nav-link.active {
+        background: #008348;
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .glass-card {
+        backdrop-filter: blur(12px);
+        background: rgba(255,255,255);
+    }
+</style>
+
+<!-- HERO -->
+<section class="relative z-10 overflow-hidden border-b border-slate-100">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
+
+            <img src="/images/Academics/bsfintech.png"
+                 class="w-full h-auto block transform group-hover:scale-[1.01] transition-transform duration-700 ease-out"
+                 alt="FinTech Engineering Hero">
+
+            <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-80"></div>
+
+        </div>
+
+    </div>
+</section>
+
+<main class="relative py-12">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
+
+            <!-- SIDEBAR -->
+            <aside class="hidden lg:block sticky top-10 self-start">
+
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
+
+                    <div class="flex items-center gap-4 mb-8">
+
+                        <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                             class="w-20 object-contain"
+                             alt="TamTam">
+
+                        <div>
+
+                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
+                                FEU TECH
+                            </p>
+
+                            <h2 class="text-2xl font-black text-feu-green leading-tight">
+                                FinTech
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <nav class="space-y-3">
+
+                        <a href="#overview"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Overview
+                        </a>
+
+                        <a href="#outcomes"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Student Outcomes
+                        </a>
+
+                        <a href="#skills"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Skills
+                        </a>
+
+                        <a href="#careers"
+                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                            Career Opportunities
+                        </a>
+
+                    </nav>
+
+                </div>
+
+            </aside>
+
+            <!-- CONTENT -->
+            <div class="space-y-16">
+
+                <!-- OVERVIEW -->
+                <section id="overview" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                 class="w-24 object-contain"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Program Overview
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    General Description of the Program
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            The Financial Technology Engineering (FinTech Engineering) program integrates finance, technology, and engineering principles to develop cutting-edge financial solutions.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                            It covers blockchain, artificial intelligence (AI) in finance, cybersecurity, data analytics, and financial systems engineering, preparing students to create secure, efficient, and innovative financial products.
+                        </p>
+
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            The curriculum includes financial software development, algorithmic trading, digital payments, regulatory compliance, and risk management.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- STUDENT OUTCOMES -->
+                <section id="outcomes" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-5 mb-10">
+
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Graduate Competencies
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Student Outcomes
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <ul class="space-y-5 text-slate-600 text-lg font-medium">
+
+                            <li>
+                                • Design and develop innovative financial solutions using emerging technologies.
+                            </li>
+
+                            <li>
+                                • Implement AI and machine learning models for financial forecasting and risk assessment.
+                            </li>
+
+                            <li>
+                                • Secure financial transactions through blockchain and encryption.
+                            </li>
+
+                            <li>
+                                • Build and optimize financial software for banks, trading firms, and FinTech startups.
+                            </li>
+
+                            <li>
+                                • Analyze and improve financial data systems using big data analytics.
+                            </li>
+
+                            <li>
+                                • Apply financial regulations and compliance in the tech-driven economy.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+                <!-- SKILLS -->
+                <section id="skills" class="scroll-section space-y-10">
+
+                    <div class="grid lg:grid-cols-2 gap-8">
+
+                        <!-- SOFT SKILLS -->
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                            <div class="flex items-center gap-5 mb-8">
+
+                                <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                     class="w-24"
+                                     alt="TamTam">
+
+                                <div>
+
+                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                        Graduate Competencies
+                                    </p>
+
+                                    <h2 class="text-3xl font-black text-feu-green uppercase">
+                                        Soft Skills
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+                            <ul class="space-y-5 text-slate-600 font-medium">
+
+                                <li>• Financial Problem-Solving & Critical Thinking</li>
+                                <li>• Innovation & Creativity in Financial Systems</li>
+                                <li>• Project Management & Leadership in FinTech</li>
+                                <li>• Regulatory & Ethical Financial Decision-Making</li>
+                                <li>• Effective Communication in Financial & Tech Sectors</li>
+                                <li>• Collaboration with Engineers, Financial Experts, & Regulators</li>
+
+                            </ul>
+
+                        </div>
+
+                        <!-- TECHNICAL SKILLS -->
+                        <div class="bg-feu-green rounded-[3rem] p-10 text-white shadow-2xl">
+
+                            <div class="flex items-center gap-5 mb-8">
+
+                                <img src="/images/Tamtam/Reading_Book_Tammy.png"
+                                     class="w-24 object-contain"
+                                     alt="TamTam">
+
+                                <div>
+
+                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                        Technical Competencies
+                                    </p>
+
+                                    <h2 class="text-3xl font-black uppercase">
+                                        Technical Skills
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+                            <ul class="space-y-3 text-white/90 font-medium">
+
+                                <li>• Financial Software Development</li>
+                                <li>• Python, Java, Solidity for Smart Contracts</li>
+                                <li>• Blockchain Technology & Cryptocurrency Development</li>
+                                <li>• AI & Machine Learning in Finance</li>
+                                <li>• Cybersecurity & Risk Management</li>
+                                <li>• Digital Payments & Mobile Wallets Development</li>
+                                <li>• Data Analytics & Financial Modeling</li>
+                                <li>• Algorithmic & High-Frequency Trading</li>
+                                <li>• RegTech & Compliance Systems</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- CAREERS -->
+                <section id="careers" class="scroll-section">
+
+                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+
+                        <div class="flex items-center gap-5 mb-8">
+
+                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
+                                 class="w-24"
+                                 alt="TamTam">
+
+                            <div>
+
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Financial Technology
+                                </p>
+
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    Career Opportunities
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div class="bg-feu-green rounded-[2rem] p-8">
+
+                            <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
+                                Career Paths
+                            </h3>
+
+                            <ul class="grid md:grid-cols-2 gap-x-4 gap-y-2 text-white font-medium">
+
+                                <li>• FinTech Engineer</li>
+                                <li>• Blockchain Developer</li>
+                                <li>• Cybersecurity Analyst</li>
+                                <li>• Financial Data Scientist</li>
+                                <li>• AI / ML Engineer (FinTech)</li>
+                                <li>• Algorithmic Trader</li>
+                                <li>• Investment Analyst</li>
+                                <li>• Software Developer for Banking & Finance</li>
+                                <li>• Risk & Compliance Analyst</li>
+                                <li>• Digital Banking Specialist</li>
+                                <li>• Data Analyst</li>
+                                <li>• Financial Risk Manager</li>
+                                <li>• Compliance & Regulatory Officer</li>
+                                <li>• Product Manager (FinTech Apps)</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    function updateActiveLink() {
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                currentSection = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+
+    updateActiveLink();
+</script>
+
+{% endblock %}
