@@ -164,45 +164,121 @@
 
         </div>
 
-       <!-- MISSION & VISION -->
         <div class="grid lg:grid-cols-2 gap-10 mt-16">
 
-            <!-- MISSION -->
-            <div class="relative overflow-hidden rounded-[2rem] p-10 bg-gradient-to-br from-yellow-300 to-yellow-500">
+            <div class="group relative overflow-hidden rounded-[2rem]
+                        bg-feu-yellow min-h-[420px] p-10
+                        flex flex-col justify-between
+                        border border-yellow-200/40
+                        shadow-lg
+                        hover:shadow-[0_0_40px_rgba(234,179,8,0.35)]
+                        transition-all duration-500">
+
+                <div class="absolute inset-0 opacity-10"
+                    style="background-image:
+                    linear-gradient(to right, #000 1px, transparent 1px),
+                    linear-gradient(to bottom, #000 1px, transparent 1px);
+                    background-size: 40px 40px;">
+                </div>
 
                 <img src="{{ asset('images/offices/tammyjump.png') }}"
                     alt="Mission"
-                    class="absolute bottom-0 right-0 w-44 opacity-90 pointer-events-none">
+                    class="absolute bottom-0 right-0 w-40 lg:w-48
+                        opacity-90 pointer-events-none z-0
+                        transition-all duration-500
+                        group-hover:scale-105
+                        group-hover:rotate-1">
 
-                <div class="relative z-10 max-w-[80%]">
+                <div class="relative z-10 pr-28">
 
-                    <h3 class="text-3xl font-black text-feu-green">
+                    <span class="inline-flex items-center px-4 py-2
+                                rounded-full bg-white/40 backdrop-blur-md
+                                text-sm font-bold text-feu-green uppercase tracking-wide
+                                transition-all duration-500
+                                group-hover:bg-white/60">
+                        Our Purpose
+                    </span>
+
+                    <h3 class="mt-6 text-4xl font-black text-feu-green leading-tight
+                            transition-all duration-500
+                            group-hover:tracking-wide">
                         Mission
                     </h3>
 
-                    <div class="mt-6 p-5 bg-white/30 backdrop-blur-md rounded-2xl text-slate-900 leading-relaxed shadow-lg">
-                        The FEU Tech Registrar and RO associates are committed to excellence and professionalism in provision of services. Corollary, they seek to provide relevant and accessible programs that address the needs of the students based on principles of academic freedom, equity, transparency, merit, and accountability.
+                    <div class="mt-6 bg-white/40 backdrop-blur-lg
+                                rounded-3xl p-6 shadow-xl border border-white/30
+                                transition-all duration-500
+                                group-hover:bg-white/55
+                                group-hover:border-white/50">
+
+                        <p class="text-slate-900 leading-relaxed text-[15px]">
+                            The FEU Tech Registrar and RO associates are committed
+                            to excellence and professionalism in provision of services.
+                            Corollary, they seek to provide relevant and accessible
+                            programs that address the needs of the students based on
+                            principles of academic freedom, equity, transparency,
+                            merit, and accountability.
+                        </p>
+
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- VISION -->
-            <div class="relative overflow-hidden rounded-[2rem] p-10 text-white bg-gradient-to-br from-green-900 to-green-700">
+            <div class="group relative overflow-hidden rounded-[2rem]
+                        bg-feu-green min-h-[420px] p-10
+                        flex flex-col justify-between text-white
+                        border border-emerald-300/20
+                        shadow-lg
+                        hover:shadow-[0_0_40px_rgba(34,197,94,0.30)]
+                        transition-all duration-500">
+
+                <div class="absolute inset-0 opacity-10"
+                    style="background-image:
+                    linear-gradient(to right, #fff 1px, transparent 1px),
+                    linear-gradient(to bottom, #fff 1px, transparent 1px);
+                    background-size: 40px 40px;">
+                </div>
 
                 <img src="{{ asset('images/offices/tammywave.png') }}"
                     alt="Vision"
-                    class="absolute bottom-0 right-0 w-44 opacity-95 pointer-events-none">
+                    class="absolute bottom-0 right-0 w-40 lg:w-48
+                        opacity-95 pointer-events-none z-0
+                        transition-all duration-500
+                        group-hover:scale-105
+                        group-hover:-rotate-1">
 
-                <div class="relative z-10 max-w-[80%]">
+                <div class="relative z-10 pr-28">
 
-                    <h3 class="text-3xl font-black">
+                    <span class="inline-flex items-center px-4 py-2
+                                rounded-full bg-white/10 backdrop-blur-md
+                                text-sm font-bold text-yellow-300 uppercase tracking-wide
+                                transition-all duration-500
+                                group-hover:bg-white/20">
+                        Future Direction
+                    </span>
+
+                    <h3 class="mt-6 text-4xl font-black leading-tight
+                            transition-all duration-500
+                            group-hover:tracking-wide">
                         Vision
                     </h3>
 
-                    <div class="mt-6 p-5 bg-white/10 backdrop-blur-md rounded-2xl leading-relaxed shadow-lg">
-                        The FEU Tech Registrar and RO associates are dedicated to delivering quality service in accordance to government and school regulations, ensuring students and alumni requests are delivered promptly, thereby enabling students and alumni job application and further education.
+                    <div class="mt-6 bg-white/10 backdrop-blur-lg
+                                rounded-3xl p-6 shadow-xl border border-white/10
+                                transition-all duration-500
+                                group-hover:bg-white/15
+                                group-hover:border-white/20">
+
+                        <p class="leading-relaxed text-[15px] text-slate-100">
+                            The FEU Tech Registrar and RO associates are dedicated
+                            to delivering quality service in accordance to government
+                            and school regulations, ensuring students and alumni
+                            requests are delivered promptly, thereby enabling students
+                            and alumni job application and further education.
+                        </p>
+
                     </div>
 
                 </div>
@@ -211,8 +287,14 @@
 
         </div>
 
-        <!-- CONTACT (FIXED + HEROICONS) -->
-        <div class="relative mt-20 rounded-[2rem] overflow-hidden bg-[linear-gradient(135deg,#013220_0%,#014d2a_50%,#012b17_100%)] text-white">
+        <!-- CONTACT -->
+        <div class="relative mt-20 rounded-[2rem] overflow-hidden
+                    bg-[linear-gradient(135deg,#013220_0%,#014d2a_50%,#012b17_100%)]
+                    text-white
+                    border-2 border-emerald-400/40
+                    shadow-[0_0_30px_rgba(34,197,94,0.25)]
+                    hover:shadow-[0_0_60px_rgba(34,197,94,0.55)]
+                    transition-all duration-500">
 
             <div class="absolute inset-0 opacity-10"
                 style="background-image: linear-gradient(to right, white 1px, transparent 1px),
