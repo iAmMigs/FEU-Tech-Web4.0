@@ -181,13 +181,13 @@ document.addEventListener('turbo:load', function initCarousel() {
             tamtam.classList.replace('opacity-100', 'opacity-0');
             tamtamActive = false;
             tamtamCard = null;
-            // Wait 3-8 seconds before trying to spawn again
-            setTimeout(spawnTamTam, 3000 + Math.random() * 5000);
+            // Spawn by 2 sec.
+            setTimeout(spawnTamTam, 2000);
         }
     }
 
     // Initial spawn attempt
-    setTimeout(spawnTamTam, 2000);
+    spawnTamTam();
 
     function shiftTamTam(offset) {
         if (!tamtamActive || !tamtamCard) return;
@@ -311,8 +311,8 @@ document.addEventListener('turbo:load', function initCarousel() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
-                <span class="text-feu-green font-bold tracking-wider uppercase text-sm mb-2 block">What's Happening</span>
-                <h2 class="text-4xl font-extrabold text-slate-800">Upcoming Events</h2>
+                <span class="text-feu-green font-bold tracking-wider uppercase text-sm mb-2 block">Events Conducted</span>
+                <h2 class="text-4xl font-extrabold text-slate-800">What's Happening</h2>
             </div>
             <a href="#" class="mt-4 md:mt-0 px-6 py-3 border-2 border-feu-green text-feu-green font-bold rounded-lg hover:bg-feu-green hover:text-white transition-all shadow-sm">View All Events</a>
         </div>
