@@ -5,7 +5,7 @@
 {% block body %}
 
 <!-- HERO SECTION -->
-<section class="relative min-h-[50vh] flex items-end overflow-hidden bg-slate-800">
+<section class="relative min-h-[60vh] flex items-end overflow-hidden bg-slate-800">
 
     <!-- Background Image -->
     <div class="absolute inset-0">
@@ -28,11 +28,11 @@
     <div class="absolute bottom-[-150px] left-[-100px] w-[350px] h-[350px] bg-[#008348]/20 blur-3xl rounded-full"></div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20 w-full">
+    <div class="relative z-10 max-w-7xl mx-auto mt-10 px-6 lg:px-8 pt-10 pb-20 w-full">
 
         <div class="max-w-3xl">
 
-            <span class="inline-flex items-center px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-feu-yellow text-sm font-bold tracking-[0.25em] uppercase mb-7">
+            <span class="inline-flex items-center px-5 py-2  rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-feu-yellow text-sm font-bold tracking-[0.25em] uppercase mb-7">
                 Campus Facilities
             </span>
 
@@ -94,7 +94,7 @@
 </section>
 
 <!-- MAIN FACILITIES SECTION -->
-<section id="facilities-section" class="py-24 bg-[#f8fafc] relative overflow-hidden">
+<section id="facilities-section" class="relative z-30 mt-10 overflow-visible bg-[#f8fafc] py-14">
 
     <!-- Background Accents -->
     <div class="absolute top-0 left-0 w-[450px] h-[450px] bg-feu-green/5 rounded-full blur-3xl"></div>
@@ -150,9 +150,9 @@
                         </div>
 
                         <div class="text-left">
-                            <h3 class="font-bold text-slate-800 text-sm">
+                            <h2 class="font-bold text-slate-800 text-sm">
                                 {{ item.title }}
-                            </h3>
+                            </h2>
 
                             <p class="text-xs text-slate-500 mt-1">
                                 {{ item.subtitle }}
@@ -170,7 +170,6 @@
             <div id="viewer"
                  class="relative overflow-hidden rounded-[2rem] bg-white border border-slate-200 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
 
-                <!-- Dynamic Content Here -->
 
             </div>
 
@@ -180,8 +179,94 @@
 
 </section>
 
+<!-- DIAGONAL OVERLAP BANNER -->
+<section class="relative z-50 -mt-10 -mb-10 h-28 overflow-visible">
+
+    <div
+        class="absolute inset-x-[-5%] top-1/2 -translate-y-1/2 bg-feu-green py-4 rotate-[-4deg] shadow-2xl">
+
+        <div class="flex whitespace-nowrap sync-marquee-wrapper">
+
+            <div class="flex items-center gap-8 text-3xl font-black uppercase text-white marquee-content">
+                <span>Campus Facilities</span>
+                <span class="text-white">•</span>
+
+                <span>Learning Spaces</span>
+                <span class="text-feu-yellow">•</span>
+
+                <span>Modern Labs</span>
+                <span class="text-red-500">•</span>
+
+                <span>Student Services</span>
+                <span class="text-blue-500">•</span>
+
+                <span>Innovation</span>
+                <span class="text-feu-yellow">•</span>
+
+            </div>
+
+            <div
+                class="flex items-center gap-8 text-3xl font-black uppercase text-white marquee-content"
+                aria-hidden="true">
+                <span>Campus Facilities</span>
+                <span class="text-white">•</span>
+
+                <span>Learning Spaces</span>
+                <span class="text-feu-yellow">•</span>
+
+                <span>Modern Labs</span>
+                <span class="text-red-500">•</span>
+
+                <span>Student Services</span>
+                <span class="text-blue-500">•</span>
+
+                <span>Innovation</span>
+                <span class="text-feu-yellow">•</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="max-w-7xl mx-auto px-6 lg:px-8 -mt-12 mb-16 relative z-10">
+    <div class="flex justify-center">
+        <div class="relative overflow-hidden rounded-[2rem] bg-slate-950 aspect-video shadow-2xl border border-slate-800 w-full md:w-[80%] lg:w-[70%]">
+
+            <video
+                class="w-full h-full object-cover"
+                controls
+                preload="metadata"
+                poster="/images/FEU_TECH.jpg">
+                <source src="/videos/FACILITIES.mp4" type="video/mp4">
+            </video>
+
+        </div>
+    </div>
+</section>
+
 <!-- STYLES -->
 <style>
+
+/* Continuous Marquee Animation Definition */
+.sync-marquee-wrapper {
+    gap: 2rem;
+}
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 2rem;
+    animation: scroll-marquee 25s linear infinite;
+}
+@keyframes scroll-marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
 
 .facility-btn{
     width:100%;
@@ -204,7 +289,7 @@
     border-color:#003b25;
 }
 
-.facility-btn.active h3,
+.facility-btn.active h2,
 .facility-btn.active p{
     color:white;
 }

@@ -182,7 +182,7 @@ document.addEventListener('turbo:load', function initCarousel() {
             tamtamActive = false;
             tamtamCard = null;
             // Spawn by 2 sec.
-            setTimeout(spawnTamTam, 2000);
+            setTimeout(spawnTamTam, 1000);
         }
     }
 
@@ -266,7 +266,7 @@ document.addEventListener('turbo:load', function initCarousel() {
             
             // Try to spawn TamTam again if none active
             if (!tamtamActive) spawnTamTam();
-        }, 2000);
+        }, 1000);
     });
 
     // Cards hover handles changing the hero background
