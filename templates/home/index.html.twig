@@ -42,15 +42,15 @@
     <div id="carousel-track-wrapper" class="relative w-full overflow-hidden group/carousel pt-24">
         
         <!-- Left Arrow -->
-        <div id="carousel-left-arrow" class="absolute left-0 top-1/2 -translate-y-1/2 w-24 h-[120%] bg-gradient-to-r from-black/50 via-black/20 to-transparent z-30 flex items-center justify-start opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none -mt-4">
-            <div class="w-12 h-20 bg-white/90 shadow-xl rounded-r-2xl flex items-center justify-center text-slate-600 pointer-events-auto hover:bg-feu-green hover:text-white transition-colors border border-slate-200 border-l-0">
+        <div id="carousel-left-arrow" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-start transition-opacity duration-300 pointer-events-none mt-8">
+            <div class="w-14 h-20 bg-white shadow-lg rounded-r-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-l-0 cursor-pointer">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
             </div>
         </div>
 
         <!-- Right Arrow -->
-        <div id="carousel-right-arrow" class="absolute right-0 top-1/2 -translate-y-1/2 w-24 h-[120%] bg-gradient-to-l from-black/50 via-black/20 to-transparent z-30 flex items-center justify-end opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none -mt-4">
-            <div class="w-12 h-20 bg-white/90 shadow-xl rounded-l-2xl flex items-center justify-center text-slate-600 pointer-events-auto hover:bg-feu-green hover:text-white transition-colors border border-slate-200 border-r-0">
+        <div id="carousel-right-arrow" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-end transition-opacity duration-300 pointer-events-none mt-8">
+            <div class="w-14 h-20 bg-white shadow-lg rounded-l-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-r-0 cursor-pointer">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
             </div>
         </div>
@@ -71,14 +71,14 @@
             {# Render cards 3 times for seamless infinite scroll #}
             {% for set in 1..3 %}
             {% for card in cards %}
-            <div class="carousel-card group flex-shrink-0 w-[280px] {{ card.bg }} rounded-2xl p-6 shadow-xl drop-shadow-md border border-slate-200/60 cursor-pointer select-none hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:border-feu-green/30 hover:-translate-y-2 transition-all duration-300 relative"
+            <div class="carousel-card group flex-shrink-0 w-[280px] bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl drop-shadow-md border border-white/50 cursor-pointer select-none hover:bg-feu-green hover:shadow-[0_20px_40px_rgba(0,45,25,0.3)] hover:-translate-y-2 transition-all duration-500 relative"
                  data-carousel-img="{{ card.image }}"
                  data-hero-bg="{{ card.heroBg }}">
                 <!-- Subtle pattern overlay for placeholder - contained within card boundaries -->
-                <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl overflow-hidden"></div>
+                <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl overflow-hidden group-hover:opacity-10 transition-opacity duration-500"></div>
                 
                 <div class="flex items-center gap-4 mb-3 relative z-10">
-                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-feu-green group-hover:bg-feu-green group-hover:text-white transition-colors duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-feu-green group-hover:bg-feu-yellow group-hover:text-feu-green transition-colors duration-500">
                         {% if card.icon == 'award' %}
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
                         {% elseif card.icon == 'shield' %}
@@ -94,12 +94,12 @@
                         {% endif %}
                     </div>
                     <div class="relative z-10">
-                        <h4 class="text-base font-bold text-slate-800 leading-tight">{{ card.title }}</h4>
-                        <p class="text-xs text-slate-500 mt-0.5 font-medium">{{ card.subtitle }}</p>
+                        <h4 class="text-base font-bold text-slate-800 group-hover:text-white transition-colors duration-500 leading-tight">{{ card.title }}</h4>
+                        <p class="text-xs text-slate-500 group-hover:text-slate-200 transition-colors duration-500 mt-0.5 font-medium">{{ card.subtitle }}</p>
                     </div>
                 </div>
                 <!-- Accent bar -->
-                <div class="h-1.5 w-0 group-hover:w-full bg-gradient-to-r from-feu-green to-feu-yellow rounded-full transition-all duration-500 absolute bottom-0 left-0"></div>
+                <div class="h-1.5 w-0 group-hover:w-full bg-feu-yellow rounded-full transition-all duration-500 absolute bottom-0 left-0"></div>
             </div>
             {% endfor %}
             {% endfor %}
@@ -109,7 +109,10 @@
 
 <!-- Carousel Controller Script -->
 <script>
-document.addEventListener('turbo:load', function initCarousel() {
+function initCarousel() {
+    // Prevent multiple initializations
+    if (window.carouselInitialized) return;
+    
     const trackWrapper = document.getElementById('carousel-track-wrapper');
     const track = document.getElementById('carousel-track');
     const overlay = document.getElementById('hero-bg-overlay');
@@ -121,6 +124,8 @@ document.addEventListener('turbo:load', function initCarousel() {
     const rightArrow = document.getElementById('carousel-right-arrow')?.firstElementChild;
 
     if (!track || !overlay || !overlayImg || !trackWrapper) return;
+    
+    window.carouselInitialized = true;
 
     const cards = track.querySelectorAll('.carousel-card');
     if (!cards.length) return;
@@ -302,8 +307,16 @@ document.addEventListener('turbo:load', function initCarousel() {
         if (animFrameId) cancelAnimationFrame(animFrameId);
         if (resumeTimeout) clearTimeout(resumeTimeout);
         document.removeEventListener('turbo:before-render', cleanup);
+        window.carouselInitialized = false; // Reset initialization state
     }, { once: true });
-});
+}
+
+// Initialize on both turbo:load and standard DOM load
+document.addEventListener('turbo:load', initCarousel);
+document.addEventListener('DOMContentLoaded', initCarousel);
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initCarousel();
+}
 </script>
 
 <!-- Upcoming Events Section -->
@@ -319,48 +332,62 @@ document.addEventListener('turbo:load', function initCarousel() {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Event Card 1 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
-                <div class="relative h-48 overflow-hidden">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 group flex flex-col">
+                <div class="relative h-56 overflow-hidden">
                     <img src="https://placehold.co/600x400/008348/FFF?text=Tech+Symposium" alt="Event" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute top-4 left-4 bg-white px-4 py-2 rounded-lg shadow-md font-bold text-center">
-                        <span class="block text-feu-green text-sm uppercase">Nov</span>
-                        <span class="block text-slate-800 text-xl">10</span>
-                    </div>
                 </div>
-                <div class="p-6">
-                    <span class="text-feu-yellow font-bold text-sm">Seminars</span>
-                    <h3 class="text-xl font-bold text-slate-800 mt-2 mb-3 hover:text-feu-green cursor-pointer transition-colors">National Tech Symposium 2026</h3>
-                    <p class="text-slate-500 text-sm mb-4">Join industry leaders as they discuss the future of AI and Machine Learning innovations.</p>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#004d33] rounded-full">SEMINARS</span>
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#4caf50] rounded-full">SDG 3</span>
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#1a4a6b] rounded-full">SDG 17</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3 text-slate-400 font-medium text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span>Nov 10, 2026</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 leading-tight hover:text-feu-green cursor-pointer transition-colors">National Tech Symposium 2026</h3>
+                    <p class="text-slate-600 text-[0.95rem] leading-relaxed mb-4">Join industry leaders as they discuss the future of AI and Machine Learning innovations.</p>
                 </div>
             </div>
+            
             <!-- Event Card 2 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
-                <div class="relative h-48 overflow-hidden">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 group flex flex-col">
+                <div class="relative h-56 overflow-hidden">
                     <img src="https://placehold.co/600x400/008348/FFF?text=Research+Expo" alt="Event" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute top-4 left-4 bg-white px-4 py-2 rounded-lg shadow-md font-bold text-center">
-                        <span class="block text-feu-green text-sm uppercase">Nov</span>
-                        <span class="block text-slate-800 text-xl">24</span>
-                    </div>
                 </div>
-                <div class="p-6">
-                    <span class="text-feu-yellow font-bold text-sm">Exhibitions</span>
-                    <h3 class="text-xl font-bold text-slate-800 mt-2 mb-3 hover:text-feu-green cursor-pointer transition-colors">Annual Student Research Expo</h3>
-                    <p class="text-slate-500 text-sm mb-4">Showcasing the brightest capstone projects from our graduating engineering students.</p>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#004d33] rounded-full">EXHIBITIONS</span>
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#e94560] rounded-full">SDG 4</span>
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#ff9800] rounded-full">SDG 9</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3 text-slate-400 font-medium text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span>Nov 24, 2026</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 leading-tight hover:text-feu-green cursor-pointer transition-colors">Annual Student Research Expo</h3>
+                    <p class="text-slate-600 text-[0.95rem] leading-relaxed mb-4">Showcasing the brightest capstone projects from our graduating engineering students.</p>
                 </div>
             </div>
+
             <!-- Event Card 3 -->
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
-                <div class="relative h-48 overflow-hidden">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 group flex flex-col">
+                <div class="relative h-56 overflow-hidden">
                     <img src="https://placehold.co/600x400/008348/FFF?text=Hackathon" alt="Event" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    <div class="absolute top-4 left-4 bg-white px-4 py-2 rounded-lg shadow-md font-bold text-center">
-                        <span class="block text-feu-green text-sm uppercase">Dec</span>
-                        <span class="block text-slate-800 text-xl">05</span>
-                    </div>
                 </div>
-                <div class="p-6">
-                    <span class="text-feu-yellow font-bold text-sm">Competitions</span>
-                    <h3 class="text-xl font-bold text-slate-800 mt-2 mb-3 hover:text-feu-green cursor-pointer transition-colors">iCreate Hackathon Series</h3>
-                    <p class="text-slate-500 text-sm mb-4">A 48-hour coding marathon to solve real-world problems. Open to all students.</p>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#004d33] rounded-full">COMPETITIONS</span>
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#2196f3] rounded-full">SDG 8</span>
+                        <span class="px-3 py-1 text-xs font-bold text-white bg-[#9c27b0] rounded-full">SDG 10</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-3 text-slate-400 font-medium text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span>Dec 05, 2026</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3 leading-tight hover:text-feu-green cursor-pointer transition-colors">iCreate Hackathon Series</h3>
+                    <p class="text-slate-600 text-[0.95rem] leading-relaxed mb-4">A 48-hour coding marathon to solve real-world problems. Open to all students.</p>
                 </div>
             </div>
         </div>
@@ -478,41 +505,23 @@ document.addEventListener('turbo:load', function initCarousel() {
 <!-- University Facts Section -->
 <section class="py-24 bg-white border-t-4 border-feu-yellow scroll-animate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row gap-12 items-center">
-            <!-- Left Side - Facts Grid -->
-            <div class="lg:w-1/2">
-                <div class="mb-12">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">Why FEU Institute of Technology?</h2>
-                </div>
-                <div class="grid grid-cols-2 gap-8 text-center">
-                     <div class="bg-slate-800 p-8 rounded-[2rem] shadow-lg hover:bg-slate-700 transition-colors">
-                        <div class="text-5xl md:text-6xl font-extrabold text-feu-yellow mb-3 counter-animate" data-target="94" data-suffix="%">0%</div>
-                        <div class="text-slate-300 font-medium tracking-wide">Board Passers</div>
-                    </div>
-                    <div class="bg-slate-800 p-8 rounded-[2rem] shadow-lg hover:bg-slate-700 transition-colors">
-                        <div class="text-5xl md:text-6xl font-extrabold text-white mb-3 counter-animate" data-target="126">0</div>
-                        <div class="text-slate-300 font-medium tracking-wide">Current Teachers</div>
-                    </div>
-                    <div class="bg-slate-800 p-8 rounded-[2rem] shadow-lg hover:bg-slate-700 transition-colors">
-                        <div class="text-5xl md:text-6xl font-extrabold text-white mb-3 counter-animate" data-target="2k+">0</div>
-                        <div class="text-slate-300 font-medium tracking-wide">New Students</div>
-                    </div>
-                    <div class="bg-slate-800 p-8 rounded-[2rem] shadow-lg hover:bg-slate-700 transition-colors">
-                        <div class="text-5xl md:text-6xl font-extrabold text-feu-yellow mb-3 counter-animate" data-target="32">0</div>
-                        <div class="text-slate-300 font-medium tracking-wide">Awards</div>
-                    </div>
-                </div>
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">
+                    Why FEU Institute of Technology?
+                </h2>
             </div>
             
-            <!-- Right Side - Video Placeholder -->
-            <div class="lg:w-1/2 w-full">
-                <div class="relative rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer border-4 border-slate-800">
-                    <img src="/images/YT.png" alt="University Video" class="w-full h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
-                        <a href="https://www.youtube.com/watch?v=-M6eMjyhMJc" target="_blank" class="w-20 h-20 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white border-2 border-white/50 group-hover:scale-110 group-hover:bg-feu-yellow group-hover:border-feu-yellow group-hover:text-slate-900 transition-all shadow-xl">
-                            <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </a>
-                    </div>
+            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer border-4 border-slate-800">
+            <img src="/images/YT.png" alt="University Video" class="w-full h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700">
+            
+                <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                    <a href="https://www.youtube.com/watch?v=-M6eMjyhMJc" target="_blank"
+                        class="w-20 h-20 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white border-2 border-white/50 group-hover:scale-110 group-hover:bg-feu-yellow group-hover:border-feu-yellow group-hover:text-slate-900 transition-all shadow-xl">
+                        <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
