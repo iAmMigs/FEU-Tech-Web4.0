@@ -385,7 +385,7 @@ document.addEventListener('turbo:load', function initCarousel() {
                     <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">College of Engineering</h3>
                     <p class="text-white/90 mb-8 leading-relaxed pr-4">Build the future with fully-accredited civil, electronics, mechanical, and computer engineering programs. Take the first step towards a successful career.</p>
                     <div class="mt-auto">
-                        <a href="#" class="inline-block px-8 py-3 bg-[#f0b323] text-slate-900 font-bold rounded-full hover:bg-yellow-400 transition-colors shadow-md">
+                        <a href="/academics/coe" class="inline-block px-8 py-3 bg-[#f0b323] text-slate-900 font-bold rounded-full hover:bg-yellow-400 transition-colors shadow-md">
                             Apply Now!
                         </a>
                     </div>
@@ -396,7 +396,7 @@ document.addEventListener('turbo:load', function initCarousel() {
                     <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">College of Computer Studies</h3>
                     <p class="text-white/90 mb-8 leading-relaxed pr-4">Dive deep into software engineering, artificial intelligence, and premier creative multimedia programs. Lead the digital revolution.</p>
                      <div class="mt-auto">
-                         <a href="#" class="inline-block px-8 py-3 bg-white text-[#008348] font-bold rounded-full hover:bg-slate-50 transition-colors shadow-md">
+                         <a href="/academics/ccsma" class="inline-block px-8 py-3 bg-white text-[#008348] font-bold rounded-full hover:bg-slate-50 transition-colors shadow-md">
                             Apply Now!
                         </a>
                      </div>
@@ -406,47 +406,68 @@ document.addEventListener('turbo:load', function initCarousel() {
             <!-- Right Side - Accordion -->
             <div class="bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col justify-center">
                 
-                <!-- Accordion Item 1 (Expanded) -->
-                <div class="border-b border-slate-100 pb-6 mb-6">
-                    <button class="w-full flex justify-between items-center text-left group focus:outline-none">
+                <!-- Accordion Item 1 (Expanded by default) -->
+                <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
+                    <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
                         <span class="text-[1.35rem] font-bold text-slate-800">About FEU Tech Experience</span>
-                        <div class="w-8 h-8 rounded-full bg-[#008348] text-white flex items-center justify-center shadow-sm flex-shrink-0">
-                            <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </div>
                     </button>
-                    <div class="mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
+
+                    <div class="accordion-content mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
                         At FEU Tech, we're more than a school — we're a launchpad for your future. We push boundaries and shape industry leaders through fully-accredited engineering, computer science, and multimedia programs. Here, you don't just learn — you build, innovate, and lead.
                     </div>
                 </div>
 
                 <!-- Accordion Item 2 -->
-                <div class="border-b border-slate-100 pb-6 mb-6">
-                    <button class="w-full flex justify-between items-center text-left group focus:outline-none hover:text-[#008348] transition-colors">
-                        <span class="text-[1.35rem] font-bold text-slate-800 group-hover:text-[#008348] transition-colors">Campus Life</span>
-                        <div class="w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center group-hover:bg-slate-100 group-hover:text-[#008348] transition-colors flex-shrink-0">
-                            <svg class="w-5 h-5 -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
+                    <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
+                        <span class="text-[1.35rem] font-bold text-slate-800">Campus Life</span>
+                        <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </div>
                     </button>
+
+                    <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
+                        Lorem ipsum 
+                    </div>
                 </div>
 
                 <!-- Accordion Item 3 -->
-                <div class="border-b border-slate-100 pb-6 mb-6">
-                    <button class="w-full flex justify-between items-center text-left group focus:outline-none hover:text-[#008348] transition-colors">
-                        <span class="text-[1.35rem] font-bold text-slate-800 group-hover:text-[#008348] transition-colors">Student Organizations</span>
-                        <div class="w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center group-hover:bg-slate-100 group-hover:text-[#008348] transition-colors flex-shrink-0">
-                            <svg class="w-5 h-5 -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
+                    <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
+                        <span class="text-[1.35rem] font-bold text-slate-800">Student Organizations</span>
+                        <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </div>
                     </button>
+
+                    <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
+                        Lorem ipsum
+                     </div>
                 </div>
 
                 <!-- Accordion Item 4 -->
-                <div class="pt-2">
-                    <button class="w-full flex justify-between items-center text-left group focus:outline-none hover:text-[#008348] transition-colors">
-                        <span class="text-[1.35rem] font-bold text-slate-800 group-hover:text-[#008348] transition-colors">Regular Events</span>
-                        <div class="w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center group-hover:bg-slate-100 group-hover:text-[#008348] transition-colors flex-shrink-0">
-                            <svg class="w-5 h-5 -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <div class="accordion-item pt-2">
+                    <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
+                        <span class="text-[1.35rem] font-bold text-slate-800">Regular Events</span>
+                        <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </div>
                     </button>
+
+                    <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
+                        Lorem ipsum
+                    </div>
                 </div>
 
             </div>
@@ -497,4 +518,35 @@ document.addEventListener('turbo:load', function initCarousel() {
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('turbo:load', () => {
+    const accordions = document.querySelectorAll('.accordion-item');
+
+    accordions.forEach(item => {
+        const button = item.querySelector('.accordion-btn');
+        const content = item.querySelector('.accordion-content');
+        const icon = item.querySelector('svg');
+
+        button.addEventListener('click', () => {
+
+            // Close all other accordions
+            accordions.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.querySelector('.accordion-content')
+                        ?.classList.add('hidden');
+
+                    otherItem.querySelector('svg')
+                        ?.classList.remove('rotate-180');
+                }
+            });
+
+            // Toggle current accordion
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        });
+    });
+});
+</script>
 {% endblock %}
+
