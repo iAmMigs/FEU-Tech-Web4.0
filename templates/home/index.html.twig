@@ -2,9 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<!-- Hero Section with Dynamic Background -->
 <section id="top" class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-    <!-- Default Banner Video Background -->
     <div id="hero-bg-default" class="absolute inset-0 z-0 transition-opacity duration-700 ease-in-out opacity-100">
         <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60">
             <source src="/videos/SAMPLEHERO2.mp4" type="video/mp4">
@@ -12,15 +10,13 @@
         <div class="absolute inset-0 bg-slate-900/60"></div>
     </div>
 
-    <!-- Carousel-triggered Background Overlay (hidden by default) -->
     <div id="hero-bg-overlay" class="absolute inset-0 z-[1] transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none">
         <img id="hero-bg-overlay-blur" src="" alt="" class="absolute inset-0 w-full h-full object-cover opacity-100">
         <img id="hero-bg-overlay-img" src="" alt="" class="relative z-10 w-full h-full object-contain">
     </div>
 
-    <!-- Hero Content -->
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pb-32" id="hero-content">
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-4 block animate-bounce mt-8 md:mt-0">Welcome to FEU Institute of Technology</span>
+        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-4 block animate-bounce mt-8 md:mt-0">TECHNOLOGY DRIVEN BY INNOVATION</span>
         <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
             Shape Your Future at <span class="feu-gradient-text">FEU Tech</span>
         </h1>
@@ -40,92 +36,151 @@
 
 <section class="relative z-20 -mt-40 pb-8 overflow-hidden">
     <div id="carousel-track-wrapper" class="relative w-full overflow-hidden group/carousel pt-24">
-        
+
         <div id="carousel-left-arrow" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-start transition-opacity duration-300 pointer-events-none mt-8">
             <div class="w-14 h-20 bg-white shadow-lg rounded-r-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-l-0 cursor-pointer">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                </svg>
             </div>
         </div>
 
         <div id="carousel-right-arrow" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-end transition-opacity duration-300 pointer-events-none mt-8">
             <div class="w-14 h-20 bg-white shadow-lg rounded-l-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-r-0 cursor-pointer">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                </svg>
             </div>
         </div>
 
         <div id="carousel-track" class="flex gap-6 py-6 px-2" style="width: max-content;">
+
             {% set cards = [
-                { title: 'Accreditations', subtitle: 'Nationally & Internationally Recognized', icon: 'award', image: '/images/Home_carousel/TECH_Accredications.png', bg: 'bg-emerald-50', heroBg: '/images/Home_carousel/Acreditation_BG.png' },
-                { title: 'AUN-QA Certified', subtitle: 'Engineering Programs', icon: 'shield', image: '/images/Home_carousel/TECH_AUNQA.png', bg: 'bg-blue-50', heroBg: '/images/Home_carousel/AUN-QA_BG.png' },
-                { title: 'Autonomous Status', subtitle: 'CHED Granted Autonomy', icon: 'star', image: '/images/Home_carousel/TECH_Autonomous.png', bg: 'bg-yellow-50', heroBg: '/images/ABOUT_TECH.jpg' },
-                { title: 'TOPCIT', subtitle: 'IT Competency Standard', icon: 'code', image: '/images/Home_carousel/TECH_TOPCIT.png', bg: 'bg-slate-50', heroBg: '/images/Home_carousel/TopCIT_BG.png' },
-                { title: 'QS Asia Ranked', subtitle: '#118 SEA · #10 Philippines', icon: 'globe', image: '/images/Home_carousel/TECH_Top.png', bg: 'bg-indigo-50', heroBg: '/images/Home_carousel/Top_BG.png' },
-                { title: 'Top 2% Scientists', subtitle: 'World-class Research Faculty', icon: 'users', image: '/images/Home_carousel/TECH_TopScientist.png', bg: 'bg-orange-50', heroBg: '/images/Home_carousel/TopScientist_BG.png' }
+                {
+                    title: 'AUN-QA Certified',
+                    subtitle: 'Engineering Programs',
+                    logo: '/images/carousels/AUN.jpg',
+                    image: '/images/Home_carousel/TECH_AUNQA.png',
+                    bg: 'bg-blue-50',
+                    heroBg: '/images/Home_carousel/AUN-QA_BG.png'
+                },
+                {
+                    title: 'TOPCIT',
+                    subtitle: 'IT Competency Standard',
+                    logo: '/images/carousels/topcit.jpeg',
+                    image: '/images/Home_carousel/TECH_TOPCIT.png',
+                    bg: 'bg-slate-50',
+                    heroBg: '/images/Home_carousel/TopCIT_BG.png'
+                },
+                {
+                    title: 'QS Asia Ranked',
+                    subtitle: '#118 SEA · #10 Philippines',
+                    logo: '/images/carousels/qs.png',
+                    image: '/images/Home_carousel/TECH_Top.png',
+                    bg: 'bg-indigo-50',
+                    heroBg: '/images/Home_carousel/Top_BG.png'
+                },
+                {
+                    title: 'Accreditations',
+                    subtitle: 'Nationally & Internationally Recognized',
+                    logo: null,
+                    image: '/images/Home_carousel/TECH_Accredications.png',
+                    bg: 'bg-emerald-50',
+                    heroBg: '/images/Home_carousel/Acreditation_BG.png'
+                },
+                {
+                    title: 'Autonomous Status',
+                    subtitle: 'CHED Granted Autonomy',
+                    logo: null,
+                    image: '/images/Home_carousel/TECH_Autonomous.png',
+                    bg: 'bg-yellow-50',
+                    heroBg: '/images/ABOUT_TECH.jpg'
+                },
+                {
+                    title: 'Top 2% Scientists',
+                    subtitle: 'World-class Research Faculty',
+                    logo: null,
+                    image: '/images/Home_carousel/TECH_TopScientist.png',
+                    bg: 'bg-orange-50',
+                    heroBg: '/images/Home_carousel/TopScientist_BG.png'
+                }
             ] %}
 
             {% for set in 1..3 %}
             {% for card in cards %}
-            <div class="carousel-card group flex-shrink-0 w-[280px] bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl drop-shadow-md border border-white/50 cursor-pointer select-none hover:shadow-[0_20px_40px_rgba(0,45,25,0.3)] hover:-translate-y-2 transition-all duration-500 relative hover:[background-image:var(--bg-hover)]"
-                 style="--bg-hover: linear-gradient(135deg, rgb(254, 201, 44), rgb(0, 45, 25));"
-                 data-carousel-img="{{ card.image }}"
-                 data-hero-bg="{{ card.heroBg }}">
-                
+                <div
+                    class="carousel-card group flex-shrink-0 w-[280px] bg-[image:var(--bg-default)] backdrop-blur-md rounded-2xl p-6 shadow-xl drop-shadow-md border border-white/50 cursor-pointer select-none hover:shadow-[0_20px_40px_rgba(0,45,25,0.3)] hover:-translate-y-2 transition-all duration-500 relative hover:[background-image:var(--bg-hover)]"
+                    style="
+                        --bg-default: linear-gradient(135deg, rgba(254, 201, 44, 0.2), rgba(0, 45, 25, 0.2));
+                        --bg-hover: linear-gradient(135deg, rgb(254, 201, 44), rgb(0, 45, 25));
+                    "
+                    data-carousel-img="{{ card.image }}"
+                    data-hero-bg="{{ card.heroBg }}"
+                >
+
                 <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl overflow-hidden group-hover:opacity-10 transition-opacity duration-500"></div>
-                
+
                 <div class="flex items-center gap-4 mb-3 relative z-10">
-                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-slate-800 group-hover:bg-white group-hover:text-feu-green transition-colors duration-500">
-                        {% if card.icon == 'award' %}
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-                        {% elseif card.icon == 'shield' %}
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        {% elseif card.icon == 'star' %}
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                        {% elseif card.icon == 'globe' %}
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        {% elseif card.icon == 'users' %}
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        {% elseif card.icon == 'code' %}
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        {% endif %}
+
+                    {% if card.logo %}
+                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <img
+                            src="{{ card.logo }}"
+                            alt="{{ card.title }}"
+                            class="w-10 h-10 object-contain"
+                        >
                     </div>
+                    {% endif %}
+
                     <div class="relative z-10">
-                        <h4 class="text-base font-bold text-slate-900 group-hover:text-white transition-colors duration-500 leading-tight">{{ card.title }}</h4>
-                        <p class="text-xs text-slate-700 group-hover:text-slate-100 transition-colors duration-500 mt-0.5 font-medium">{{ card.subtitle }}</p>
+                        <h4 class="text-base font-bold text-feu-green group-hover:text-white transition-colors duration-500 leading-tight">
+                            {{ card.title }}
+                        </h4>
+
+                        <p class="text-xs text-slate-700 group-hover:text-slate-100 transition-colors duration-500 mt-0.5 font-medium">
+                            {{ card.subtitle }}
+                        </p>
                     </div>
+
                 </div>
-                
-                <div class="h-1.5 w-0 group-hover:w-full rounded-full transition-all duration-500 absolute bottom-0 left-0"   style="background-image: linear-gradient(135deg,rgb(0, 45, 25), rgb(254, 201, 44));"></div>
+
+                <div
+                    class="h-1.5 w-0 group-hover:w-full rounded-full transition-all duration-500 absolute bottom-0 left-0"
+                    style="background-image: linear-gradient(135deg,rgb(0, 45, 25), rgb(254, 201, 44));"
+                ></div>
+
             </div>
             {% endfor %}
             {% endfor %}
+
         </div>
     </div>
 </section>
 
 <script>
 function initCarousel() {
-    if (window.carouselInitialized) return;
-    
+    if (window.homeCarouselInitialized) return;
+
     const trackWrapper = document.getElementById('carousel-track-wrapper');
     const track = document.getElementById('carousel-track');
     const overlay = document.getElementById('hero-bg-overlay');
     const overlayImg = document.getElementById('hero-bg-overlay-img');
     const overlayBlur = document.getElementById('hero-bg-overlay-blur');
     const heroContent = document.getElementById('hero-content');
-    
+
     const leftArrow = document.getElementById('carousel-left-arrow')?.firstElementChild;
     const rightArrow = document.getElementById('carousel-right-arrow')?.firstElementChild;
 
     if (!track || !overlay || !overlayImg || !trackWrapper) return;
-    
-    window.carouselInitialized = true;
+
+    window.homeCarouselInitialized = true;
 
     const cards = track.querySelectorAll('.carousel-card');
     if (!cards.length) return;
 
     let scrollPos = 0;
-    let baseSpeed = 0.9;       
-    let isPaused = false;      
+    let baseSpeed = 0.9;
+    let isPaused = false;
     let isFastForward = false;
     let isFastRewind = false;
     let resumeTimeout = null;
@@ -134,30 +189,49 @@ function initCarousel() {
     function getOneSetWidth() {
         const cardCount = cards.length / 3;
         let w = 0;
+
         for (let i = 0; i < cardCount; i++) {
-            w += cards[i].offsetWidth + 24; 
+            w += cards[i].offsetWidth + 24;
         }
+
         return w;
     }
 
     function setupTamTamPersistent() {
+
+        // Remove old tamtams before creating new ones
+        track.querySelectorAll('.tamtam-mascot').forEach(el => el.remove());
+
         const uniqueCardCount = cards.length / 3;
         const uniqueTitles = [];
+
         for (let i = 0; i < uniqueCardCount; i++) {
             const titleEl = cards[i].querySelector('h4');
-            if (titleEl) uniqueTitles.push(titleEl.textContent.trim());
+
+            if (titleEl) {
+                uniqueTitles.push(titleEl.textContent.trim());
+            }
         }
 
-        if (uniqueTitles.length === 0) return;
+        if (!uniqueTitles.length) return;
 
-        const chosenTitle = uniqueTitles[Math.floor(Math.random() * uniqueTitles.length)];
-        
+        const chosenTitle =
+            uniqueTitles[Math.floor(Math.random() * uniqueTitles.length)];
+
         cards.forEach(card => {
             const titleEl = card.querySelector('h4');
-            if (titleEl && titleEl.textContent.trim() === chosenTitle) {
+
+            if (
+                titleEl &&
+                titleEl.textContent.trim() === chosenTitle
+            ) {
                 const tamtam = document.createElement('img');
+
                 tamtam.src = '/images/Home_carousel/TamtamSit.png';
-                tamtam.className = 'absolute -top-20 left-1/2 -translate-x-1/2 w-24 h-24 object-contain z-[100] pointer-events-none opacity-100';
+
+                tamtam.className =
+                    'tamtam-mascot absolute -top-20 left-1/2 -translate-x-1/2 w-24 h-24 object-contain z-[100] pointer-events-none opacity-100';
+
                 card.appendChild(tamtam);
             }
         });
@@ -167,17 +241,19 @@ function initCarousel() {
 
     function updateTrackPosition() {
         const oneSet = getOneSetWidth();
+
         if (scrollPos >= oneSet) {
             scrollPos -= oneSet;
         } else if (scrollPos < 0) {
             scrollPos += oneSet;
         }
+
         track.style.transform = `translateX(-${scrollPos}px)`;
     }
 
     function animate() {
         let activeSpeed = 0;
-        
+
         if (isFastForward) {
             activeSpeed = 4;
         } else if (isFastRewind) {
@@ -190,7 +266,7 @@ function initCarousel() {
             scrollPos += activeSpeed;
             updateTrackPosition();
         }
-        
+
         animFrameId = requestAnimationFrame(animate);
     }
 
@@ -201,18 +277,22 @@ function initCarousel() {
             clearTimeout(resumeTimeout);
             resumeTimeout = null;
         }
+
         isPaused = true;
     });
 
     trackWrapper.addEventListener('mouseleave', () => {
         isFastForward = false;
         isFastRewind = false;
-        
+
         resumeTimeout = setTimeout(() => {
             isPaused = false;
+
             overlay.classList.remove('opacity-100');
             overlay.classList.add('opacity-0');
+
             heroContent.style.opacity = '1';
+
             resumeTimeout = null;
         }, 1000);
     });
@@ -221,11 +301,17 @@ function initCarousel() {
         card.addEventListener('mouseenter', () => {
             const imgSrc = card.getAttribute('data-carousel-img');
             const heroBg = card.getAttribute('data-hero-bg');
+
             if (imgSrc) {
                 overlayImg.src = imgSrc;
-                if (overlayBlur) overlayBlur.src = heroBg;
+
+                if (overlayBlur) {
+                    overlayBlur.src = heroBg;
+                }
+
                 overlay.classList.remove('opacity-0');
                 overlay.classList.add('opacity-100');
+
                 heroContent.style.opacity = '0';
                 heroContent.style.transition = 'opacity 0.5s ease';
             }
@@ -233,45 +319,79 @@ function initCarousel() {
     });
 
     if (leftArrow) {
-        leftArrow.addEventListener('mouseenter', () => isFastRewind = true);
-        leftArrow.addEventListener('mouseleave', () => isFastRewind = false);
-        leftArrow.addEventListener('click', (e) => {
+        leftArrow.addEventListener('mouseenter', () => {
+            isFastRewind = true;
+        });
+
+        leftArrow.addEventListener('mouseleave', () => {
+            isFastRewind = false;
+        });
+
+        leftArrow.addEventListener('click', e => {
             e.stopPropagation();
+
             scrollPos -= 304;
             updateTrackPosition();
         });
     }
-    
+
     if (rightArrow) {
-        rightArrow.addEventListener('mouseenter', () => isFastForward = true);
-        rightArrow.addEventListener('mouseleave', () => isFastForward = false);
-        rightArrow.addEventListener('click', (e) => {
+        rightArrow.addEventListener('mouseenter', () => {
+            isFastForward = true;
+        });
+
+        rightArrow.addEventListener('mouseleave', () => {
+            isFastForward = false;
+        });
+
+        rightArrow.addEventListener('click', e => {
             e.stopPropagation();
+
             scrollPos += 304;
             updateTrackPosition();
         });
     }
 
-    document.addEventListener('turbo:before-render', function cleanup() {
-        if (animFrameId) cancelAnimationFrame(animFrameId);
-        if (resumeTimeout) clearTimeout(resumeTimeout);
-        document.removeEventListener('turbo:before-render', cleanup);
-        window.carouselInitialized = false;
-    }, { once: true });
+    document.addEventListener(
+        'turbo:before-render',
+        function cleanup() {
+
+            if (animFrameId) {
+                cancelAnimationFrame(animFrameId);
+            }
+
+            if (resumeTimeout) {
+                clearTimeout(resumeTimeout);
+            }
+
+            // Remove dynamically-added tamtams before Turbo caches page
+            track.querySelectorAll('.tamtam-mascot').forEach(el => el.remove());
+
+            window.homeCarouselInitialized = false;
+
+            document.removeEventListener(
+                'turbo:before-render',
+                cleanup
+            );
+        },
+        { once: true }
+    );
 }
 
 document.addEventListener('turbo:load', initCarousel);
 document.addEventListener('DOMContentLoaded', initCarousel);
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
+
+if (
+    document.readyState === 'complete' ||
+    document.readyState === 'interactive'
+) {
     initCarousel();
 }
 </script>
 
-<!-- Upcoming Events Section -->
-<section id="meetings" class="py-24 bg-slate-50 scroll-animate">
+<section id="meetings" class="py-24 bg-slate-50 scroll-animate relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
                 <span class="text-feu-green font-bold tracking-wider uppercase text-sm mb-2 block">
@@ -288,212 +408,194 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
             </a>
         </div>
 
-        <!-- Events Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- ===================================================== -->
             <!-- EVENT CARD 1 -->
-            <!-- ===================================================== -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 group flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                <a href="{{ path('event_one') }}" class="block group">
+                    <div class="relative h-56 overflow-hidden">
 
-                <div class="relative h-56 overflow-hidden">
-                    <img src="/images/facility/Main_campus.jpg"
-                        alt="National Tech Symposium"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="/images/carousels/MAY5.jfif"
+                            alt="National Tech Symposium"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
-                <div class="p-6 flex flex-col flex-grow">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.8"
+                                    stroke="white"
+                                    class="w-8 h-8">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                        </div>
 
-                    <!-- Category -->
-                    <div class="mb-4">
-                        <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                            SEMINARS
-                        </span>
                     </div>
 
-                    <!-- Date -->
-                    <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span>Nov 10, 2026</span>
-                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
 
-                    <!-- SDGs -->
-                    <div class="mb-5 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 rounded-2xl p-4">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-xs font-bold uppercase tracking-widest text-green-700">
-                                SDGs Supported
-                            </span>
-                            <span class="text-[11px] font-semibold text-green-600">
-                                2 Goals
+                        <div class="mb-4">
+                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                SEMINARS
                             </span>
                         </div>
 
-                        <div class="flex gap-3">
-                            <img src="/images/sdgs/SDG3.png"
-                                alt="SDG 3"
-                                title="Good Health and Well-being"
-                                class="w-16 h-16 rounded-xl border-2 border-white shadow-md hover:scale-110 hover:rotate-2 transition-all duration-300">
-
-                            <img src="/images/sdgs/SDG17.png"
-                                alt="SDG 17"
-                                title="Partnerships for the Goals"
-                                class="w-16 h-16 rounded-xl border-2 border-white shadow-md hover:scale-110 hover:-rotate-2 transition-all duration-300">
+                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>May 5, 2026</span>
                         </div>
+
+                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
+                            Shaping the Future of Education: Utah Valley University, FEU Tech, Unite for AI Innovation Workshop
+                        </h3>
+
+                        <p class="text-slate-600 leading-relaxed">
+                            Join industry leaders as they discuss the future of AI and Machine Learning innovations.
+                        </p>
+
                     </div>
-
-                    <!-- Title -->
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3 hover:text-feu-green transition-colors">
-                        National Tech Symposium 2026
-                    </h3>
-
-                    <!-- Description -->
-                    <p class="text-slate-600 leading-relaxed">
-                        Join industry leaders as they discuss the future of AI and Machine Learning innovations.
-                    </p>
-
-                </div>
+                </a>
             </div>
 
-            <!-- ===================================================== -->
             <!-- EVENT CARD 2 -->
-            <!-- ===================================================== -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 group flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                <a href="{{ path('event_two') }}" class="block group">
 
-                <div class="relative h-56 overflow-hidden">
-                    <img src="/images/facility/Main_campus_2.jpg"
-                        alt="Research Expo"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/images/carousels/TARA.jpg"
+                            alt="Research Expo"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
-                <div class="p-6 flex flex-col flex-grow">
-
-                    <div class="mb-4">
-                        <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                            EXHIBITIONS
-                        </span>
-                    </div>
-
-                    <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span>Nov 24, 2026</span>
-                    </div>
-
-                    <div class="mb-5 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 rounded-2xl p-4">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-xs font-bold uppercase tracking-widest text-green-700">
-                                SDGs Supported
-                            </span>
-                            <span class="text-[11px] font-semibold text-green-600">
-                                2 Goals
-                            </span>
-                        </div>
-
-                        <div class="flex gap-3">
-                            <img src="/images/sdgs/SDG4.png"
-                                alt="SDG 4"
-                                class="w-16 h-16 rounded-xl border-2 border-white shadow-md hover:scale-110 transition-all duration-300">
-
-                            <img src="/images/sdgs/SDG9.png"
-                                alt="SDG 9"
-                                class="w-16 h-16 rounded-xl border-2 border-white shadow-md hover:scale-110 transition-all duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.8"
+                                    stroke="white"
+                                    class="w-8 h-8">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
 
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3 hover:text-feu-green transition-colors">
-                        Annual Student Research Expo
-                    </h3>
+                    <div class="p-6 flex flex-col flex-grow">
 
-                    <p class="text-slate-600 leading-relaxed">
-                        Showcasing the brightest capstone projects from our graduating engineering students.
-                    </p>
+                        <div class="mb-4">
+                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                EXHIBITIONS
+                            </span>
+                        </div>
 
-                </div>
+                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Nov 24, 2026</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
+                            #TaraNaSaPIYU 2026: Welcoming the Next Generation of Innovators at FEU Tech
+                        </h3>
+
+                        <p class="text-slate-600 leading-relaxed">
+                            Showcasing the brightest capstone projects from our graduating engineering students.
+                        </p>
+
+                    </div>
+                </a>
             </div>
 
-            <!-- ===================================================== -->
             <!-- EVENT CARD 3 -->
-            <!-- ===================================================== -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 group flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                <a href="{{ path('event_three') }}" class="block group">
 
-                <div class="relative h-56 overflow-hidden">
-                    <img src="/images/facility/Main_campus_3.jpg"
-                        alt="Hackathon"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/images/carousels/FTIC.jpg"
+                            alt="Hackathon"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
-                <div class="p-6 flex flex-col flex-grow">
-
-                    <div class="mb-4">
-                        <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                            COMPETITIONS
-                        </span>
-                    </div>
-
-                    <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span>Dec 05, 2026</span>
-                    </div>
-
-                    <div class="mb-5 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 rounded-2xl p-4">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-xs font-bold uppercase tracking-widest text-green-700">
-                                SDGs Supported
-                            </span>
-                            <span class="text-[11px] font-semibold text-green-600">
-                                2 Goals
-                            </span>
-                        </div>
-
-                        <div class="flex gap-3">
-                            <img src="/images/sdgs/SDG8.png"
-                                alt="SDG 8"
-                                class="w-16 h-16 rounded-xl border-2 border-white shadow-md hover:scale-110 transition-all duration-300">
-
-                            <img src="/images/sdgs/SDG10.png"
-                                alt="SDG 10"
-                                class="w-16 h-16 rounded-xl border-2 border-white shadow-md hover:scale-110 transition-all duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.8"
+                                    stroke="white"
+                                    class="w-8 h-8">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
 
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3 hover:text-feu-green transition-colors">
-                        iCreate Hackathon Series
-                    </h3>
+                    <div class="p-6 flex flex-col flex-grow">
 
-                    <p class="text-slate-600 leading-relaxed">
-                        A 48-hour coding marathon to solve real-world problems. Open to all students.
-                    </p>
+                        <div class="mb-4">
+                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                COMPETITIONS
+                            </span>
+                        </div>
 
-                </div>
+                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>April 24, 2026</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
+                            FTIC Ramps Up the Culture of Innovation at FEU Tech with a Campus-Wide Symposium
+                        </h3>
+
+                        <p class="text-slate-600 leading-relaxed">
+                            A 48-hour coding marathon to solve real-world problems. Open to all students.
+                        </p>
+
+                    </div>
+                </a>
             </div>
 
         </div>
     </div>
 </section>
 
-<!-- Apply Now Section -->
 <section id="courses" class="py-24 relative overflow-hidden border-t-4 border-feu-yellow scroll-animate">
-    <!-- Background Image -->
     <div class="absolute inset-0 z-0">
         <img src="/images/FEU-TECHBLD.jpg" alt="Apply Background" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-[#008348]/90"></div>
@@ -501,10 +603,7 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            
-            <!-- Left Side - Apply Cards -->
             <div class="flex flex-col gap-6">
-                <!-- Apply Card: Engineering -->
                 <div class="bg-[#129658] rounded-3xl p-8 shadow-lg flex flex-col">
                     <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">College of Engineering</h3>
                     <p class="text-white/90 mb-8 leading-relaxed pr-4">Build the future with fully-accredited civil, electronics, mechanical, and computer engineering programs. Take the first step towards a successful career.</p>
@@ -515,9 +614,8 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
                     </div>
                 </div>
 
-                <!-- Apply Card: Computer Studies -->
                 <div class="bg-[#129658] rounded-3xl p-8 shadow-lg flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">College of Computer Studies</h3>
+                    <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">College of Computer Studies & Multimedia Arts</h3>
                     <p class="text-white/90 mb-8 leading-relaxed pr-4">Dive deep into software engineering, artificial intelligence, and premier creative multimedia programs. Lead the digital revolution.</p>
                      <div class="mt-auto">
                          <a href="/academics/ccsma" class="inline-block px-8 py-3 bg-white text-[#008348] font-bold rounded-full hover:bg-slate-50 transition-colors shadow-md">
@@ -527,9 +625,8 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
                 </div>
             </div>
 
-            <!-- Right Side - Accordion -->
+
             <div class="bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col justify-center">
-                
                 <!-- Accordion Item 1 (Expanded by default) -->
                 <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
@@ -546,7 +643,6 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
                     </div>
                 </div>
 
-                <!-- Accordion Item 2 -->
                 <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
                         <span class="text-[1.35rem] font-bold text-slate-800">Campus Life</span>
@@ -562,7 +658,6 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
                     </div>
                 </div>
 
-                <!-- Accordion Item 3 -->
                 <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
                         <span class="text-[1.35rem] font-bold text-slate-800">Student Organizations</span>
@@ -577,8 +672,6 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
                         Lorem ipsum
                      </div>
                 </div>
-
-                <!-- Accordion Item 4 -->
                 <div class="accordion-item pt-2">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
                         <span class="text-[1.35rem] font-bold text-slate-800">Regular Events</span>
@@ -599,26 +692,22 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
     </div>
 </section>
 
-<!-- University Facts Section -->
 <section class="py-24 bg-white border-t-4 border-feu-yellow scroll-animate">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
             <div class="mb-12 text-center">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">
-                    Why FEU Institute of Technology?
-                </h2>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight"> Why FEU Institute of Technology?</h2>
             </div>
-            
+                    
             <div class="relative rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer border-4 border-slate-800">
-            <img src="/images/YT.png" alt="University Video" class="w-full h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700">
-            
-                <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
-                    <a href="https://www.youtube.com/watch?v=-M6eMjyhMJc" target="_blank"
-                        class="w-20 h-20 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white border-2 border-white/50 group-hover:scale-110 group-hover:bg-feu-yellow group-hover:border-feu-yellow group-hover:text-slate-900 transition-all shadow-xl">
-                        <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </a>
+                <img src="/images/YT.png" alt="University Video" class="w-full h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-700">
+                    
+            <div class="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                <a href="https://www.youtube.com/watch?v=-M6eMjyhMJc" target="_blank" class="w-20 h-20 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white border-2 border-white/50 group-hover:scale-110 group-hover:bg-feu-yellow group-hover:border-feu-yellow group-hover:text-slate-900 transition-all shadow-xl">
+                    <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </a>
                 </div>
             </div>
         </div>

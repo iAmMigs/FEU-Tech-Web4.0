@@ -1,0 +1,338 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>
+        :root {
+            --feu-green: #002d19;
+            --feu-yellow: #fdb813;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* MODAL FIX */
+        .image-modal {
+            display: none;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+</style>
+
+<body class="bg-white text-black font-sans">
+
+<header class="relative bg-[var(--feu-green)] text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-25 bg-gradient-to-br from-black via-transparent to-[var(--feu-yellow)]"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-20">
+        <span class="inline-block px-4 py-1 bg-[var(--feu-yellow)] text-black text-sm font-semibold rounded-full">
+            FEU Tech Innovation Center
+        </span>
+
+        <h1 class="text-4xl md:text-5xl font-bold mt-4 leading-tight">
+            AI-Focused Workshop on Education and Sustainable Futures
+        </h1>
+
+        <p class="mt-4 text-white/80 text-lg max-w-3xl">
+            FEU Group of Schools and Utah Valley University Drive Global Collaboration on Transforming the Education Landscape
+        </p>
+
+        <p class="mt-6 text-sm text-white/70">
+            Posted: 2026-05-05
+        </p>
+    </div>
+</header>
+
+<section class="relative z-20 overflow-x-hidden overflow-y-visible bg-slate-50 border-y border-gray-200">
+    <div id="carousel-track-wrapper" class="relative w-full overflow-x-hidden overflow-y-visible group/carousel py-20">
+
+        <div id="carousel-left-arrow" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-start transition-opacity duration-300 pointer-events-none">
+            <div class="w-12 h-16 bg-white/90 backdrop-blur-sm shadow-md rounded-r-xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-white transition-colors border border-slate-200 border-l-0 cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div id="carousel-right-arrow" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-end transition-opacity duration-300 pointer-events-none">
+            <div class="w-12 h-16 bg-white/90 backdrop-blur-sm shadow-md rounded-l-xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-white transition-colors border border-slate-200 border-r-0 cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div id="carousel-track" class="flex gap-4 px-2" style="width: max-content;">
+            {% set images = [
+                '/images/carousels/ramps/1.jpg',
+                '/images/carousels/ramps/2.jpg',
+                '/images/carousels/ramps/3.jpg',
+                '/images/carousels/ramps/4.jpg',
+                '/images/carousels/ramps/5.jpg',
+                '/images/carousels/ramps/6.jpg'
+            ] %}
+
+            {# RANDOMIZER FIX: Pick a random index from 1 to the total number of unique images (1 to 9) #}
+            {% set random_target_card = random(1, images|length) %}
+
+            {# Loop 3 times to fulfill seamless endless scrolling boundaries #}
+            {% for set_idx in 1..3 %}
+            {% for img_path in images %}
+                <div
+                    class="carousel-card group flex-shrink-0 w-[240px] h-[160px] rounded-xl shadow-md border border-white cursor-pointer select-none hover:-translate-y-1 transition-all duration-300 relative bg-white"
+                    data-carousel-img="{{ img_path }}"
+                >
+                    {# Checks if the current loop sequence matches our randomly generated card index #}
+                    {% if loop.index == random_target_card %}
+                        <img 
+                            src="/images/Tamtam/TamtamPic.png"
+                            alt="Mascot" 
+                            class="absolute -top-[78px] left-4 w-24 h-24 object-contain z-30 pointer-events-none drop-shadow-[0_6px_10px_rgba(0,0,0,0.2)]"
+                        >
+                    {% endif %}
+
+                    <div class="w-full h-full rounded-xl overflow-hidden relative z-10">
+                        <img src="{{ img_path }}" alt="FTIC Event Image" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div id="hover-image-modal" class="image-modal fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0 cursor-pointer pt-20">
+    <div class="relative max-w-2xl max-h-[65vh] p-2 bg-white rounded-2xl shadow-2xl m-4 cursor-default animate-fade-in" onclick="event.stopPropagation()">
+        <img id="modal-target-img" src="" alt="Preview Window" class="max-w-full max-h-[60vh] object-contain rounded-xl mx-auto">
+        <button id="modal-close-btn" class="absolute top-4 right-4 w-8 h-8 bg-black/60 backdrop-blur-sm text-white rounded-full flex items-center justify-center font-bold text-sm hover:bg-black/80 transition-colors cursor-pointer shadow-lg z-50">&times;</button>
+    </div>
+</div>
+
+<section class="bg-black text-white">
+    <div class="max-w-5xl mx-auto px-6 py-12 text-center">
+        <p class="text-xl md:text-2xl italic">
+            “The education sector was due for a redesign; the proliferation of AI simply exposed this need. The key is to make learning even more valuable with AI, for the students and faculty alike.”
+        </p>
+    </div>
+</section>
+
+<main class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-10">
+
+    <article class="md:col-span-2 space-y-6 leading-relaxed text-black/90">
+
+        <p>
+            FEU Institute of Technology Group of Schools and Far Eastern University (FEU) welcomed a distinguished delegation from <span class="font-semibold text-[var(--feu-green)]">Utah Valley University (UVU)</span> for the “AI-Focused Workshop on Education and Sustainable Futures,” held at the FEU Tech Innovation Center (FTIC) last May 5th.
+        </p>
+
+        <p>
+            The event gathered faculty members and academic leaders from FEU Manila, FEU Alabang, FEU Diliman, and FEU Tech in a dynamic exchange of ideas centered on the transformative role of artificial intelligence in education. The workshop emphasized the importance of global collaboration in shaping future-ready, sustainable learning environments.
+        </p>
+
+        <p>
+            Opening the program, FEU Chief Information Officer <span class="font-semibold text-[var(--feu-green)]">Mr. Enrique M. Amigo</span> touched on higher education institutions’ (HEIs) responsibility in the exponential growth of AI, stressing how institutions must adapt to emerging technologies to remain responsive to the evolving needs of learners and society.
+        </p>
+
+        <p>
+            Representing UVU were prominent academic leaders and experts, including Dr. Baldomero Lago, Chief International Officer and UNESCO Chair; Dr. Carl Canlas from Information Systems & Technology; Dr. Kelsey Hixson-Bowles from English & Literature; Dr. Jerevie Canlas from Social & Behavioral Sciences; and Mr. Ben Payne from the MS Cybersecurity program. Each of their talks were packed with both familiar and fresh insights into ways that, contrary to popular belief, the education landscape is changing for the better because of AI.
+        </p>
+
+        <div class="border-l-4 border-[var(--feu-yellow)] bg-gray-50 p-6">
+            <h3 class="font-bold text-[var(--feu-green)] mb-2">Generative AI in Higher Education</h3>
+            <p class="mb-2">
+                In her talk alongside Dr. Jerevie, <span class="font-semibold text-[var(--feu-green)]">Dr. Kelsey</span> clarified that the education sector was due for a redesign; the proliferation of AI simply exposed this need. The key is to make learning even more valuable with AI, for the students and faculty alike.
+            </p>
+            <p>
+                Echoing this sentiment, <span class="font-semibold text-[var(--feu-green)]">Dr. Jerevie</span> shifted the focus on building AI into the curricula—not to catch “AI users” but to integrate utilization as output improvement.
+            </p>
+        </div>
+
+        <p>
+            The rest of the morning plenary sessions explored key themes such as ethical considerations in AI and cybersecurity and the role of AI in advancing environmental stewardship and sustainable futures. These discussions provided valuable insights into how AI can be leveraged not only to enhance curriculum design and policy development, but also to foster responsible and inclusive innovation.
+        </p>
+
+        <p>
+            Following the plenary, faculty members engaged in focused breakout sessions that encouraged deeper collaboration across disciplines. Academic leaders from both schools discussed strategic directions and identified opportunities for joint initiatives, forming part of a broader dialogue on “ways forward” as institutional partners.
+        </p>
+
+        <p>
+            Through initiatives like this, the FEU Tech Group of Schools continue to strengthen its global partnerships and reaffirm its role as the <span class="font-bold">School of Innovation</span>. The collaboration with Utah Valley University marks another step forward in advancing innovative, ethical, and sustainable approaches to learning in an increasingly AI-driven world.
+        </p>
+
+    </article>
+
+    <aside class="space-y-6">
+
+        <div class="bg-[var(--feu-green)] text-white p-6 rounded-xl">
+            <h3 class="font-bold mb-3">UVU Delegation</h3>
+            <ul class="text-sm space-y-3 text-white/80">
+                <li>• <strong class="text-white">Dr. Baldomero Lago</strong><br><span class="text-xs text-white/60">Chief International Officer & UNESCO Chair</span></li>
+                <li>• <strong class="text-white">Dr. Carl Canlas</strong><br><span class="text-xs text-white/60">Information Systems & Technology</span></li>
+                <li>• <strong class="text-white">Dr. Kelsey Hixson-Bowles</strong><br><span class="text-xs text-white/60">English & Literature</span></li>
+                <li>• <strong class="text-white">Dr. Jerevie Canlas</strong><br><span class="text-xs text-white/60">Social & Behavioral Sciences</span></li>
+                <li>• <strong class="text-white">Mr. Ben Payne</strong><br><span class="text-xs text-white/60">MS Cybersecurity Program</span></li>
+            </ul>
+        </div>
+
+        <div class="bg-[var(--feu-yellow)] text-black p-6 rounded-xl">
+            <h3 class="font-bold mb-2">Participating Campuses</h3>
+            <ul class="text-sm space-y-1 font-medium">
+                <li>• FEU Manila</li>
+                <li>• FEU Alabang</li>
+                <li>• FEU Diliman</li>
+                <li>• FEU Tech</li>
+            </ul>
+        </div>
+
+    </aside>
+
+</main>
+
+
+<section class="bg-[var(--feu-green)] text-white py-12 text-center">
+    <h3 class="text-xl font-bold">Building a Future-Ready Tamaraw Community</h3>
+    <p class="text-white/70 mt-2">
+        FEU Tech Innovation Center continues to drive innovation through global collaboration.
+    </p>
+</section>
+
+<script>
+function initCarousel() {
+    if (window.carouselInitialized) return;
+    
+    const trackWrapper = document.getElementById('carousel-track-wrapper');
+    const track = document.getElementById('carousel-track');
+    const modal = document.getElementById('hover-image-modal');
+    const modalImg = document.getElementById('modal-target-img');
+    const closeBtn = document.getElementById('modal-close-btn');
+    
+    const leftArrow = document.getElementById('carousel-left-arrow')?.firstElementChild;
+    const rightArrow = document.getElementById('carousel-right-arrow')?.firstElementChild;
+
+    if (!track || !modal || !modalImg || !trackWrapper) return;
+    
+    window.carouselInitialized = true;
+
+    const cards = track.querySelectorAll('.carousel-card');
+    if (!cards.length) return;
+
+    let scrollPos = 0;
+    let baseSpeed = 0.9;       
+    let isPaused = false;      
+    let isFastForward = false;
+    let isFastRewind = false;
+    let animFrameId = null;
+
+    function getOneSetWidth() {
+        const cardCount = cards.length / 3;
+        let w = 0;
+        for (let i = 0; i < cardCount; i++) {
+            w += cards[i].offsetWidth + 16;
+        }
+        return w;
+    }
+
+    function updateTrackPosition() {
+        const oneSet = getOneSetWidth();
+        if (scrollPos >= oneSet) {
+            scrollPos -= oneSet;
+        } else if (scrollPos < 0) {
+            scrollPos += oneSet;
+        }
+        track.style.transform = `translateX(-${scrollPos}px)`;
+    }
+
+    function animate() {
+        let activeSpeed = 0;
+        
+        if (isFastForward) {
+            activeSpeed = 4;
+        } else if (isFastRewind) {
+            activeSpeed = -4;
+        } else if (!isPaused) {
+            activeSpeed = baseSpeed;
+        }
+
+        if (activeSpeed !== 0) {
+            scrollPos += activeSpeed;
+            updateTrackPosition();
+        }
+        
+        animFrameId = requestAnimationFrame(animate);
+    }
+
+    animFrameId = requestAnimationFrame(animate);
+
+    trackWrapper.addEventListener('mouseenter', () => {
+        isPaused = true;
+    });
+
+    trackWrapper.addEventListener('mouseleave', () => {
+        isFastForward = false;
+        isFastRewind = false;
+        isPaused = false;
+    });
+
+    function closeModal() {
+        modal.classList.remove('active', 'opacity-100');
+        modal.classList.add('opacity-0');
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const imgSrc = card.getAttribute('data-carousel-img');
+            if (imgSrc) {
+                modalImg.src = imgSrc;
+                modal.classList.add('active', 'opacity-100');
+                modal.classList.remove('opacity-0');
+            }
+        });
+    });
+
+    modal.addEventListener('click', closeModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    if (leftArrow) {
+        leftArrow.addEventListener('mouseenter', () => isFastRewind = true);
+        leftArrow.addEventListener('mouseleave', () => isFastRewind = false);
+        leftArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollPos -= 256; 
+            updateTrackPosition();
+        });
+    }
+    
+    if (rightArrow) {
+        rightArrow.addEventListener('mouseenter', () => isFastForward = true);
+        rightArrow.addEventListener('mouseleave', () => isFastForward = false);
+        rightArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollPos += 256; 
+            updateTrackPosition();
+        });
+    }
+
+    document.addEventListener('turbo:before-render', function cleanup() {
+        if (animFrameId) cancelAnimationFrame(animFrameId);
+        document.removeEventListener('turbo:before-render', cleanup);
+        window.carouselInitialized = false;
+    }, { once: true });
+}
+
+document.addEventListener('turbo:load', initCarousel);
+document.addEventListener('DOMContentLoaded', initCarousel);
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initCarousel();
+}
+</script>
+
+</body>
+{% endblock %}
