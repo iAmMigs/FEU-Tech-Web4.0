@@ -10,7 +10,7 @@ final class AboutController extends AbstractController
 {
     private function renderWithDefaults(string $view, array $params = []): Response
     {
-        return $this->render($view, array_merge($params, [
+        return $this->render('user/' . ltrim($view, '/'), array_merge($params, [
             'controller_name' => 'AboutController',
         ]));
     }
