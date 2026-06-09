@@ -1,0 +1,137 @@
+{# templates/admin/dashboard.html.twig #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}FEU Tech CMS Dashboard{% endblock %}
+
+{% block main %}
+    <style>
+        :root {
+            --feu-green: #0a5c36;
+            --feu-gold: #f2b327;
+            --feu-green-dark: #074227;
+            --card-bg: #ffffff;
+            --card-text: #6c757d;
+        }
+
+        [data-bs-theme="dark"] {
+            --card-bg: #1e1e2d;
+            --card-text: #a1a5b7;
+        }
+
+        .feu-hero {
+            background: linear-gradient(135deg, var(--feu-green) 0%, var(--feu-green-dark) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .feu-hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(242,179,39,0.15) 0%, rgba(242,179,39,0) 70%);
+            border-radius: 50%;
+        }
+        .feu-hero h1 {
+            color: var(--feu-gold);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .feu-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--feu-gold);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .stat-card .stat-title {
+            color: var(--card-text);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--feu-green);
+        }
+        [data-bs-theme="dark"] .stat-card .stat-value {
+            color: var(--feu-gold);
+        }
+        .stat-card .stat-icon {
+            float: right;
+            font-size: 2.5rem;
+            color: rgba(10, 92, 54, 0.1);
+        }
+    </style>
+
+    <div class="feu-hero">
+        <h1>Welcome [USER]</h1>
+        <p>Manage the content, users, and settings for the FEU Tech website from this central control panel. Select an option from the sidebar to get started.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="stat-card">
+                <i class="fas fa-eye stat-icon"></i>
+                <div class="stat-title">Total Page Views</div>
+                <div class="stat-value">--</div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="stat-card">
+                <i class="fas fa-newspaper stat-icon"></i>
+                <div class="stat-title">Active News Posts</div>
+                <div class="stat-value">--</div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="stat-card">
+                <i class="fas fa-calendar-alt stat-icon"></i>
+                <div class="stat-title">Upcoming Events</div>
+                <div class="stat-value">--</div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="stat-card">
+                <i class="fas fa-server stat-icon"></i>
+                <div class="stat-title">System Status</div>
+                <div class="stat-value" style="color: #28a745; font-size: 1.5rem; margin-top: 0.5rem;">Online</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
+                    <h5 class="mb-0 text-muted"><i class="fas fa-info-circle me-2"></i> Getting Started</h5>
+                </div>
+                <div class="card-body">
+                    <p>This dashboard is currently in setup mode. Once the necessary database tables and entities are configured, this page will automatically display real-time statistics and activity logs.</p>
+                    <hr>
+                    <p class="mb-0 text-muted small">FEU Tech Web 4.0 - Admin Portal v1.0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
