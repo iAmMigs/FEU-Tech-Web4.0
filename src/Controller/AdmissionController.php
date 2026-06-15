@@ -5,9 +5,17 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Page;
 
 final class AdmissionController extends AbstractController
 {
+    private EntityManagerInterface $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
     private function renderWithDefaults(string $view, array $params = []): Response
     {
         return $this->render('user/' . ltrim($view, '/'), array_merge($params, [
@@ -18,7 +26,12 @@ final class AdmissionController extends AbstractController
     #[Route('/freshmen', name: 'app_admission_freshmen')]
     public function freshmen(): Response
     {
-        return $this->renderWithDefaults('Admission/freshmen.html.twig');
+        $pageRepository = $this->entityManager->getRepository(Page::class);
+        $page = $pageRepository->findOneBy(['slug' => 'admissions-freshmen']);
+
+        return $this->renderWithDefaults('Admission/freshmen.html.twig', [
+            'page' => $page,
+        ]);
     }
 
     #[Route('/transferees', name: 'app_admission_transferees')]

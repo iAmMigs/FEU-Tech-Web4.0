@@ -10,7 +10,7 @@
     <!-- Background Layer -->
     <div class="absolute inset-0 z-0">
         <!-- Hero Image -->
-        <img src="/images/Admission_Sample.png" alt="Freshmen Admissions Hero" class="w-full h-full object-cover">
+        <img src="{{ page.getSection('Hero Image') and page.getSection('Hero Image').imagePath ? '/uploads/admissions/' ~ page.getSection('Hero Image').imagePath : '/images/Admission_Sample.png' }}" alt="Freshmen Admissions Hero" class="w-full h-full object-cover">
 
         <!-- Dark overlay -->
         <div class="absolute inset-0 bg-slate-900/65 mix-blend-multiply"></div>
@@ -29,13 +29,13 @@
 
         <!-- Main Title -->
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight drop-shadow-lg uppercase tracking-wide">
-            Freshmen
+            {{ page.getSection('Hero Title') ? page.getSection('Hero Title').textContent|striptags : 'Freshmen' }}
         </h1>
     </div>
 
     <!-- Decorative pattern overlay -->
     <div class="absolute inset-0 z-[1] opacity-[0.04] pointer-events-none"
-         style="background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\"); background-size: 30px 30px;">
+         style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;); background-size: 30px 30px;">
     </div>
 </section>
 
@@ -48,14 +48,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center mb-16">
             <span class="text-feu-green font-bold tracking-widest uppercase text-sm">
-                How to Apply
+                {{ page.getSection('Procedure Subtitle') ? page.getSection('Procedure Subtitle').textContent|striptags : 'How to Apply' }}
             </span>
             <h2 class="text-4xl font-extrabold text-slate-800 mt-3">
-                Admission Procedures
+                {{ page.getSection('Procedure Title') ? page.getSection('Procedure Title').textContent|striptags : 'Admission Procedures' }}
             </h2>
-            <p class="text-slate-500 mt-4 max-w-2xl mx-auto">
-                Freshmen applicants are those who have completed senior high school, making them eligible to apply for college education.
-            </p>
+            <div class="text-slate-500 mt-4 max-w-2xl mx-auto">
+                {{ page.getSection('Procedure Description') ? page.getSection('Procedure Description').textContent|raw : 'Freshmen applicants are those who have completed senior high school, making them eligible to apply for college education.' }}
+            </div>
         </div>
 
         <!-- Procedures Grid -->
@@ -65,9 +65,9 @@
                 <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
                     1
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">Register</h3>
-                <p class="text-slate-600 mb-6">Start your journey by registering online through our official link.</p>
-                <a href="http://bit.ly/FEUCORE" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.getSection('Step 1 Title') ? page.getSection('Step 1 Title').textContent|striptags : 'Register' }}</h3>
+                <div class="text-slate-600 mb-6">{{ page.getSection('Step 1 Description') ? page.getSection('Step 1 Description').textContent|raw : 'Start your journey by registering online through our official link.' }}</div>
+                <a href="{{ page.getSection('Step 1 Link URL') ? page.getSection('Step 1 Link URL').textContent|striptags : 'http://bit.ly/FEUCORE' }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
                     Visit Portal 
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
@@ -78,9 +78,9 @@
                 <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
                     2
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">Download Forms</h3>
-                <p class="text-slate-600 mb-6">Complete all necessary application forms for your specific program.</p>
-                <a href="https://tinyurl.com/FEUTECHFORMS" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.getSection('Step 2 Title') ? page.getSection('Step 2 Title').textContent|striptags : 'Download Forms' }}</h3>
+                <div class="text-slate-600 mb-6">{{ page.getSection('Step 2 Description') ? page.getSection('Step 2 Description').textContent|raw : 'Complete all necessary application forms for your specific program.' }}</div>
+                <a href="{{ page.getSection('Step 2 Link URL') ? page.getSection('Step 2 Link URL').textContent|striptags : 'https://tinyurl.com/FEUTECHFORMS' }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
                     Get Forms
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
@@ -91,10 +91,10 @@
                 <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
                     3
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">Submit Requirements</h3>
-                <p class="text-slate-600 mb-6">Send digital copies of your requirements via email for processing.</p>
-                <a href="mailto:admissions@feutech.edu.ph" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
-                    admissions@feutech.edu.ph
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.getSection('Step 3 Title') ? page.getSection('Step 3 Title').textContent|striptags : 'Submit Requirements' }}</h3>
+                <div class="text-slate-600 mb-6">{{ page.getSection('Step 3 Description') ? page.getSection('Step 3 Description').textContent|raw : 'Send digital copies of your requirements via email for processing.' }}</div>
+                <a href="mailto:{{ page.getSection('Step 3 Email') ? page.getSection('Step 3 Email').textContent|striptags : 'admissions@feutech.edu.ph' }}" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
+                    {{ page.getSection('Step 3 Email') ? page.getSection('Step 3 Email').textContent|striptags : 'admissions@feutech.edu.ph' }}
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </a>
             </div>
@@ -111,19 +111,19 @@
             <!-- Requirements List -->
             <div>
                 <span class="text-feu-green font-bold tracking-widest uppercase text-sm">
-                    Preparation
+                    {{ page.getSection('Requirements Subtitle') ? page.getSection('Requirements Subtitle').textContent|striptags : 'Preparation' }}
                 </span>
                 <h2 class="text-4xl font-extrabold text-slate-800 mt-3 mb-8">
-                    Admission Requirements
+                    {{ page.getSection('Requirements Title') ? page.getSection('Requirements Title').textContent|striptags : 'Admission Requirements' }}
                 </h2>
                 
                 <div class="space-y-4">
                     {% set requirements = [
-                        'FEUOCAT result',
-                        'Admissions form',
-                        'SF9 / Grade 12 report card',
-                        'Good Moral Certificate',
-                        'PSA Birth Certificate'
+                        page.getSection('Requirement 1') ? page.getSection('Requirement 1').textContent|striptags : 'FEUOCAT result',
+                        page.getSection('Requirement 2') ? page.getSection('Requirement 2').textContent|striptags : 'Admissions form',
+                        page.getSection('Requirement 3') ? page.getSection('Requirement 3').textContent|striptags : 'SF9 / Grade 12 report card',
+                        page.getSection('Requirement 4') ? page.getSection('Requirement 4').textContent|striptags : 'Good Moral Certificate',
+                        page.getSection('Requirement 5') ? page.getSection('Requirement 5').textContent|striptags : 'PSA Birth Certificate'
                     ] %}
 
                     {% for req in requirements %}
@@ -155,18 +155,18 @@
                         <div class="flex gap-6">
                             <div class="text-feu-yellow font-black text-4xl opacity-50 italic">01</div>
                             <div>
-                                <p class="text-white font-bold text-lg mb-1">Payment Setup</p>
-                                <p class="text-slate-300 text-sm">Bank accounts for new students who are first time payees.</p>
+                                <p class="text-white font-bold text-lg mb-1">{{ page.getSection('Enrollment Subtitle') ? page.getSection('Enrollment Subtitle').textContent|striptags : 'Payment Setup' }}</p>
+                                <div class="text-slate-300 text-sm">{{ page.getSection('Enrollment Description') ? page.getSection('Enrollment Description').textContent|raw : 'Bank accounts for new students who are first time payees.' }}</div>
                             </div>
                         </div>
 
                         <div class="flex gap-6">
                             <div class="text-feu-yellow font-black text-4xl opacity-50 italic">02</div>
                             <div>
-                                <p class="text-white font-bold text-lg mb-1">Proof of Payment</p>
+                                <p class="text-white font-bold text-lg mb-1">{{ page.getSection('Proof Subtitle') ? page.getSection('Proof Subtitle').textContent|striptags : 'Proof of Payment' }}</p>
                                 <p class="text-slate-300 text-sm leading-relaxed">
-                                    Email the proof of payment to 
-                                    <a href="mailto:admissions@feutech.edu.ph" class="text-feu-yellow hover:underline">admissions@feutech.edu.ph</a>
+                                    {{ page.getSection('Proof Description') ? page.getSection('Proof Description').textContent|striptags : 'Email the proof of payment to' }}
+                                    <a href="mailto:{{ page.getSection('Proof Email') ? page.getSection('Proof Email').textContent|striptags : 'admissions@feutech.edu.ph' }}" class="text-feu-yellow hover:underline">{{ page.getSection('Proof Email') ? page.getSection('Proof Email').textContent|striptags : 'admissions@feutech.edu.ph' }}</a>
                                 </p>
                             </div>
                         </div>
@@ -175,9 +175,9 @@
                     <div class="mt-12 pt-8 border-t border-white/10">
                         <div class="flex items-start bg-white/5 p-4 rounded-xl border border-white/10">
                             <svg class="w-5 h-5 text-feu-yellow mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-                            <p class="text-xs text-slate-300 leading-relaxed italic">
-                                And you are ALL SET! Your credentials will be generated and emailed by the Admissions Office.
-                            </p>
+                            <div class="text-xs text-slate-300 leading-relaxed italic">
+                                {{ page.getSection('Enrollment Footer') ? page.getSection('Enrollment Footer').textContent|raw : 'And you are ALL SET! Your credentials will be generated and emailed by the Admissions Office.' }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,33 +191,33 @@
 <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex p-4 rounded-full bg-slate-50 mb-8 border border-slate-100">
-            <span class="text-feu-green font-bold px-4">What's Next?</span>
+            <span class="text-feu-green font-bold px-4">{{ page.getSection('Next Steps Badge') ? page.getSection('Next Steps Badge').textContent|striptags : "What's Next?" }}</span>
         </div>
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-6">Your Welcome Package</h2>
-        <p class="text-slate-500 mb-12">
-            Kindly wait for the Admissions Office email regarding the following credentials:
-        </p>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-6">{{ page.getSection('Next Steps Title') ? page.getSection('Next Steps Title').textContent|striptags : 'Your Welcome Package' }}</h2>
+        <div class="text-slate-500 mb-12">
+            {{ page.getSection('Next Steps Description') ? page.getSection('Next Steps Description').textContent|raw : 'Kindly wait for the Admissions Office email regarding the following credentials:' }}
+        </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
                 <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5L10 6z"></path></svg>
                 </div>
-                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">Student Number</p>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page.getSection('Credential 1') ? page.getSection('Credential 1').textContent|striptags : 'Student Number' }}</p>
             </div>
 
             <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
                 <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                 </div>
-                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">Student Portal</p>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page.getSection('Credential 2') ? page.getSection('Credential 2').textContent|striptags : 'Student Portal' }}</p>
             </div>
 
             <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
                 <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 </div>
-                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">MILES Access</p>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page.getSection('Credential 3') ? page.getSection('Credential 3').textContent|striptags : 'MILES Access' }}</p>
             </div>
         </div>
     </div>
