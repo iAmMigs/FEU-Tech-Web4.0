@@ -1,26 +1,44 @@
-/* admin_cms.css */
-
-/* Make collection items look like clean builder blocks */
-.field-collection-item {
-    background: #1e1e24 !important; /* Slightly distinct dark background for dark mode */
+[data-ea-dark-scheme="dark"] .field-collection-item {
+    background: #1e1e24 !important;
     border: 1px solid #333 !important;
     border-radius: 8px !important;
     padding: 20px !important;
     margin-bottom: 25px !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     transition: all 0.2s ease-in-out;
 }
-.field-collection-item:hover {
+[data-ea-dark-scheme="dark"] .field-collection-item:hover {
     border-color: #555 !important;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+[data-ea-dark-scheme="dark"] .field-collection-item .accordion-button,
+[data-ea-dark-scheme="dark"] .field-collection-item .accordion-button::after {
+    color: #eaeaea !important;
 }
 
-/* Hide the collection item delete/add buttons completely just in case */
+[data-ea-dark-scheme="light"] .field-collection-item {
+    background: #f8f9fa !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.2s ease-in-out;
+}
+[data-ea-dark-scheme="light"] .field-collection-item:hover {
+    border-color: #b0b0b0 !important;
+    background: #ffffff !important;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+[data-ea-dark-scheme="light"] .field-collection-item .accordion-button,
+[data-ea-dark-scheme="light"] .field-collection-item .accordion-button::after {
+    color: #212529 !important;
+}
+
 .field-collection-item-action-delete {
     display: none !important;
 }
 
-/* Custom Media Manager UI */
 .media-manager-preview-wrapper {
     background: #2a2a35;
     border: 2px dashed #444;
@@ -51,7 +69,6 @@
     color: #555;
 }
 
-/* Media Manager Modal Styles */
 .media-gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

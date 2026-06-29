@@ -1,0 +1,288 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FEU E-Magazine Archive{% endblock %}
+
+{% block body %}
+
+{% set magazines = [
+{
+img: '/images/magazine/issue1.png',
+link: 'https://drive.google.com/file/d/1Nvc5Qvx9kIQOijV6fzbx6O6VC1t5M4LD/view',
+title: 'Volume 1 Issue 1',
+description: 'FEU TECH IS NOW AUTONOMOUS'
+},
+{
+img: '/images/magazine/issue2.png',
+link: 'https://drive.google.com/file/d/1rpQ8TCiGqPfzIsufRCltl_Y39OavyN9T/view',
+title: 'Volume 1 Issue 2',
+description: 'INNOVATIVE NEW PROGRAMS'
+},
+{
+img: '/images/magazine/issue3.png',
+link: 'https://heyzine.com/flip-book/fd6d3a5475.html#page/1',
+title: 'Volume 1 Issue 3 - 4',
+description: 'LETS GO TAMARAWS : GAME ONE TO A LEGENDARY STUDENT JOURNEY'
+},
+{
+img: '/images/magazine/issue5.png',
+link: 'https://heyzine.com/flip-book/574ef6415d.html',
+title: 'Volume 1 Issue 5 - 7',
+description: 'AUN-QA CERTIFIED ENGINEERING PROGRAMS'
+}
+] %}
+
+<style>
+    @keyframes wiggle {
+        0%,100% { transform: rotate(0deg); }
+        25% { transform: rotate(-4deg); }
+        75% { transform: rotate(4deg); }
+    }
+
+    .wiggle {
+        animation: wiggle 2s ease-in-out infinite;
+    }
+
+    .magazine-card:hover {
+        z-index: 20;
+    }
+</style>
+
+<div class="min-h-screen bg-[#002d19] overflow-hidden">
+
+<!-- Background Glow -->
+<div class="fixed inset-0 pointer-events-none">
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#fdb813]/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#fdb813]/10 rounded-full blur-3xl"></div>
+</div>
+
+<!-- HERO -->
+<section class="relative py-24">
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+
+        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
+            FEU Institute of Technology
+            <span class="block text-[#fdb813]">
+                E-Magazine 
+            </span>
+        </h1>
+
+        <!-- Search -->
+        <div class="max-w-xl mx-auto mt-10">
+
+            <div class="relative">
+
+                <input
+                    id="searchMagazine"
+                    type="text"
+                    placeholder="Search magazine issue..."
+                    class="w-full px-6 py-4 rounded-2xl bg-white/10 backdrop-blur border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-[#fdb813]/30"
+                >
+
+                <svg
+                    class="absolute right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#fdb813]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                </svg>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MAGAZINE GRID -->
+<section class="relative pb-24 px-6">
+
+    <div
+        id="magazineGrid"
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+    >
+
+        {% for magazine in magazines %}
+
+        <a
+            href="{{ magazine.link }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-title="{{ magazine.title|lower }}"
+            class="magazine-card group relative block overflow-visible"
+        >
+
+            <!-- ✨ TAMMY PEEK -->
+            <img
+                src="/images/Tamtam/Leaping_Tammy.png"
+                class="tammy-peek-mag absolute left-1/2 top-4 -translate-x-1/2 w-28 h-auto opacity-0
+                       transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                       group-hover:opacity-100 group-hover:-top-16 group-hover:-translate-y-6
+                       z-0 pointer-events-none drop-shadow-xl"
+                alt="Tammy"
+            >
+
+            <!-- Glow -->
+            <div class="absolute inset-0 rounded-3xl bg-[#fdb813]/0 group-hover:bg-[#fdb813]/10 blur-xl transition-all duration-500"></div>
+
+            <!-- Card -->
+            <div class="relative overflow-hidden rounded-3xl border border-[#fdb813]/20 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:border-[#fdb813] group-hover:shadow-[0_0_40px_rgba(253,184,19,0.35)] z-10">
+
+                <!-- Cover -->
+                <div class="aspect-[3/4] overflow-hidden">
+
+                    <img
+                        src="{{ asset(magazine.img) }}"
+                        alt="{{ magazine.title }}"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    >
+
+                </div>
+
+                <!-- Overlay (CENTERED CTA) -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+
+                    <div class="absolute inset-0 bg-black/60"></div>
+
+                    <span class="relative z-10 bg-[#fdb813] text-[#002d19] font-bold px-8 py-4 rounded-full shadow-2xl transform scale-90 group-hover:scale-100 transition-all duration-300">
+                        Read Magazine →
+                    </span>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="p-5">
+
+                    <h3 class="text-xl font-bold text-white">
+                        {{ magazine.title }}
+                    </h3>
+
+                    <p class="text-slate-300 text-sm mt-1">
+                        {{ magazine.description }}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- No Results -->
+    <div
+        id="noResults"
+        class="hidden text-center mt-20"
+    >
+        <div class="text-7xl mb-4">📚</div>
+
+        <h3 class="text-white text-xl font-bold">
+            No magazines found
+        </h3>
+
+        <p class="text-slate-300 mt-2">
+            Try another search keyword.
+        </p>
+    </div>
+
+</section>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const searchInput = document.getElementById('searchMagazine');
+    const cards = document.querySelectorAll('.magazine-card');
+    const noResults = document.getElementById('noResults');
+
+    searchInput.addEventListener('input', () => {
+
+        const value = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+
+            const title = card.dataset.title;
+
+            if (title.includes(value)) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+
+        });
+
+        if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+        } else {
+            noResults.classList.add('hidden');
+        }
+
+    });
+
+});
+</script>
+
+<!-- TAMMY HOVER RANDOMIZER -->
+<script>
+(function () {
+
+    const tammyImages = [
+        '/images/Tamtam/Leaping_Tammy.png',
+        '/images/Tamtam/Jumping_Tammy.png',
+        '/images/Tamtam/Wave_Tammy.png'
+    ];
+
+    let lastImage = null;
+    let consecutiveCount = 0;
+
+    tammyImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    function initTammyMagazines() {
+        const cards = document.querySelectorAll('.magazine-card');
+
+        cards.forEach(card => {
+            card.onmouseenter = function () {
+
+                const peek = this.querySelector('.tammy-peek-mag');
+                if (!peek) return;
+
+                let nextImage;
+
+                do {
+                    const randomIndex = Math.floor(Math.random() * tammyImages.length);
+                    nextImage = tammyImages[randomIndex];
+                } while (nextImage === lastImage && consecutiveCount >= 2);
+
+                if (nextImage === lastImage) {
+                    consecutiveCount++;
+                } else {
+                    lastImage = nextImage;
+                    consecutiveCount = 1;
+                }
+
+                peek.src = nextImage;
+            };
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initTammyMagazines);
+
+})();
+</script>
+
+{% endblock %}

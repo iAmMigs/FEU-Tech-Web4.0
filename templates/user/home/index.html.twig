@@ -602,6 +602,7 @@ if (
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col gap-20 items-center w-full">
+            
             <div class="w-full max-w-5xl text-center transform transition-all duration-700 hover:translate-y-[-4px]">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight mb-4 flex items-center justify-center gap-3">
                     <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
@@ -653,99 +654,51 @@ if (
 
             <div class="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-2"></div>
 
-            <div class="w-full max-w-5xl text-center transform transition-all duration-700 hover:translate-y-[-4px]">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight mb-4 flex items-center justify-center gap-3">
-                    <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
-                    Featured Videos
-                    <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
-                </h2>
-                
-                <div class="relative h-[540px] flex items-center justify-center overflow-visible select-none [perspective:1000px]" id="videoPlayerCarousel">
-                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] h-16 bg-black/15 blur-[50px] rounded-full pointer-events-none"></div>
+            <div class="w-full max-w-6xl text-left">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                    
+                    <div class="lg:col-span-2 flex flex-col gap-4">
+                        <div class="group/player relative rounded-xl overflow-hidden bg-black aspect-video shadow-lg border border-slate-200">
+                            <a id="vidMainLink" href="" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative">
+                                
+                                <div class="absolute inset-0 flex items-center justify-center z-20">
+                                    <div class="w-16 h-16 rounded-full bg-red-600 text-white shadow-xl flex items-center justify-center transform scale-100 group-hover/player:scale-110 transition-transform duration-200">
+                                        <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
 
-                    <div id="vidLeftContainer" class="absolute left-2 md:left-6 top-24 w-[240px] md:w-[340px] z-10 block transform -rotate-6 hover:-rotate-12 transition-all duration-500 hover:z-20 aspect-video rounded-xl overflow-hidden bg-black shadow-[0_15px_35px_rgba(0,0,0,0.25)]">
-                        <img id="vidLeftThumb" src="" class="w-full h-full object-cover opacity-70">
-                        <div class="absolute inset-0 bg-black/40"></div>
-                    </div>
-
-                    <div class="absolute z-30 w-[380px] md:w-[600px] aspect-video transform scale-[1.01] transition-all duration-500 group/player">
-                        <a id="vidMainLink" href="" target="_blank" rel="noopener noreferrer" class="absolute inset-0 block z-20 cursor-pointer rounded-2xl overflow-hidden shadow-[0_35px_70px_rgba(0,0,0,0.4)] border border-white/10 bg-black">
-                            
-                            <div class="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
-                                <div class="w-20 h-14 md:w-24 md:h-16 rounded-[20px] bg-feu-yellow shadow-[0_10px_30px_rgba(251,191,36,0.4)] flex items-center justify-center transition-all duration-300 transform scale-105 group-hover/player:scale-110">
-                                    <svg class="w-8 h-8 text-slate-950 ml-1 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
+                                <img id="vidMainThumb" src="" alt="Active Video Player Thumbnail" class="w-full h-full object-cover">
+                            </a>
+                        </div>
+                        
+                        <div class="px-1">
+                            <h3 id="vidMainTitle" class="text-xl font-bold text-slate-900 leading-snug">Loading Active Content Title...</h3>
+                            <div class="flex items-center gap-3 mt-3 pb-4 border-b border-slate-200">
+                                <div class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center p-1.5 bg-slate-50 border border-slate-200">
+                                    <img src="/images/Tech_Logo.png" alt="FEU Tech" class="w-full h-full object-contain">
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-bold text-sm text-slate-800">TAMbayan TV</span>
                                 </div>
                             </div>
-
-                            <div class="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-black/85 via-black/40 to-transparent p-4 flex items-start justify-between text-white transition-opacity duration-300 z-30 opacity-100">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shadow-md p-0.5 bg-slate-900 border border-white/10">
-                                        <img src="/images/Tech_Logo.png" alt="FEU Tech Logo" class="w-full h-full object-contain">
-                                    </div>
-                                    <div class="flex flex-col text-left">
-                                        <span id="vidMainTitle" class="font-medium text-xs md:text-sm tracking-normal line-clamp-1 drop-shadow-sm"></span>
-                                        <span class="text-[10px] text-gray-300 drop-shadow-xs">Watch on YouTube</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-12 pb-3 px-4 flex flex-col gap-2.5 pointer-events-none transition-opacity duration-300 z-30 opacity-100">
-                                <div class="w-full h-1 relative bg-white/30 rounded-full">
-                                    <div class="absolute top-0 left-0 bottom-0 w-[42%] bg-[#FF0000] rounded-full">
-                                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-[#FF0000] rounded-full shadow"></div>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center justify-between text-white text-[11px]">
-                                    <div class="flex items-center gap-3.5">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                                        <div class="font-sans text-[10px] text-gray-200">01:05 / 03:40</div>
-                                    </div>
-                                    <div class="flex items-center gap-3 text-gray-200">
-                                        <span class="border border-white/60 px-1 py-0.2 rounded text-[8px] font-bold tracking-tight bg-black/20">CC</span>
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73-1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3-1.57-3-3s1.07-3 3-3 3 1.57 3 3-1.07 3-3 3z"/></svg>
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3z"/></svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img id="vidMainThumb" src="" alt="Focal Video Clip" class="w-full h-full object-cover transition duration-700 group-hover/player:scale-[1.02]">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none"></div>
-                        </a>
-
-                        <button id="prevVid"
-                            class="absolute left-[-28px] md:left-[-36px] top-1/2 -translate-y-1/2 
-                            w-14 h-14 rounded-full bg-white text-slate-800 border border-slate-100
-                            shadow-xl flex items-center justify-center font-bold text-xl
-                            hover:bg-feu-yellow hover:text-slate-900 active:scale-95 transition-all z-40">
-                            &lt;
-                        </button>
-
-                        <button id="nextVid"
-                            class="absolute right-[-28px] md:right-[-36px] top-1/2 -translate-y-1/2 
-                            w-14 h-14 rounded-full bg-white text-slate-800 border border-slate-100
-                            shadow-xl flex items-center justify-center font-bold text-xl
-                            hover:bg-feu-yellow hover:text-slate-900 active:scale-95 transition-all z-40">
-                            &gt;
-                        </button>
+                        </div>
                     </div>
 
-                    <div id="vidRightContainer" class="absolute right-2 md:right-6 top-16 w-[250px] md:w-[360px] z-20 block transform rotate-6 hover:rotate-12 transition-all duration-500 hover:z-20 aspect-video rounded-xl overflow-hidden bg-black shadow-[0_20px_40px_rgba(0,0,0,0.25)]">
-                        <img id="vidRightThumb" src="" class="w-full h-full object-cover opacity-70">
-                        <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="flex flex-col gap-3">
+                        
+
+                        <div class="flex flex-col gap-3 max-h-[460px] overflow-y-auto pr-1" id="youtubePlaylistFeed">
+                            </div>
                     </div>
+
                 </div>
             </div>
-
 
         </div>
     </div>
 </section>
-
 
 <section id="courses" class="py-24 relative overflow-hidden border-t-4 border-feu-yellow scroll-animate">
     <div class="absolute inset-0 z-0">
@@ -777,9 +730,7 @@ if (
                 </div>
             </div>
 
-
             <div class="bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col justify-center">
-                <!-- Accordion Item 1 (Expanded by default) -->
                 <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
                         <span class="text-[1.35rem] font-bold text-slate-800">About FEU Tech Experience</span>
@@ -824,6 +775,7 @@ if (
                         Lorem ipsum
                      </div>
                 </div>
+
                 <div class="accordion-item pt-2">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
                         <span class="text-[1.35rem] font-bold text-slate-800">Regular Events</span>
@@ -845,6 +797,7 @@ if (
 </section>
 
 <script>
+// Magazine Infrastructure Matrix
 const magazines = [
     {
         img: "/images/magazine/issue1.png",
@@ -897,64 +850,79 @@ function updateMag() {
     document.getElementById("magRightLink").href = right.link;
 }
 
-// --- Video Deck Logic Architecture ---
+// 100% Intact Core Array Config
 const videos = [
-    {
-        id: "n_LEKwGma6g",
-        title: "EXPLORE THE FEU TECH CAMPUS!",
-        link: "https://www.youtube.com/watch?v=n_LEKwGma6g&source_ve_path=MTc4NDI0"
-    },
     {
         id: "d0a2jThLgx4",
         title: "MILES PARAVERSE",
         link: "https://www.youtube.com/watch?v=d0a2jThLgx4"
     },
     {
+        id: "n_LEKwGma6g",
+        title: "EXPLORE THE FEU TECH CAMPUS!",
+        link: "https://www.youtube.com/watch?v=n_LEKwGma6g&source_ve_path=MTc4NDI0"
+    },
+    {
         id: "N36B85B5xC8",
         title: "\"Hall of Greats\" Music Video",
         link: "https://www.youtube.com/watch?v=N36B85B5xC8"
+    },
+    {
+        id: "ewMDmlMNboE",
+        title: "3 Easy Steps for Freshmen Enrollment at FEU Tech",
+        link: "https://www.youtube.com/watch?v=ewMDmlMNboE"
     }
 ];
 
-let vidIndex = 1;
+let activeVideoIndex = 0;
 
-const vidLeftThumb = document.getElementById("vidLeftThumb");
-const vidMainThumb = document.getElementById("vidMainThumb");
-const vidRightThumb = document.getElementById("vidRightThumb");
-const vidMainTitle = document.getElementById("vidMainTitle");
-const vidMainLink = document.getElementById("vidMainLink");
+// Dynamic rendering loop generator mapping all 4 values cleanly
+function renderPlaylistFeed() {
+    const feedContainer = document.getElementById("youtubePlaylistFeed");
+    feedContainer.innerHTML = ""; 
 
-document.getElementById("prevVid").addEventListener("click", () => {
-    vidIndex = (vidIndex - 1 + videos.length) % videos.length;
-    updateVid();
-});
-
-document.getElementById("nextVid").addEventListener("click", () => {
-    vidIndex = (vidIndex + 1) % videos.length;
-    updateVid();
-});
-
-function updateVid() {
-    const leftIndex = (vidIndex - 1 + videos.length) % videos.length;
-    const rightIndex = (vidIndex + 1) % videos.length;
-
-    const left = videos[leftIndex];
-    const main = videos[vidIndex];
-    const right = videos[rightIndex];
-
-    vidLeftThumb.src = `https://img.youtube.com/vi/${left.id}/mqdefault.jpg`;
-    vidMainThumb.src = `https://img.youtube.com/vi/${main.id}/maxresdefault.jpg`;
-    vidRightThumb.src = `https://img.youtube.com/vi/${right.id}/mqdefault.jpg`;
-
-    vidMainTitle.textContent = main.title;
-    vidMainLink.href = main.link;
+    videos.forEach((video, index) => {
+        const isCurrentlyPlaying = index === activeVideoIndex;
+        
+        const itemHTML = `
+            <button onclick="setActiveVideo(${index})" class="w-full text-left flex gap-3 p-1.5 rounded-xl transition-all duration-200 ${isCurrentlyPlaying ? 'bg-slate-100 border border-slate-200/80' : 'hover:bg-slate-50 border border-transparent'} focus:outline-none group/item">
+                <div class="w-32 aspect-video rounded-lg overflow-hidden bg-slate-900 flex-shrink-0 relative border border-slate-100 shadow-sm">
+                    <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg" class="w-full h-full object-cover">
+                    ${isCurrentlyPlaying ? `
+                        <div class="absolute inset-0 bg-black/45 flex items-center justify-center">
+                            <span class="text-[9px] font-extrabold bg-black/80 text-[#f0b323] px-2 py-0.5 rounded tracking-wider border border-white/10">NOW PLAYING</span>
+                        </div>
+                    ` : ''}
+                </div>
+                <div class="flex flex-col justify-start pt-0.5 overflow-hidden">
+                    <h4 class="text-xs font-bold text-slate-800 line-clamp-2 leading-tight group-hover/item:text-slate-950">${video.title}</h4>
+                    <span class="text-[10px] text-slate-500 mt-1 font-medium">Tambbayan Tv</span>
+                </div>
+            </button>
+        `;
+        feedContainer.insertAdjacentHTML('beforeend', itemHTML);
+    });
 }
 
+function setActiveVideo(index) {
+    activeVideoIndex = index;
+    const currentVideo = videos[activeVideoIndex];
+
+    // High quality asset runtime replacements
+    document.getElementById("vidMainThumb").src = `https://img.youtube.com/vi/${currentVideo.id}/maxresdefault.jpg`;
+    document.getElementById("vidMainTitle").textContent = currentVideo.title;
+    document.getElementById("vidMainLink").href = currentVideo.link;
+
+    renderPlaylistFeed();
+}
+
+// Global UI Runtime Boot Callup initialization
 updateMag();
-updateVid();
+setActiveVideo(0);
 </script>
 
 <script>
+// Smooth Navigation Accompanying Accordions Subsystem Toggle Handler
 document.addEventListener('turbo:load', () => {
     const accordions = document.querySelectorAll('.accordion-item');
 
@@ -963,22 +931,31 @@ document.addEventListener('turbo:load', () => {
         const content = item.querySelector('.accordion-content');
         const icon = item.querySelector('svg');
 
-        button.addEventListener('click', () => {
+        if (button) {
+            button.addEventListener('click', () => {
+                accordions.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.accordion-content')?.classList.add('hidden');
+                        otherItem.querySelector('svg')?.classList.remove('rotate-180');
+                    }
+                });
 
-            accordions.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.querySelector('.accordion-content')
-                        ?.classList.add('hidden');
-
-                    otherItem.querySelector('svg')
-                        ?.classList.remove('rotate-180');
-                }
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
             });
-
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        });
+        }
     });
 });
 </script>
+
+<style>
+/* CSS Reset utilities processing overflow properties */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+</style>
 {% endblock %}
