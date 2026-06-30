@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class HomePageSectionCrudController extends AbstractCrudController
+class AdmissionFreshmenCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {

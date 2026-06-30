@@ -20,3 +20,5 @@
 ###< symfony/asset-mapper ###
 
 /project_template/
+
+/Temp/

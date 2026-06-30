@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\PageRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
@@ -16,7 +14,7 @@ class Page
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $module = null;
+    private ?string $category = null;
 
     #[ORM\Column(length: 255)]
     private ?string $pageName = null;
@@ -24,17 +22,14 @@ class Page
     #[ORM\Column(length: 255, unique: true)]
     private ?string $slug = null;
 
-    /**
-     * @var Collection<int, PageSection>
-     */
-    #[ORM\OneToMany(targetEntity: PageSection::class, mappedBy: 'page', cascade: ['persist', 'remove'], orphanRemoval: true)]
-    #[ORM\OrderBy(['sortOrder' => 'ASC'])]
-    private Collection $pageSections;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $metaTitle = null;
 
-    public function __construct()
-    {
-        $this->pageSections = new ArrayCollection();
-    }
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $metaDescription = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $metaKeywords = null;
 
     public function getId(): ?int
     {
@@ -46,14 +41,14 @@ class Page
         return $this->pageName ?? 'New Page';
     }
 
-    public function getModule(): ?string
+    public function getCategory(): ?string
     {
-        return $this->module;
+        return $this->category;
     }
 
-    public function setModule(string $module): static
+    public function setCategory(string $category): static
     {
-        $this->module = $module;
+        $this->category = $category;
 
         return $this;
     }
@@ -82,43 +77,39 @@ class Page
         return $this;
     }
 
-    /**
-     * @return Collection<int, PageSection>
-     */
-    public function getPageSections(): Collection
+    public function getMetaTitle(): ?string
     {
-        return $this->pageSections;
+        return $this->metaTitle;
     }
 
-    public function addPageSection(PageSection $pageSection): static
+    public function setMetaTitle(?string $metaTitle): static
     {
-        if (!$this->pageSections->contains($pageSection)) {
-            $this->pageSections->add($pageSection);
-            $pageSection->setPage($this);
-        }
+        $this->metaTitle = $metaTitle;
 
         return $this;
     }
 
-    public function removePageSection(PageSection $pageSection): static
+    public function getMetaDescription(): ?string
     {
-        if ($this->pageSections->removeElement($pageSection)) {
-            // set the owning side to null (unless already changed)
-            if ($pageSection->getPage() === $this) {
-                $pageSection->setPage(null);
-            }
-        }
+        return $this->metaDescription;
+    }
+
+    public function setMetaDescription(?string $metaDescription): static
+    {
+        $this->metaDescription = $metaDescription;
 
         return $this;
     }
 
-    public function getSection(string $sectionName): ?PageSection
+    public function getMetaKeywords(): ?string
     {
-        foreach ($this->pageSections as $section) {
-            if ($section->getSectionName() === $sectionName) {
-                return $section;
-            }
-        }
-        return null;
+        return $this->metaKeywords;
+    }
+
+    public function setMetaKeywords(?string $metaKeywords): static
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
     }
 }

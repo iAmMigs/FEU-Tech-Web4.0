@@ -30,12 +30,22 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::linkToRoute('About Pages', 'fas fa-info-circle', 'admin'); // Placeholder
 
-        yield MenuItem::linkTo(AdmissionPageCrudController::class, 'Admission Pages', 'fas fa-graduation-cap');
+        yield MenuItem::subMenu('Admissions', 'fas fa-graduation-cap')->setSubItems([
+            MenuItem::linkTo(AdmissionPagesCrudController::class, 'Application Procedures', 'fas fa-list'),
+            MenuItem::linkTo(AdmissionTuitionFeesCrudController::class, 'Tuition & Fees', 'fas fa-money-bill-wave'),
+            MenuItem::linkTo(AdmissionScholarshipsCrudController::class, 'Scholarship Settings', 'fas fa-cog'),
+            MenuItem::linkTo(ScholarshipItemCrudController::class, 'Manage Scholarships', 'fas fa-award'),
+            MenuItem::linkTo(AdmissionFaqsCrudController::class, 'FAQ Settings', 'fas fa-cog'),
+            MenuItem::linkTo(FaqItemCrudController::class, 'Manage FAQ Items', 'fas fa-question-circle'),
+        ]);
 
         yield MenuItem::linkToRoute('Academic Pages', 'fas fa-book', 'admin'); // Placeholder
 
         yield MenuItem::linkTo(StudentSupportPageCrudController::class, 'Student Support Pages', 'fas fa-users');
 
         yield MenuItem::linkToRoute('Career Pages', 'fas fa-briefcase', 'admin'); // Placeholder
+
+        yield MenuItem::section('Settings');
+        yield MenuItem::linkTo(SiteSettingsCrudController::class, 'Site Settings', 'fas fa-cog');
     }
 }

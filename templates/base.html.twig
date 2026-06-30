@@ -3,7 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}FEU Institute of Technology{% endblock %}</title>
+        {% set pageMeta = get_current_page_meta() %}
+        {% set dbTitle = pageMeta and pageMeta.metaTitle ? pageMeta.metaTitle : null %}
+        <title>{% if dbTitle %}{{ dbTitle }}{% else %}{% block title %}FEU Institute of Technology{% endblock %}{% endif %}</title>
+        {% block meta %}
+            {% if pageMeta and pageMeta.metaDescription %}
+                <meta name="description" content="{{ pageMeta.metaDescription }}">
+            {% endif %}
+            {% if pageMeta and pageMeta.metaKeywords %}
+                <meta name="keywords" content="{{ pageMeta.metaKeywords }}">
+            {% endif %}
+        {% endblock %}
         <link rel="icon" href="/images/Tech_Logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -848,5 +858,43 @@
 
         })();
         </script>
+
+        {# Cookie Consent Banner #}
+        {% set siteSettings = get_site_settings() %}
+        {% if siteSettings and siteSettings.cookieBannerEnabled %}
+            <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-feu-green text-white p-4 shadow-lg z-[99999] hidden flex-col md:flex-row items-center justify-between border-t border-feu-yellow">
+                <div class="text-sm flex-1 mr-4 mb-4 md:mb-0">
+                    {{ siteSettings.cookieMessage ? siteSettings.cookieMessage|raw : 'We use cookies to make websites work efficiently, as well as to provide information to the owners of the website.' }}
+                </div>
+                <button id="accept-cookies" class="bg-feu-yellow text-feu-green font-bold py-2 px-6 rounded-lg hover:bg-white transition-colors whitespace-nowrap">
+                    {{ siteSettings.cookieButtonText|default('Accept') }}
+                </button>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Check if cookie exists.
+                    // If not, show banner.
+                    if (document.cookie.indexOf('cookie_consent=1') === -1) {
+                        const banner = document.getElementById('cookie-banner');
+                        if (banner) {
+                            banner.style.display = 'flex';
+                        }
+                    }
+
+                    const acceptBtn = document.getElementById('accept-cookies');
+                    if (acceptBtn) {
+                        acceptBtn.addEventListener('click', function() {
+                            // Set a session cookie (no expiration date, gets cleared when browser closes)
+                            document.cookie = "cookie_consent=1; path=/;";
+                            const banner = document.getElementById('cookie-banner');
+                            if (banner) {
+                                banner.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            </script>
+        {% endif %}
     </body>
 </html>

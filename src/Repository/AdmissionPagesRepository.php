@@ -2,14 +2,17 @@
 
 namespace App\Repository;
 
-use App\Entity\PageSection;
+use App\Entity\AdmissionPages;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class PageSectionRepository extends ServiceEntityRepository
+/**
+ * @extends ServiceEntityRepository<AdmissionPages>
+ */
+class AdmissionPagesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, PageSection::class);
+        parent::__construct($registry, AdmissionPages::class);
     }
 }

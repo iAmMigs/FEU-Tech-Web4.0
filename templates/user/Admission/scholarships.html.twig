@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scholarships & Grants | FEU Institute of Technology{% endblock %}
+{% block title %}{{ page and page.metaTitle ? page.metaTitle : 'Scholarships & Grants | FEU Institute of Technology' }}{% endblock %}
 
 {% block body %}
 
@@ -9,7 +9,7 @@
     <!-- Background Layer -->
     <div class="absolute inset-0 z-0">
         <!-- Hero Image -->
-        <img src="/images/Admission_Sample.png" alt="Scholarships Hero" class="w-full h-full object-cover transform scale-105 transition-transform duration-10000 hover:scale-100">
+        <img src="{{ page and page.heroImage ? (page.heroImage == 'Admission_Sample.png' ? '/images/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage) : '/images/Admission_Sample.png' }}" alt="Scholarships Hero" class="w-full h-full object-cover transform scale-105 transition-transform duration-10000 hover:scale-100">
         
         <!-- Dark overlay -->
         <div class="absolute inset-0 bg-slate-900/70 mix-blend-multiply"></div>
@@ -28,11 +28,11 @@
 
         <!-- Main Title -->
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight drop-shadow-2xl uppercase tracking-wider mb-6">
-            Scholarships <span class="text-transparent bg-clip-text bg-gradient-to-r from-feu-yellow to-emerald-400">& Grants</span>
+            {{ page and page.heroTitle ? page.heroTitle : 'Scholarships & Grants' }}
         </h1>
         
         <p class="text-slate-200 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed opacity-90">
-            FEU Institute of Technology, with the support of our academic partners, provides financial assistance to deserving and qualified students who have the desire to continue their education.
+            {{ page and page.heroDescription ? page.heroDescription : 'FEU Institute of Technology, with the support of our academic partners, provides financial assistance to deserving and qualified students who have the desire to continue their education.' }}
         </p>
     </div>
     
@@ -67,92 +67,26 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- President's Scholarship -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-feu-yellow/10 rounded-bl-full -z-0 transition-transform group-hover:scale-110"></div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-2 relative z-10">President’s Scholarship</h3>
-                <p class="text-feu-green font-medium mb-6 relative z-10">Full Scholarship</p>
-                <div class="bg-slate-50 rounded-2xl p-6 relative z-10">
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Requirements</h4>
-                    <ul class="space-y-3">
-                        {% set reqs = ['FEUCAT result', 'Admissions form', 'SF9 / Grade 12 report card', 'Good Moral Certificate', 'Certificate of Ranking & Honor', 'Gr. 11 Report Card', 'PSA Birth Certificate'] %}
-                        {% for req in reqs %}
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">{{ req }}</span>
-                        </li>
-                        {% endfor %}
-                    </ul>
+            {% for item in scholarships|filter(item => item.category == 'Academic Excellence') %}
+                <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-feu-yellow/10 rounded-bl-full -z-0 transition-transform group-hover:scale-110"></div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2 relative z-10">{{ item.title }}</h3>
+                    <p class="text-feu-green font-medium mb-6 relative z-10">{{ item.coverage }}</p>
+                    <div class="bg-slate-50 rounded-2xl p-6 relative z-10">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Requirements</h4>
+                        <ul class="space-y-3">
+                            {% for req in item.requirements %}
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-slate-700 text-sm leading-relaxed">{{ req }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Entrance Merit Scholarship -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 transition-transform group-hover:scale-110"></div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-2 relative z-10">Entrance Merit Scholarship</h3>
-                <p class="text-feu-green font-medium mb-6 relative z-10">Merit-based Grant</p>
-                <div class="bg-slate-50 rounded-2xl p-6 relative z-10 h-[calc(100%-100px)]">
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Requirements</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">High score in the FEU College Admissions Test</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">SF9/Grade 12 Report Card with a GWA of at least 88%</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Academic Scholarship -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-0 transition-transform group-hover:scale-110"></div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-2 relative z-10">Academic Scholarship</h3>
-                <p class="text-feu-green font-medium mb-6 relative z-10">For Existing Enrollees</p>
-                <div class="bg-slate-50 rounded-2xl p-6 relative z-10">
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Requirements</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">Must be an existing or enrolled FEU Tech student.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">Must have a TGPA of at least 3.4 and with no individual grades lower than 2.0.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">Parents’ Income Tax Return (ITR)</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Elite Academic Scholarship -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-bl-full -z-0 transition-transform group-hover:scale-110"></div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-2 relative z-10">Elite Academic Scholarship</h3>
-                <p class="text-feu-green font-medium mb-6 relative z-10">Science High School Graduates</p>
-                <div class="bg-slate-50 rounded-2xl p-6 relative z-10">
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Requirements</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">Graduate of any science senior high schools.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">Must maintain a CGPA of 2.5 or higher.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-emerald-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-slate-700 text-sm leading-relaxed">Parent’s ITR (Combined annual income ≤ P300,000.00)</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            {% else %}
+                <p class="text-slate-500 col-span-2">No academic excellence scholarships listed.</p>
+            {% endfor %}
         </div>
     </section>
 
@@ -169,41 +103,23 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- SM Foundation -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <h3 class="text-xl font-bold text-slate-800 mb-2">FEU Tech/SM Foundation</h3>
-                <div class="h-1 w-12 bg-[#0051a3] rounded mb-6"></div>
-                <ul class="space-y-3">
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>85% weighted avg during Grade 12</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>80% grade in Math and Science</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>Public school graduate (Manila, Cavite, Cebu, Iloilo)</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>Parent’s ITR (Income ≤ P100k)</li>
-                </ul>
-            </div>
-
-            <!-- Megaworld -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <h3 class="text-xl font-bold text-slate-800 mb-2">FEU Tech/Megaworld</h3>
-                <div class="h-1 w-12 bg-[#004e92] rounded mb-6"></div>
-                <ul class="space-y-3">
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>SHS final avg of 85% or equivalent</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>No grade below 80%</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>Upper 10% of graduating batch</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>Parent’s ITR (Income ≤ P300k)</li>
-                </ul>
-            </div>
-
-            <!-- LSEG -->
-            <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <h3 class="text-xl font-bold text-slate-800 mb-2">LSEG Academe Linkage</h3>
-                <div class="h-1 w-12 bg-blue-600 rounded mb-6"></div>
-                <ul class="space-y-3">
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>Enrolled FEU Tech student</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>No failing grade in any subject</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>Recommendation letter from Dean/Chair</li>
-                    <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>Willing to work at LSEG post-graduation</li>
-                </ul>
-            </div>
+            {% for item in scholarships|filter(item => item.category == 'Industry Partners') %}
+                <div class="group bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">{{ item.title }}</h3>
+                    <p class="text-feu-green font-medium mb-4 text-sm">{{ item.coverage }}</p>
+                    <div class="h-1 w-12 bg-[#004e92] rounded mb-6"></div>
+                    <ul class="space-y-3">
+                        {% for req in item.requirements %}
+                        <li class="flex items-start text-sm text-slate-600">
+                            <svg class="w-4 h-4 text-slate-400 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            {{ req }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% else %}
+                <p class="text-slate-500 col-span-3">No industry partner scholarships listed.</p>
+            {% endfor %}
         </div>
     </section>
 
@@ -220,51 +136,26 @@
         </div>
 
         <div class="flex flex-wrap justify-center gap-8">
-            <!-- Financial Assistance -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 w-full lg:w-[calc(50%-1rem)]">
-                <div class="bg-indigo-600 p-8 md:w-1/3 flex flex-col justify-center text-white">
-                    <h3 class="text-2xl font-bold mb-2">Financial Assistance</h3>
-                    <p class="text-indigo-200 text-sm">Support for NCR Graduates</p>
+            {% for item in scholarships|filter(item => item.category == 'Other Grants') %}
+                <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 w-full lg:w-[calc(50%-1rem)]">
+                    <div class="bg-indigo-600 p-8 md:w-1/3 flex flex-col justify-center text-white">
+                        <h3 class="text-2xl font-bold mb-2">{{ item.title }}</h3>
+                        <p class="text-indigo-200 text-sm">{{ item.coverage }}</p>
+                    </div>
+                    <div class="p-8 md:w-2/3">
+                        <ul class="space-y-3">
+                            {% for req in item.requirements %}
+                            <li class="flex items-start text-sm text-slate-600">
+                                <svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                {{ req }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
-                <div class="p-8 md:w-2/3">
-                    <ul class="space-y-3">
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>HS graduate of any school from NCR</li>
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Parent’s ITR (Combined annual income ≤ P300k)</li>
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Avg grade 88%+ in Math, Science, English, GWA 88%+</li>
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All other subjects 80% or above in 4th year</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Transferee Scholarship -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 w-full lg:w-[calc(50%-1rem)]">
-                <div class="bg-emerald-600 p-8 md:w-1/3 flex flex-col justify-center text-white">
-                    <h3 class="text-2xl font-bold mb-2">Transferee Scholarship</h3>
-                    <p class="text-emerald-200 text-sm">One-Term Grant</p>
-                </div>
-                <div class="p-8 md:w-2/3">
-                    <ul class="space-y-3">
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Completed units in preceding term: Semester (18), Trimester (15), Quadmester (12)</li>
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Parent’s ITR (Combined annual income ≤ P300k)</li>
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Must apply for Academic Scholarship for subsequent terms</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Cultural Group -->
-            <div class="flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 w-full lg:w-[calc(50%-1rem)]">
-                <div class="bg-rose-500 p-8 md:w-1/3 flex flex-col justify-center text-white">
-                    <h3 class="text-2xl font-bold mb-2">Cultural Group</h3>
-                    <p class="text-rose-200 text-sm">Artistic Talents</p>
-                </div>
-                <div class="p-8 md:w-2/3">
-                    <ul class="space-y-3">
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Must pass auditions certified by Artistic Director</li>
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Maintain TGPA of 2.5 or better with no failing marks</li>
-                        <li class="flex items-start text-sm text-slate-600"><svg class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Parent’s ITR (Combined annual income ≤ P300k)</li>
-                    </ul>
-                </div>
-            </div>
+            {% else %}
+                <p class="text-slate-500 w-full text-center">No other grants listed.</p>
+            {% endfor %}
         </div>
     </section>
 

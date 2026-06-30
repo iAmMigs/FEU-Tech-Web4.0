@@ -9,7 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FilterCollection;
@@ -41,7 +41,7 @@ class AdmissionPageCrudController extends AbstractCrudController
     public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
     {
         $qb = parent::createIndexQueryBuilder($searchDto, $entityDto, $fields, $filters);
-        $qb->andWhere('entity.module = :module')->setParameter('module', 'Admissions');
+        $qb->andWhere('entity.category = :category')->setParameter('category', 'Admissions');
         return $qb;
     }
 
@@ -55,7 +55,7 @@ class AdmissionPageCrudController extends AbstractCrudController
     public function createEntity(string $entityFqcn): object
     {
         $page = new Page();
-        $page->setModule('Admissions');
+        $page->setCategory('Admissions');
         return $page;
     }
 
@@ -66,11 +66,8 @@ class AdmissionPageCrudController extends AbstractCrudController
         yield TextField::new('slug', 'Slug')->setDisabled()
             ->hideOnIndex();
         
-        yield CollectionField::new('pageSections', 'Sections')
-            ->useEntryCrudForm(AdmissionPageSectionCrudController::class)
-            ->setEntryIsComplex(true)
-            ->allowAdd(false)
-            ->allowDelete(false)
-            ->hideOnIndex();
+        yield TextField::new('metaTitle', 'SEO Meta Title')->hideOnIndex();
+        yield TextareaField::new('metaDescription', 'SEO Meta Description')->hideOnIndex();
+        yield TextField::new('metaKeywords', 'SEO Meta Keywords')->hideOnIndex();
     }
 }

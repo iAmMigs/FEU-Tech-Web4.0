@@ -7,7 +7,7 @@
 <!-- Hero Section -->
 <section class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="/images/FEU-TECHBLD.jpg" alt="FEU Tech Building" class="w-full h-full object-cover transform scale-105">
+        <img src="{{ page and page.heroImage ? (page.heroImage == 'FEU-TECHBLD.jpg' ? '/images/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage) : '/images/FEU-TECHBLD.jpg' }}" alt="FEU Tech Building" class="w-full h-full object-cover transform scale-105">
         <div class="absolute inset-0 bg-slate-900/75 mix-blend-multiply"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
         <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348]"></div>
@@ -18,10 +18,10 @@
             Admissions
         </span>
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight drop-shadow-2xl uppercase tracking-wider mb-4">
-            Tuition & Fees
+            {{ page and page.heroTitle ? page.heroTitle : 'Tuition & Fees' }}
         </h1>
         <p class="text-slate-300 text-lg md:text-xl font-light max-w-2xl mx-auto">
-            Convenient and secure payment options for your educational journey.
+            {{ page and page.heroDescription ? page.heroDescription : 'Convenient and secure payment options for your educational journey.' }}
         </p>
     </div>
 </section>
@@ -97,7 +97,7 @@
                 </h3>
                 
                 <div class="mb-10 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                    <img src="/images/Payments/BPI.jpg" alt="BPI Payment Instructions" class="w-full h-auto object-contain">
+                    <img src="{{ page and page.bpiImage ? (page.bpiImage starts with 'Payments/' ? '/images/' ~ page.bpiImage : '/uploads/payments/' ~ page.bpiImage) : '/images/Payments/BPI.jpg' }}" alt="BPI Payment Instructions" class="w-full h-auto object-contain">
                 </div>
                 
                 <div class="bg-red-50 p-6 rounded-2xl mb-8">
@@ -140,7 +140,7 @@
                 </h3>
 
                 <div class="mb-10 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                    <img src="/images/Payments/BDO.jpg" alt="BDO Payment Instructions" class="w-full h-auto object-contain">
+                    <img src="{{ page and page.bdoImage ? (page.bdoImage starts with 'Payments/' ? '/images/' ~ page.bdoImage : '/uploads/payments/' ~ page.bdoImage) : '/images/Payments/BDO.jpg' }}" alt="BDO Payment Instructions" class="w-full h-auto object-contain">
                 </div>
 
                 <div class="bg-blue-50 p-6 rounded-2xl mb-8">
@@ -183,7 +183,7 @@
                 </h3>
 
                 <div class="mb-10 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                    <img src="/images/Payments/RobinsonsBank.jpg" alt="Robinsons Bank Payment Instructions" class="w-full h-auto object-contain">
+                    <img src="{{ page and page.robinsonsImage ? (page.robinsonsImage starts with 'Payments/' ? '/images/' ~ page.robinsonsImage : '/uploads/payments/' ~ page.robinsonsImage) : '/images/Payments/RobinsonsBank.jpg' }}" alt="Robinsons Bank Payment Instructions" class="w-full h-auto object-contain">
                 </div>
 
                 <div class="bg-red-50 p-6 rounded-2xl mb-8">
@@ -237,86 +237,91 @@
                     </div>
                 </div>
                 
-                <h4 class="text-xl font-bold text-slate-800 mb-6">Step-by-Step Guide</h4>
-                
-                <div class="relative pl-8 space-y-8 before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent hidden"></div>
-
-                <div class="space-y-6 relative z-10">
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">1</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Select Biller</h5>
-                                <p class="text-slate-600 mt-1">Select <strong class="text-slate-800">FEU INSTITUTE OF TECHNOLOGY</strong></p>
-                            </div>
-                        </div>
-                        <img src="/images/Payments/Landbank1.png" alt="Land Bank Step 1" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
+                {% if page and page.landbankImage and page.landbankImage not in ['Payments/Landbank.jpg', ''] %}
+                    <div class="mb-10 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+                        <img src="{{ page.landbankImage starts with 'Payments/' ? '/images/' ~ page.landbankImage : '/uploads/payments/' ~ page.landbankImage }}" alt="Landbank Instructions" class="w-full h-auto object-contain">
                     </div>
+                {% else %}
+                    <h4 class="text-xl font-bold text-slate-800 mb-6">Step-by-Step Guide</h4>
                     
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">2</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Select Transaction</h5>
-                                <p class="text-slate-600 mt-1">Select the type of payment transaction.</p>
-                            </div>
-                        </div>
-                        <img src="/images/Payments/Landbank2.png" alt="Land Bank Step 2" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
-                    </div>
+                    <div class="relative pl-8 space-y-8 before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent hidden"></div>
 
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">3</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Enter Details</h5>
-                                <p class="text-slate-600 mt-1">Enter all the required details accurately.</p>
+                    <div class="space-y-6 relative z-10">
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">1</div>
+                                <div class="ml-4 pt-1">
+                                    <h5 class="font-bold text-slate-800 text-lg">Select Biller</h5>
+                                    <p class="text-slate-600 mt-1">Select <strong class="text-slate-800">FEU INSTITUTE OF TECHNOLOGY</strong></p>
+                                </div>
                             </div>
+                            <img src="/images/Payments/Landbank1.png" alt="Land Bank Step 1" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
                         </div>
-                        <img src="/images/Payments/Landbank3.png" alt="Land Bank Step 3" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
-                    </div>
 
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">4</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Select Mode of Payment</h5>
-                                <p class="text-slate-600 mt-1">Choose between bank or collection partners.</p>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">2</div>
+                                <div class="ml-4 pt-1">
+                                    <h5 class="font-bold text-slate-800 text-lg">Select Transaction</h5>
+                                    <p class="text-slate-600 mt-1">Select <strong class="text-slate-800">TUITION FEE</strong> in the transaction type.</p>
+                                </div>
                             </div>
+                            <img src="/images/Payments/Landbank2.png" alt="Land Bank Step 2" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
                         </div>
-                        <img src="/images/Payments/Landbank5.png" alt="Land Bank Step 4" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
-                    </div>
 
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">5</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Verify</h5>
-                                <p class="text-slate-600 mt-1">Complete the Captcha Challenge and Agree to Terms and Conditions.</p>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">3</div>
+                                <div class="ml-4 pt-1">
+                                    <h5 class="font-bold text-slate-800 text-lg">Fill out form</h5>
+                                    <p class="text-slate-600 mt-1">Fill out the form with your correct Student Details.</p>
+                                </div>
                             </div>
+                            <img src="/images/Payments/Landbank3.png" alt="Land Bank Step 3" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
                         </div>
-                        <img src="/images/Payments/Landbank6.png" alt="Land Bank Step 5" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
-                    </div>
 
-                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">4</div>
+                                <div class="ml-4 pt-1">
+                                    <h5 class="font-bold text-slate-800 text-lg">Select Payment Option</h5>
+                                    <p class="text-slate-600 mt-1">Select your preferred payment options (e.g. Landbank, Cash Payment, GCash, etc.).</p>
+                                </div>
                             </div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-emerald-800 text-lg">Finalize</h5>
-                                <ul class="list-disc pl-4 text-emerald-700 mt-2 space-y-1 text-sm">
-                                    <li>If you opted for any of LBP partner banks, encode required details. Submit and wait for confirmation.</li>
-                                    <li>If you opted for cash payment or MYEG, choose a payment method.</li>
-                                    <li>For over-the-counter payment, take note of the payment deadline and reference number and follow further payment instructions.</li>
-                                </ul>
-                            </div>
+                            <img src="/images/Payments/Landbank5.png" alt="Land Bank Step 4" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
                         </div>
-                        <div class="ml-14 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <img src="/images/Payments/Landbank7.png" alt="Land Bank Finalize 1" class="w-full rounded-lg shadow-sm border border-slate-200">
-                            <img src="/images/Payments/Landbank8-1.png" alt="Land Bank Finalize 2" class="w-full rounded-lg shadow-sm border border-slate-200">
+
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">5</div>
+                                <div class="ml-4 pt-1">
+                                    <h5 class="font-bold text-slate-800 text-lg">Submit Payment</h5>
+                                    <p class="text-slate-600 mt-1">Agree to Terms & Conditions, enter your email and hit submit.</p>
+                                </div>
+                            </div>
+                            <img src="/images/Payments/Landbank6.png" alt="Land Bank Step 5" class="w-full max-w-md rounded-lg shadow-sm border border-slate-200 ml-14">
+                        </div>
+
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
+                            <div class="flex items-start mb-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007A33] flex items-center justify-center text-white font-bold text-lg shadow-md">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <div class="ml-4 pt-1">
+                                    <h5 class="font-bold text-slate-800 text-lg">Finalize Payment</h5>
+                                    <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-600 text-sm">
+                                        <li>For online bank payment, check your account for confirmation.</li>
+                                        <li>For over-the-counter payment, take note of the payment deadline and reference number and follow further payment instructions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ml-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <img src="/images/Payments/Landbank7.png" alt="Land Bank Finalize 1" class="w-full rounded-lg shadow-sm border border-slate-200">
+                                <img src="/images/Payments/Landbank8-1.png" alt="Land Bank Finalize 2" class="w-full rounded-lg shadow-sm border border-slate-200">
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
 
@@ -342,45 +347,6 @@
                     </div>
                 </div>
                 
-                <h4 class="text-xl font-bold text-slate-800 mb-6">Step-by-Step Guide</h4>
-                
-                <div class="relative pl-8 space-y-8 before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent hidden"></div>
-
-                <div class="space-y-6 relative z-10">
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007DFE] flex items-center justify-center text-white font-bold text-lg shadow-md">1</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Pay Bills</h5>
-                                <p class="text-slate-600 mt-1">Select <strong class="text-slate-800">Pay Bills</strong> on the GCash dashboard.</p>
-                            </div>
-                        </div>
-                        <img src="/images/Payments/Gcash1.png" alt="GCash Step 1" class="w-full max-w-sm rounded-lg shadow-sm border border-slate-200 ml-14">
-                    </div>
-                    
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007DFE] flex items-center justify-center text-white font-bold text-lg shadow-md">2</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Biller Category</h5>
-                                <p class="text-slate-600 mt-1">Under Biller Categories, click <strong class="text-slate-800">“Schools”</strong>.</p>
-                            </div>
-                        </div>
-                        <img src="/images/Payments/Gcash2.png" alt="GCash Step 2" class="w-full max-w-sm rounded-lg shadow-sm border border-slate-200 ml-14">
-                    </div>
-
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <div class="flex items-start mb-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007DFE] flex items-center justify-center text-white font-bold text-lg shadow-md">3</div>
-                            <div class="ml-4 pt-1">
-                                <h5 class="font-bold text-slate-800 text-lg">Select Biller</h5>
-                                <p class="text-slate-600 mt-1">Select <strong class="text-slate-800">“FEU Tech”</strong> as Biller.</p>
-                            </div>
-                        </div>
-                        <img src="/images/Payments/Gcash3.png" alt="GCash Step 3" class="w-full max-w-sm rounded-lg shadow-sm border border-slate-200 ml-14">
-                    </div>
-
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow">
                         <div class="flex items-start mb-4">
                             <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[#007DFE] flex items-center justify-center text-white font-bold text-lg shadow-md">4</div>
                             <div class="ml-4 pt-1">

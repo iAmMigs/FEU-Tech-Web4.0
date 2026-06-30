@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-class PageSection
+class AdmissionFreshmen
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

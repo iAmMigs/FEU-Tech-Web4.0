@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\AdmissionTuitionFeesRepository;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: AdmissionTuitionFeesRepository::class)]
+class AdmissionTuitionFees
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $metaTitle = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $metaDescription = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $metaKeywords = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $heroImage = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $heroTitle = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $heroDescription = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $bpiImage = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $bdoImage = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $robinsonsImage = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $landbankImage = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $gcashImage = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getMetaTitle(): ?string { return $this->metaTitle; }
+    public function setMetaTitle(?string $metaTitle): static { $this->metaTitle = $metaTitle; return $this; }
+
+    public function getMetaDescription(): ?string { return $this->metaDescription; }
+    public function setMetaDescription(?string $metaDescription): static { $this->metaDescription = $metaDescription; return $this; }
+
+    public function getMetaKeywords(): ?string { return $this->metaKeywords; }
+    public function setMetaKeywords(?string $metaKeywords): static { $this->metaKeywords = $metaKeywords; return $this; }
+
+    public function getHeroImage(): ?string { return $this->heroImage; }
+    public function setHeroImage(?string $heroImage): static { $this->heroImage = $heroImage; return $this; }
+
+    public function getHeroTitle(): ?string { return $this->heroTitle; }
+    public function setHeroTitle(?string $heroTitle): static { $this->heroTitle = $heroTitle; return $this; }
+
+    public function getHeroDescription(): ?string { return $this->heroDescription; }
+    public function setHeroDescription(?string $heroDescription): static { $this->heroDescription = $heroDescription; return $this; }
+
+    public function getBpiImage(): ?string { return $this->bpiImage; }
+    public function setBpiImage(?string $bpiImage): static { $this->bpiImage = $bpiImage; return $this; }
+
+    public function getBdoImage(): ?string { return $this->bdoImage; }
+    public function setBdoImage(?string $bdoImage): static { $this->bdoImage = $bdoImage; return $this; }
+
+    public function getRobinsonsImage(): ?string { return $this->robinsonsImage; }
+    public function setRobinsonsImage(?string $robinsonsImage): static { $this->robinsonsImage = $robinsonsImage; return $this; }
+
+    public function getLandbankImage(): ?string { return $this->landbankImage; }
+    public function setLandbankImage(?string $landbankImage): static { $this->landbankImage = $landbankImage; return $this; }
+
+    public function getGcashImage(): ?string { return $this->gcashImage; }
+    public function setGcashImage(?string $gcashImage): static { $this->gcashImage = $gcashImage; return $this; }
+}

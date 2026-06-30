@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Freshmen Admissions | FEU Institute of Technology{% endblock %}
+{% block title %}{{ page and page.metaTitle ? page.metaTitle : (page and page.pageName ? page.pageName ~ ' Admissions | FEU Institute of Technology' : 'Admissions | FEU Institute of Technology') }}{% endblock %}
 
 {% block body %}
 
@@ -10,7 +10,7 @@
     <!-- Background Layer -->
     <div class="absolute inset-0 z-0">
         <!-- Hero Image -->
-        <img src="{{ page.getSection('Hero Image') and page.getSection('Hero Image').imagePath ? '/uploads/admissions/' ~ page.getSection('Hero Image').imagePath : '/images/Admission_Sample.png' }}" alt="Freshmen Admissions Hero" class="w-full h-full object-cover">
+        <img src="{{ page and page.heroImage ? (page.heroImage starts with 'Admission_Sample.png' ? '/images/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage) : '/images/Admission_Sample.png' }}" alt="{{ page and page.pageName ? page.pageName : 'Admissions' }} Hero" class="w-full h-full object-cover">
 
         <!-- Dark overlay -->
         <div class="absolute inset-0 bg-slate-900/65 mix-blend-multiply"></div>
@@ -29,7 +29,7 @@
 
         <!-- Main Title -->
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight drop-shadow-lg uppercase tracking-wide">
-            {{ page.getSection('Hero Title') ? page.getSection('Hero Title').textContent|striptags : 'Freshmen' }}
+            {{ page and page.heroTitle ? page.heroTitle : (page and page.pageName ? page.pageName : 'Admissions') }}
         </h1>
     </div>
 
@@ -48,56 +48,119 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center mb-16">
             <span class="text-feu-green font-bold tracking-widest uppercase text-sm">
-                {{ page.getSection('Procedure Subtitle') ? page.getSection('Procedure Subtitle').textContent|striptags : 'How to Apply' }}
+                {{ page and page.procedureSubtitle ? page.procedureSubtitle : 'How to Apply' }}
             </span>
             <h2 class="text-4xl font-extrabold text-slate-800 mt-3">
-                {{ page.getSection('Procedure Title') ? page.getSection('Procedure Title').textContent|striptags : 'Admission Procedures' }}
+                {{ page and page.procedureTitle ? page.procedureTitle : 'Admission Procedures' }}
             </h2>
             <div class="text-slate-500 mt-4 max-w-2xl mx-auto">
-                {{ page.getSection('Procedure Description') ? page.getSection('Procedure Description').textContent|raw : 'Freshmen applicants are those who have completed senior high school, making them eligible to apply for college education.' }}
+                {{ page and page.procedureDescription ? page.procedureDescription|raw : 'Please follow the steps below to complete your application.' }}
             </div>
         </div>
 
+        {% set steps_count = 1 %}
+        {% if page and page.step4Title %}{% set steps_count = 4 %}
+        {% elseif page and page.step3Title %}{% set steps_count = 3 %}
+        {% elseif page and page.step2Title %}{% set steps_count = 2 %}
+        {% endif %}
+
         <!-- Procedures Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 {% if steps_count == 4 %}md:grid-cols-4{% elseif steps_count == 3 %}md:grid-cols-3{% else %}md:grid-cols-2{% endif %} gap-8">
             <!-- Step 1 -->
+            {% if page and page.step1Title %}
             <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
                     1
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.getSection('Step 1 Title') ? page.getSection('Step 1 Title').textContent|striptags : 'Register' }}</h3>
-                <div class="text-slate-600 mb-6">{{ page.getSection('Step 1 Description') ? page.getSection('Step 1 Description').textContent|raw : 'Start your journey by registering online through our official link.' }}</div>
-                <a href="{{ page.getSection('Step 1 Link URL') ? page.getSection('Step 1 Link URL').textContent|striptags : 'http://bit.ly/FEUCORE' }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
-                    Visit Portal 
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.step1Title }}</h3>
+                <div class="text-slate-600 mb-6 text-sm leading-relaxed">{{ page.step1Description|raw }}</div>
+                {% if page.step1LinkUrl %}
+                    {% if '@' in page.step1LinkUrl %}
+                        <a href="mailto:{{ page.step1LinkUrl }}" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Contact via Email
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </a>
+                    {% else %}
+                        <a href="{{ page.step1LinkUrl }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Visit Link 
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    {% endif %}
+                {% endif %}
             </div>
+            {% endif %}
 
             <!-- Step 2 -->
+            {% if page and page.step2Title %}
             <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
                     2
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.getSection('Step 2 Title') ? page.getSection('Step 2 Title').textContent|striptags : 'Download Forms' }}</h3>
-                <div class="text-slate-600 mb-6">{{ page.getSection('Step 2 Description') ? page.getSection('Step 2 Description').textContent|raw : 'Complete all necessary application forms for your specific program.' }}</div>
-                <a href="{{ page.getSection('Step 2 Link URL') ? page.getSection('Step 2 Link URL').textContent|striptags : 'https://tinyurl.com/FEUTECHFORMS' }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
-                    Get Forms
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.step2Title }}</h3>
+                <div class="text-slate-600 mb-6 text-sm leading-relaxed">{{ page.step2Description|raw }}</div>
+                {% if page.step2LinkUrl %}
+                    {% if '@' in page.step2LinkUrl %}
+                        <a href="mailto:{{ page.step2LinkUrl }}" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Contact via Email
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </a>
+                    {% else %}
+                        <a href="{{ page.step2LinkUrl }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Visit Link 
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    {% endif %}
+                {% endif %}
             </div>
+            {% endif %}
 
             <!-- Step 3 -->
+            {% if page and page.step3Title %}
             <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
                     3
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.getSection('Step 3 Title') ? page.getSection('Step 3 Title').textContent|striptags : 'Submit Requirements' }}</h3>
-                <div class="text-slate-600 mb-6">{{ page.getSection('Step 3 Description') ? page.getSection('Step 3 Description').textContent|raw : 'Send digital copies of your requirements via email for processing.' }}</div>
-                <a href="mailto:{{ page.getSection('Step 3 Email') ? page.getSection('Step 3 Email').textContent|striptags : 'admissions@feutech.edu.ph' }}" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors">
-                    {{ page.getSection('Step 3 Email') ? page.getSection('Step 3 Email').textContent|striptags : 'admissions@feutech.edu.ph' }}
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </a>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.step3Title }}</h3>
+                <div class="text-slate-600 mb-6 text-sm leading-relaxed">{{ page.step3Description|raw }}</div>
+                {% if page.step3Email %}
+                    {% if '@' in page.step3Email %}
+                        <a href="mailto:{{ page.step3Email }}" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Contact via Email
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </a>
+                    {% else %}
+                        <a href="{{ page.step3Email }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Visit Link 
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    {% endif %}
+                {% endif %}
             </div>
+            {% endif %}
+
+            <!-- Step 4 -->
+            {% if page and page.step4Title %}
+            <div class="group relative bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-feu-green text-white flex items-center justify-center rounded-xl font-bold text-xl shadow-lg group-hover:bg-feu-yellow group-hover:scale-110 transition-all">
+                    4
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-4 mt-2">{{ page.step4Title }}</h3>
+                <div class="text-slate-600 mb-6 text-sm leading-relaxed">{{ page.step4Description|raw }}</div>
+                {% if page.step4LinkUrl %}
+                    {% if '@' in page.step4LinkUrl %}
+                        <a href="mailto:{{ page.step4LinkUrl }}" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Contact via Email
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </a>
+                    {% else %}
+                        <a href="{{ page.step4LinkUrl }}" target="_blank" class="inline-flex items-center text-feu-green font-bold hover:text-feu-yellow transition-colors text-sm">
+                            Visit Link 
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -111,27 +174,30 @@
             <!-- Requirements List -->
             <div>
                 <span class="text-feu-green font-bold tracking-widest uppercase text-sm">
-                    {{ page.getSection('Requirements Subtitle') ? page.getSection('Requirements Subtitle').textContent|striptags : 'Preparation' }}
+                    {{ page and page.requirementsSubtitle ? page.requirementsSubtitle : 'Preparation' }}
                 </span>
                 <h2 class="text-4xl font-extrabold text-slate-800 mt-3 mb-8">
-                    {{ page.getSection('Requirements Title') ? page.getSection('Requirements Title').textContent|striptags : 'Admission Requirements' }}
+                    {{ page and page.requirementsTitle ? page.requirementsTitle : 'Admission Requirements' }}
                 </h2>
                 
-                <div class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {% set requirements = [
-                        page.getSection('Requirement 1') ? page.getSection('Requirement 1').textContent|striptags : 'FEUOCAT result',
-                        page.getSection('Requirement 2') ? page.getSection('Requirement 2').textContent|striptags : 'Admissions form',
-                        page.getSection('Requirement 3') ? page.getSection('Requirement 3').textContent|striptags : 'SF9 / Grade 12 report card',
-                        page.getSection('Requirement 4') ? page.getSection('Requirement 4').textContent|striptags : 'Good Moral Certificate',
-                        page.getSection('Requirement 5') ? page.getSection('Requirement 5').textContent|striptags : 'PSA Birth Certificate'
-                    ] %}
+                        page and page.requirement1 ? page.requirement1 : '',
+                        page and page.requirement2 ? page.requirement2 : '',
+                        page and page.requirement3 ? page.requirement3 : '',
+                        page and page.requirement4 ? page.requirement4 : '',
+                        page and page.requirement5 ? page.requirement5 : '',
+                        page and page.requirement6 ? page.requirement6 : '',
+                        page and page.requirement7 ? page.requirement7 : '',
+                        page and page.requirement8 ? page.requirement8 : ''
+                    ]|filter(r => r is not empty) %}
 
                     {% for req in requirements %}
                     <div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:border-feu-green/30 transition-colors">
                         <div class="w-8 h-8 rounded-full bg-feu-green/10 flex items-center justify-center mr-4 text-feu-green">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <span class="text-slate-700 font-medium">{{ req }}</span>
+                        <span class="text-slate-700 font-medium text-sm">{{ req }}</span>
                     </div>
                     {% endfor %}
                 </div>
@@ -155,18 +221,18 @@
                         <div class="flex gap-6">
                             <div class="text-feu-yellow font-black text-4xl opacity-50 italic">01</div>
                             <div>
-                                <p class="text-white font-bold text-lg mb-1">{{ page.getSection('Enrollment Subtitle') ? page.getSection('Enrollment Subtitle').textContent|striptags : 'Payment Setup' }}</p>
-                                <div class="text-slate-300 text-sm">{{ page.getSection('Enrollment Description') ? page.getSection('Enrollment Description').textContent|raw : 'Bank accounts for new students who are first time payees.' }}</div>
+                                <p class="text-white font-bold text-lg mb-1">{{ page and page.enrollmentSubtitle ? page.enrollmentSubtitle : 'Payment Setup' }}</p>
+                                <div class="text-slate-300 text-sm">{{ page and page.enrollmentDescription ? page.enrollmentDescription|raw : 'Bank accounts for new students who are first time payees.' }}</div>
                             </div>
                         </div>
 
                         <div class="flex gap-6">
                             <div class="text-feu-yellow font-black text-4xl opacity-50 italic">02</div>
                             <div>
-                                <p class="text-white font-bold text-lg mb-1">{{ page.getSection('Proof Subtitle') ? page.getSection('Proof Subtitle').textContent|striptags : 'Proof of Payment' }}</p>
+                                <p class="text-white font-bold text-lg mb-1">{{ page and page.proofSubtitle ? page.proofSubtitle : 'Proof of Payment' }}</p>
                                 <p class="text-slate-300 text-sm leading-relaxed">
-                                    {{ page.getSection('Proof Description') ? page.getSection('Proof Description').textContent|striptags : 'Email the proof of payment to' }}
-                                    <a href="mailto:{{ page.getSection('Proof Email') ? page.getSection('Proof Email').textContent|striptags : 'admissions@feutech.edu.ph' }}" class="text-feu-yellow hover:underline">{{ page.getSection('Proof Email') ? page.getSection('Proof Email').textContent|striptags : 'admissions@feutech.edu.ph' }}</a>
+                                    {{ page and page.proofDescription ? page.proofDescription : 'Email the proof of payment to' }}
+                                    <a href="mailto:{{ page and page.proofEmail ? page.proofEmail : 'admissions@feutech.edu.ph' }}" class="text-feu-yellow hover:underline font-bold">{{ page and page.proofEmail ? page.proofEmail : 'admissions@feutech.edu.ph' }}</a>
                                 </p>
                             </div>
                         </div>
@@ -176,7 +242,7 @@
                         <div class="flex items-start bg-white/5 p-4 rounded-xl border border-white/10">
                             <svg class="w-5 h-5 text-feu-yellow mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
                             <div class="text-xs text-slate-300 leading-relaxed italic">
-                                {{ page.getSection('Enrollment Footer') ? page.getSection('Enrollment Footer').textContent|raw : 'And you are ALL SET! Your credentials will be generated and emailed by the Admissions Office.' }}
+                                {{ page and page.enrollmentFooter ? page.enrollmentFooter|raw : 'And you are ALL SET! Your credentials will be generated and emailed by the Admissions Office.' }}
                             </div>
                         </div>
                     </div>
@@ -191,11 +257,11 @@
 <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex p-4 rounded-full bg-slate-50 mb-8 border border-slate-100">
-            <span class="text-feu-green font-bold px-4">{{ page.getSection('Next Steps Badge') ? page.getSection('Next Steps Badge').textContent|striptags : "What's Next?" }}</span>
+            <span class="text-feu-green font-bold px-4">{{ page and page.nextStepsBadge ? page.nextStepsBadge : "What's Next?" }}</span>
         </div>
-        <h2 class="text-3xl font-extrabold text-slate-800 mb-6">{{ page.getSection('Next Steps Title') ? page.getSection('Next Steps Title').textContent|striptags : 'Your Welcome Package' }}</h2>
+        <h2 class="text-3xl font-extrabold text-slate-800 mb-6">{{ page and page.nextStepsTitle ? page.nextStepsTitle : 'Your Welcome Package' }}</h2>
         <div class="text-slate-500 mb-12">
-            {{ page.getSection('Next Steps Description') ? page.getSection('Next Steps Description').textContent|raw : 'Kindly wait for the Admissions Office email regarding the following credentials:' }}
+            {{ page and page.nextStepsDescription ? page.nextStepsDescription|raw : 'Kindly wait for the Admissions Office email regarding the following credentials:' }}
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -203,21 +269,21 @@
                 <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5L10 6z"></path></svg>
                 </div>
-                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page.getSection('Credential 1') ? page.getSection('Credential 1').textContent|striptags : 'Student Number' }}</p>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page and page.credential1 ? page.credential1 : 'Student Number' }}</p>
             </div>
 
             <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
                 <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                 </div>
-                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page.getSection('Credential 2') ? page.getSection('Credential 2').textContent|striptags : 'Student Portal' }}</p>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page and page.credential2 ? page.credential2 : 'Student Portal' }}</p>
             </div>
 
             <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-300">
                 <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <svg class="w-6 h-6 text-feu-green group-hover:text-[#febe10] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 </div>
-                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page.getSection('Credential 3') ? page.getSection('Credential 3').textContent|striptags : 'MILES Access' }}</p>
+                <p class="font-bold text-slate-800 group-hover:text-feu-green transition-colors">{{ page and page.credential3 ? page.credential3 : 'MILES Access' }}</p>
             </div>
         </div>
     </div>
