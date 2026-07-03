@@ -25,3 +25,9 @@ AdmissionFaqs: "Admission FAQs"
 SiteSettings: "Site Settings"
 GeneralPage: "General Page"
 StudentSupportPage: "Student Support Page"
+
+# Payment Options & Steps
+Payment Options: "Payment Options"
+Payment Steps: "Payment Steps"
+PaymentOption: "Payment Option"
+PaymentStep: "Payment Step"
