@@ -7,7 +7,9 @@
 <!-- Hero Section with Search -->
 <section class="relative w-full py-24 min-h-[40vh] flex items-center justify-center overflow-hidden bg-slate-900">
     <div class="absolute inset-0 z-0">
-        <div class="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-10" 
+             style="background-image: url('{{ page and page.heroImage ? (page.heroImage starts with 'pattern.svg' ? '/images/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage) : '/images/pattern.svg' }}');">
+        </div>
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-feu-green/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-t from-feu-yellow/20 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348]"></div>
@@ -82,76 +84,91 @@
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const faqSearch = document.getElementById('faq-search');
-    const categoryButtons = document.querySelectorAll('.cat-btn');
-    const faqItems = document.querySelectorAll('.faq-item');
-    const noResults = document.getElementById('no-results');
+(function() {
+    function initFaqs() {
+        const faqSearch = document.getElementById('faq-search');
+        if (!faqSearch) return; // Guard clause if we are not on the FAQ page
+        
+        const categoryButtons = document.querySelectorAll('.cat-btn');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const noResults = document.getElementById('no-results');
 
-    // FAQ Accordion Toggle
-    faqItems.forEach(item => {
-        const toggle = item.querySelector('.faq-toggle');
-        const content = item.querySelector('.faq-content');
-        const icon = item.querySelector('.faq-icon');
-
-        toggle.addEventListener('click', () => {
-            const isOpen = !content.classList.contains('hidden');
-            
-            // Close all other FAQs
-            document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-            document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
-
-            if (!isOpen) {
-                content.classList.remove('hidden');
-                icon.classList.add('rotate-180');
-            }
-        });
-    });
-
-    // Category Tabs and Search Filter
-    function filterFAQs() {
-        const query = faqSearch.value.toLowerCase().trim();
-        const activeCategory = document.querySelector('.cat-btn.active').getAttribute('data-filter');
-        let visibleCount = 0;
-
+        // FAQ Accordion Toggle
         faqItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            const category = item.getAttribute('data-category');
-            
-            const matchesQuery = text.includes(query);
-            const matchesCategory = activeCategory === 'all' || category === activeCategory;
+            const toggle = item.querySelector('.faq-toggle');
+            const content = item.querySelector('.faq-content');
+            const icon = item.querySelector('.faq-icon');
 
-            if (matchesQuery && matchesCategory) {
-                item.classList.remove('hidden');
-                visibleCount++;
-            } else {
-                item.classList.add('hidden');
+            if (toggle) {
+                toggle.onclick = () => {
+                    const isOpen = !content.classList.contains('hidden');
+                    
+                    // Close all other FAQs
+                    document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+                    document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+                    if (!isOpen) {
+                        content.classList.remove('hidden');
+                        icon.classList.add('rotate-180');
+                    }
+                };
             }
         });
 
-        if (visibleCount === 0) {
-            noResults.classList.remove('hidden');
-        } else {
-            noResults.classList.add('hidden');
-        }
-    }
+        // Category Tabs and Search Filter
+        function filterFAQs() {
+            const query = faqSearch.value.toLowerCase().trim();
+            const activeBtn = document.querySelector('.cat-btn.active');
+            const activeCategory = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+            let visibleCount = 0;
 
-    faqSearch.addEventListener('input', filterFAQs);
+            faqItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                const category = item.getAttribute('data-category');
+                
+                const matchesQuery = text.includes(query);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
 
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            categoryButtons.forEach(btn => {
-                btn.classList.remove('active', 'bg-slate-900', 'text-white', 'shadow-md');
-                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                if (matchesQuery && matchesCategory) {
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
             });
 
-            button.classList.add('active', 'bg-slate-900', 'text-white', 'shadow-md');
-            button.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            if (noResults) {
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            }
+        }
 
-            filterFAQs();
+        faqSearch.oninput = filterFAQs;
+
+        categoryButtons.forEach(button => {
+            button.onclick = () => {
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-slate-900', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                });
+
+                button.classList.add('active', 'bg-slate-900', 'text-white', 'shadow-md');
+                button.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+
+                filterFAQs();
+            };
         });
-    });
-});
+    }
+
+    // Run immediately
+    initFaqs();
+
+    // Re-initialize if the page is loaded via Turbo
+    document.addEventListener('turbo:load', initFaqs);
+})();
 </script>
 
 {% endblock %}

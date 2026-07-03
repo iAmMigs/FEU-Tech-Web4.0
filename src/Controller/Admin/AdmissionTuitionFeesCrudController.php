@@ -51,31 +51,5 @@ class AdmissionTuitionFeesCrudController extends AbstractCrudController
         yield TextField::new('heroTitle', 'Main Title');
         yield TextareaField::new('heroDescription', 'Hero Description');
 
-        yield FormField::addTab('Payment Methods (Screenshots)');
-        yield ImageField::new('bpiImage', 'BPI Instructions Image')
-            ->setBasePath('/uploads/payments/')
-            ->setUploadDir('public/uploads/payments/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
-            ->setRequired(false);
-        yield ImageField::new('bdoImage', 'BDO Instructions Image')
-            ->setBasePath('/uploads/payments/')
-            ->setUploadDir('public/uploads/payments/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
-            ->setRequired(false);
-        yield ImageField::new('robinsonsImage', 'Robinsons Bank Instructions Image')
-            ->setBasePath('/uploads/payments/')
-            ->setUploadDir('public/uploads/payments/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
-            ->setRequired(false);
-        yield ImageField::new('landbankImage', 'Landbank Instructions Image')
-            ->setBasePath('/uploads/payments/')
-            ->setUploadDir('public/uploads/payments/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
-            ->setRequired(false);
-        yield ImageField::new('gcashImage', 'GCash Instructions Image')
-            ->setBasePath('/uploads/payments/')
-            ->setUploadDir('public/uploads/payments/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
-            ->setRequired(false);
     }
 }

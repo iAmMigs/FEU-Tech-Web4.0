@@ -7,6 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use Symfony\Component\HttpFoundation\Response;
+use App\Controller\Admin\PaymentOptionCrudController;
+use App\Controller\Admin\PaymentStepCrudController;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
@@ -33,6 +35,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Admissions', 'fas fa-graduation-cap')->setSubItems([
             MenuItem::linkTo(AdmissionPagesCrudController::class, 'Application Procedures', 'fas fa-list'),
             MenuItem::linkTo(AdmissionTuitionFeesCrudController::class, 'Tuition & Fees', 'fas fa-money-bill-wave'),
+            MenuItem::linkTo(PaymentOptionCrudController::class, 'Payment Options', 'fas fa-credit-card'),
+            MenuItem::linkTo(PaymentStepCrudController::class, 'Payment Steps', 'fas fa-shoe-prints'),
             MenuItem::linkTo(AdmissionScholarshipsCrudController::class, 'Scholarship Settings', 'fas fa-cog'),
             MenuItem::linkTo(ScholarshipItemCrudController::class, 'Manage Scholarships', 'fas fa-award'),
             MenuItem::linkTo(AdmissionFaqsCrudController::class, 'FAQ Settings', 'fas fa-cog'),

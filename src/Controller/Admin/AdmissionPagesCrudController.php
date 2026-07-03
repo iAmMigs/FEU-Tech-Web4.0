@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 
 class AdmissionPagesCrudController extends AbstractCrudController
 {
@@ -57,26 +58,26 @@ class AdmissionPagesCrudController extends AbstractCrudController
         yield FormField::addTab('Procedures');
         yield TextField::new('procedureSubtitle', 'Section Subtitle');
         yield TextField::new('procedureTitle', 'Section Title');
-        yield TextareaField::new('procedureDescription', 'Section Description');
+        yield TextEditorField::new('procedureDescription', 'Section Description');
         
         yield FormField::addFieldset('Step 1');
         yield TextField::new('step1Title', 'Step 1 Title');
-        yield TextareaField::new('step1Description', 'Step 1 Description');
+        yield TextEditorField::new('step1Description', 'Step 1 Description');
         yield TextField::new('step1LinkUrl', 'Step 1 Link URL');
 
         yield FormField::addFieldset('Step 2');
         yield TextField::new('step2Title', 'Step 2 Title');
-        yield TextareaField::new('step2Description', 'Step 2 Description');
+        yield TextEditorField::new('step2Description', 'Step 2 Description');
         yield TextField::new('step2LinkUrl', 'Step 2 Link URL');
 
         yield FormField::addFieldset('Step 3');
         yield TextField::new('step3Title', 'Step 3 Title');
-        yield TextareaField::new('step3Description', 'Step 3 Description');
+        yield TextEditorField::new('step3Description', 'Step 3 Description');
         yield TextField::new('step3Email', 'Step 3 Email Contact');
 
         yield FormField::addFieldset('Step 4');
         yield TextField::new('step4Title', 'Step 4 Title');
-        yield TextareaField::new('step4Description', 'Step 4 Description');
+        yield TextEditorField::new('step4Description', 'Step 4 Description');
         yield TextField::new('step4LinkUrl', 'Step 4 Link URL');
 
         yield FormField::addTab('Requirements');
@@ -94,7 +95,7 @@ class AdmissionPagesCrudController extends AbstractCrudController
         yield FormField::addTab('Enrollment');
         yield FormField::addFieldset('Payment Setup');
         yield TextField::new('enrollmentSubtitle', 'Payment Subtitle');
-        yield TextareaField::new('enrollmentDescription', 'Payment Description');
+        yield TextEditorField::new('enrollmentDescription', 'Payment Description');
 
         yield FormField::addFieldset('Proof of Payment');
         yield TextField::new('proofSubtitle', 'Proof Subtitle');
@@ -102,12 +103,12 @@ class AdmissionPagesCrudController extends AbstractCrudController
         yield TextField::new('proofEmail', 'Proof Contact Email');
         
         yield FormField::addFieldset('Footer Note');
-        yield TextareaField::new('enrollmentFooter', 'Enrollment Footer Text');
+        yield TextEditorField::new('enrollmentFooter', 'Enrollment Footer Text');
 
         yield FormField::addTab('Next Steps (Credentials)');
         yield TextField::new('nextStepsBadge', 'Small Badge Text');
         yield TextField::new('nextStepsTitle', 'Main Title');
-        yield TextareaField::new('nextStepsDescription', 'Description');
+        yield TextEditorField::new('nextStepsDescription', 'Description');
         yield TextField::new('credential1', 'Credential 1 Title');
         yield TextField::new('credential2', 'Credential 2 Title');
         yield TextField::new('credential3', 'Credential 3 Title');

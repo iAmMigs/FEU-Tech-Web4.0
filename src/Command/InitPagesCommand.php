@@ -298,6 +298,183 @@ class InitPagesCommand extends Command
             }
         }
 
+        // Seed AdmissionFaqs default hero background image if not set
+        $faqs = $faqsRepo->findOneBy([]);
+        if ($faqs && empty($faqs->getHeroImage())) {
+            $faqs->setHeroImage('pattern.svg');
+            $this->entityManager->persist($faqs);
+        }
+
+        // Seed PaymentOption & PaymentStep if empty
+        $paymentOptionRepo = $this->entityManager->getRepository(\App\Entity\PaymentOption::class);
+        if ($paymentOptionRepo->count([]) === 0) {
+            // 1. BPI
+            $bpi = new \App\Entity\PaymentOption();
+            $bpi->setName('BPI Bills Payment');
+            $bpi->setSlug('bpi');
+            $bpi->setLogoText('BPI');
+            $bpi->setThemeColor('#b11116');
+            $bpi->setMerchantName('FEU Institute of Technology');
+            $bpi->setInstructionsImage('BPI.jpg');
+            $bpi->setImportantReminders([
+                'For Tuition Fee Payments: No need to send proof of payments.',
+                'For Payments other than tuition fee: Please send your proof of payments via Google Forms. Indicate purpose of payment.'
+            ]);
+            $bpi->setIsActive(true);
+            $this->entityManager->persist($bpi);
+
+            // 2. BDO
+            $bdo = new \App\Entity\PaymentOption();
+            $bdo->setName('BDO Bills Payment');
+            $bdo->setSlug('bdo');
+            $bdo->setLogoText('BDO');
+            $bdo->setThemeColor('#0038A8');
+            $bdo->setMerchantName('FEU Institute of Technology');
+            $bdo->setInstructionsImage('BDO.jpg');
+            $bdo->setImportantReminders([
+                'For Tuition Fee Payments: No need to send proof of payments.',
+                'For Payments other than tuition fee: Please send your proof of payments via Google Forms. Indicate purpose of payment.'
+            ]);
+            $bdo->setIsActive(true);
+            $this->entityManager->persist($bdo);
+
+            // 3. Robinsons Bank
+            $rob = new \App\Entity\PaymentOption();
+            $rob->setName('Robinsons Bank');
+            $rob->setSlug('robinsons');
+            $rob->setLogoText('RB');
+            $rob->setThemeColor('#F21A22');
+            $rob->setMerchantName('FEU Institute of Technology');
+            $rob->setInstructionsImage('RobinsonsBank.jpg');
+            $rob->setImportantReminders([
+                'For Tuition Fee Payments: No need to send proof of payments.',
+                'For Payments other than tuition fee: Please send your proof of payments via Google Forms. Indicate purpose of payment.'
+            ]);
+            $rob->setIsActive(true);
+            $this->entityManager->persist($rob);
+
+            // 4. Land Bank
+            $lb = new \App\Entity\PaymentOption();
+            $lb->setName('Land Bank');
+            $lb->setSlug('landbank');
+            $lb->setLogoText('LBP');
+            $lb->setThemeColor('#007A33');
+            $lb->setMerchantName('FEU INSTITUTE OF TECHNOLOGY');
+            $lb->setAdditionalInfo('Access the Portal: <a href="https://tinyurl.com/LBPLinkBiz" target="_blank" class="text-xl text-[#007A33] font-bold hover:underline break-all">https://tinyurl.com/LBPLinkBiz</a>');
+            $lb->setIsActive(true);
+            $this->entityManager->persist($lb);
+
+            // Landbank steps
+            $lbSteps = [
+                [
+                    'num' => 1,
+                    'title' => 'Select Biller',
+                    'desc' => 'Select <strong>FEU INSTITUTE OF TECHNOLOGY</strong>',
+                    'img' => 'Landbank1.png'
+                ],
+                [
+                    'num' => 2,
+                    'title' => 'Select Transaction',
+                    'desc' => 'Select <strong>TUITION FEE</strong> in the transaction type.',
+                    'img' => 'Landbank2.png'
+                ],
+                [
+                    'num' => 3,
+                    'title' => 'Fill out form',
+                    'desc' => 'Fill out the form with your correct Student Details.',
+                    'img' => 'Landbank3.png'
+                ],
+                [
+                    'num' => 4,
+                    'title' => 'Select Payment Option',
+                    'desc' => 'Select your preferred payment options (e.g. Landbank, Cash Payment, GCash, etc.).',
+                    'img' => 'Landbank5.png'
+                ],
+                [
+                    'num' => 5,
+                    'title' => 'Submit Payment',
+                    'desc' => 'Agree to Terms & Conditions, enter your email and hit submit.',
+                    'img' => 'Landbank6.png'
+                ],
+                [
+                    'num' => 6,
+                    'title' => 'Finalize Payment',
+                    'desc' => 'For online bank payment, check your account for confirmation. For over-the-counter payment, take note of the payment deadline and reference number and follow further payment instructions.',
+                    'img' => 'Landbank7.png,Landbank8-1.png'
+                ]
+            ];
+
+            foreach ($lbSteps as $sData) {
+                $step = new \App\Entity\PaymentStep();
+                $step->setStepNumber($sData['num']);
+                $step->setTitle($sData['title']);
+                $step->setDescription($sData['desc']);
+                $step->setImage($sData['img']);
+                $step->setPaymentOption($lb);
+                $this->entityManager->persist($step);
+            }
+
+            // 5. GCash
+            $gc = new \App\Entity\PaymentOption();
+            $gc->setName('GCash');
+            $gc->setSlug('gcash');
+            $gc->setLogoText('G');
+            $gc->setThemeColor('#007DFE');
+            $gc->setShowComputation(true);
+            $gc->setComputationFee('5,000.00');
+            $gc->setComputationDivisor('0.985');
+            $gc->setComputationTotal('5,076.15');
+            $gc->setComputationProcessingFee('76.15');
+            $gc->setIsActive(true);
+            $this->entityManager->persist($gc);
+
+            // GCash steps
+            $gcSteps = [
+                [
+                    'num' => 1,
+                    'title' => 'Open GCash App',
+                    'desc' => 'Open the GCash app and tap <strong>“Bills”</strong>.',
+                    'img' => 'Gcash1.png'
+                ],
+                [
+                    'num' => 2,
+                    'title' => 'Select Schools',
+                    'desc' => 'Under Categories, tap <strong>“Biller Categories”</strong> and select <strong>“Schools”</strong>.',
+                    'img' => 'Gcash2.png'
+                ],
+                [
+                    'num' => 3,
+                    'title' => 'Search FEU Tech',
+                    'desc' => 'Search for and select <strong>“FEU Institute of Technology”</strong>.',
+                    'img' => 'Gcash3.png'
+                ],
+                [
+                    'num' => 4,
+                    'title' => 'Fill-out Information',
+                    'desc' => 'Fill out all the required information including ID Number, Student Name, and Email Address.',
+                    'img' => 'Gcash4.png,Gcash5.png'
+                ],
+                [
+                    'num' => 5,
+                    'title' => 'Confirm & Wait',
+                    'desc' => 'Click <strong>“Confirm”</strong> and wait for the transaction receipt.',
+                    'img' => 'Gcash6.png'
+                ]
+            ];
+
+            foreach ($gcSteps as $sData) {
+                $step = new \App\Entity\PaymentStep();
+                $step->setStepNumber($sData['num']);
+                $step->setTitle($sData['title']);
+                $step->setDescription($sData['desc']);
+                $step->setImage($sData['img']);
+                $step->setPaymentOption($gc);
+                $this->entityManager->persist($step);
+            }
+
+            $count += 5;
+        }
+
         $this->entityManager->flush();
 
         if ($count > 0) {

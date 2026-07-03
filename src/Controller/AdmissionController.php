@@ -14,6 +14,8 @@ use App\Entity\ScholarshipItem;
 use App\Entity\AdmissionFaqs;
 use App\Entity\FaqItem;
 
+use App\Entity\PaymentOption;
+
 final class AdmissionController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
@@ -92,9 +94,14 @@ final class AdmissionController extends AbstractController
     public function tuitionFees(): Response
     {
         $page = $this->entityManager->getRepository(AdmissionTuitionFees::class)->findOneBy([]);
+        $paymentOptions = $this->entityManager->getRepository(PaymentOption::class)->findBy(
+            ['isActive' => true],
+            ['id' => 'ASC']
+        );
 
         return $this->renderWithDefaults('Admission/tuition_fees.html.twig', [
             'page' => $page,
+            'paymentOptions' => $paymentOptions,
         ]);
     }
 
