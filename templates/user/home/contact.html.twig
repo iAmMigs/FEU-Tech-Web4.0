@@ -1,0 +1,214 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>
+    :root {
+        --feu-green: #002d19;
+        --feu-yellow: #fdb813;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .copy-tooltip {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    }
+
+    .copy-tooltip.show {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
+
+{# Hero Section Header #}
+<header class="relative bg-[var(--feu-green)] text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-25 bg-gradient-to-br from-black via-transparent to-[var(--feu-yellow)]"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-20 text-center md:text-left">
+        <span class="inline-block px-4 py-1 bg-[var(--feu-yellow)] text-black text-sm font-semibold rounded-full">
+            FEU Institute of Technology
+        </span>
+
+        <h1 class="text-4xl md:text-5xl font-bold mt-4 leading-tight">
+            Contact Directory
+        </h1>
+
+        <p class="mt-4 text-white/80 text-lg max-w-3xl">
+            Connect with our academic departments, administrative divisions, and support service units easily. 
+        </p>
+    </div>
+</header>
+
+{# Live Search Bar Section #}
+<section class="bg-slate-50 border-b border-gray-200 sticky top-0 z-30 shadow-sm backdrop-blur-md bg-opacity-95">
+    <div class="max-w-6xl mx-auto px-6 py-5">
+        <div class="relative max-w-xl mx-auto md:mx-0">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </span>
+            <input 
+                type="text" 
+                id="directory-search" 
+                placeholder="Search department, program, email, or extension..." 
+                class="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--feu-green)] focus:border-transparent transition-all shadow-sm text-sm text-slate-800"
+            >
+        </div>
+    </div>
+</section>
+
+{# Main Directory Section #}
+<main class="max-w-6xl mx-auto px-6 py-12">
+    <div id="no-results" class="hidden text-center py-12 text-slate-500">
+        <svg class="w-16 h-16 mx-auto mb-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p class="text-lg font-medium">No matching offices or departments found.</p>
+        <p class="text-sm text-slate-400 mt-1">Please double-check your spelling or search parameters.</p>
+    </div>
+
+    <div id="directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        {# Macro data dictionary mapping out provided parameters #}
+        {% set departments = [
+            { 'name': 'Accounting / Finance', 'email': 'accounting@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '115' },
+            { 'name': 'Admissions and External Relations', 'email': 'admissions@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '123/131' },
+            { 'name': 'Civil Engineering', 'email': 'ce@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '306' },
+            { 'name': 'Community Extension Services Unit', 'email': 'communityextension@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '124' },
+            { 'name': 'Computer Engineering', 'email': 'cpe@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '221' },
+            { 'name': 'Computer Science', 'email': 'ccs_cs@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '222/224' },
+            { 'name': 'Discipline Unit', 'email': 'disciplineunit@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '124' },
+            { 'name': 'Electrical & Electronics Engineering', 'email': 'eee@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '316' },
+            { 'name': 'Guidance and Counseling Unit', 'email': 'gcu@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '122' },
+            { 'name': 'Humanities, Social Sciences, and Communication', 'email': 'hsc@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '425' },
+            { 'name': 'IALAP', 'email': 'ialap@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '119' },
+            { 'name': 'iCare - ERC', 'email': 'icare@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': 'N/A' },
+            { 'name': 'Information Technology', 'email': 'ccs_it@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '222/224' },
+            { 'name': 'Information Technology Services Office', 'email': 'itso@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '132' },
+            { 'name': 'Library', 'email': 'library@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '120/150' },
+            { 'name': 'Mathematics and Physical Sciences', 'email': 'mps@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '418' },
+            { 'name': 'Mechanical Engineering', 'email': 'me@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '121' },
+            { 'name': 'Multimedia Arts', 'email': 'ccs_mma@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '222/224' },
+            { 'name': 'NSTP', 'email': 'nstp@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': 'N/A' },
+            { 'name': 'Registrar', 'email': 'registrar@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '114' },
+            { 'name': 'Student Activities', 'email': 'sadu@feutech.edu.ph', 'trunk': '(02) 8281 8888', 'local': '128' }
+        ] %}
+
+        {% for dept in departments %}
+            <div class="directory-card bg-white rounded-xl shadow-md border border-slate-200 p-6 flex flex-col justify-between hover:border-[var(--feu-yellow)] hover:-translate-y-1 transition-all duration-300" 
+                 data-name="{{ dept.name|lower }}" 
+                 data-email="{{ dept.email|lower }}" 
+                 data-local="{{ dept.local|lower }}">
+                
+                <div>
+                    <div class="w-2 h-8 bg-[var(--feu-green)] rounded-r absolute left-0 mt-1"></div>
+                    <h3 class="text-lg font-bold text-[var(--feu-green)] mb-4 line-clamp-2">
+                        {{ dept.name }}
+                    </h3>
+
+                    <div class="space-y-3 text-sm text-slate-600">
+                        {# Email Fields with dynamic JS Copy Tooltip Actions #}
+                        <div class="flex items-start group/email cursor-pointer relative" onclick="copyEmail('{{ dept.email }}', this)">
+                            <svg class="w-4 h-4 mt-1 mr-3 text-slate-400 group-hover/email:text-[var(--feu-green)] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="break-all group-hover/email:text-[var(--feu-green)] transition-colors select-all">
+                                {{ dept.email }}
+                            </span>
+                            <div class="copy-tooltip absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded shadow-md pointer-events-none">
+                                Copied!
+                            </div>
+                        </div>
+
+                        {# Trunkline Field #}
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                            <span>Trunkline: {{ dept.trunk }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                {# Footer Section Badge displaying Local Extension Codes #}
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Internal Routing</span>
+                    <span class="px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold rounded-md">
+                        Local No. {{ dept.local }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</main>
+
+
+<script>
+function initDirectoryFilter() {
+    const searchInput = document.getElementById('directory-search');
+    const cards = document.querySelectorAll('.directory-card');
+    const grid = document.getElementById('directory-grid');
+    const noResults = document.getElementById('no-results');
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        let dynamicMatches = 0;
+
+        cards.forEach(card => {
+            const name = card.getAttribute('data-name');
+            const email = card.getAttribute('data-email');
+            const local = card.getAttribute('data-local');
+
+            if (name.includes(query) || email.includes(query) || local.includes(query)) {
+                card.style.display = 'flex';
+                dynamicMatches++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (dynamicMatches === 0) {
+            grid.classList.add('hidden');
+            noResults.classList.remove('hidden');
+        } else {
+            grid.classList.remove('hidden');
+            noResults.classList.add('hidden');
+        }
+    });
+}
+
+function copyEmail(emailText, element) {
+    if (!navigator.clipboard) return;
+
+    navigator.clipboard.writeText(emailText).then(() => {
+        const tooltip = element.querySelector('.copy-tooltip');
+        if (tooltip) {
+            tooltip.classList.add('show');
+            setTimeout(() => {
+                tooltip.classList.remove('show');
+            }, 1800);
+        }
+    }).catch(err => {
+        console.error('Could not copy email context: ', err);
+    });
+}
+
+document.addEventListener('turbo:load', initDirectoryFilter);
+document.addEventListener('DOMContentLoaded', initDirectoryFilter);
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initDirectoryFilter();
+}
+</script>
+{% endblock %}

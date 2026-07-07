@@ -22,6 +22,12 @@ final class HomeController extends AbstractController
         return $this->renderWithDefaults('home/index.html.twig');
     }
 
+    #[Route('/contact', name: 'app_contact')]
+    public function contact(): Response
+    {
+        return $this->renderWithDefaults('home/contact.html.twig');
+    }
+
     
             #[Route('/features/shaping-the-future-of-education-utah-valley-university-feu-tech-unite-for-ai-innovation-workshop', name: 'event_one')]
             public function event_one(): Response

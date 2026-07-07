@@ -1,13 +1,13 @@
-
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<section id="top" class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-    <div id="hero-bg-default" class="absolute inset-0 z-0 transition-opacity duration-700 ease-in-out opacity-100">
-        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60">
+<section id="top" class="relative w-full h-[85vh] min-h-[650px] flex items-center overflow-hidden bg-slate-950">
+    
+    <div id="hero-bg-default" class="absolute inset-0 z-0">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover select-none pointer-events-none">
             <source src="/videos/SAMPLEHERO2.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-slate-900/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20 md:to-transparent"></div>
     </div>
 
     <div id="hero-bg-overlay" class="absolute inset-0 z-[1] transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none">
@@ -15,22 +15,34 @@
         <img id="hero-bg-overlay-img" src="" alt="" class="relative z-10 w-full h-full object-contain">
     </div>
 
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pb-32" id="hero-content">
-        <span class="text-feu-yellow font-bold tracking-widest uppercase text-sm mb-4 block animate-bounce mt-8 md:mt-0">TECHNOLOGY DRIVEN BY INNOVATION</span>
-        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-            Shape Your Future at <span class="feu-gradient-text">FEU Tech</span>
+    <div id="hero-content" class="relative z-1 w-full max-w-7xl mx-auto px-6 sm:px-4 lg:px-16 flex flex-col justify-center items-start text-left">
+        
+        <span class="font-roboto text-white font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4 bg-feu-green/5 px-3 py-1.5 rounded-md inline-block backdrop-blur-sm border border-white/20">
+            Welcome to The School of Innovation
+        </span>
+        
+        <h1 class="font-poppins text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.4] tracking-wide max-w-4xl" style="text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.3);">
+            Shape Your Future at <span class="text-feu-yellow font-black" style="text-shadow: 0 4px 12px rgba(240, 179, 35, 0.25), 0 2px 4px rgba(0, 0, 0, 0.4);"><br>FEU Tech</span>
         </h1>
-        <p class="text-lg md:text-xl text-slate-200 mb-10 font-light max-w-2xl mx-auto drop-shadow-md">
+        
+        <p class="font-roboto text-base md:text-lg lg:text-xl text-white mb-10 font-normal leading-relaxed max-w-2xl tracking-wide drop-shadow-md">
             Join the premier engineering and computer studies institution. Discover world-class facilities and global opportunities.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/freshmen" class="px-8 py-4 bg-feu-yellow text-slate-900 font-bold rounded-lg shadow-xl shadow-feu-yellow/20 hover:bg-yellow-400 hover:-translate-y-1 transition-all">
+        
+        <div class="flex flex-wrap gap-4 w-full sm:w-auto">
+            <a href="{{ path('app_ccsma') }}" class="w-full sm:w-auto text-center px-8 py-4 bg-white/5 backdrop-blur-md text-feu-yellow font-bold rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/45 active:scale-98 transition-all text-sm tracking-wider font-poppins uppercase shadow-lg">
+                CCSMA
+            </a>
+            
+            <a href="/freshmen" class="w-full sm:w-auto text-center px-10 py-4 bg-feu-yellow text-feu-green font-black rounded-lg shadow-2xl shadow-feu-yellow/20 hover:bg-yellow-400 hover:shadow-feu-yellow/45 hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm tracking-wider font-poppins uppercase">
                 Apply Now
             </a>
-            <a href="#courses" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all">
-                Explore Programs
+            
+            <a href="{{ path('app_coe') }}" class="w-full sm:w-auto text-center px-8 py-4 bg-white/5 backdrop-blur-md text-feu-yellow font-bold rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/45 active:scale-98 transition-all text-sm tracking-wider font-poppins uppercase shadow-lg">
+                COE
             </a>
         </div>
+        
     </div>
 </section>
 
@@ -197,6 +209,7 @@ function initCarousel() {
         return w;
     }
 
+    /*
     function setupTamTamPersistent() {
 
         // Remove old tamtams before creating new ones
@@ -238,7 +251,8 @@ function initCarousel() {
     }
 
     setupTamTamPersistent();
-
+    */
+    
     function updateTrackPosition() {
         const oneSet = getOneSetWidth();
 
@@ -389,316 +403,6 @@ if (
 }
 </script>
 
-<section id="meetings" class="py-24 bg-slate-50 scroll-animate relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-                <span class="text-feu-green font-bold tracking-wider uppercase text-sm mb-2 block">
-                    Events Conducted
-                </span>
-                <h2 class="text-4xl font-extrabold text-slate-800">
-                    What's Happening
-                </h2>
-            </div>
-
-            <a href="#"
-                class="mt-4 md:mt-0 px-6 py-3 border-2 border-feu-green text-feu-green font-bold rounded-lg hover:bg-feu-green hover:text-white transition-all shadow-sm">
-                View All Events
-            </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- EVENT CARD 1 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-                <a href="{{ path('event_one') }}" class="block group">
-                    <div class="relative h-56 overflow-hidden">
-
-                        <img src="/images/carousels/MAY5.jfif"
-                            alt="National Tech Symposium"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.8"
-                                    stroke="white"
-                                    class="w-8 h-8">
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="p-6 flex flex-col flex-grow">
-
-                        <div class="mb-4">
-                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                                SEMINARS
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>May 5, 2026</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
-                            Shaping the Future of Education: Utah Valley University, FEU Tech, Unite for AI Innovation Workshop
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            Join industry leaders as they discuss the future of AI and Machine Learning innovations.
-                        </p>
-
-                    </div>
-                </a>
-            </div>
-
-            <!-- EVENT CARD 2 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-                <a href="{{ path('event_two') }}" class="block group">
-
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="/images/carousels/TARA.jpg"
-                            alt="Research Expo"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.8"
-                                    stroke="white"
-                                    class="w-8 h-8">
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 flex flex-col flex-grow">
-
-                        <div class="mb-4">
-                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                                EXHIBITIONS
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Nov 24, 2026</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
-                            #TaraNaSaPIYU 2026: Welcoming the Next Generation of Innovators at FEU Tech
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            Showcasing the brightest capstone projects from our graduating engineering students.
-                        </p>
-
-                    </div>
-                </a>
-            </div>
-
-            <!-- EVENT CARD 3 -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-                <a href="{{ path('event_three') }}" class="block group">
-
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="/images/carousels/FTIC.jpg"
-                            alt="Hackathon"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.8"
-                                    stroke="white"
-                                    class="w-8 h-8">
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 flex flex-col flex-grow">
-
-                        <div class="mb-4">
-                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                                COMPETITIONS
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>April 24, 2026</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
-                            FTIC Ramps Up the Culture of Innovation at FEU Tech with a Campus-Wide Symposium
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            A 48-hour coding marathon to solve real-world problems. Open to all students.
-                        </p>
-
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="relative py-28 overflow-hidden bg-gradient-to-br from-white via-yellow-50 to-emerald-50 border-t-4 border-feu-yellow scroll-animate">
-    <div class="absolute top-0 left-0 w-96 h-96 bg-feu-yellow/20 blur-3xl rounded-full"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-feu-green/20 blur-3xl rounded-full"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/10 blur-3xl rounded-full pointer-events-none"></div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col gap-20 items-center w-full">
-            
-            <div class="w-full max-w-5xl text-center transform transition-all duration-700 hover:translate-y-[-4px]">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight mb-4 flex items-center justify-center gap-3">
-                    <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
-                    Student Magazines
-                    <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
-                </h2>
-
-                <div class="relative h-[580px] flex items-center justify-center overflow-visible select-none [perspective:1000px]" id="magazineCarousel">
-                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] h-16 bg-black/15 blur-[50px] rounded-full pointer-events-none"></div>
-                    
-                    <a id="magLeftLink" target="_blank" rel="noopener noreferrer" class="absolute left-2 md:left-6 top-20 w-[220px] md:w-[300px] z-10 block transform -rotate-6 hover:-rotate-12 transition-all duration-500 hover:z-20">
-                        <img id="magLeft"
-                            src="/images/magazine/issue1.png"
-                            class="w-full rounded-lg shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
-                    </a>
-
-                    <div class="absolute z-30 w-[300px] md:w-[410px] transform hover:scale-[1.03] transition-all duration-500 group/center">
-                        <a id="magMainLink" target="_blank" rel="noopener noreferrer" class="block relative">
-                            <img id="magMain"
-                                src="/images/magazine/issue3.png"
-                                class="w-full rounded-xl shadow-[0_35px_70px_rgba(0,0,0,0.35)] border border-white/20 transition-all duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/center:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none"></div>
-                        </a>
-
-                        <button id="prevMag"
-                            class="absolute left-[-24px] md:left-[-32px] top-1/2 -translate-y-1/2 
-                            w-14 h-14 rounded-full bg-white text-slate-800 border border-slate-100
-                            shadow-xl flex items-center justify-center font-bold text-xl
-                            hover:bg-feu-yellow hover:text-slate-900 active:scale-95 transition-all z-40">
-                            &lt;
-                        </button>
-
-                        <button id="nextMag"
-                            class="absolute right-[-24px] md:right-[-32px] top-1/2 -translate-y-1/2 
-                            w-14 h-14 rounded-full bg-white text-slate-800 border border-slate-100
-                            shadow-xl flex items-center justify-center font-bold text-xl
-                            hover:bg-feu-yellow hover:text-slate-900 active:scale-95 transition-all z-40">
-                            &gt;
-                        </button>
-                    </div>
-
-                    <a id="magRightLink" target="_blank" rel="noopener noreferrer" class="absolute right-2 md:right-6 top-16 w-[240px] md:w-[330px] z-20 block transform rotate-6 hover:rotate-12 transition-all duration-500 hover:z-20">
-                        <img id="magRight"
-                            src="/images/magazine/issue2.png"
-                            class="w-full rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.22)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
-                    </a>
-                </div>
-            </div>
-
-            <div class="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-2"></div>
-
-            <div class="w-full max-w-6xl text-left">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                    
-                    <div class="lg:col-span-2 flex flex-col gap-4">
-                        <div class="group/player relative rounded-xl overflow-hidden bg-black aspect-video shadow-lg border border-slate-200">
-                            <a id="vidMainLink" href="" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative">
-                                
-                                <div class="absolute inset-0 flex items-center justify-center z-20">
-                                    <div class="w-16 h-16 rounded-full bg-red-600 text-white shadow-xl flex items-center justify-center transform scale-100 group-hover/player:scale-110 transition-transform duration-200">
-                                        <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-
-                                <img id="vidMainThumb" src="" alt="Active Video Player Thumbnail" class="w-full h-full object-cover">
-                            </a>
-                        </div>
-                        
-                        <div class="px-1">
-                            <h3 id="vidMainTitle" class="text-xl font-bold text-slate-900 leading-snug">Loading Active Content Title...</h3>
-                            <div class="flex items-center gap-3 mt-3 pb-4 border-b border-slate-200">
-                                <div class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center p-1.5 bg-slate-50 border border-slate-200">
-                                    <img src="/images/Tech_Logo.png" alt="FEU Tech" class="w-full h-full object-contain">
-                                </div>
-                                <div class="flex flex-col">
-                                    <span class="font-bold text-sm text-slate-800">TAMbayan TV</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col gap-3">
-                        
-
-                        <div class="flex flex-col gap-3 max-h-[460px] overflow-y-auto pr-1" id="youtubePlaylistFeed">
-                            </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 
 <section id="courses" class="py-24 relative overflow-hidden border-t-4 border-feu-yellow scroll-animate">
     <div class="absolute inset-0 z-0">
@@ -796,8 +500,401 @@ if (
     </div>
 </section>
 
+<section class="relative py-28 overflow-hidden bg-gradient-to-br from-white via-yellow-50 to-emerald-50 border-t-4 border-feu-yellow scroll-animate">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-feu-yellow/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-feu-green/20 blur-3xl rounded-full"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100/10 blur-3xl rounded-full pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-20 items-center w-full">
+            
+            <div class="w-full max-w-5xl text-center transform transition-all duration-700 hover:translate-y-[-4px]">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight mb-4 flex items-center justify-center gap-3">
+                    <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
+                    Student Magazines
+                    <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
+                </h2>
+
+                <div class="relative h-[580px] flex items-center justify-center overflow-visible select-none [perspective:1000px]" id="magazineCarousel">
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] h-16 bg-black/15 blur-[50px] rounded-full pointer-events-none"></div>
+                    
+                    <a id="magLeftLink" target="_blank" rel="noopener noreferrer" class="absolute left-2 md:left-6 top-20 w-[220px] md:w-[300px] z-10 block transform -rotate-6 hover:-rotate-12 transition-all duration-500 hover:z-20">
+                        <img id="magLeft"
+                            src="/images/magazine/issue1.png"
+                            class="w-full rounded-lg shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
+                    </a>
+
+                    <div class="absolute z-30 w-[300px] md:w-[410px] transform hover:scale-[1.03] transition-all duration-500 group/center">
+                        <a id="magMainLink" target="_blank" rel="noopener noreferrer" class="block relative">
+                            <img id="magMain"
+                                src="/images/magazine/issue3.png"
+                                class="w-full rounded-xl shadow-[0_35px_70px_rgba(0,0,0,0.35)] border border-white/20 transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/center:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none"></div>
+                        </a>
+
+                        <button id="prevMag"
+                            class="absolute left-[-24px] md:left-[-32px] top-1/2 -translate-y-1/2 
+                            w-14 h-14 rounded-full bg-white text-slate-800 border border-slate-100
+                            shadow-xl flex items-center justify-center font-bold text-xl
+                            hover:bg-feu-yellow hover:text-slate-900 active:scale-95 transition-all z-40">
+                            &lt;
+                        </button>
+
+                        <button id="nextMag"
+                            class="absolute right-[-24px] md:right-[-32px] top-1/2 -translate-y-1/2 
+                            w-14 h-14 rounded-full bg-white text-slate-800 border border-slate-100
+                            shadow-xl flex items-center justify-center font-bold text-xl
+                            hover:bg-feu-yellow hover:text-slate-900 active:scale-95 transition-all z-40">
+                            &gt;
+                        </button>
+                    </div>
+
+                    <a id="magRightLink" target="_blank" rel="noopener noreferrer" class="absolute right-2 md:right-6 top-16 w-[240px] md:w-[330px] z-20 block transform rotate-6 hover:rotate-12 transition-all duration-500 hover:z-20">
+                        <img id="magRight"
+                            src="/images/magazine/issue2.png"
+                            class="w-full rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.22)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-2"></div>
+
+            <div class="w-full max-w-6xl text-left">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                    
+                    <div class="lg:col-span-2 flex flex-col gap-4">
+                        <div class="group/player relative rounded-xl overflow-hidden bg-black aspect-video shadow-lg border border-slate-200">
+                            <a id="vidMainLink" href="" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative">
+                                
+                                <div class="absolute inset-0 flex items-center justify-center z-20">
+                                    <div class="w-16 h-16 rounded-full bg-red-600 text-white shadow-xl flex items-center justify-center transform scale-100 group-hover/player:scale-110 transition-transform duration-200">
+                                        <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <img id="vidMainThumb" src="" alt="Active Video Player Thumbnail" class="w-full h-full object-cover">
+                            </a>
+                        </div>
+                        
+                        <div class="px-1">
+                            <h3 id="vidMainTitle" class="text-xl font-bold text-slate-900 leading-snug">Loading Active Content Title...</h3>
+                            <div class="flex items-center gap-3 mt-3 pb-4 border-b border-slate-200">
+                                <div class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center p-1.5 bg-slate-50 border border-slate-200">
+                                    <img src="/images/Tech_Logo.png" alt="FEU Tech" class="w-full h-full object-contain">
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-bold text-sm text-slate-800">TAMbayan TV</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <div class="flex flex-col gap-3 max-h-[460px] overflow-y-auto pr-1" id="youtubePlaylistFeed"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="meetings" class="py-12 bg-slate-50 scroll-animate relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+                <span class="text-feu-green font-bold tracking-wider uppercase text-sm mb-2 block">
+                    Events Conducted
+                </span>
+                <h2 class="text-4xl font-extrabold text-slate-800">
+                    In the news
+                </h2>
+            </div>
+
+            <a href="#"
+                class="mt-4 md:mt-0 px-6 py-3 border-2 border-feu-green text-feu-green font-bold rounded-lg hover:bg-feu-green hover:text-white transition-all shadow-sm">
+                View All Events
+            </a>
+        </div>
+
+        <div id="eventsCarousel" class="flex overflow-x-auto gap-8 no-scrollbar snap-x snap-mandatory pb-8 scroll-smooth w-full">
+
+            <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                <a href="{{ path('event_one') }}" class="block group">
+                    <div class="relative h-56 overflow-hidden">
+
+                        <img src="/images/carousels/MAY5.jfif"
+                            alt="National Tech Symposium"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.8"
+                                    stroke="white"
+                                    class="w-8 h-8">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+
+                        <div class="mb-4">
+                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                SEMINARS
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>May 5, 2026</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
+                            Shaping the Future of Education: Utah Valley University, FEU Tech, Unite for AI Innovation Workshop
+                        </h3>
+
+                        <p class="text-slate-600 leading-relaxed">
+                            Join industry leaders as they discuss the future of AI and Machine Learning innovations.
+                        </p>
+
+                    </div>
+                </a>
+            </div>
+
+            <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                <a href="{{ path('event_two') }}" class="block group">
+
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/images/carousels/TARA.jpg"
+                            alt="Research Expo"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.8"
+                                    stroke="white"
+                                    class="w-8 h-8">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+
+                        <div class="mb-4">
+                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                EXHIBITIONS
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Nov 24, 2026</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
+                            #TaraNaSaPIYU 2026: Welcoming the Next Generation of Innovators at FEU Tech
+                        </h3>
+
+                        <p class="text-slate-600 leading-relaxed">
+                            Showcasing the brightest capstone projects from our graduating engineering students.
+                        </p>
+
+                    </div>
+                </a>
+            </div>
+
+            <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                <a href="{{ path('event_three') }}" class="block group">
+
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="/images/carousels/FTIC.jpg"
+                            alt="Hackathon"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.8"
+                                    stroke="white"
+                                    class="w-8 h-8">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow">
+
+                        <div class="mb-4">
+                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                COMPETITIONS
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>April 24, 2026</span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
+                            FTIC Ramps Up the Culture of Innovation at FEU Tech with a Campus-Wide Symposium
+                        </h3>
+
+                        <p class="text-slate-600 leading-relaxed">
+                            A 48-hour coding marathon to solve real-world problems. Open to all students.
+                        </p>
+
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="flex justify-end gap-3 mt-4">
+            <button id="prevCarouselBtn" class="w-12 h-12 flex items-center justify-center rounded-full border border-feu-green text-feu-green hover:bg-feu-green hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="nextCarouselBtn" class="relative w-12 h-12 flex items-center justify-center rounded-full border border-feu-green text-feu-green hover:bg-feu-green hover:text-white transition-all overflow-hidden">
+                <div id="carouselLoader" class="absolute left-0 bottom-0 top-0 bg-feu-green/20 w-0 transition-all duration-[5000ms] linear pointer-events-none"></div>
+                <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</section>
+
 <script>
-// Magazine Infrastructure Matrix
+document.addEventListener('turbo:load', () => {
+    const carousel = document.getElementById('eventsCarousel');
+    const prevBtn = document.getElementById('prevCarouselBtn');
+    const nextBtn = document.getElementById('nextCarouselBtn');
+    const loader = document.getElementById('carouselLoader');
+    
+    if (!carousel || !prevBtn || !nextBtn || !loader) return;
+
+    const AUTO_PLAY_TIME = 5000; 
+    let autoPlayInterval;
+
+    function getScrollAmount() {
+        const firstCard = carousel.firstElementChild;
+        return firstCard ? firstCard.offsetWidth + 32 : 400; 
+    }
+
+    function resetLoaderAnimation() {
+        loader.style.transition = 'none';
+        loader.style.width = '0%';
+        void loader.offsetWidth; 
+        loader.style.transition = `width ${AUTO_PLAY_TIME}ms linear`;
+        loader.style.width = '100%';
+    }
+
+    function handleNextScroll() {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        if (Math.ceil(carousel.scrollLeft) >= maxScroll - 10) {
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        }
+        resetLoaderAnimation();
+    }
+
+    function handlePrevScroll() {
+        if (carousel.scrollLeft <= 10) {
+            carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        }
+        resetLoaderAnimation();
+    }
+
+    function startAutoPlay() {
+        resetLoaderAnimation();
+        autoPlayInterval = setInterval(handleNextScroll, AUTO_PLAY_TIME);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+        loader.style.transition = 'none';
+        loader.style.width = '0%';
+    }
+
+    nextBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        handleNextScroll();
+        startAutoPlay();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        handlePrevScroll();
+        startAutoPlay();
+    });
+
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+
+    startAutoPlay();
+});
+</script>
+
+<script>
 const magazines = [
     {
         img: "/images/magazine/issue1.png",
@@ -819,110 +916,119 @@ const magazines = [
 
 let magIndex = 1;
 
-const magLeft = document.getElementById("magLeft");
-const magMain = document.getElementById("magMain");
-const magRight = document.getElementById("magRight");
+document.addEventListener('turbo:load', () => {
+    const magLeft = document.getElementById("magLeft");
+    const magMain = document.getElementById("magMain");
+    const magRight = document.getElementById("magRight");
+    const prevMagBtn = document.getElementById("prevMag");
+    const nextMagBtn = document.getElementById("nextMag");
 
-document.getElementById("prevMag").addEventListener("click", () => {
-    magIndex = (magIndex - 1 + magazines.length) % magazines.length;
-    updateMag();
-});
+    if (!magLeft || !magMain || !magRight || !prevMagBtn || !nextMagBtn) return;
 
-document.getElementById("nextMag").addEventListener("click", () => {
-    magIndex = (magIndex + 1) % magazines.length;
-    updateMag();
-});
-
-function updateMag() {
-    const leftIndex = (magIndex - 1 + magazines.length) % magazines.length;
-    const rightIndex = (magIndex + 1) % magazines.length;
-
-    const left = magazines[leftIndex];
-    const main = magazines[magIndex];
-    const right = magazines[rightIndex];
-
-    magMain.src = main.img;
-    magLeft.src = left.img;
-    magRight.src = right.img;
-
-    document.getElementById("magMainLink").href = main.link;
-    document.getElementById("magLeftLink").href = left.link;
-    document.getElementById("magRightLink").href = right.link;
-}
-
-// 100% Intact Core Array Config
-const videos = [
-    {
-        id: "d0a2jThLgx4",
-        title: "MILES PARAVERSE",
-        link: "https://www.youtube.com/watch?v=d0a2jThLgx4"
-    },
-    {
-        id: "n_LEKwGma6g",
-        title: "EXPLORE THE FEU TECH CAMPUS!",
-        link: "https://www.youtube.com/watch?v=n_LEKwGma6g&source_ve_path=MTc4NDI0"
-    },
-    {
-        id: "N36B85B5xC8",
-        title: "\"Hall of Greats\" Music Video",
-        link: "https://www.youtube.com/watch?v=N36B85B5xC8"
-    },
-    {
-        id: "ewMDmlMNboE",
-        title: "3 Easy Steps for Freshmen Enrollment at FEU Tech",
-        link: "https://www.youtube.com/watch?v=ewMDmlMNboE"
-    }
-];
-
-let activeVideoIndex = 0;
-
-// Dynamic rendering loop generator mapping all 4 values cleanly
-function renderPlaylistFeed() {
-    const feedContainer = document.getElementById("youtubePlaylistFeed");
-    feedContainer.innerHTML = ""; 
-
-    videos.forEach((video, index) => {
-        const isCurrentlyPlaying = index === activeVideoIndex;
-        
-        const itemHTML = `
-            <button onclick="setActiveVideo(${index})" class="w-full text-left flex gap-3 p-1.5 rounded-xl transition-all duration-200 ${isCurrentlyPlaying ? 'bg-slate-100 border border-slate-200/80' : 'hover:bg-slate-50 border border-transparent'} focus:outline-none group/item">
-                <div class="w-32 aspect-video rounded-lg overflow-hidden bg-slate-900 flex-shrink-0 relative border border-slate-100 shadow-sm">
-                    <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg" class="w-full h-full object-cover">
-                    ${isCurrentlyPlaying ? `
-                        <div class="absolute inset-0 bg-black/45 flex items-center justify-center">
-                            <span class="text-[9px] font-extrabold bg-black/80 text-[#f0b323] px-2 py-0.5 rounded tracking-wider border border-white/10">NOW PLAYING</span>
-                        </div>
-                    ` : ''}
-                </div>
-                <div class="flex flex-col justify-start pt-0.5 overflow-hidden">
-                    <h4 class="text-xs font-bold text-slate-800 line-clamp-2 leading-tight group-hover/item:text-slate-950">${video.title}</h4>
-                    <span class="text-[10px] text-slate-500 mt-1 font-medium">Tambbayan Tv</span>
-                </div>
-            </button>
-        `;
-        feedContainer.insertAdjacentHTML('beforeend', itemHTML);
+    prevMagBtn.addEventListener("click", () => {
+        magIndex = (magIndex - 1 + magazines.length) % magazines.length;
+        updateMag();
     });
-}
 
-function setActiveVideo(index) {
-    activeVideoIndex = index;
-    const currentVideo = videos[activeVideoIndex];
+    nextMagBtn.addEventListener("click", () => {
+        magIndex = (magIndex + 1) % magazines.length;
+        updateMag();
+    });
 
-    // High quality asset runtime replacements
-    document.getElementById("vidMainThumb").src = `https://img.youtube.com/vi/${currentVideo.id}/maxresdefault.jpg`;
-    document.getElementById("vidMainTitle").textContent = currentVideo.title;
-    document.getElementById("vidMainLink").href = currentVideo.link;
+    function updateMag() {
+        const leftIndex = (magIndex - 1 + magazines.length) % magazines.length;
+        const rightIndex = (magIndex + 1) % magazines.length;
 
-    renderPlaylistFeed();
-}
+        const left = magazines[leftIndex];
+        const main = magazines[magIndex];
+        const right = magazines[rightIndex];
 
-// Global UI Runtime Boot Callup initialization
-updateMag();
-setActiveVideo(0);
+        magMain.src = main.img;
+        magLeft.src = left.img;
+        magRight.src = right.img;
+
+        document.getElementById("magMainLink").href = main.link;
+        document.getElementById("magLeftLink").href = left.link;
+        document.getElementById("magRightLink").href = right.link;
+    }
+
+    updateMag();
+});
 </script>
 
 <script>
-// Smooth Navigation Accompanying Accordions Subsystem Toggle Handler
+document.addEventListener('turbo:load', () => {
+    const videos = [
+        {
+            id: "d0a2jThLgx4",
+            title: "MILES PARAVERSE",
+            link: "https://www.youtube.com/watch?v=d0a2jThLgx4"
+        },
+        {
+            id: "n_LEKwGma6g",
+            title: "EXPLORE THE FEU TECH CAMPUS!",
+            link: "https://www.youtube.com/watch?v=n_LEKwGma6g&source_ve_path=MTc4NDI0"
+        },
+        {
+            id: "N36B85B5xC8",
+            title: "\"Hall of Greats\" Music Video",
+            link: "https://www.youtube.com/watch?v=N36B85B5xC8"
+        },
+        {
+            id: "ewMDmlMNboE",
+            title: "3 Easy Steps for Freshmen Enrollment at FEU Tech",
+            link: "https://www.youtube.com/watch?v=ewMDmlMNboE"
+        }
+    ];
+
+    let activeVideoIndex = 0;
+
+    if (!document.getElementById("youtubePlaylistFeed")) return;
+
+    window.setActiveVideo = function(index) {
+        activeVideoIndex = index;
+        const currentVideo = videos[activeVideoIndex];
+
+        document.getElementById("vidMainThumb").src = `https://img.youtube.com/vi/${currentVideo.id}/maxresdefault.jpg`;
+        document.getElementById("vidMainTitle").textContent = currentVideo.title;
+        document.getElementById("vidMainLink").href = currentVideo.link;
+
+        renderPlaylistFeed();
+    };
+
+    function renderPlaylistFeed() {
+        const feedContainer = document.getElementById("youtubePlaylistFeed");
+        if (!feedContainer) return;
+        feedContainer.innerHTML = ""; 
+
+        videos.forEach((video, index) => {
+            const isCurrentlyPlaying = index === activeVideoIndex;
+            
+            const itemHTML = `
+                <button onclick="setActiveVideo(${index})" class="w-full text-left flex gap-3 p-1.5 rounded-xl transition-all duration-200 ${isCurrentlyPlaying ? 'bg-slate-100 border border-slate-200/80' : 'hover:bg-slate-50 border border-transparent'} focus:outline-none group/item">
+                    <div class="w-32 aspect-video rounded-lg overflow-hidden bg-slate-900 flex-shrink-0 relative border border-slate-100 shadow-sm">
+                        <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg" class="w-full h-full object-cover">
+                        ${isCurrentlyPlaying ? `
+                            <div class="absolute inset-0 bg-black/45 flex items-center justify-center">
+                                <span class="text-[9px] font-extrabold bg-black/80 text-[#f0b323] px-2 py-0.5 rounded tracking-wider border border-white/10">NOW PLAYING</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                    <div class="flex flex-col justify-start pt-0.5 overflow-hidden">
+                        <h4 class="text-xs font-bold text-slate-800 line-clamp-2 leading-tight group-hover/item:text-slate-950">${video.title}</h4>
+                        <span class="text-[10px] text-slate-500 mt-1 font-medium">Tambbayan Tv</span>
+                    </div>
+                </button>
+            `;
+            feedContainer.insertAdjacentHTML('beforeend', itemHTML);
+        });
+    }
+
+    setActiveVideo(0);
+});
+</script>
+
+<script>
 document.addEventListener('turbo:load', () => {
     const accordions = document.querySelectorAll('.accordion-item');
 
@@ -949,7 +1055,6 @@ document.addEventListener('turbo:load', () => {
 </script>
 
 <style>
-/* CSS Reset utilities processing overflow properties */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }

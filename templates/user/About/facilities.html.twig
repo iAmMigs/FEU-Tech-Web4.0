@@ -4,30 +4,23 @@
 
 {% block body %}
 
-<!-- HERO SECTION -->
 <section class="relative min-h-[60vh] flex items-end overflow-hidden bg-slate-800">
 
-    <!-- Background Image -->
     <div class="absolute inset-0">
         <img src="/images/FEU_TECH.jpg"
              alt="FEU Tech Facilities"
              class="w-full h-full object-cover">
 
-        <!-- Dark Overlay -->
         <div class="absolute inset-0 bg-slate-950/70"></div>
 
-        <!-- Gradient Accent -->
         <div class="absolute inset-0 bg-gradient-to-r from-[#003b25]/90 via-[#003b25]/60 to-transparent"></div>
 
-        <!-- Bottom Accent -->
         <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348]"></div>
     </div>
 
-    <!-- Decorative Glow -->
     <div class="absolute top-20 right-[-120px] w-[400px] h-[400px] bg-[#febe10]/10 blur-3xl rounded-full"></div>
     <div class="absolute bottom-[-150px] left-[-100px] w-[350px] h-[350px] bg-[#008348]/20 blur-3xl rounded-full"></div>
 
-    <!-- Content -->
     <div class="relative z-10 max-w-7xl mx-auto mt-10 px-6 lg:px-8 pt-10 pb-20 w-full">
 
         <div class="max-w-3xl">
@@ -54,17 +47,62 @@
 
 </section>
 
-<!-- MAIN FACILITIES SECTION -->
+
+<section class="max-w-7xl mx-auto px-6 lg:px-8 mt-10 mb-24 relative z-40">
+    <div class="flex flex-col items-center justify-center">
+        
+        <div class="flex flex-col items-center mb-10 text-center">
+            <span class="text-[#008348] text-xs font-bold tracking-[0.3em] uppercase bg-[#008348]/10 px-4 py-1.5 rounded-full mb-3">
+                Virtual Campus Tour
+            </span>
+        </div>
+
+        <div class="relative w-full md:w-[85%] lg:w-[75%] group">
+            
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348] rounded-[2.3rem] opacity-30 blur-2xl group-hover:opacity-45 transition duration-700 ease-in-out"></div>
+            <div class="absolute -inset-px bg-gradient-to-r from-[#008348]/40 via-[#febe10]/40 to-[#008348]/40 rounded-[2.1rem] z-0"></div>
+
+            <div class="relative z-10 overflow-hidden rounded-[2rem] bg-slate-950 aspect-video shadow-[0_30px_100px_rgba(0,59,37,0.25)] border border-white/10">
+                
+                <div class="absolute top-0 inset-x-0 h-12 bg-gradient-to-b from-black/80 to-transparent z-20 px-6 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#008348]"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#febe10]"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+                        <span class="text-[11px] text-feu-green font-medium tracking-wide ml-2 uppercase">FEU Institute of Technology</span>
+                    </div>
+                    <span class="text-[10px] text-white/60 bg-white/10 px-2 py-0.5 rounded backdrop-blur-sm tracking-widest font-mono">1080P HD</span>
+                </div>
+
+                <video
+                    class="w-full h-full object-cover transition duration-500"
+                    controls
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="metadata"
+                    poster="/images/yt.png">
+
+                    <source src="/videos/FACILITIES.mp4" type="video/mp4">
+                </video>
+
+            </div>
+            
+            <div class="absolute -bottom-6 inset-x-12 h-6 bg-[#003b25]/10 rounded-full blur-xl z-0"></div>
+        </div>
+    </div>
+</section>
+
+
 <section id="facilities-section" class="relative z-30 mt-10 overflow-visible bg-[#f8fafc] py-14">
 
-    <!-- Background Accents -->
     <div class="absolute top-0 left-0 w-[450px] h-[450px] bg-feu-green/5 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-feu-yellow/10 rounded-full blur-3xl"></div>
 
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8">
 
-            <!-- LEFT NAVIGATION -->
             <div class="space-y-4">
 
                 {% set facilities = [
@@ -127,7 +165,6 @@
 
             </div>
 
-            <!-- RIGHT VIEWER -->
             <div id="viewer"
                  class="relative overflow-hidden rounded-[2rem] bg-white border border-slate-200 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
 
@@ -140,81 +177,7 @@
 
 </section>
 
-<!-- DIAGONAL OVERLAP BANNER -->
-<section class="relative z-50 -mt-10 -mb-10 h-28 overflow-visible">
 
-    <div
-        class="absolute inset-x-[-5%] top-1/2 -translate-y-1/2 bg-feu-green py-4 rotate-[-4deg] shadow-2xl">
-
-        <div class="flex whitespace-nowrap sync-marquee-wrapper">
-
-            <div class="flex items-center gap-8 text-3xl font-black uppercase text-white marquee-content">
-                <span>Campus Facilities</span>
-                <span class="text-white">•</span>
-
-                <span>Learning Spaces</span>
-                <span class="text-feu-yellow">•</span>
-
-                <span>Modern Labs</span>
-                <span class="text-red-500">•</span>
-
-                <span>Student Services</span>
-                <span class="text-blue-500">•</span>
-
-                <span>Innovation</span>
-                <span class="text-feu-yellow">•</span>
-
-            </div>
-
-            <div
-                class="flex items-center gap-8 text-3xl font-black uppercase text-white marquee-content"
-                aria-hidden="true">
-                <span>Campus Facilities</span>
-                <span class="text-white">•</span>
-
-                <span>Learning Spaces</span>
-                <span class="text-feu-yellow">•</span>
-
-                <span>Modern Labs</span>
-                <span class="text-red-500">•</span>
-
-                <span>Student Services</span>
-                <span class="text-blue-500">•</span>
-
-                <span>Innovation</span>
-                <span class="text-feu-yellow">•</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- VIDEO SECTION -->
-<section class="max-w-7xl mx-auto px-6 lg:px-8 -mt-12 mb-16 relative z-10">
-    <div class="flex justify-center">
-        <div class="relative overflow-hidden rounded-[2rem] bg-slate-950 aspect-video shadow-2xl border border-slate-800 w-full md:w-[80%] lg:w-[70%]">
-
-           <video
-                class="w-full h-full object-cover"
-                controls
-                autoplay
-                loop
-                muted
-                playsinline
-                preload="metadata"
-                poster="/images/yt.png">
-
-                <source src="/videos/FACILITIES.mp4" type="video/mp4">
-            </video>
-
-        </div>
-    </div>
-</section>
-
-<!-- STYLES -->
 <style>
 
 /* Continuous Marquee Animation Definition */
@@ -363,7 +326,6 @@
 
 </style>
 
-<!-- SCRIPT -->
 <script>
 
 const data = [
@@ -605,7 +567,6 @@ function showContent(index){
 
         <div class="relative overflow-hidden">
 
-            <!-- MAIN IMAGE -->
             <div class="relative h-[420px] overflow-hidden">
 
                 <img 
@@ -629,7 +590,6 @@ function showContent(index){
 
             </div>
 
-            <!-- THUMBNAILS -->
             <div class="absolute bottom-6 right-6 flex gap-4 z-20">
 
                 ${data[index].images.map((img) => `

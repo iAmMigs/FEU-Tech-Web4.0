@@ -1,210 +1,325 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<section id="top" class="relative w-full h-[20vh] min-h-[200px] flex items-end justify-center overflow-hidden">
+<section id="top" class="relative w-full h-[25vh] min-h-[220px] flex items-end justify-center overflow-hidden bg-[#004026]">
     <div class="absolute inset-0 z-0">
-        <img src="/images/history/1936.jpg"
-             alt="Hero Background"
-             class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-        <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+        <img src="/images/history/1936.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-30 mix-blend-overlay">
     </div>
-    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-10 md:pb-18">
-        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
-            History of <span class="feu-gradient-text">FEU Tech</span>
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto pb-12">
+        <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-wider">
+            History of <span class="text-[#EFA316]">FEU Tech</span>
         </h1>
+        <div class="w-24 h-1 bg-[#EFA316] mx-auto mt-4"></div>
     </div>
 </section>
 
-<div style="background: linear-gradient(to bottom, #ffffff 2%, #fffee0 100%);" class="pt-20 pb-10">
-    <div class="flex flex-col items-center text-center">
-        <h1 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 italic"> Timeline</h1>
-        <div class="w-16 h-1 bg-[#febe10]"></div>
-    </div>
-</div>
-
-
-<!-- TIMELINE CONTAINER: Yellow fades to white within the top 1/8 (12.5%) of this section -->
-<div class="min-h-screen py-12 px-4 md:px-10" 
-     style="background: linear-gradient(to bottom, #fffee0 8%, #ffffff 12.5%, #ffffff 100%);">
-
-    <div class="relative max-w-7xl mx-auto" id="timeline">
-
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-green-200"></div>
-
-        <div id="timeline-line"
-             class="absolute left-1/2 transform -translate-x-1/2 top-0 w-[4px] bg-green-700 h-0 transition-all duration-300 z-10">
-        </div>
+<div class="bg-white min-h-screen py-16 px-4 md:px-12 lg:px-20 overflow-x-hidden">
+    <div class="relative max-w-6xl mx-auto" id="timeline">
+        
+        <div class="absolute left-[131px] md:left-[163px] top-4 bottom-0 w-[6px] bg-[#004026]/20 rounded z-0"></div>
+        <div id="timeline-line" class="absolute left-[131px] md:left-[163px] top-4 w-[6px] h-0 transition-[height] duration-300 z-[5] rounded"></div>
 
         <div class="space-y-16">
-
             {% set timeline = [
-                { 'date': '1936', 'content': 'The Commonwealth was two years old and independence was promised a decade hence. The FEU, a private education pioneer, took stock of the emergent nation’s needs. Among its findings was a very pressing need for engineers and technologists to help build the nation. It felt itself challenged and it thus established the Institute of Technology. An increasing demand for trained engineers and technologists remained. With the government’s accelerated economic recovery program, private businesses establishing more and more factories, and agriculture shifting to mechanization, the demand for trained and skilled personnel was greater than ever. The Institute of Technology helped by filling the country’s needs in this respect.', 'image': '/images/history/1936.jpg' },
-                { 'date': '1936', 'content': 'When it was founded, the Institute of Technology initially offered a complete course in civil engineering. The Institute has since added complete courses in six other major fields of technology: architecture, chemical engineering, mechanical engineering, electrical engineering, industrial engineering, and chemistry. Curricula were structured identically to world premier giants like MIT, Cornell, and CalPoly, backed by a formidable faculty composed of the nation’s esteemed technical educators, scholars, and practicing professional consulting engineers.', 'image': '/images/history/1930.jpg' },
-                { 'date': '1952', 'content': 'A course in geodetic engineering was also started. In line with a continuous facility expansion policy around this peak historical era, FEU built a foundational seven-storey Technology Building in Manila along with a major layout complex across its 46-hectare Quezon City campus to maintain the country’s most modern laboratory resources.', 'image': '/images/history/1960.jpg' },
-                { 'date': '1971', 'content': 'The Department of Architecture was elevated into the Institute of Architecture and Fine Arts and took over the architecture program.', 'image': '/images/history/1945.jpg' },
-                { 'date': '1978', 'content': 'The course in chemistry was transferred to the Institute of Arts and Sciences.', 'image': '/images/history/1978.jpg' },
-                { 'date': '1991', 'content': 'SM Foundation and IBM Philippines set up the Asia Pacific Computer Technology Center (APCTC). Six months later, APCTC collaborated with Far Eastern University (FEU) and Intelligent Wave, Inc. (IWI) and set up a computer school, which was subsequently called East Asia Computer Center. Later, the name was changed to East Asia Institute of Computer Technology (EAICT). Initially, the only degree offered was a Bachelor of Science in Computer and Information Science (BSCIS). Concurrently, engineering operations faced a massive transition shift as the legacy Board of Directors systematically stopped accepting engineering freshmen this same year.', 'image': '/images/history/1991.jpg' },
-                { 'date': '1992', 'content': 'FEU takes pride in its relentless efforts for academic excellence. For this reason, it conducts a constant review of programs of major tertiary courses. After a thorough study of the Technology Program, the administration decided to phase it out in favor of a computer technology program forged with East Asia Computer Center, Inc., which offered degrees in Computer Science.', 'image': '/images/history/1992.png' },
-                { 'date': '1994', 'content': 'EAICT started to offer the degree of Bachelor of Science in Computer Engineering (BSCOE).', 'image': '/images/history/1994.jpg' },
-                { 'date': '1996', 'content': 'Despite still holding a major baseline enrollment of over 4,000 active students, the legacy Institute of Technology found itself caught in a structural economic squeeze between strict government caps on tuition fee increases and escalating costs required to support high-tier engineering standards. Refusing to let quality plummet, FEU elected to close the legacy unit down.', 'image': '/images/history/1998.jpg' },
-                { 'date': 'September 30, 1998', 'content': 'The Commission on Higher Education (CHED) noted the change in the name of East Asia Institute of Computer Technology (EAICT) to East Asia College of Information Technology (EACIT).', 'image': '/images/history/1998.jpg' },
-                { 'date': 'February 24, 2000', 'content': 'EACIT reached a key milestones as it was officially designated by CHED as a Center of Development for Excellence (CODE) in Information Technology Education throughout the National Capital Region (NCR).', 'image': '/images/history/2000.jpg' },
-                { 'date': '2001', 'content': 'EACIT sought approval of CHED for additional courses leading to BSIT and BSIM tracks. Simultaneously, FEU administrators moved to fully rehabilitate and revive the engineering program, launching the modern College of Engineering (BSCE, BSEE, BSECE, BSIE) under a trimestral calendar system, allowing standard graduation paths in 4 years and 1 single term (inclusive of a 3.5-month industry immersion).', 'image': '/images/history/2001.jpg' },
-                { 'date': '2002', 'content': 'FEU acquired the controlling stock of EACIT.', 'image': '/images/history/2002.jpg' },
-                { 'date': '2003', 'content': 'FEU merged Engineering and EACIT forming FEU–EAC.', 'image': '/images/history/2003.jpg' },
-                { 'date': 'April 12, 2004', 'content': 'The re-established College of Engineering formally received its structural Government Recognitions from the Commission on Higher Education (CHED) to fully operate its four principal programs (BSCE, BSEE, BSECE, BSIE), while the IT expansions initiated in 2001 secured full official recognition in the same month.', 'image': '/images/history/2014.jpg' },
-                { 'date': '2014', 'content': 'FEU–EAC was renamed FEU Institute of Technology (FEU Tech).', 'image': '/images/history/2014.jpg' }
+                { 'date': '1936', 'title': 'FEU Establishes the Institute of Technology', 'tag': 'WHAT IS CHED? CHED stands for Commission on Higher Education. It is the government agency responsible for regulating and coordinating higher education in the Philippines.', 'content': 'Recognizing the country\'s growing need for engineers to support nation-building, FEU founded the Institute of Technology, initially offering Civil Engineering.', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'none', 'iconImage': '/images/history/1936.jpg' },
+
+                { 'date': '1991', 'title': 'A New Technology Direction', 'tag': '', 'content': 'FEU began transforming its technology education by partnering with East Asia Computer Center, shifting its focus toward computer and information technology.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'trending-up', 'iconImage': '/images/history/1991.jpg' },
+
+                { 'date': '1992', 'title': 'Computer Science Begins', 'tag': 'Computing Education Begins', 'content': 'The institution launched its first computing degree, Bachelor of Science in Computer and Information Science (BSCIS).', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'graduation-cap', 'iconImage': '/images/history/1992.png' },
+
+                { 'date': '1994', 'title': 'Computer Engineering Introduced', 'tag': '', 'content': 'Responding to the growing demand for computing professionals, Bachelor of Science in Computer Engineering (BSCoE) was added.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'trending-up', 'iconImage': '/images/history/1994.jpg' },
+
+                { 'date': '1998', 'title': 'East Asia College of Information Technology', 'tag': '', 'content': 'Commission on Higher Education (CHED) officially recognized the institution\'s new name: East Asia College of Information Technology (EACIT).', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'building', 'iconImage': '/images/history/1998.jpg' },
+
+                { 'date': '2000', 'title': 'CHED Center of Development', 'tag': '', 'content': 'EACIT was designated by CHED as a Center of Development for Excellence in Information Technology Education in the NCR.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'award', 'iconImage': '/images/history/2000.jpg' },
+
+                { 'date': '2001', 'title': 'Engineering Returns', 'tag': '', 'content': 'FEU revived its engineering education through the reopening of the College of Engineering, while EACIT expanded with BS Information Technology and BS Information Management.', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'refresh', 'iconImage': '/images/history/2001.jpg' },
+
+                { 'date': '2002', 'title': 'FEU Acquires EACIT', 'tag': '', 'content': 'FEU acquired controlling ownership of EACIT, paving the way for a unified technology institution.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'users', 'iconImage': '/images/history/2002.jpg' },
+
+                { 'date': '2003', 'title': 'The Power of Two', 'tag': 'Joining Together', 'content': 'The College of Engineering and EACIT merged to form FEU–East Asia College (FEU–EAC), combining engineering and computing education under one institution.', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'users', 'iconImage': '/images/history/2003.jpg' },
+
+                { 'date': '2004', 'title': 'Engineering Programs Recognized', 'tag': 'Government Recognized Engineering Program', 'content': 'CHED granted Government Recognition to FEU\'s engineering programs, reinforcing the institution\'s commitment to quality engineering education.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'medal', 'iconImage': '/images/history/2014.jpg' }
+                
             ] %}
 
             {% for item in timeline %}
-                {% set isRight = loop.index is even %}
+                <div class="relative z-10 flex items-center timeline-item opacity-0 transform translate-y-8 transition-all duration-700 ease-out min-h-[100px]" data-index="{{ loop.index0 }}" data-theme="{{ item.theme }}">
+                    
+                    <div class="w-28 h-28 flex items-center justify-center shrink-0 pl-2">
+                        <div class="border-2 p-1.5 rounded-xl w-full h-full flex items-center justify-center bg-white {{ item.theme == 'gold' ? 'border-amber-500 text-amber-500' : 'border-emerald-800 text-emerald-800' }}">
+                            <img src="{{ item.iconImage }}" alt="{{ item.date }} icon" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                    </div>
 
-                <div class="relative timeline-item opacity-0 transition-all duration-700 ease-out group flex"
-                     data-index="{{ loop.index0 }}">
+                    <div class="absolute left-[118px] md:left-[150px] flex items-center z-30 group-node">
+                        <div class="w-7 h-7 rounded-full bg-white border-4 {{ item.borderColor }} flex items-center justify-center shadow-sm relative shrink-0 z-20">
+                            <div class="timeline-dot w-2 h-2 rounded-full {{ item.bgColor }} transition-all duration-300"></div>
+                        </div>
+                        
+                        <img src="/images/readingtamtam2.gif"
+                            class="timeline-gif absolute left-[-10px] w-12 h-12 object-contain opacity-0 scale-75 transition-all duration-300 z-40 pointer-events-none rounded-full border-2 {{ item.borderColor }} bg-white max-w-none">
 
-                    <div class="w-1/2 flex justify-end pr-10">
-                        <div class="max-w-md w-full flex flex-col">
-                            {% if not isRight %}
-                                <h2 class="text-2xl font-extrabold text-green-600 mb-3 text-right group-hover:text-[#febe10] transition">
-                                    {{ item.date }}
-                                </h2>
+                        <div class="relative -ml-1 h-14 flex items-center pl-6 pr-8 font-black text-white text-2xl font-sans tracking-wide shadow-md rounded-r-lg {{ item.bgColor }} [clip-path:polygon(0%_0%,_85%_0%,_100%_50%,_85%_100%,_0%_100%)] min-w-[110px] md:min-w-[130px] z-10">
+                            {{ item.date }}
+                        </div>
+                    </div>
 
-                                <div class="flex-1 bg-white rounded-lg shadow-md p-5 border-r-2 border-green-200 flex items-center justify-center text-right group-hover:bg-[#008348] group-hover:text-white transition-all duration-300">
-                                    <p>{{ item.content }}</p>
-                                </div>
-                            {% else %}
-                                <div class="mb-3 h-8"></div>
-
-                                <div class="flex-1 overflow-hidden rounded-xl shadow-xl bg-gray-100">
-                                    <img src="{{ item.image }}"
-                                         class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full pl-52 md:pl-64 items-center py-4">
+                        <div class="lg:col-span-4">
+                            <h3 class="text-lg md:text-xl font-bold font-sans tracking-tight {{ item.textColor }}">
+                                {{ item.title }}
+                            </h3>
+                        </div>
+                        
+                        <div class="lg:col-span-5">
+                            <p class="text-xs md:text-sm text-gray-600 leading-relaxed font-medium">
+                                {{ item.content }}
+                            </p>
+                        </div>
+                        
+                        <div class="lg:col-span-3 flex justify-start lg:justify-end">
+                            {% if item.tag is defined and item.tag is not empty %}
+                                <div class="px-4 py-3 border-2 {{ item.borderColor }} bg-white rounded-xl text-center w-full max-w-[220px] shadow-sm flex items-center gap-3 justify-center">
+                                    
+                                    {% if item.tagIcon != 'none' %}
+                                        <div class="shrink-0 {{ item.textColor }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                                {% if item.tagIcon == 'graduation-cap' %}
+                                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                                {% elseif item.tagIcon == 'users' %}
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                {% elseif item.tagIcon == 'medal' %}
+                                                    <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                                {% endif %}
+                                            </svg>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <span class="text-[10px] font-black text-gray-700 uppercase tracking-wider text-left leading-tight block">
+                                        {{ item.tag }}
+                                    </span>
                                 </div>
                             {% endif %}
                         </div>
                     </div>
-
-                    <div class="w-16 flex flex-col items-center marker-container relative z-20">
-                        <div class="h-11"></div>
-
-                        <div class="flex-1 w-full relative flex items-center justify-center">
-
-                            <span class="timeline-dot absolute w-6 h-6 rounded-full bg-green-600 border-4 border-white shadow-lg z-10 transition-all duration-300"></span>
-
-                            <img src="/images/readingtamtam2.gif"
-                                 class="timeline-gif absolute w-14 h-14 object-contain opacity-0 scale-75 transition-all duration-300 z-20 pointer-events-none rounded-full border-4 border-transparent bg-white">
-                        </div>
-                    </div>
-
-                    <div class="w-1/2 flex justify-start pl-10">
-                        <div class="max-w-md w-full flex flex-col">
-                            {% if isRight %}
-                                <h2 class="text-2xl font-extrabold text-green-600 mb-3 text-left group-hover:text-[#febe10] transition">
-                                    {{ item.date }}
-                                </h2>
-
-                                <div class="flex-1 bg-white rounded-lg shadow-md p-5 border-l-2 border-green-200 flex items-center justify-center text-left group-hover:bg-[#008348] group-hover:text-white transition-all duration-300">
-                                    <p>{{ item.content }}</p>
-                                </div>
-                            {% else %}
-                                <div class="mb-3 h-8"></div>
-
-                                <div class="flex-1 overflow-hidden rounded-xl shadow-xl bg-gray-100">
-                                    <img src="{{ item.image }}"
-                                         class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
-
                 </div>
             {% endfor %}
+        </div>
 
+        <div class="mt-24 timeline-item opacity-0 transform translate-y-8 transition-all duration-700 ease-out -mx-4 md:-mx-12 lg:-mx-20 relative z-10" data-index="{{ timeline|length }}" data-theme="gold">
+            
+            <div class="absolute inset-y-0 left-0 right-0 pointer-events-none z-20">
+                <div class="absolute left-[147px] md:left-[211px] lg:left-[243px] top-0 h-48 w-[6px] bg-gradient-to-b from-white/20 via-white/20 to-transparent"></div>
+                <div id="timeline-line-end" class="absolute left-[147px] md:left-[211px] lg:left-[243px] top-0 w-[6px] bg-gradient-to-b from-white via-white to-transparent h-0 transition-all duration-300"></div>
+
+                <div class="absolute left-[134px] md:left-[200px] lg:left-[232px] top-32 flex items-center z-30">
+                    <div class="w-8 h-8 rounded-full bg-white border-4 border-[#EFA316] flex items-center justify-center shadow-md relative shrink-0 z-20">
+                        <div class="timeline-dot-end w-2 h-2 rounded-full bg-[#EFA316] transition-all duration-300"></div>
+                    </div>
+                    <img src="/images/readingtamtam2.gif" class="timeline-gif-end absolute -left-[4px] w-10 h-10 object-contain opacity-0 scale-75 transition-all duration-300 z-40 pointer-events-none rounded-full border-2 border-[#EFA316] bg-white max-w-none">
+                </div>
+            </div>
+
+            <div class="w-full bg-[#003820] text-white relative overflow-hidden flex flex-col min-h-[480px]">
+                <div class="absolute left-0 top-0 bottom-0 w-full lg:w-[23%] z-0 opacity-20 lg:opacity-30 mix-blend-luminosity pointer-events-none">
+                    <img src="/images/history/2014.jpg" alt="FEU Tech Building" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#003820]"></div>
+                </div>
+
+                <div class="absolute left-4 md:left-[36px] lg:left-[48px] top-1/2 -translate-y-1/2 z-30 hidden sm:block">
+                        <div class="w-28 h-36 rounded-full bg-[#002615] border-2 border-[#EFA316] flex items-center justify-center shadow-lg">
+                            <img src="/images/Tech_Logo.png" class="w-29 h-28 object-contain">
+                        </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pl-48 pr-6 md:pl-64 md:pr-16 lg:pl-80 lg:pr-24 pt-16 pb-20 relative z-10 my-auto">
+                    <div class="lg:col-span-6 space-y-4 text-left">
+                        <span class="text-6xl md:text-7xl font-black tracking-tighter block text-white font-sans">2014</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-[#EFA316] uppercase tracking-wide leading-tight font-sans">Back to Its Roots </h3>
+                        <p class="text-xs md:text-sm text-gray-200 font-medium leading-relaxed max-w-xl">
+                            FEU–East Asia College was officially <br> renamed FEU Institute of Technology <br> (FEU Tech), restoring its historic identity <br> while embracing modern innovation and technology.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-6 flex justify-center lg:justify-end w-full">
+                        <div class="border-[3px] border-[#EFA316] p-6 md:p-8 rounded-2xl text-center max-w-md w-full bg-[#002b18]/90 shadow-2xl relative font-sans">
+                            <div class="flex items-center justify-center gap-4 mb-4">
+                                <div>
+                                    <img src="/images/history/footer.png" class="w-16 h-16">
+                                </div>
+                                <p class="text-xs uppercase tracking-widest text-white font-bold leading-tight text-left">
+                                    Restoring Our Heritage.<br>Embracing the Future.
+                                </p>
+                            </div>
+
+                            <h2 class="text-5xl font-bold text-[#EFA316] mb-4 font-['Poppins'] tracking-[0.3em] scale-y-[2]  origin-center inline-block">
+                                FEU TECH
+                            </h2>
+                            
+
+                            <div class="border-2 border-[#EFA316] py-2 px-2 inline-block w-full">
+                                <span class="text-[15px] font-bold text-[#EFA316] block uppercase font-['Poppins'] whitespace-nowrap tracking-[0.5em]">
+                                    SCHOOL OF INNOVATION
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-auto w-full bg-[#002615] py-5 px-6 border-t border-white/10 text-center">
+                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10 text-[11px] tracking-widest text-gray-300 uppercase">
+                        <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#EFA316]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg> Engineering Roots</span>
+                        <span class="text-[#EFA316] font-bold select-none">•</span>
+                        <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#EFA316]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h18"></path></svg> Technology Driven</span>
+                        <span class="text-[#EFA316] font-bold select-none">•</span>
+                        <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#EFA316]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Future Ready</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove('opacity-0', 'translate-y-10');
-                entry.target.classList.add('opacity-100', 'translate-y-0');
-            }
-        });
-    }, { threshold: 0.1 });
+    (() => {
+        const initTimeline = () => {
+            const items = document.querySelectorAll('.timeline-item');
+            const line = document.getElementById('timeline-line');
+            const lineEnd = document.getElementById('timeline-line-end');
+            const timeline = document.getElementById('timeline');
+            
+            if (!timeline) return;
+            
+            const lastIndex = items.length - 1;
 
-    document.querySelectorAll('.reveal-on-scroll').forEach(section => revealObserver.observe(section));
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                    }
+                });
+            }, { threshold: 0.05 });
 
+            items.forEach(item => revealObserver.observe(item));
 
-    const items = document.querySelectorAll('.timeline-item');
-    const line = document.getElementById('timeline-line');
-    const timeline = document.getElementById('timeline');
+            const updateTrackProgress = () => {
+                if (!items.length || !line) return;
+                let activeIndex = -1;
+                const viewportMiddle = window.innerHeight * 0.55;
 
-    const updateLine = () => {
+                items.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    if (rect.top < viewportMiddle) {
+                        activeIndex = index;
+                    }
+                });
 
-        let activeIndex = -1;
-        const viewportMiddle = window.innerHeight / 2;
+                const timelineTop = timeline.getBoundingClientRect().top + window.scrollY;
+                let targetHeight = 0;
 
-        items.forEach((item, index) => {
-            const rect = item.getBoundingClientRect();
-            if (rect.top < viewportMiddle) {
-                activeIndex = index;
-            }
-        });
+                if (activeIndex < 0) {
+                    line.style.height = '0px';
+                    if(lineEnd) lineEnd.style.height = '0px';
+                } else {
+                    const currentItem = items[activeIndex];
+                    
+                    if (activeIndex === lastIndex) {
+                        const endContainerTop = currentItem.getBoundingClientRect().top + window.scrollY;
+                        targetHeight = (endContainerTop - timelineTop);
+                        line.style.height = targetHeight + 'px';
+                        if(lineEnd) lineEnd.style.height = '180px';
+                    } else {
+                        const marker = currentItem.querySelector('.rounded-full');
+                        const markerCenter = marker.getBoundingClientRect().top + window.scrollY + (marker.offsetHeight / 2);
+                        targetHeight = (markerCenter - timelineTop);
+                        line.style.height = targetHeight + 'px';
+                        if(lineEnd) lineEnd.style.height = '0px';
+                    }
+                }
 
-        const timelineTop =
-            timeline.getBoundingClientRect().top + window.scrollY;
+                if (targetHeight > 0) {
+                    let colorStops = [];
+                    items.forEach((item, index) => {
+                        const theme = item.dataset.theme;
+                        const colorHex = (theme === 'gold') ? '#EFA316' : '#004026';
+                        
+                        let nodePos = 0;
+                        if (index === lastIndex) {
+                            nodePos = item.getBoundingClientRect().top + window.scrollY - timelineTop;
+                        } else {
+                            const marker = item.querySelector('.rounded-full');
+                            if (marker) {
+                                nodePos = marker.getBoundingClientRect().top + window.scrollY + (marker.offsetHeight / 2) - timelineTop;
+                            }
+                        }
 
-        if (activeIndex < 0) {
-            line.style.height = '0px';
-        } else {
-            if (activeIndex === items.length - 1) {
-                const timelineBottom =
-                    timeline.getBoundingClientRect().bottom + window.scrollY;
-                line.style.height =
-                    (timelineBottom - timelineTop) + 'px';
-            } else {
-                const currentItem = items[activeIndex];
-                const dot = currentItem.querySelector('.timeline-dot');
-                const dotCenter =
-                    dot.getBoundingClientRect().top +
-                    window.scrollY +
-                    (dot.offsetHeight / 2);
-                line.style.height =
-                    (dotCenter - timelineTop) + 'px';
-            }
-        }
+                        if (nodePos <= targetHeight) {
+                            let percentage = (nodePos / targetHeight) * 100;
+                            colorStops.push(`${colorHex} ${percentage.toFixed(1)}%`);
+                        } else {
+                            let percentage = 100;
+                            colorStops.push(`${colorHex} ${percentage}%`);
+                        }
+                    });
 
-        items.forEach((item, index) => {
-            const dot = item.querySelector('.timeline-dot');
-            const gif = item.querySelector('.timeline-gif');
+                    if (colorStops.length === 1) {
+                        const activeTheme = items[activeIndex].dataset.theme;
+                        const primaryColor = activeTheme === 'gold' ? '#EFA316' : '#004026';
+                        line.style.backgroundImage = `linear-gradient(to bottom, ${primaryColor}, ${primaryColor})`;
+                    } else {
+                        line.style.backgroundImage = `linear-gradient(to bottom, ${colorStops.join(', ')})`;
+                    }
+                } else {
+                    line.style.backgroundImage = 'none';
+                }
 
-            if (index === activeIndex) {
-                dot.classList.add('opacity-0', 'scale-0');
-                gif.classList.remove('opacity-0', 'scale-75', 'border-transparent');
-                gif.classList.add('opacity-100', 'scale-100', 'border-green-500');
-            } else {
-                dot.classList.remove('opacity-0', 'scale-0');
-                gif.classList.remove('opacity-100', 'scale-100', 'border-green-500');
-                gif.classList.add('opacity-0', 'scale-75', 'border-transparent');
-            }
-        });
-    };
+                items.forEach((item, index) => {
+                    if (index === lastIndex) {
+                        const endDot = item.querySelector('.timeline-dot-end');
+                        const endGif = item.querySelector('.timeline-gif-end');
+                        if (endDot && endGif) {
+                            if (activeIndex === lastIndex) {
+                                endDot.classList.add('opacity-0', 'scale-0');
+                                endGif.classList.remove('opacity-0', 'scale-75');
+                                endGif.classList.add('opacity-100', 'scale-100');
+                            } else {
+                                endDot.classList.remove('opacity-0', 'scale-0');
+                                endGif.classList.remove('opacity-100', 'scale-100');
+                                endGif.classList.add('opacity-0', 'scale-75');
+                            }
+                        }
+                        return;
+                    }
 
-    const timelineObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove('opacity-0');
-                entry.target.classList.add('opacity-100');
-            }
-        });
-    }, { threshold: 0.2 });
+                    const dot = item.querySelector('.timeline-dot');
+                    const gif = item.querySelector('.timeline-gif');
 
-    items.forEach(item => timelineObserver.observe(item));
+                    if (gif && dot) {
+                        if (index === activeIndex) {
+                            dot.classList.add('opacity-0', 'scale-0');
+                            gif.classList.remove('opacity-0', 'scale-75');
+                            gif.classList.add('opacity-100', 'scale-100'); 
+                        } else {
+                            dot.classList.remove('opacity-0', 'scale-0');
+                            gif.classList.remove('opacity-100', 'scale-100');
+                            gif.classList.add('opacity-0', 'scale-75');
+                        }
+                    }
+                });
+            };
 
-    window.addEventListener('scroll', updateLine);
-    window.addEventListener('resize', updateLine);
-    updateLine();
+            window.removeEventListener('scroll', updateTrackProgress);
+            window.removeEventListener('resize', updateTrackProgress);
+
+            window.addEventListener('scroll', updateTrackProgress);
+            window.addEventListener('resize', updateTrackProgress);
+            updateTrackProgress();
+        };
+
+        initTimeline();
+        document.addEventListener("DOMContentLoaded", initTimeline);
+        document.addEventListener("turbo:load", initTimeline);
+    })();
 </script>
-
 {% endblock %}

@@ -3,18 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        {% set pageMeta = get_current_page_meta() %}
-        {% set dbTitle = pageMeta and pageMeta.metaTitle ? pageMeta.metaTitle : null %}
-        <title>{% if dbTitle %}{{ dbTitle }}{% else %}{% block title %}FEU Institute of Technology{% endblock %}{% endif %}</title>
-        {% block meta %}
-            {% if pageMeta and pageMeta.metaDescription %}
-                <meta name="description" content="{{ pageMeta.metaDescription }}">
-            {% endif %}
-            {% if pageMeta and pageMeta.metaKeywords %}
-                <meta name="keywords" content="{{ pageMeta.metaKeywords }}">
-            {% endif %}
-        {% endblock %}
-        <link rel="icon" href="/images/Tech_Logo.png" type="image/png">
+        <title>{% block title %}FEU Institute of Technology{% endblock %}</title>
+        <link rel="icon" href="/images/FEUTECHSeal.ico" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -29,6 +19,7 @@
                         colors: {
                             'feu-green': '#002d19',
                             'feu-yellow': '#fdb813',
+                            'new-green': '#1F8548'
                         }
                     }
                 }
@@ -55,16 +46,12 @@
         </div>
 
         <div class="fixed top-0 left-0 right-0 z-[999] shadow-sm">
-        <div class="bg-feu-green text-white py-2 text-sm shadow-inner relative z-50">
+        <div class="bg-new-green text-white py-2 text-sm shadow-inner relative z-50">
             <div class="max-w-[1440px] mx-auto px-8 lg:px-12 flex flex-col md:flex-row items-center">
 
                 <div class="hidden md:flex items-center gap-10">
                     <a href="#" class="hover:text-feu-yellow transition-colors font-medium">
                         Sustainability
-                    </a>
-
-                    <a href="https://paraverse.feutech.edu.ph/" class="hover:text-feu-yellow transition-colors font-medium">
-                        Paraverse
                     </a>
 
                     <a href="https://feutech.edu.ph/ftic" class="hover:text-feu-yellow transition-colors font-medium">
@@ -77,52 +64,38 @@
                 </div>
                 
                 <div class="flex items-center gap-1 ml-auto w-full md:w-auto justify-end mt-2 md:mt-0">
-
-                    <a href="https://www.facebook.com/FEUTechOfficial/"
-                        target="_blank"
-                        class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/10 hover:text-feu-yellow transition-all">
-                        <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path d="M22 12.07C22 6.51 17.52 2 12 2S2 6.51 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.25.2 2.25.2v2.47H15.2c-1.25 0-1.64.78-1.64 1.58v1.88h2.79l-.45 2.91h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/>
-                        </svg>
+                    <div class="hidden md:flex items-center gap-10">
+                    <a href="https://solar.feutech.edu.ph" class="hover:text-feu-yellow transition-colors font-medium">
+                        Solar
                     </a>
 
-                    <a href="https://www.tiktok.com/@feutech"
-                        target="_blank"
-                        class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/10 hover:text-feu-yellow transition-all">
-                        <span class="sr-only">TikTok</span>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-1.81V15.5a5.5 5.5 0 11-5.5-5.5c.43 0 .84.05 1.24.14v3.13a2.39 2.39 0 00-1.24-.34 2.57 2.57 0 102.57 2.57V2h2.99a4.83 4.83 0 003.71 4.69v0z"/>
-                        </svg>
+                    <a href="https://paraverse.feutech.edu.ph/" class="hover:text-feu-yellow transition-colors font-medium">
+                        Paraverse
                     </a>
 
-                    <a href="https://www.youtube.com/@FitEduPh"
-                        target="_blank"
-                        class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/10 hover:text-feu-yellow transition-all">
-                        <span class="sr-only">YouTube</span>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path d="M23.5 6.2a2.96 2.96 0 00-2.08-2.1C19.56 3.5 12 3.5 12 3.5s-7.56 0-9.42.6A2.96 2.96 0 00.5 6.2 31.36 31.36 0 000 12a31.36 31.36 0 00.5 5.8 2.96 2.96 0 002.08 2.1c1.86.6 9.42.6 9.42.6s7.56 0 9.42-.6a2.96 2.96 0 002.08-2.1A31.36 31.36 0 0024 12a31.36 31.36 0 00-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/>
-                        </svg>
+                    <a href="https://bit.ly/FEUADT-VirtualCampus" class="hover:text-feu-yellow transition-colors font-medium">
+                        Virtual Office
                     </a>
+                </div>
 
                 </div>
 
             </div>
         </div>
 
-            <header class="bg-feu-green bg-opacity-90 backdrop-blur-md border-b border-white/10">
+            <header id="main-header" class="bg-white backdrop-blur-md border-b border-slate-100 transition-all duration-300 shadow-sm">
                 <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between items-center h-20">
+                    <div class="flex justify-between items-center h-24">
                         <a href="{{ path('app_home') }}" class="flex-shrink-0 flex items-center gap-3 group mr-4">
-                            <img src="/images/Tech_Logo.png" alt="FEU Tech Logo" class="h-12 w-auto group-hover:scale-105 transition-transform drop-shadow-md">
-                            <img src="/images/Tech_Banner_Yellow.png" alt="FEU Tech Text" class="h-6 md:h-7 w-auto group-hover:opacity-80 transition-opacity">
+                            <img src="/images/Tech_Logo.png" alt="FEU Tech Logo" class="h-12 w-auto">
+                            <img src="/images/Tech_Banner_Green.png" alt="FEU Tech Text" class="h-8 md:h-8 w-auto group-hover:opacity-80 transition-opacity">
                         </a>
                         
                         <nav class="hidden xl:flex items-center space-x-6">
-                            <a href="{{ path('app_home') }}" class="whitespace-nowrap text-white font-medium hover:text-feu-yellow transition-colors text-sm uppercase">HOME</a>
+                            <a href="{{ path('app_home') }}" class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors text-sm uppercase">HOME</a>
                                                                             
                             <div class="relative group mt-1">
-                                <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
+                                <button class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
                                     ABOUT
                                     <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -177,7 +150,7 @@
                             </div>
 
                             <div class="relative group mt-1">
-                                <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
+                                <button class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
                                     ADMISSIONS <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
                                 <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
@@ -195,7 +168,7 @@
                             </div>
 
                             <div class="relative group mt-1">
-                                <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
+                                <button class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
                                     ACADEMICS
                                     <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -203,10 +176,8 @@
                                 </button>
                                 <div class="absolute left-0 mt-0 w-72 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
                                     <div class="py-2 flex flex-col">
-                                        <a href="https://paraverse.feutech.edu.ph/" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Educational Innovation and Technology Hub</a>
-                                        <a href="{{ path('app_miles') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">MILES</a>
-                                        <a href="{{ path('app_ccsma') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors leading-tight">College of Computer Studies & Multimedia Arts</a>
                                         <a href="{{ path('app_coe') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">College of Engineering</a>
+                                        <a href="{{ path('app_ccsma') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors leading-tight">College of Computer Studies & Multimedia Arts</a>
                                         <a href="{{ path('app_gened') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">General Education</a>
 
                                         <div class="relative group/academicservices">
@@ -225,13 +196,15 @@
                                             </div>
                                         </div>
 
+                                        <a href="https://paraverse.feutech.edu.ph/" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Educational Innovation and Technology Hub</a>
                                         <a href="https://feutech.edu.ph/ftic" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">FEU Tech Innovation Center</a>
+                                        <a href="https://paraverse.feutech.edu.ph/" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Paraverse</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="relative group mt-1">
-                                <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
+                                <button class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
                                     STUDENT SUPPORT <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
                                 <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
@@ -249,13 +222,13 @@
                             </div>
 
                             <div class="relative group mt-1">
-                                <a href="{{ path('app_magazine') }}" class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
+                                <a href="{{ path('app_magazine') }}" class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
                                     E- Magazine 
                                 </a>
                             </div>
 
                             <div class="relative group mt-1">
-                                <button class="whitespace-nowrap text-slate-200 font-medium hover:text-white transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-white after:transition-all">
+                                <button class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
                                     CAREERS <svg class="w-4 h-4 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
                                 <div class="absolute right-0 mt-0 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-right translate-y-2 group-hover:translate-y-0 z-50">
@@ -267,7 +240,7 @@
                         </nav>
 
                         <div class="xl:hidden flex items-center">
-                            <button id="mobile-menu-btn" class="text-white hover:text-feu-yellow focus:outline-none p-2 bg-white/10 rounded-lg transition-colors">
+                            <button id="mobile-menu-btn" class="text-feu-green hover:text-feu-yellow focus:outline-none p-2 bg-black/5 rounded-lg transition-colors">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                                 </svg>
@@ -461,9 +434,7 @@
                         </button>
 
                         <div class="hidden pl-6 pr-2 py-1 flex-col space-y-1 bg-black/10 rounded-lg mt-1">
-                            <a href="https://paraverse.feutech.edu.ph/" class="block py-1.5 text-sm text-slate-300 hover:text-white">
-                                Educational Innovation and Hub
-                            </a>
+                            <a href="https://paraverse.feutech.edu.ph/" class="block py-1.5 text-sm text-slate-300 hover:text-white">Educational Innovation and Hub</a>
                             <a href="{{ path('app_miles') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">MILES</a>
                             <a href="{{ path('app_ccsma') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">College of Computer Studies</a>
                             <a href="{{ path('app_coe') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">College of Engineering</a>
@@ -624,6 +595,16 @@
                                     <path d="M23.5 6.2a2.96 2.96 0 00-2.08-2.1C19.56 3.5 12 3.5 12 3.5s-7.56 0-9.42.6A2.96 2.96 0 00.5 6.2 31.36 31.36 0 000 12a31.36 31.36 0 00.5 5.8 2.96 2.96 0 002.08 2.1c1.86.6 9.42.6 9.42.6s7.56 0 9.42-.6a2.96 2.96 0 002.08-2.1A31.36 31.36 0 0024 12a31.36 31.36 0 00-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/>
                                 </svg>
                             </a>
+
+                             <a href="{{ path('app_contact') }}" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#FF0000] hover:text-white transition-all text-slate-400">
+                                    <span class="sr-only">Phone</span>
+                                    <svg class="w-5 h-5 fill-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                            </a>
+
+
+
                         </div>
 
                         <div class="space-y-3 pt-6 border-t border-slate-800">
@@ -641,36 +622,48 @@
 
         <script>
         (function () {
+            function handleScroll() {
+                const header = document.getElementById('main-header');
+                if (!header) return;
+                if (window.scrollY > 10) {
+                    header.classList.remove('bg-white', 'shadow-sm');
+                    header.classList.add('bg-white/50', 'shadow-md');
+                } else {
+                    header.classList.remove('bg-white/50', 'shadow-md');
+                    header.classList.add('bg-white', 'shadow-sm');
+                }
+            }
+
+            function initializeScrollEffect() {
+                // Remove the hard window lock. Instead, safely attach/reattach the event listener.
+                window.removeEventListener('scroll', handleScroll);
+                window.addEventListener('scroll', handleScroll);
+                
+                // Instantly run once on page initialization/navigation to check current scroll position
+                handleScroll();
+            }
 
             function initializeNavigation() {
-
                 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
                 const drawerCloseBtn = document.getElementById('drawer-close-btn');
                 const mobileDrawer = document.getElementById('mobile-drawer');
                 const drawerOverlay = document.getElementById('drawer-overlay');
                 const drawerPanel = document.getElementById('drawer-panel');
 
-                if (!mobileMenuBtn || !mobileDrawer || !drawerOverlay || !drawerPanel) {
-                    return;
-                }
-
-                // Prevent duplicate listeners after Turbo navigation
-                if (mobileMenuBtn.dataset.initialized === 'true') {
-                    return;
-                }
-
+                if (!mobileMenuBtn || !mobileDrawer || !drawerOverlay || !drawerPanel) return;
+                
+                // Clear dataset marker on turbo reloads to ensure bindings work fresh
+                mobileMenuBtn.removeAttribute('data-initialized');
+                if (mobileMenuBtn.dataset.initialized === 'true') return;
                 mobileMenuBtn.dataset.initialized = 'true';
 
                 function openMobileMenu() {
                     mobileDrawer.classList.remove('invisible');
-
                     requestAnimationFrame(() => {
                         drawerOverlay.classList.remove('opacity-0');
                         drawerOverlay.classList.add('opacity-100');
-
                         drawerPanel.classList.remove('-translate-x-full');
                         drawerPanel.classList.add('translate-x-0');
-
                         document.body.classList.add('overflow-hidden');
                     });
                 }
@@ -678,223 +671,101 @@
                 function closeMobileMenu() {
                     drawerOverlay.classList.remove('opacity-100');
                     drawerOverlay.classList.add('opacity-0');
-
                     drawerPanel.classList.remove('translate-x-0');
                     drawerPanel.classList.add('-translate-x-full');
-
-                    setTimeout(() => {
-                        mobileDrawer.classList.add('invisible');
-                    }, 300);
-
+                    setTimeout(() => { mobileDrawer.classList.add('invisible'); }, 300);
                     document.body.classList.remove('overflow-hidden');
                 }
 
                 mobileMenuBtn.addEventListener('click', openMobileMenu);
-
                 drawerCloseBtn?.addEventListener('click', closeMobileMenu);
-
                 drawerOverlay?.addEventListener('click', closeMobileMenu);
 
-                // ESC key closes drawer
                 document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        closeMobileMenu();
-                    }
+                    if (e.key === 'Escape') closeMobileMenu();
                 });
 
-                // ==========================
-                // Mobile Accordions
-                // ==========================
-
-                const accordions =
-                    document.querySelectorAll('.target-accordion');
-
+                const accordions = document.querySelectorAll('.target-accordion');
                 accordions.forEach((accordion) => {
-
-                    if (accordion.dataset.initialized === 'true') {
-                        return;
-                    }
-
+                    accordion.removeAttribute('data-initialized');
+                    if (accordion.dataset.initialized === 'true') return;
                     accordion.dataset.initialized = 'true';
-
                     accordion.addEventListener('click', function () {
-
                         const submenu = this.nextElementSibling;
                         const icon = this.querySelector('svg');
-
                         if (!submenu) return;
-
-                        const hidden =
-                            submenu.classList.contains('hidden');
-
-                        if (hidden) {
-
+                        if (submenu.classList.contains('hidden')) {
                             submenu.classList.remove('hidden');
                             submenu.classList.add('flex');
-
                             icon?.classList.add('rotate-180');
-
                         } else {
-
                             submenu.classList.remove('flex');
                             submenu.classList.add('hidden');
-
                             icon?.classList.remove('rotate-180');
                         }
                     });
                 });
             }
 
-            const nestedAccordions =
-                document.querySelectorAll('.nested-accordion');
-
-            nestedAccordions.forEach((accordion) => {
-
-                if (accordion.dataset.initialized === 'true') {
-                    return;
-                }
-
-                accordion.dataset.initialized = 'true';
-
-                accordion.addEventListener('click', function () {
-
-                    const submenu = this.nextElementSibling;
-                    const icon = this.querySelector('svg');
-
-                    if (!submenu) return;
-
-                    const hidden =
-                        submenu.classList.contains('hidden');
-
-                    if (hidden) {
-
-                        submenu.classList.remove('hidden');
-
-                        icon?.classList.add('rotate-180');
-
-                    } else {
-
-                        submenu.classList.add('hidden');
-
-                        icon?.classList.remove('rotate-180');
-                    }
+            // Moved these inside the scope so they evaluate cleanly on fresh page targets
+            function setupNestedAccordions() {
+                const nestedAccordions = document.querySelectorAll('.nested-accordion');
+                nestedAccordions.forEach((accordion) => {
+                    accordion.removeAttribute('data-initialized');
+                    if (accordion.dataset.initialized === 'true') return;
+                    accordion.dataset.initialized = 'true';
+                    accordion.addEventListener('click', function () {
+                        const submenu = this.nextElementSibling;
+                        const icon = this.querySelector('svg');
+                        if (!submenu) return;
+                        if (submenu.classList.contains('hidden')) {
+                            submenu.classList.remove('hidden');
+                            icon?.classList.add('rotate-180');
+                        } else {
+                            submenu.classList.add('hidden');
+                            icon?.classList.remove('rotate-180');
+                        }
+                    });
                 });
-            });
+            }
 
             let loadStartTime = Date.now();
             const MIN_DISPLAY_TIME = 600;
 
             function hideLoader() {
-
-                const elapsedTime =
-                    Date.now() - loadStartTime;
-
-                const timeToWait =
-                    Math.max(0, MIN_DISPLAY_TIME - elapsedTime);
-
+                const elapsedTime = Date.now() - loadStartTime;
+                const timeToWait = Math.max(0, MIN_DISPLAY_TIME - elapsedTime);
                 setTimeout(() => {
-
-                    const loader =
-                        document.getElementById('page-loader');
-
+                    const loader = document.getElementById('page-loader');
                     if (!loader) return;
-
                     loader.style.opacity = '0';
-
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                    }, 500);
-
+                    setTimeout(() => { loader.style.display = 'none'; }, 500);
                 }, timeToWait);
             }
 
             function showLoader() {
-
                 loadStartTime = Date.now();
-
-                const loader =
-                    document.getElementById('page-loader');
-
+                const loader = document.getElementById('page-loader');
                 if (!loader) return;
-
                 loader.style.display = 'flex';
-
-                setTimeout(() => {
-                    loader.style.opacity = '1';
-                }, 10);
+                setTimeout(() => { loader.style.opacity = '1'; }, 10);
             }
 
-            // Initial page load
-            document.addEventListener(
-                'DOMContentLoaded',
-                initializeNavigation
-            );
+            // Unified initialization runner
+            function initAll() {
+                initializeNavigation();
+                setupNestedAccordions();
+                initializeScrollEffect();
+            }
 
-            // Turbo page changes
-            document.addEventListener(
-                'turbo:load',
-                initializeNavigation
-            );
-
-            document.addEventListener(
-                'turbo:visit',
-                showLoader
-            );
-
-            document.addEventListener(
-                'turbo:load',
-                hideLoader
-            );
-
-            document.addEventListener(
-                'turbo:render',
-                hideLoader
-            );
-
-            window.addEventListener(
-                'load',
-                hideLoader
-            );
-
+            document.addEventListener('DOMContentLoaded', initAll);
+            document.addEventListener('turbo:load', initAll);
+            
+            document.addEventListener('turbo:visit', showLoader);
+            document.addEventListener('turbo:load', hideLoader);
+            document.addEventListener('turbo:render', hideLoader);
+            window.addEventListener('load', hideLoader);
         })();
         </script>
-
-        {# Cookie Consent Banner #}
-        {% set siteSettings = get_site_settings() %}
-        {% if siteSettings and siteSettings.cookieBannerEnabled %}
-            <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-feu-green text-white p-4 shadow-lg z-[99999] hidden flex-col md:flex-row items-center justify-between border-t border-feu-yellow">
-                <div class="text-sm flex-1 mr-4 mb-4 md:mb-0">
-                    {{ siteSettings.cookieMessage ? siteSettings.cookieMessage|raw : 'We use cookies to make websites work efficiently, as well as to provide information to the owners of the website.' }}
-                </div>
-                <button id="accept-cookies" class="bg-feu-yellow text-feu-green font-bold py-2 px-6 rounded-lg hover:bg-white transition-colors whitespace-nowrap">
-                    {{ siteSettings.cookieButtonText|default('Accept') }}
-                </button>
-            </div>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    // Check if cookie exists.
-                    // If not, show banner.
-                    if (document.cookie.indexOf('cookie_consent=1') === -1) {
-                        const banner = document.getElementById('cookie-banner');
-                        if (banner) {
-                            banner.style.display = 'flex';
-                        }
-                    }
-
-                    const acceptBtn = document.getElementById('accept-cookies');
-                    if (acceptBtn) {
-                        acceptBtn.addEventListener('click', function() {
-                            // Set a session cookie (no expiration date, gets cleared when browser closes)
-                            document.cookie = "cookie_consent=1; path=/;";
-                            const banner = document.getElementById('cookie-banner');
-                            if (banner) {
-                                banner.style.display = 'none';
-                            }
-                        });
-                    }
-                });
-            </script>
-        {% endif %}
     </body>
 </html>
