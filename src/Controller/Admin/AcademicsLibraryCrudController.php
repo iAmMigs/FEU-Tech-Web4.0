@@ -61,7 +61,8 @@ class AcademicsLibraryCrudController extends AbstractCrudController
 
         yield FormField::addTab('History & Hours');
         yield TextEditorField::new('historyText', 'Library History Description');
-        yield ArrayField::new('serviceHours', 'Service Hours List (Format: Day: Hours)');
+        yield ArrayField::new('serviceHours', 'Regular Term Service Hours (Format: Day: Hours)');
+        yield ArrayField::new('outsideServiceHours', 'Outside Researchers Service Hours (Format: Day: Hours)');
 
         yield FormField::addTab('Policies');
         yield ArrayField::new('policies', 'Library Policies List');

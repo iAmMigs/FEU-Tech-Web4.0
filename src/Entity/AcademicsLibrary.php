@@ -51,6 +51,9 @@ class AcademicsLibrary
     private ?array $serviceHours = null;
 
     #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $outsideServiceHours = null;
+
+    #[ORM\Column(type: Types::JSON, nullable: true)]
     private ?array $policies = null;
 
     #[ORM\Column(type: Types::JSON, nullable: true)]
@@ -205,6 +208,17 @@ class AcademicsLibrary
     public function setServiceHours(?array $serviceHours): static
     {
         $this->serviceHours = $serviceHours;
+        return $this;
+    }
+
+    public function getOutsideServiceHours(): ?array
+    {
+        return $this->outsideServiceHours;
+    }
+
+    public function setOutsideServiceHours(?array $outsideServiceHours): static
+    {
+        $this->outsideServiceHours = $outsideServiceHours;
         return $this;
     }
 
