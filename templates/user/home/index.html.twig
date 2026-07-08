@@ -15,7 +15,7 @@
         <img id="hero-bg-overlay-img" src="" alt="" class="relative z-10 w-full h-full object-contain">
     </div>
 
-    <div id="hero-content" class="relative z-1 w-full max-w-7xl mx-auto px-6 sm:px-4 lg:px-16 flex flex-col justify-center items-start text-left">
+    <div id="hero-content" class="relative z-30 w-full max-w-7xl mx-auto px-6 sm:px-4 lg:px-16 flex flex-col justify-center items-start text-left">
         
         <span class="font-roboto text-white font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4 bg-feu-green/5 px-3 py-1.5 rounded-md inline-block backdrop-blur-sm border border-white/20">
             Welcome to The School of Innovation
@@ -25,8 +25,8 @@
             Shape Your Future at <span class="text-feu-yellow font-black" style="text-shadow: 0 4px 12px rgba(240, 179, 35, 0.25), 0 2px 4px rgba(0, 0, 0, 0.4);"><br>FEU Tech</span>
         </h1>
         
-        <p class="font-roboto text-base md:text-lg lg:text-xl text-white mb-10 font-normal leading-relaxed max-w-2xl tracking-wide drop-shadow-md">
-            Join the premier engineering and computer studies institution. Discover world-class facilities and global opportunities.
+        <p class="font-roboto text-base md:text-lg lg:text-l text-white mb-10 font-normal leading-relaxed max-w-2xl tracking-wide drop-shadow-md">
+            FEU Tech is an AI Campus and an internationally ranked institution recognized for global excellence in Engineering, Computer Science, I.T., Multimedia Arts and Research. It is committed to producing graduates who are industry-ready and globally competitive from day one.
         </p>
         
         <div class="flex flex-wrap gap-4 w-full sm:w-auto">
@@ -46,126 +46,121 @@
     </div>
 </section>
 
-<section class="relative z-20 -mt-40 pb-8 overflow-hidden">
-    <div id="carousel-track-wrapper" class="relative w-full overflow-hidden group/carousel pt-24">
+<section id="meetings" class="py-12 bg-slate-50 scroll-animate relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div id="carousel-left-arrow" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-start transition-opacity duration-300 pointer-events-none mt-8">
-            <div class="w-14 h-20 bg-white shadow-lg rounded-r-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-l-0 cursor-pointer">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
-                </svg>
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+                <span class="text-feu-green font-bold tracking-wider uppercase text-sm mb-2 block">
+                    Events Conducted
+                </span>
+                <h2 class="text-4xl font-extrabold text-slate-800">
+                    In the news
+                </h2>
             </div>
+
+            <a href="#"
+                class="mt-4 md:mt-0 px-6 py-3 border-2 border-feu-green text-feu-green font-bold rounded-lg hover:bg-feu-green hover:text-white transition-all shadow-sm">
+                View All Events
+            </a>
         </div>
 
-        <div id="carousel-right-arrow" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-end transition-opacity duration-300 pointer-events-none mt-8">
-            <div class="w-14 h-20 bg-white shadow-lg rounded-l-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-r-0 cursor-pointer">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </div>
-        </div>
+        <div id="eventsCarousel" class="flex overflow-x-auto gap-8 no-scrollbar snap-x snap-mandatory pb-8 scroll-smooth w-full">
 
-        <div id="carousel-track" class="flex gap-6 py-6 px-2" style="width: max-content;">
-
-            {% set cards = [
+            {% set events = [
                 {
-                    title: 'AUN-QA Certified',
-                    subtitle: 'Engineering Programs',
-                    logo: '/images/carousels/AUN.jpg',
-                    image: '/images/Home_carousel/TECH_AUNQA.png',
-                    bg: 'bg-blue-50',
-                    heroBg: '/images/Home_carousel/AUN-QA_BG.png'
+                    path: 'event_one',
+                    image: '/images/carousels/MAY5.jfif',
+                    alt: 'National Tech Symposium',
+                    badge: 'SEMINARS',
+                    date: 'May 5, 2026',
+                    title: 'Shaping the Future of Education: Utah Valley University, FEU Tech, Unite for AI Innovation Workshop',
+                    description: 'Join industry leaders as they discuss the future of AI and Machine Learning innovations.'
                 },
                 {
-                    title: 'TOPCIT',
-                    subtitle: 'IT Competency Standard',
-                    logo: '/images/carousels/topcit.jpeg',
-                    image: '/images/Home_carousel/TECH_TOPCIT.png',
-                    bg: 'bg-slate-50',
-                    heroBg: '/images/Home_carousel/TopCIT_BG.png'
+                    path: 'event_two',
+                    image: '/images/carousels/TARA.jpg',
+                    alt: 'Research Expo',
+                    badge: 'EXHIBITIONS',
+                    date: 'Nov 24, 2026',
+                    title: '#TaraNaSaPIYU 2026: Welcoming the Next Generation of Innovators at FEU Tech',
+                    description: 'Showcasing the brightest capstone projects from our graduating engineering students.'
                 },
                 {
-                    title: 'QS Asia Ranked',
-                    subtitle: '#118 SEA · #10 Philippines',
-                    logo: '/images/carousels/QS.png',
-                    image: '/images/Home_carousel/TECH_Top.png',
-                    bg: 'bg-indigo-50',
-                    heroBg: '/images/Home_carousel/Top_BG.png'
-                },
-                {
-                    title: 'Accreditations',
-                    subtitle: 'Nationally & Internationally Recognized',
-                    logo: null,
-                    image: '/images/Home_carousel/TECH_Accredications.png',
-                    bg: 'bg-emerald-50',
-                    heroBg: '/images/Home_carousel/Acreditation_BG.png'
-                },
-                {
-                    title: 'Autonomous Status',
-                    subtitle: 'CHED Granted Autonomy',
-                    logo: null,
-                    image: '/images/Home_carousel/TECH_Autonomous.png',
-                    bg: 'bg-yellow-50',
-                    heroBg: '/images/ABOUT_TECH.jpg'
-                },
-                {
-                    title: 'Top 2% Scientists',
-                    subtitle: 'World-class Research Faculty',
-                    logo: null,
-                    image: '/images/Home_carousel/TECH_TopScientist.png',
-                    bg: 'bg-orange-50',
-                    heroBg: '/images/Home_carousel/TopScientist_BG.png'
+                    path: 'event_three',
+                    image: '/images/carousels/FTIC.jpg',
+                    alt: 'Hackathon',
+                    badge: 'COMPETITIONS',
+                    date: 'April 24, 2026',
+                    title: 'FTIC Ramps Up the Culture of Innovation at FEU Tech with a Campus-Wide Symposium',
+                    description: 'A 48-hour coding marathon to solve real-world problems. Open to all students.'
                 }
             ] %}
 
-            {% for set in 1..3 %}
-            {% for card in cards %}
-                <div
-                    class="carousel-card group flex-shrink-0 w-[280px] bg-[image:var(--bg-default)] backdrop-blur-md rounded-2xl p-6 shadow-xl drop-shadow-md border border-white/50 cursor-pointer select-none hover:shadow-[0_20px_40px_rgba(0,45,25,0.3)] hover:-translate-y-2 transition-all duration-500 relative hover:[background-image:var(--bg-hover)]"
-                    style="
-                        --bg-default: linear-gradient(135deg, rgba(254, 201, 44, 0.2), rgba(0, 45, 25, 0.2));
-                        --bg-hover: linear-gradient(135deg, rgb(254, 201, 44), rgb(0, 45, 25));
-                    "
-                    data-carousel-img="{{ card.image }}"
-                    data-hero-bg="{{ card.heroBg }}"
-                >
+            {% for event in events %}
+                <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300">
+                    <a href="{{ path(event.path) }}" class="block group">
+                        
+                        <div class="relative h-80 overflow-hidden bg-slate-100">
+                            <img src="{{ event.image }}"
+                                alt="{{ event.alt }}"
+                                class="w-full h-full object-contain transition-transform duration-700">
 
-                <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl overflow-hidden group-hover:opacity-10 transition-opacity duration-500"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
-                <div class="flex items-center gap-4 mb-3 relative z-10">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="white" class="w-8 h-8">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
 
-                    {% if card.logo %}
-                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0">
-                        <img
-                            src="{{ card.logo }}"
-                            alt="{{ card.title }}"
-                            class="w-10 h-10 object-contain"
-                        >
-                    </div>
-                    {% endif %}
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                    {{ event.badge }}
+                                </span>
+                            </div>
 
-                    <div class="relative z-10">
-                        <h4 class="text-base font-bold text-feu-green group-hover:text-white transition-colors duration-500 leading-tight">
-                            {{ card.title }}
-                        </h4>
+                            <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>{{ event.date }}</span>
+                            </div>
 
-                        <p class="text-xs text-slate-700 group-hover:text-slate-100 transition-colors duration-500 mt-0.5 font-medium">
-                            {{ card.subtitle }}
-                        </p>
-                    </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors line-clamp-2">
+                                {{ event.title }}
+                            </h3>
 
+                            <p class="text-slate-600 leading-relaxed line-clamp-2">
+                                {{ event.description }}
+                            </p>
+                        </div>
+
+                    </a>
                 </div>
-
-                <div
-                    class="h-1.5 w-0 group-hover:w-full rounded-full transition-all duration-500 absolute bottom-0 left-0"
-                    style="background-image: linear-gradient(135deg,rgb(0, 45, 25), rgb(254, 201, 44));"
-                ></div>
-
-            </div>
-            {% endfor %}
             {% endfor %}
 
         </div>
+
+        <div class="flex justify-end gap-3 mt-4">
+            <button id="prevCarouselBtn" class="w-12 h-12 flex items-center justify-center rounded-full border border-feu-green text-feu-green hover:bg-feu-green hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button id="nextCarouselBtn" class="relative w-12 h-12 flex items-center justify-center rounded-full border border-feu-green text-feu-green hover:bg-feu-green hover:text-white transition-all overflow-hidden">
+                <div id="carouselLoader" class="absolute left-0 bottom-0 top-0 bg-feu-green/20 w-0 transition-all duration-[5000ms] linear pointer-events-none"></div>
+                <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
     </div>
 </section>
 
@@ -623,183 +618,83 @@ if (
 
         <div id="eventsCarousel" class="flex overflow-x-auto gap-8 no-scrollbar snap-x snap-mandatory pb-8 scroll-smooth w-full">
 
-            <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-                <a href="{{ path('event_one') }}" class="block group">
-                    <div class="relative h-56 overflow-hidden">
+            {% set events = [
+                {
+                    path: 'event_one',
+                    image: '/images/carousels/MAY5.jfif',
+                    alt: 'National Tech Symposium',
+                    badge: 'SEMINARS',
+                    date: 'May 5, 2026',
+                    title: 'Shaping the Future of Education: Utah Valley University, FEU Tech, Unite for AI Innovation Workshop',
+                    description: 'Join industry leaders as they discuss the future of AI and Machine Learning innovations.'
+                },
+                {
+                    path: 'event_two',
+                    image: '/images/carousels/TARA.jpg',
+                    alt: 'Research Expo',
+                    badge: 'EXHIBITIONS',
+                    date: 'Nov 24, 2026',
+                    title: '#TaraNaSaPIYU 2026: Welcoming the Next Generation of Innovators at FEU Tech',
+                    description: 'Showcasing the brightest capstone projects from our graduating engineering students.'
+                },
+                {
+                    path: 'event_three',
+                    image: '/images/carousels/FTIC.jpg',
+                    alt: 'Hackathon',
+                    badge: 'COMPETITIONS',
+                    date: 'April 24, 2026',
+                    title: 'FTIC Ramps Up the Culture of Innovation at FEU Tech with a Campus-Wide Symposium',
+                    description: 'A 48-hour coding marathon to solve real-world problems. Open to all students.'
+                }
+            ] %}
 
-                        <img src="/images/carousels/MAY5.jfif"
-                            alt="National Tech Symposium"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            {% for event in events %}
+                <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300">
+                    <a href="{{ path(event.path) }}" class="block group">
+                        
+                        <div class="relative h-80 overflow-hidden bg-slate-100">
+                            <img src="{{ event.image }}"
+                                alt="{{ event.alt }}"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
 
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.8"
-                                    stroke="white"
-                                    class="w-8 h-8">
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="white" class="w-8 h-8">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="p-6 flex flex-col flex-grow">
-
-                        <div class="mb-4">
-                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                                SEMINARS
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>May 5, 2026</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
-                            Shaping the Future of Education: Utah Valley University, FEU Tech, Unite for AI Innovation Workshop
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            Join industry leaders as they discuss the future of AI and Machine Learning innovations.
-                        </p>
-
-                    </div>
-                </a>
-            </div>
-
-            <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-                <a href="{{ path('event_two') }}" class="block group">
-
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="/images/carousels/TARA.jpg"
-                            alt="Research Expo"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.8"
-                                    stroke="white"
-                                    class="w-8 h-8">
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="mb-4">
+                                <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
+                                    {{ event.badge }}
+                                </span>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
-
-                        <div class="mb-4">
-                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                                EXHIBITIONS
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>Nov 24, 2026</span>
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
-                            #TaraNaSaPIYU 2026: Welcoming the Next Generation of Innovators at FEU Tech
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            Showcasing the brightest capstone projects from our graduating engineering students.
-                        </p>
-
-                    </div>
-                </a>
-            </div>
-
-            <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-                <a href="{{ path('event_three') }}" class="block group">
-
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="/images/carousels/FTIC.jpg"
-                            alt="Hackathon"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <div class="bg-white/20 backdrop-blur-md p-4 rounded-full transform scale-75 group-hover:scale-100 transition-all duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.8"
-                                    stroke="white"
-                                    class="w-8 h-8">
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
+                                <span>{{ event.date }}</span>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors line-clamp-2">
+                                {{ event.title }}
+                            </h3>
 
-                        <div class="mb-4">
-                            <span class="px-3 py-1.5 text-xs font-bold tracking-wider text-white bg-[#004d33] rounded-full">
-                                COMPETITIONS
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-2 mb-4 text-slate-500 font-medium text-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span>April 24, 2026</span>
+                            <p class="text-slate-600 leading-relaxed line-clamp-2">
+                                {{ event.description }}
+                            </p>
                         </div>
 
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors">
-                            FTIC Ramps Up the Culture of Innovation at FEU Tech with a Campus-Wide Symposium
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            A 48-hour coding marathon to solve real-world problems. Open to all students.
-                        </p>
-
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            {% endfor %}
 
         </div>
 
