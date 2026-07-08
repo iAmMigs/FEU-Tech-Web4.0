@@ -1,715 +1,173 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/Academics/program_detail.html.twig' %}
 
 {% block title %}Bachelor of Science in Computer Science{% endblock %}
 
-{% block body %}
+{% block default_hero_image %}images/Academics/bscs.jpg{% endblock %}
 
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
+{% block overview_default %}
+<p class="text-slate-600 leading-relaxed text-lg mb-6">
+    The Bachelor of Science in Computer Science includes the study of computing concepts and theories, algorithmic foundations, and new developments in computing.
+</p>
+<p class="text-slate-600 leading-relaxed text-lg mb-6">
+    The program prepares students to design and create algorithmically complex software and develop new and effective algorithms for solving computing problems.
+</p>
+<p class="text-slate-600 leading-relaxed text-lg">
+    Graduates of this program can expect a successful and rewarding career in specification design, coding, and software testing. It also focuses on software engineering, database, and large-scale software.
+</p>
+{% endblock %}
 
-    body {
-        background:
-            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
-            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
-            #f8fafc;
-    }
-
-    .scroll-section {
-        scroll-margin-top: 120px;
-    }
-
-    .nav-link.active {
-        background: #008348;
-        color: white;
-        transform: translateX(6px);
-    }
-
-    .floating-circles .circle {
-        position: absolute;
-        border-radius: 9999px;
-        opacity: .12;
-        animation: float 8s infinite ease-in-out;
-    }
-
-    .floating-circles .one {
-        width: 160px;
-        height: 160px;
-        background: #FEBE10;
-        top: -40px;
-        right: -20px;
-    }
-
-    .floating-circles .two {
-        width: 120px;
-        height: 120px;
-        background: white;
-        bottom: 20px;
-        left: -30px;
-        animation-delay: 2s;
-    }
-
-    .floating-circles .three {
-        width: 90px;
-        height: 90px;
-        background: #FEBE10;
-        bottom: 120px;
-        right: 25%;
-        animation-delay: 4s;
-    }
-
-    @keyframes float {
-        0%,100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-18px);
-        }
-    }
-
-    .library-card-wrapper {
-        position: relative;
-        overflow: visible;
-    }
-
-    .tammy-peek {
-        position: absolute;
-        top: -75px;
-        right: 25px;
-        z-index: 30;
-        pointer-events: none;
-    }
-
-    .tammy-peek-img {
-        width: 110px;
-        opacity: 0;
-        transform: translateY(20px) scale(.8);
-        transition: all .5s ease;
-        filter: drop-shadow(0 10px 20px rgba(0,0,0,.15));
-    }
-
-    .library-card-wrapper:hover .tammy-peek-img {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-    .glass-card {
-        backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 100);
-    }
-</style>
-
-<!-- HERO SECTION -->
-<section class="relative z-10 overflow-hidden border-b border-slate-100">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
-            <img src="/images/Academics/bscs.jpg" class="w-full h-auto block transform group-hover:scale-[1.01] transition-transform duration-700 ease-out" alt="Cybersecurity Hero">
-            <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent opacity-80"></div>
-        </div>
+{% block objectives_default %}
+<p class="text-slate-600 text-lg mb-8">
+    Within 3 to 5 years after graduation, graduates of the Bachelor of Science in Computer Science program are:
+</p>
+<div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Professional Growth</h3>
+        <p class="text-slate-600">Engaged in further professional development and have an interest in or aptitude for advanced studies or training in computing.</p>
     </div>
-</section>
-
-<main class="relative py-12">
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-
-        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
-
-            <!-- SIDEBAR -->
-            <aside class="hidden lg:block sticky top-10 self-start">
-
-                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
-
-                    <div class="flex items-center gap-4 mb-8">
-                        <img src="/images/Tamtam/Reading_Book_Tammy.png"
-                             class="w-20 object-contain"
-                             alt="TamTam">
-
-                        <div>
-                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
-                                FEU TECH
-                            </p>
-
-                            <h2 class="text-2xl font-black text-feu-green leading-tight">
-                                BSCS
-                            </h2>
-                        </div>
-                    </div>
-
-                    <nav class="space-y-3">
-                        <a href="#overview"
-                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Overview
-                        </a>
-
-                        <a href="#objectives"
-                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Objectives
-                        </a>
-
-                        <a href="#outcomes"
-                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Outcomes
-                        </a>
-
-                        <a href="#specializations"
-                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Specializations
-                        </a>
-
-                        <a href="#contact"
-                           class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Contact
-                        </a>
-                    </nav>
-                </div>
-            </aside>
-
-            <!-- CONTENT -->
-            <div class="space-y-16">
-
-                <!-- OVERVIEW -->
-                <section id="overview" class="scroll-section library-card-wrapper">
-
-
-                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
-
-                        <div class="flex items-center gap-5 mb-8">
-                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
-                                 class="w-24 object-contain"
-                                 alt="TamTam">
-
-                            <div>
-                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                    Program Overview
-                                </p>
-
-                                <h2 class="text-4xl font-black text-feu-green uppercase">
-                                    General Description
-                                </h2>
-                            </div>
-                        </div>
-
-                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
-                            The Bachelor of Science in Computer Science includes the study of computing concepts and theories, algorithmic foundations, and new developments in computing.
-                        </p>
-
-                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
-                            The program prepares students to design and create algorithmically complex software and develop new and effective algorithms for solving computing problems.
-                        </p>
-
-                        <p class="text-slate-600 leading-relaxed text-lg">
-                            Graduates of this program can expect a successful and rewarding career in specification design, coding, and software testing. It also focuses on software engineering, database, and large-scale software.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- OBJECTIVES -->
-                <section id="objectives" class="scroll-section library-card-wrapper">
-
-                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
-
-                        <div class="flex items-center gap-4 mb-8">
-                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
-                                 class="w-24"
-                                 alt="TamTam">
-
-                            <div>
-                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                    Academic Goals
-                                </p>
-
-                                <h2 class="text-4xl font-black text-feu-green uppercase">
-                                    Program Educational Objectives
-                                </h2>
-                            </div>
-                        </div>
-
-                        <p class="text-slate-600 text-lg mb-8">
-                            Within 3 to 5 years after graduation, graduates of the Bachelor of Science in Computer Science program are:
-                        </p>
-
-                        <div class="grid md:grid-cols-3 gap-6">
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Professional Growth
-                                </h3>
-
-                                <p class="text-slate-600">
-                                    Engaged in further professional development and have an interest in or aptitude for advanced studies or training in computing.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Leadership
-                                </h3>
-
-                                <p class="text-slate-600">
-                                    Entrepreneurs or are employed in computing industries, organizing, and managing team-based projects leading to successful and sustainable computing systems solutions.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Community Impact
-                                </h3>
-
-                                <p class="text-slate-600">
-                                    Responsible computing professionals actively participating in community groups that make a significant impact in addressing current and future societal challenges.
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <!-- OUTCOMES -->
-                <section id="outcomes" class="scroll-section">
-
-                    <div class="bg-feu-green rounded-[3rem] p-10 text-white overflow-hidden relative">
-
-                        <div class="absolute right-0 bottom-0 opacity-10">
-                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
-                                 class="w-72"
-                                 alt="TamTam">
-                        </div>
-
-                        <div class="relative z-10">
-
-                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
-                                Graduate Competencies
-                            </p>
-
-                            <h2 class="text-4xl font-black uppercase mb-10">
-                                Program Outcomes
-                            </h2>
-
-                            <div class="grid md:grid-cols-2 gap-6">
-
-                                {% set outcomes = [
-                                    'Apply knowledge of computing appropriate to the discipline.',
-                                    'Analyze a complex problem and identify and define the computing requirements appropriate to its solution.',
-                                    'Design, implement, and evaluate computer-based systems or applications to meet desired needs and requirements.',
-                                    'Function effectively as a member or leader of a development team recognizing the different roles within a team to accomplish a common goal.',
-                                    'Understand professional, ethical, legal, security, and social issues and responsibilities in the utilization of information technology',
-                                    'Communicate effectively with the computing community and with society at large about complex computing activities through logical writing, presentations, and clear.',
-                                    'Analyze the local and global impact of computing information technology on individuals, organizations, and society.',
-                                    'Recognize the need for and engage in planning self-learning and improving performance as a foundation for continuing professional development.',
-                                    'Apply knowledge through the use of current techniques and tools necessary for the IT profession',
-                                    'Apply mathematical foundations, algorithmic, principles, and computer science theory in the modeling and design of computer-based systems in a way that demonstrates comprehension of the tradeoffs involved in design choices and applicable standards',
-                                    'Apply design and development principles in the construction of software systems of varying complexity in accordance with applicable standards.',
-                                    'Apply mastery in their field of specialization.'
-                                ] %}
-
-                                {% for item in outcomes %}
-                                    <div class="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
-                                        
-                                        <div class="flex gap-4">
-
-                                            <span class="bg-feu-yellow text-feu-green
-                                                        w-10 h-10 shrink-0
-                                                        rounded-full
-                                                        flex items-center justify-center
-                                                        font-black text-sm">
-                                                {{ range('A', 'Z')[loop.index0] }}
-                                            </span>
-
-                                            <p class="text-white/90 leading-relaxed">
-                                                {{ item }}
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SPECIALIZATIONS -->
-                <section id="specializations" class="scroll-section space-y-10">
-
-                    <!-- Artificial Intelligence -->
-                    <div class="library-card-wrapper">
-
-                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
-
-                            <div class="flex items-center gap-5 mb-8">
-                                <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
-                                     class="w-24"
-                                     alt="TamTam">
-
-                                <div>
-                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                        Specialization
-                                    </p>
-
-                                    <h2 class="text-4xl font-black text-feu-green uppercase">
-                                        Artificial Intelligence (New)
-                                    </h2>
-                                </div>
-                            </div>
-
-                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                The <strong> Artificial Intelligence specialization </strong> aims to give students the essential competencies that can emulate cognitive functions, adapt and enhance performance over time, and tackle complex tasks that are comparable to human performance.
-                            </p>
-
-                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                Furthermore, the <strong> Artificial Intelligence specialization </strong> covers expansive topics on problem-solving, reasoning, understanding natural language, speech recognition, and computer vision. The curriculum is created to give students the skills and expertise they need to deploy artificial intelligence algorithmic solutions that adhere to industry standards and best practices.
-                            </p>
-
-                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                               Graduates of the <strong> BSCS Program with specialization in Artificial Intelligence </strong> should be capable of managing efficiency and automation, personalization, data analysis and insights, capable of creating predictive and prescriptive solutions with enhanced decision-making and innovative solutions.
-                            </p>
-
-
-                            <div class="grid lg:grid-cols-2 gap-8">
-
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-2xl font-black text-feu-green mb-6 uppercase">
-                                        Career Opportunities
-                                    </h3>
-
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Machine Learning Engineer</li>
-                                        <li>• Data Scientist</li>
-                                        <li>• AI Research Scientist</li>
-                                        <li>• Robotics Engineer</li>
-                                        <li>• Natural Language Processing (NLP) Engineer</li>
-                                        <li>• Computer Vision Engineer</li>
-                                        <li>• AI Ethics and Bias Specialist</li>
-                                        <li>• AI Product Manager</li>
-                                        <li>• AI Consultant</li>
-                                        <li>• AI Software Developer</li>
-                                        <li>• AI in Healthcare Specialist</li>
-                                        <li>• Cybersecurity Analyst specializing in AI</li>
-                                    </ul>
-                                </div>
-
-                                <div class="bg-feu-green rounded-[2rem] p-8 text-white">
-                                    <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">
-                                        Unique Value Proposition
-                                    </h3>
-
-                                    <ul class="space-y-3 text-white/90">
-                                        <li>• Efficiency and Automation</li>
-                                        <li>• Personalization</li>
-                                        <li>• Data Analysis and Insights</li>
-                                        <li>• Predictive Capabilities</li>
-                                        <li>• Continuous Learning and Adaptability</li>
-                                        <li>• Enhanced Decision-Making</li>
-                                        <li>• Innovative Solutions</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DATA SCIENCE -->
-                     <div class="library-card-wrapper">
-
-                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
-
-                            <div class="flex items-center gap-5 mb-8">
-                                <img src="/images/Tamtam/Reading_Book_Tammy.png"
-                                     class="w-24"
-                                     alt="TamTam">
-
-                                <div>
-                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                        Specialization
-                                    </p>
-
-                                    <h2 class="text-4xl font-black text-feu-green uppercase">
-                                        Data Science (New)
-                                    </h2>
-                                </div>
-                            </div>
-
-                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                               <strong> Data Science</strong> seeks to understand and investigate data in various forms using scientific methods, processes, algorithms, and frameworks to extricate knowledge and insights to see genuine peculiarities. It utilizes methods and various hypotheses from software engineering, mathematics, statistics, and other related disciplines. It trains students to understand different data science algorithms to generate and derive meaningful results for application in any domain.
-                            </p>
-
-                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                The <strong> BSCS program with a specialization in Data Science </strong> helps produce students who are computing professionals equipped with mathematics and statistics foundations, algorithmic principles, and computer science theory appropriate to identify, analyze, formulate, research literature, and solve complex problems in the relevant domain disciplines. With this program, Tamaraws can become data-driven decision-makers.
-                            </p>
-
-
-                            <div class="grid lg:grid-cols-3 gap-8">
-
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Soft Skills and Values
-                                    </h3>
-                                    
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Communication Skills</li>
-                                        <li>• Problem-Solving Skills</li>
-                                        <li>• Adaptability to Change</li>
-                                        <li>• Professional Ethics</li>
-                                        <li>• Lifelong Learning Skills</li>
-                                        <li>• Creativity and Innovation</li>
-                                        <li>• Team Work</li>
-                                        <li>• Leadership</li>
-                                    </ul>
-                                </div>
-
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Technical Skills
-                                    </h3>
-
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Programming Skills</li>
-                                        <li>• Software Engineering</li>
-                                        <li>• Design and Analysis Skills</li>
-                                        <li>• Project Management</li>
-                                        <li>• Math and Statistics</li>
-                                        <li>• Security Skills</li>
-                                        <li>• Data Management</li>
-                                    </ul>
-                                </div>
-
-                                <div class="bg-feu-green rounded-[2rem] p-8 text-white">
-                                    <h3 class="text-l font-black text-feu-yellow mb-6 uppercase">
-                                        Additional Technical Skills from Specialization
-                                    </h3>
-                                    
-                                    <ul class="space-y-3 text-white/90">
-                                        <li>• Analytics and Modeling</li>
-                                        <li>• Machine Learning Methods</li>
-                                        <li>• Data Visualization and Storytelling</li>
-                                        <li>• Artificial Intelligence</li>
-                                        <li>• Business Expertise</li>
-                                        <li>• Research Methods</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SOFTWARE ENGINEERING -->
-                    <div class="library-card-wrapper">
-
-                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
-
-                            <div class="flex items-center gap-5 mb-8">
-                                <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
-                                     class="w-24"
-                                     alt="TamTam">
-
-                                <div>
-                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                        Specialization
-                                    </p>
-
-                                    <h2 class="text-4xl font-black text-feu-green uppercase">
-                                       Software Engineering
-                                    </h2>
-                                </div>
-                            </div>
-
-                            <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                                The <strong> BSCS program with a specialization in Software Engineering </strong> aims to train students to focus on the design of efficient, reliable, and quality software applications.
-                            </p>
-
-
-                            <div class="grid lg:grid-cols-3 gap-8">
-
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-2xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Soft Skills and Values
-                                    </h3>
-
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                        <li>• Communication Skills</li>
-                                        <li>• Problem-Solving Skills</li>
-                                        <li>• Adaptability to Change</li>
-                                        <li>• Professional Ethics</li>
-                                        <li>• Lifelong Learning</li>
-                                        <li>• Creativity and Innovation</li>
-                                        <li>• Team Work</li>
-                                        <li>• Leadership</li>
-                                    </ul>
-                                </div>
-
-                                
-                                <div class="bg-slate-50 rounded-[2rem] p-8">
-                                    <h3 class="text-2xl font-black text-feu-green mb-6 uppercase">
-                                        BSCS Technical Skills
-                                    </h3>
-
-                                    <ul class="space-y-3 text-slate-600 font-medium">
-                                         <li>• Programming Skills</li>
-                                        <li>• Software Engineering</li>
-                                        <li>• Design and Analysis</li>
-                                        <li>• Project Management</li>
-                                        <li>• Math and Statistics</li>
-                                        <li>• Security Skills</li>
-                                        <li>• Data Management</li>
-                                    </ul>
-                                </div>
-
-                                <div class="bg-feu-green rounded-[2rem] p-8 text-white">
-                                    <h3 class="text-l font-black text-feu-yellow mb-6 uppercase">
-                                        Additional Technical Skills from Specialization
-                                    </h3>
-
-                                    <ul class="space-y-3 text-white/90">
-                                        <li>• Mobile Programming</li>
-                                        <li>• Modeling and Simulation</li>
-                                        <li>• Image Processing</li>
-                                        <li>• Artificial Intelligence</li>
-                                        <li>• Research and Development</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-                <!-- CONTACT -->
-                <section id="contact" class="scroll-section">
-
-                    <div class="bg-feu-green rounded-[3rem] p-12 text-white relative overflow-hidden">
-
-                        <div class="absolute bottom-0 right-0 opacity-10">
-                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
-                                 class="w-80"
-                                 alt="TamTam">
-                        </div>
-
-                        <div class="relative z-10">
-
-                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
-                                Computer Science Department
-                            </p>
-
-                            <h2 class="text-5xl font-black uppercase mb-10">
-                                Contact Details
-                            </h2>
-
-                            <div class="grid md:grid-cols-2 gap-10">
-
-                                <div class="space-y-5">
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Office
-                                        </p>
-
-                                        <p class="text-xl">
-                                            Room 1505
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Office Hours
-                                        </p>
-
-                                        <p class="text-xl">
-                                            Monday to Friday <br>
-                                            8:00 a.m. ─ 5:00 p.m.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Trunkline
-                                        </p>
-
-                                        <p class="text-xl">
-                                            (02) 8281 8888 Local 222/224
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Email
-                                        </p>
-
-                                        <p class="text-xl text-feu-yellow">
-                                            <a href="mailto:ccs_cs@feutech.edu.ph"
-                                            class="hover:text-white transition-colors duration-300 underline underline-offset-4">
-                                                ccs_cs@feutech.edu.ph
-                                            </a>
-                                        </p>                                        
-                                    </div>
-
-                                </div>
-
-                               <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
-    
-                                    <!-- Background Tammy -->
-                                    <img src="/images/Tamtam/Wave_Tammy.png"
-                                        class="absolute bottom-0 right-0 w-40 opacity-40 pointer-events-none select-none"
-                                        alt="TamTam background">
-
-                                    <p class="uppercase tracking-[0.3em] text-feu-green font-black text-xs mb-3">
-                                        Program Director
-                                    </p>
-
-                                    <h3 class="text-3xl font-black text-black uppercase mb-3">
-                                        SHANETH C. AMBAT, PhD
-                                    </h3>
-
-                                    <p class="text-slate-600 leading-relaxed">
-                                        Program Director of Computer Science
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Leadership</h3>
+        <p class="text-slate-600">Entrepreneurs or are employed in computing industries, organizing, and managing team-based projects leading to successful and sustainable computing systems solutions.</p>
+    </div>
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Community Impact</h3>
+        <p class="text-slate-600">Responsible computing professionals actively participating in community groups that make a significant impact in addressing current and future societal challenges.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block outcomes_description_default %}
+Graduate Competencies
+{% endblock %}
+
+{% block outcomes_default %}
+<div class="grid md:grid-cols-2 gap-6">
+    {% set outcomes = [
+        'Apply knowledge of computing appropriate to the discipline.',
+        'Analyze a complex problem and identify and define the computing requirements appropriate to its solution.',
+        'Design, implement, and evaluate computer-based systems or applications to meet desired needs and requirements.',
+        'Function effectively as a member or leader of a development team recognizing the different roles within a team to accomplish a common goal.',
+        'Understand professional, ethical, legal, security, and social issues and responsibilities in the utilization of information technology',
+        'Communicate effectively with the computing community and with society at large about complex computing activities through logical writing, presentations, and clear.',
+        'Analyze the local and global impact of computing information technology on individuals, organizations, and society.',
+        'Recognize the need for and engage in planning self-learning and improving performance as a foundation for continuing professional development.',
+        'Apply knowledge through the use of current techniques and tools necessary for the IT profession',
+        'Apply mathematical foundations, algorithmic, principles, and computer science theory in the modeling and design of computer-based systems in a way that demonstrates comprehension of the tradeoffs involved in design choices and applicable standards',
+        'Apply design and development principles in the construction of software systems of varying complexity in accordance with applicable standards.',
+        'Apply mastery in their field of specialization.'
+    ] %}
+    {% for item in outcomes %}
+        <div class="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
+            <div class="flex gap-4">
+                <span class="bg-feu-yellow text-feu-green w-10 h-10 shrink-0 rounded-full flex items-center justify-center font-black text-sm">
+                    {{ range('A', 'Z')[loop.index0]|default(loop.index) }}
+                </span>
+                <p class="text-white/90 leading-relaxed">{{ item }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block specializations_default %}
+<!-- Artificial Intelligence -->
+<div class="library-card-wrapper mb-10">
+    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+        <div class="flex items-center gap-5 mb-8">
+            <img src="{{ asset('images/Tamtam/Jumping_Tammy_Pencil.png') }}" class="w-24" alt="TamTam">
+            <div>
+                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">Specialization</p>
+                <h2 class="text-4xl font-black text-feu-green uppercase">Artificial Intelligence (New)</h2>
+            </div>
+        </div>
+        <p class="text-slate-600 text-lg leading-relaxed mb-8">
+            The <strong> Artificial Intelligence specialization </strong> aims to give students the essential competencies that can emulate cognitive functions, adapt and enhance performance over time, and tackle complex tasks that are comparable to human performance.
+        </p>
+        <p class="text-slate-600 text-lg leading-relaxed mb-8">
+            Furthermore, the <strong> Artificial Intelligence specialization </strong> covers expansive topics on problem-solving, reasoning, understanding natural language, speech recognition, and computer vision. The curriculum is created to give students the skills and expertise they need to deploy artificial intelligence algorithmic solutions that adhere to industry standards and best practices.
+        </p>
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-slate-50 rounded-[2rem] p-8">
+                <h3 class="text-2xl font-black text-feu-green mb-6 uppercase">Career Opportunities</h3>
+                <ul class="space-y-3 text-slate-600 font-medium">
+                    <li>• Machine Learning Engineer</li>
+                    <li>• Data Scientist</li>
+                    <li>• AI Research Scientist</li>
+                    <li>• NLP Engineer</li>
+                    <li>• Computer Vision Engineer</li>
+                </ul>
+            </div>
+            <div class="bg-feu-green rounded-[2rem] p-8 text-white">
+                <h3 class="text-2xl font-black text-feu-yellow mb-6 uppercase">Unique Value Proposition</h3>
+                <ul class="space-y-3 text-white/90">
+                    <li>• Efficiency and Automation</li>
+                    <li>• Personalization</li>
+                    <li>• Data Analysis and Insights</li>
+                    <li>• Enhanced Decision-Making</li>
+                </ul>
             </div>
         </div>
     </div>
-</main>
+</div>
 
-<script>
-    document.querySelectorAll('aside nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+<!-- DATA SCIENCE -->
+<div class="library-card-wrapper mb-10">
+    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+        <div class="flex items-center gap-5 mb-8">
+            <img src="{{ asset('images/Tamtam/Reading_Book_Tammy.png') }}" class="w-24" alt="TamTam">
+            <div>
+                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">Specialization</p>
+                <h2 class="text-4xl font-black text-feu-green uppercase">Data Science (New)</h2>
+            </div>
+        </div>
+        <p class="text-slate-600 text-lg leading-relaxed mb-8">
+            <strong> Data Science</strong> seeks to understand and investigate data in various forms using scientific methods, processes, algorithms, and frameworks to extricate knowledge and insights to see genuine peculiarities.
+        </p>
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-slate-50 rounded-[2rem] p-8">
+                <h3 class="text-xl font-black text-feu-green mb-6 uppercase">BSCS Soft Skills and Values</h3>
+                <ul class="space-y-3 text-slate-600 font-medium">
+                    <li>• Communication Skills</li>
+                    <li>• Problem-Solving Skills</li>
+                    <li>• Adaptability to Change</li>
+                </ul>
+            </div>
+            <div class="bg-feu-green rounded-[2rem] p-8 text-white">
+                <h3 class="text-l font-black text-feu-yellow mb-6 uppercase">Technical Skills from Specialization</h3>
+                <ul class="space-y-3 text-white/90">
+                    <li>• Analytics and Modeling</li>
+                    <li>• Machine Learning Methods</li>
+                    <li>• Data Visualization and Storytelling</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.scroll-section');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-
-            if (pageYOffset >= sectionTop - 150) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-</script>
-
+{% block contact_default %}
+<div class="grid md:grid-cols-2 gap-10">
+    <div class="space-y-5">
+        <div>
+            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">Office</p>
+            <p class="text-xl">Room 1505</p>
+        </div>
+        <div>
+            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">Trunkline</p>
+            <p class="text-xl">(02) 8281 8888 Local 222/224</p>
+        </div>
+        <div>
+            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">Email</p>
+            <p class="text-xl text-feu-yellow">
+                <a href="mailto:ccs_cs@feutech.edu.ph" class="hover:text-white transition-colors duration-300 underline underline-offset-4">ccs_cs@feutech.edu.ph</a>
+            </p>
+        </div>
+    </div>
+    <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
+        <img src="{{ asset('images/Tamtam/Wave_Tammy.png') }}" class="absolute bottom-0 right-0 w-40 opacity-40 pointer-events-none select-none" alt="TamTam background">
+        <p class="uppercase tracking-[0.3em] text-feu-green font-black text-xs mb-3">Program Director</p>
+        <h3 class="text-3xl font-black text-black uppercase mb-3">SHANETH C. AMBAT, PhD</h3>
+        <p class="text-slate-600 leading-relaxed">Program Director of Computer Science</p>
+    </div>
+</div>
 {% endblock %}

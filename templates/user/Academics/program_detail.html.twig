@@ -1,0 +1,772 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ program.metaTitle|default(program.programName ~ ' | FEU Institute of Technology') }}{% endblock %}
+{% block meta_description %}{{ program.metaDescription|default('') }}{% endblock %}
+{% block meta_keywords %}{{ program.metaKeywords|default('') }}{% endblock %}
+
+{% block body %}
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
+            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
+            #f8fafc;
+    }
+
+    .scroll-section {
+        scroll-margin-top: 120px;
+    }
+
+    .nav-link.active {
+        background: #008348;
+        color: white;
+        transform: translateX(6px);
+    }
+
+    .glass-card {
+        backdrop-filter: blur(14px);
+        background: rgba(255,255,255,.72);
+    }
+
+    .float-animation {
+        animation: floating 5s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-14px);
+        }
+    }
+
+    .glow-hover {
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .glow-hover:hover {
+        transform: translateY(-8px);
+        box-shadow:
+            0 20px 50px rgba(0,131,72,.18),
+            0 10px 30px rgba(254,190,16,.12);
+    }
+
+    .competency-pill {
+        border: 2px solid #008348;
+        background: white;
+        color: #008348;
+        transition:
+            all .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .competency-pill:hover {
+        background: #008348;
+        color: white;
+        box-shadow: 0 15px 30px rgba(0,131,72,.22);
+    }
+
+    .careers-pill {
+        border: 2px solid #febe10;
+        background: white;
+        color: #5b5c5c;
+        transition:
+            all .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .careers-pill:hover {
+        background: #febe10;
+        color: white;
+    }
+
+    /* WYSIWYG Outcomes List Styling */
+    .outcomes-content h3 {
+        color: #febe10 !important;
+        font-size: 1.5rem !important;
+        font-weight: 900 !important;
+        margin-top: 2rem !important;
+        margin-bottom: 1rem !important;
+        text-transform: uppercase !important;
+    }
+    .outcomes-content p {
+        color: rgba(255, 255, 255, 0.9) !important;
+        margin-bottom: 1rem !important;
+    }
+    .outcomes-content ul {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1.5rem;
+        list-style: none !important;
+        padding-left: 0 !important;
+        margin-bottom: 2rem !important;
+    }
+    @media (min-width: 768px) {
+        .outcomes-content ul {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+    .outcomes-content li {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.625;
+        position: relative;
+        list-style: none !important;
+        padding-left: 3.5rem !important;
+    }
+    .outcomes-content ul {
+        counter-reset: outcome-counter;
+    }
+    .outcomes-content li::before {
+        counter-increment: outcome-counter;
+        content: counter(outcome-counter, upper-alpha);
+        position: absolute;
+        left: 1.25rem;
+        top: 1.25rem;
+        background: #febe10;
+        color: #008348;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 0.875rem;
+    }
+
+    /* WYSIWYG Attributes List Styling */
+    .attributes-content ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        list-style: none !important;
+        padding-left: 0 !important;
+    }
+    .attributes-content li {
+        border: 2px solid #008348;
+        background: white;
+        color: #008348;
+        padding: 1rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all .35s ease;
+        list-style: none !important;
+    }
+    .attributes-content li:hover {
+        background: #008348;
+        color: white;
+        box-shadow: 0 15px 30px rgba(0,131,72,.22);
+    }
+
+    /* WYSIWYG Careers List Styling */
+    .careers-content ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        list-style: none !important;
+        padding-left: 0 !important;
+    }
+    .careers-content li {
+        border: 2px solid #febe10;
+        background: white;
+        color: #5b5c5c;
+        padding: 1rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: all .35s ease;
+        list-style: none !important;
+    }
+    .careers-content li:hover {
+        background: #febe10;
+        color: white;
+        box-shadow: 0 15px 30px rgba(0,131,72,.22);
+    }
+
+    .lab-image {
+        transition:
+            transform .6s ease,
+            filter .4s ease;
+    }
+
+    .lab-image:hover {
+        transform: scale(1.03);
+        filter: brightness(1.04);
+    }
+
+    /* CCSMA DECORATIVE STYLES */
+    .floating-circles .circle {
+        position: absolute;
+        border-radius: 9999px;
+        opacity: .12;
+        animation: float 8s infinite ease-in-out;
+        z-index: 0;
+    }
+    .floating-circles .one {
+        width: 160px;
+        height: 160px;
+        background: #FEBE10;
+        top: 240px;
+        right: 40px;
+    }
+    .floating-circles .two {
+        width: 120px;
+        height: 120px;
+        background: white;
+        bottom: 120px;
+        left: 40px;
+        animation-delay: 2s;
+    }
+    .floating-circles .three {
+        width: 90px;
+        height: 90px;
+        background: #FEBE10;
+        bottom: 340px;
+        right: 25%;
+        animation-delay: 4s;
+    }
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-18px);
+        }
+    }
+    .library-card-wrapper {
+        position: relative;
+        overflow: visible;
+    }
+    .tammy-peek {
+        position: absolute;
+        top: -75px;
+        right: 25px;
+        z-index: 30;
+        pointer-events: none;
+    }
+    .tammy-peek-img {
+        width: 110px;
+        opacity: 0;
+        transform: translateY(20px) scale(.8);
+        transition: all .5s ease;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,.15));
+    }
+    .library-card-wrapper:hover .tammy-peek-img {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    /* COE DECORATIVE STYLES */
+    .blueprint-bg {
+        background-image:
+            linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+    .faculty-card {
+        transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .faculty-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(0,131,72,.18), 0 10px 30px rgba(254,190,16,.12);
+    }
+    .shimmer {
+        position: relative;
+        overflow: hidden;
+    }
+    .shimmer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+        transform: skewX(-20deg);
+    }
+    .shimmer:hover::before {
+        animation: shimmerMove 1.1s ease;
+    }
+    @keyframes shimmerMove {
+        100% {
+            left: 160%;
+        }
+    }
+</style>
+
+{% if program.department and program.department.slug == 'ccsma' %}
+    <div class="floating-circles">
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+    </div>
+{% endif %}
+
+<!-- HERO -->
+<section class="relative z-10 overflow-hidden border-b border-slate-100">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
+            <img src="{{ program.heroImage ? (program.heroImage|slice(0, 7) == 'images/' or program.heroImage|slice(0, 8) == '/images/' ? asset(program.heroImage) : asset('uploads/academics/' ~ program.heroImage)) : asset(block('default_hero_image')|default('images/Academics/bsce.png')) }}"
+                 class="w-full h-auto block transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                 alt="{{ program.programName }}">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+        </div>
+    </div>
+</section>
+
+<main class="relative py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
+
+            <!-- SIDEBAR -->
+            <aside class="hidden lg:block sticky top-10 self-start">
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <img src="{{ asset('images/Tamtam/Reading_Book_Tammy.png') }}"
+                             class="w-20 object-contain float-animation"
+                             alt="TamTam">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
+                                FEU TECH
+                            </p>
+                            <h2 class="text-2xl font-black text-feu-green">
+                                {{ program.slug|upper }}
+                            </h2>
+                        </div>
+                    </div>
+
+                    <nav class="space-y-3">
+                        {% if program.overviewDescription is not empty or block('overview_default')|trim is not empty %}
+                            <a href="#overview" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Overview
+                            </a>
+                        {% endif %}
+                        {% if program.objectivesDescription is not empty or block('objectives_default')|trim is not empty %}
+                            <a href="#objectives" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Objectives
+                            </a>
+                        {% endif %}
+                        {% if program.studentOutcomes is not empty or program.outcomesDescription is not empty or block('outcomes_default')|trim is not empty %}
+                            <a href="#outcomes" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Outcomes
+                            </a>
+                        {% endif %}
+                        {% if program.graduateAttributes is not empty or block('attributes_default')|trim is not empty %}
+                            <a href="#attributes" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Competencies
+                            </a>
+                        {% endif %}
+                        {% if program.specializations is not empty or block('specializations_default')|trim is not empty %}
+                            <a href="#specialization" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Specializations
+                            </a>
+                        {% endif %}
+                        {% if program.careerOpportunities is not empty or block('careers_default')|trim is not empty %}
+                            <a href="#careers" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Careers
+                            </a>
+                        {% endif %}
+                        {% if program.laboratories is not empty or block('laboratories_default')|trim is not empty %}
+                            <a href="#facilities" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Laboratories
+                            </a>
+                        {% endif %}
+                        {% if program.faculty is not empty or block('faculty_default')|trim is not empty %}
+                            <a href="#faculty" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Faculty
+                            </a>
+                        {% endif %}
+                        {% if program.contactEmail is not empty or program.contactPhone is not empty or block('contact_default')|trim is not empty %}
+                            <a href="#contact" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
+                                Contact
+                            </a>
+                        {% endif %}
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- CONTENT -->
+            <div class="space-y-16">
+
+                <!-- OVERVIEW -->
+                {% if program.overviewDescription is not empty or block('overview_default')|trim is not empty %}
+                    <section id="overview" class="scroll-section">
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+                            <div class="flex items-center gap-5 mb-8">
+                                <img src="{{ asset('images/Tamtam/Reading_Book_Tammy.png') }}"
+                                     class="w-24 object-contain float-animation"
+                                     alt="TamTam">
+                                <div>
+                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                        Program Overview
+                                    </p>
+                                    <h2 class="text-4xl font-black text-feu-green uppercase">
+                                        {{ program.overviewTitle|default(block('overview_title_default')|default('General Description of the Program')) }}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="text-slate-600 leading-relaxed text-lg mb-6">
+                                {% if program.overviewDescription is not empty %}
+                                    {{ program.overviewDescription|raw }}
+                                {% else %}
+                                    {% block overview_default %}{% endblock %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </section>
+                {% endif %}
+
+                <!-- OBJECTIVES -->
+                {% if program.objectivesDescription is not empty or block('objectives_default')|trim is not empty %}
+                    <section id="objectives" class="scroll-section library-card-wrapper">
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+                            <div class="flex items-center gap-4 mb-8">
+                                <img src="{{ asset('images/Tamtam/Jumping_Tammy_Pencil.png') }}"
+                                     class="w-24"
+                                     alt="TamTam">
+                                <div>
+                                    <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                        Academic Goals
+                                    </p>
+                                    <h2 class="text-4xl font-black text-feu-green uppercase">
+                                        {{ program.objectivesTitle|default(block('objectives_title_default')|default('Program Educational Objectives')) }}
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="text-slate-600 leading-relaxed text-lg mb-8">
+                                {% if program.objectivesDescription is not empty %}
+                                    {{ program.objectivesDescription|raw }}
+                                {% else %}
+                                    {% block objectives_default %}{% endblock %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </section>
+                {% endif %}
+
+                <!-- OUTCOMES -->
+                {% if program.studentOutcomes is not empty or program.outcomesDescription is not empty or block('outcomes_default')|trim is not empty %}
+                    <section id="outcomes" class="scroll-section">
+                        <div class="bg-feu-green rounded-[3rem] p-10 text-white overflow-hidden relative">
+                            <div class="absolute right-0 bottom-0 opacity-10">
+                                <img src="{{ asset('images/Tamtam/Reading_Book_Tammy.png') }}"
+                                     class="w-72"
+                                     alt="TamTam">
+                            </div>
+                            <div class="relative z-10">
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
+                                    Graduate Competencies
+                                </p>
+                                <h2 class="text-4xl font-black uppercase mb-10">
+                                    {{ program.outcomesTitle|default(block('outcomes_title_default')|default('Program/Student Outcomes')) }}
+                                </h2>
+                                {% if program.outcomesDescription is not empty %}
+                                    <div class="text-white/90 leading-relaxed text-lg mb-8">
+                                        {{ program.outcomesDescription|raw }}
+                                    </div>
+                                {% elseif block('outcomes_description_default') is defined and block('outcomes_description_default')|trim is not empty %}
+                                    <div class="text-white/90 leading-relaxed text-lg mb-8">
+                                        {% block outcomes_description_default %}{% endblock %}
+                                    </div>
+                                {% endif %}
+                                {% if program.studentOutcomes is not empty %}
+                                    <div class="outcomes-content">
+                                        {{ program.studentOutcomes|raw }}
+                                    </div>
+                                {% else %}
+                                    {% block outcomes_default %}{% endblock %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </section>
+                {% endif %}
+
+                <!-- GRADUATE ATTRIBUTES -->
+                {% if program.graduateAttributes is not empty or block('attributes_default')|trim is not empty %}
+                    <section id="attributes" class="scroll-section">
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+                            <div class="mb-10">
+                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                    Graduate Attributes
+                                </p>
+                                <h2 class="text-4xl font-black text-feu-green uppercase">
+                                    {{ program.attributesTitle|default(block('attributes_title_default')|default('Engineering Competencies')) }}
+                                </h2>
+                            </div>
+                            {% if program.graduateAttributes is not empty %}
+                                <div class="attributes-content">
+                                    {{ program.graduateAttributes|raw }}
+                                </div>
+                            {% else %}
+                                {% block attributes_default %}{% endblock %}
+                            {% endif %}
+                        </div>
+                    </section>
+                {% endif %}
+
+                <!-- SPECIALIZATIONS -->
+                {% if program.specializations is not empty or block('specializations_default')|trim is not empty %}
+                    <section id="specialization" class="scroll-section library-card-wrapper">
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
+                            <div class="flex items-center gap-4 mb-8">
+                                <img src="{{ asset('images/Tamtam/Jumping_Tammy_Pencil.png') }}"
+                                     class="w-24"
+                                     alt="TamTam">
+                                <div>
+                                    <h2 class="text-4xl font-black text-feu-green uppercase">
+                                        Specialization / Tracking
+                                    </h2>
+                                </div>
+                            </div>
+                            {% if program.specializations is not empty %}
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    {% for spec in program.specializations %}
+                                        <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+                                            <h3 class="font-black text-feu-green mb-4 uppercase">
+                                                {{ spec.title }}
+                                            </h3>
+                                            <p class="text-slate-600">
+                                                {{ spec.description }}
+                                            </p>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {% block specializations_default %}{% endblock %}
+                            {% endif %}
+                        </div>
+                    </section>
+                {% endif %}
+
+                <!-- CAREERS -->
+                {% if program.careerOpportunities is not empty or block('careers_default')|trim is not empty %}
+                    <section id="careers" class="scroll-section">
+                        <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+                            <div class="mb-10">
+                                <h2 class="text-3xl font-black text-feu-green uppercase">
+                                    {{ program.careersTitle|default(block('careers_title_default')|default('Career Opportunities')) }}
+                                </h2>
+                                <p class="uppercase tracking-[0.3em] text-slate-600 text-xs mb-2">
+                                    {% if program.careersDescription is not empty %}
+                                        {{ program.careersDescription|raw }}
+                                    {% else %}
+                                        {% block careers_description_default %}{% endblock %}
+                                    {% endif %}
+                                </p>
+                            </div>
+                            {% if program.careerOpportunities is not empty %}
+                                <div class="careers-content">
+                                    {{ program.careerOpportunities|raw }}
+                                </div>
+                            {% else %}
+                                {% block careers_default %}{% endblock %}
+                            {% endif %}
+                        </div>
+                    </section>
+                {% endif %}
+
+                <!-- LABORATORIES -->
+                {% if program.laboratories is not empty or block('laboratories_default')|trim is not empty %}
+                    <section id="facilities" class="scroll-section space-y-10">
+                        <div>
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                Facilities & Laboratories
+                            </p>
+                            <h2 class="text-4xl font-black text-feu-green uppercase">
+                                Engineering Laboratories
+                            </h2>
+                        </div>
+                        {% if program.laboratories is not empty %}
+                            {% for lab in program.laboratories %}
+                                <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+                                    {% if lab.image %}
+                                        <img src="{{ asset('uploads/academics/labs/' ~ lab.image) }}"
+                                             class="rounded-[2rem] object-cover w-full h-[300px] lab-image"
+                                             alt="{{ lab.name }}">
+                                    {% else %}
+                                        <img src="{{ asset('images/Academics/IMG_0400.jpg') }}"
+                                             class="rounded-[2rem] object-cover w-full h-[300px] lab-image"
+                                             alt="{{ lab.name }}">
+                                    {% endif %}
+                                    <div>
+                                        <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
+                                            {{ lab.roomNumber }}
+                                        </div>
+                                        <h3 class="text-3xl font-black text-feu-green mb-5">
+                                            {{ lab.name }}
+                                        </h3>
+                                        <p class="text-slate-600 leading-relaxed">
+                                            {{ lab.description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {% block laboratories_default %}{% endblock %}
+                        {% endif %}
+                    </section>
+                {% endif %}
+
+                <!-- FACULTY -->
+                {% if program.faculty is not empty or block('faculty_default')|trim is not empty %}
+                    <section id="faculty" class="scroll-section">
+                        <div class="mb-10">
+                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
+                                Department Faculty
+                            </p>
+                            <h2 class="text-4xl font-black text-feu-green uppercase">
+                                Full Time Faculty Members
+                            </h2>
+                        </div>
+                        {% if program.faculty is not empty %}
+                            <div class="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
+                                {% for member in program.faculty %}
+                                    <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl border border-slate-100 flex flex-col md:flex-row gap-8 items-start hover:shadow-feu-green/10 transition duration-300">
+                                        <div class="w-32 h-32 rounded-3xl overflow-hidden shrink-0 border-2 border-slate-200">
+                                            <img src="{{ member.image ? asset('uploads/academics/faculty/' ~ member.image) : asset('images/Tamtam/Reading_Book_Tammy.png') }}"
+                                                 class="w-full h-full object-cover"
+                                                 alt="{{ member.name }}">
+                                        </div>
+                                        <div>
+                                            <h3 class="text-2xl font-black text-feu-green mb-1">{{ member.name }}</h3>
+                                            <p class="text-slate-500 font-semibold mb-3">{{ member.role }}</p>
+                                            <p class="text-slate-600 leading-relaxed text-sm mb-4">{{ member.information1|nl2br }}</p>
+                                            {% if member.specialization %}
+                                                <div class="flex flex-wrap gap-2 mb-4">
+                                                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded-full border border-green-100">
+                                                        {{ member.specialization }}
+                                                    </span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {% block faculty_default %}{% endblock %}
+                        {% endif %}
+                    </section>
+                {% endif %}
+
+                <!-- CONTACT -->
+                {% if program.contactEmail is not empty or program.contactPhone is not empty or block('contact_default')|trim is not empty %}
+                    <section id="contact" class="scroll-section">
+                        <div class="relative rounded-[3rem] overflow-hidden bg-feu-green text-white p-12 shadow-2xl">
+                            <div class="absolute inset-0 opacity-[0.03]"
+                                 style="background-image:
+                                 linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                                 linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+                                 background-size: 42px 42px;">
+                            </div>
+                            <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                                <div>
+                                    <h2 class="text-4xl font-black mb-8">
+                                        {{ program.contactTitle|default(block('contact_title_default')|default('Contact Us')) }}
+                                    </h2>
+                                    <p class="text-white/80 leading-relaxed text-lg mb-10">
+                                        {{ program.contactDescription|default(block('contact_description_default')|default('Get in touch with the department.')) }}
+                                    </p>
+                                    {% if program.contactEmail is not empty or program.contactPhone is not empty %}
+                                        <div class="space-y-6">
+                                            {% if program.contactPhone %}
+                                                <div>
+                                                    <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                                        Trunkline
+                                                    </p>
+                                                    <p class="text-xl">
+                                                        {{ program.contactPhone }}
+                                                    </p>
+                                                </div>
+                                            {% endif %}
+                                            {% if program.contactEmail %}
+                                                <div>
+                                                    <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
+                                                        Email
+                                                    </p>
+                                                    <p class="text-xl text-feu-yellow">
+                                                        <a href="mailto:{{ program.contactEmail }}"
+                                                           class="hover:text-white transition-colors duration-300 underline underline-offset-4">
+                                                            {{ program.contactEmail }}
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% else %}
+                                        {% block contact_default %}{% endblock %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{# Declare empty block fallbacks here so child templates can selectively override them #}
+{% block default_hero_image %}{% endblock %}
+{% block overview_title_default %}{% endblock %}
+{% block objectives_title_default %}{% endblock %}
+{% block outcomes_title_default %}{% endblock %}
+{% block attributes_title_default %}{% endblock %}
+{% block careers_title_default %}{% endblock %}
+{% block contact_title_default %}{% endblock %}
+{% block contact_description_default %}{% endblock %}
+
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.scroll-section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    function updateActiveLink() {
+        let currentSection = '';
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                currentSection = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+</script>
+
+{% endblock %}
