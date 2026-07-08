@@ -49,9 +49,9 @@ class AdmissionPagesCrudController extends AbstractCrudController
 
         yield FormField::addTab('Hero Section');
         yield ImageField::new('heroImage', 'Hero Background Image')
-            ->setBasePath('/uploads/admissions/')
+            ->setBasePath('/')
             ->setUploadDir('public/uploads/admissions/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setUploadedFileNamePattern('uploads/admissions/[randomhash].[extension]')
             ->setRequired(false);
         yield TextField::new('heroTitle', 'Main Title');
 

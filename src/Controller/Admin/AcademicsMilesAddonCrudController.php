@@ -23,9 +23,9 @@ class AcademicsMilesAddonCrudController extends AbstractCrudController
         yield TextField::new('subtitle', 'Addon Subtitle (e.g. Learning Management System)');
         yield TextareaField::new('description', 'Description');
         yield ImageField::new('image', 'Icon Image')
-            ->setBasePath('/uploads/academics/miles/')
+            ->setBasePath('/')
             ->setUploadDir('public/uploads/academics/miles/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setUploadedFileNamePattern('uploads/academics/miles/[randomhash].[extension]')
             ->setRequired(false);
         yield TextField::new('accent', 'Accent Color Class (e.g. bg-[#E9711C] for orange)');
     }

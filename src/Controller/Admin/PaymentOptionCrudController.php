@@ -53,9 +53,9 @@ class PaymentOptionCrudController extends AbstractCrudController
             ->hideOnIndex();
             
         yield ImageField::new('instructionsImage', 'Instructions Image (Optional, for single image guides)')
-            ->setBasePath('/uploads/payments/')
+            ->setBasePath('/')
             ->setUploadDir('public/uploads/payments/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setUploadedFileNamePattern('uploads/payments/[randomhash].[extension]')
             ->setRequired(false);
 
 

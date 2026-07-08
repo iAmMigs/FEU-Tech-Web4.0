@@ -171,306 +171,39 @@
         </div>
 
         <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {% for prog in department.programs %}
+                {% set isEven = loop.index0 % 2 == 0 %}
+                {% set iconBg = isEven ? 'bg-[#008348]/10' : 'bg-[#febe10]/15' %}
+                {% set iconText = isEven ? 'text-[#008348]' : 'text-[#febe10]' %}
 
-            <!-- Construction Engineering -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
+                <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start gap-5 mb-6">
+                            <div class="w-16 h-16 rounded-2xl {{ iconBg }} flex items-center justify-center mb-5 shrink-0">
+                                {% if prog.icon %}
+                                    <i class="{{ prog.icon }} text-2xl {{ iconText }}"></i>
+                                {% else %}
+                                    <i class="fas fa-graduation-cap text-2xl {{ iconText }}"></i>
+                                {% endif %}
+                            </div>
 
-                <div class="flex items-start gap-5 mb-6">
+                            <h3 class="text-xl font-black uppercase leading-snug">
+                                <a href="{{ path('app_program_detail', {'slug': prog.slug}) }}" class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
+                                    <span>{{ prog.programName }}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                                    </svg>
+                                </a>
+                            </h3>
+                        </div>
 
-                    <div class="shrink-0 w-16 h-16 rounded-2xl bg-[#008348]/10 flex items-center justify-center mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"
-                             class="w-8 h-8 text-[#008348]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M3 21h18M5 21V9l7-5 7 5v12M9 21V14h6v7"/>
-                        </svg>
+                        <div class="text-slate-600 leading-relaxed h-[130px] overflow-y-auto pr-2">
+                            {{ prog.overviewDescription|striptags|replace({'&nbsp;': ' ', '&nbsp': ' '})|raw }}
+                        </div>
                     </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bscem') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Construction Engineering and Management
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
                 </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    B.S. Construction Engineering and Management combines engineering and management to improve construction projects. Students gain hands-on experience with tools like Building Information Modeling (BIM) and construction safety protocols.
-                </p>
-
-            </div>
-
-            <!-- Civil Engineering -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                <div class="flex items-start gap-5 mb-6">
-
-                    <div class="shrink-0 w-16 h-16 rounded-2xl bg-[#febe10]/15 flex items-center justify-center mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#febe10]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M4 18h16M6 18V9m4 9V6m4 12v-8m4 8V4"/>
-                        </svg>
-                    </div>
-
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bsce') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Civil Engineering
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    The program was established in order to answer the need for professional civil engineers who can contribute significantly in building the nation through infrastructure planning and development.
-                </p>
-
-            </div>
-
-            <!-- Computer Engineering -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                <div class="flex items-start gap-5 mb-6">
-
-                    <div class="shrink-0 w-16 h-16 rounded-2xl bg-[#008348]/10 flex items-center justify-center mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
-                             class="w-8 h-8 text-[#008348]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <rect x="7" y="7" width="10" height="10" rx="2"/>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/>
-                        </svg>
-                    </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bscpe') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Computer Engineering
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    The program provides a broad undergraduate education to develop analytical skills and practical design knowledge that ensures long-term career flexibility.
-                </p>
-
-            </div>
-
-            <!-- Electrical Engineering -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                <div class="flex items-start gap-5 mb-6">
-
-                    <div class="shrink-0 w-16 h-16 rounded-2xl bg-[#febe10]/15 flex items-center justify-center mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#febe10]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M13 2L6 14h5l-1 8 7-12h-5l1-8z"/>
-                        </svg>
-                    </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bsee') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Electrical Engineering
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    The branch of engineering that deals with the technology of electricity, especially the design and application of circuitry and equipment for power generation and distribution, machine control, and communications.
-                </p>
-
-            </div>
-
-            <!-- Electronics Engineering -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                <div class="flex items-start gap-5 mb-6">
-
-                    <div class="shrink-0 w-16 h-16 rounded-2xl bg-[#008348]/10 flex items-center justify-center mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#008348]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <rect x="5" y="5" width="14" height="14" rx="2"/>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M9 9h6v6H9z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M3 9h2M3 15h2M19 9h2M19 15h2M9 3v2M15 3v2M9 19v2M15 19v2"/>
-                        </svg>
-                    </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bsece') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Electronics Engineering 
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    Being the most sought after branch of Engineering, this program is a dynamic program that prepares its graduates to be in the forefront of the revolutionary electronics technology.
-                </p>
-
-            </div>
-
-            <!-- Mechanical Engineering -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                <div class="flex items-start gap-5 mb-6">
-
-                    <div class="shrink-0 w-16 h-16 rounded-2xl bg-[#febe10]/15 flex items-center justify-center mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" 
-                             class="w-8 h-8 text-[#febe10]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M12 3v3M12 18v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M3 12h3M18 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>
-                            <circle cx="12" cy="12" r="4"/>
-                        </svg>
-                    </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bsme') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Mechanical Engineering
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    The program is one of the most versatile degrees in Engineering. Our program crosses many fields of study and makes students proficient in all forms of mechanical systems and design.
-                </p>
-
-            </div>
-
+            {% endfor %}
         </div>
-
     </div>
 </section>
 

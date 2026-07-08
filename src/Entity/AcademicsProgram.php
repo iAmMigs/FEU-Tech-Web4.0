@@ -22,6 +22,9 @@ class AcademicsProgram
     #[ORM\Column(length: 255, unique: true)]
     private ?string $slug = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $icon = null;
+
     #[ORM\ManyToOne(inversedBy: 'programs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?AcademicsDepartment $department = null;
@@ -141,6 +144,17 @@ class AcademicsProgram
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): static
+    {
+        $this->icon = $icon;
         return $this;
     }
 

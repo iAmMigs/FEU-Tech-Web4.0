@@ -211,4 +211,25 @@ final class AcademicsController extends AbstractController
             'page' => $page,
         ]);
     }
+
+    #[Route('/academics/{slug}', name: 'app_program_detail')]
+    public function programDetail(string $slug): Response
+    {
+        $program = $this->entityManager->getRepository(AcademicsProgram::class)->findOneBy(['slug' => $slug]);
+        if (!$program) {
+            throw $this->createNotFoundException('Program not found');
+        }
+
+        $deptSlug = $program->getDepartment() ? $program->getDepartment()->getSlug() : 'coe';
+        $projectDir = $this->getParameter('kernel.project_dir');
+        $templatePath = $projectDir . '/templates/user/Academics/' . $deptSlug . '/' . $slug . '.html.twig';
+        
+        $template = file_exists($templatePath)
+            ? 'Academics/' . $deptSlug . '/' . $slug . '.html.twig'
+            : 'Academics/program_detail.html.twig';
+
+        return $this->renderWithDefaults($template, [
+            'program' => $program,
+        ]);
+    }
 }

@@ -260,324 +260,47 @@
             </h2>
         </div>
 
+        {# Build a lookup map from slug to AcademicsProgram entity for icon override support #}
+        {% set progMap = {} %}
+        {% for p in department.programs %}
+            {% set progMap = progMap|merge({(p.slug): p}) %}
+        {% endfor %}
+
         <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {% for prog in department.programs %}
+                {% set isEven = loop.index0 % 2 == 0 %}
+                {% set iconBg = isEven ? 'bg-[#008348]/10' : 'bg-[#febe10]/15' %}
+                {% set iconText = isEven ? 'text-[#008348]' : 'text-[#febe10]' %}
 
-            <!-- BSCS -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-               
-                <div class="flex items-start gap-5 mb-6">
-                    <div class="w-16 h-16 rounded-2xl bg-[#008348]/10 flex items-center justify-center mb-5">
+                <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start gap-5 mb-6">
+                            <div class="w-16 h-16 rounded-2xl {{ iconBg }} flex items-center justify-center mb-5 shrink-0">
+                                {% if prog.icon %}
+                                    <i class="{{ prog.icon }} text-2xl {{ iconText }}"></i>
+                                {% else %}
+                                    <i class="fas fa-graduation-cap text-2xl {{ iconText }}"></i>
+                                {% endif %}
+                            </div>
 
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#008348]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M8 8h8v8H8V8z"/>
-                        </svg>
+                            <h3 class="text-xl font-black uppercase leading-snug">
+                                <a href="{{ path('app_program_detail', {'slug': prog.slug}) }}" class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
+                                    <span>{{ prog.programName }}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                                    </svg>
+                                </a>
+                            </h3>
+                        </div>
 
+                        <div class="text-slate-600 leading-relaxed h-[130px] overflow-y-auto pr-2">
+                            {{ prog.overviewDescription|striptags|replace({'&nbsp;': ' ', '&nbsp': ' '})|raw }}
+                        </div>
                     </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bscs') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Computer Science
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </a>
-
                 </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    Includes  the study of computing concepts and theories, algorithmic foundations, and new developments in computing. The program prepares students to design and create algorithmically complex software and develop new and effective algorithms for solving computing problems. Graduates of this program can expect a successful and rewarding career in specification design, coding, and software testing. It also focuses on software engineering, database, and large-scale software.
-                </p>
-
-            </div>
-
-
-            <!-- BSIT -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                 <div class="flex items-start gap-5 mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl bg-[#febe10]/15 flex items-center justify-center mb-5">
-
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#febe10]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M5 12h14M5 6h14M5 18h14"/>
-                        </svg>
-
-                    </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug">
-                        <a href="{{ path('app_bsit') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                Bachelor of Science in Information Technology
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    The study of the use of computers and computer software to plan, install, customize, operate, manage, administer, and maintain information technology infrastructure. The program also deals with the study of design, development, and implementation of solutions that integrate information technology into businesses and organizations. It aims to prepare students to be IT professionals, well-versed in IT infrastructure development and administration, and experts in systems design and development for implementation in an organization.
-                </p>
-
-            </div>
-
-            <!-- MMA -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                 <div class="flex items-start gap-5 mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl bg-[#008348]/10 flex items-center justify-center mb-5">
-
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#008348]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M9 19l-2 2m0-2l2 2m6-14l2-2m0 2l-2-2"/>
-                        </svg>
-
-                    </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug text-[#008348]">
-                        <a href="{{ path('app_bma') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                 Bachelor of Multimedia Arts
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    Aligns itself with the rapid convergence of media technologies and practices by developing conceptual, technical, aesthetic, and professional competencies for effective, critical, and innovative storytelling.
-                </p>
-
-            </div>
-
-            <!-- CYBER -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                 <div class="flex items-start gap-5 mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl bg-[#febe10]/15 flex items-center justify-center mb-5">
-
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#febe10]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M12 3l7 4v5c0 5-3 9-7 9s-7-4-7-9V7l7-4z"/>
-                        </svg>
-
-                    </div>
-
-                    <h3 class="text-xl font-black uppercase leading-snug text-[#008348]">
-                        <a href="{{ path('app_bscst') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                 Bachelor of Science in Cybersecurity
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                   Designed to provide students with a comprehensive education in the principles and practices of cybersecurity, covering fundamental concepts of computer systems, networks, and software. As well as advanced topics in cybersecurity, including threat analysis, risk management, and incident response.
-                </p>
-
-            </div>
-
-            <!-- DIGITAL MARKETING -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                 <div class="flex items-start gap-5 mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl bg-[#008348]/10 flex items-center justify-center mb-5">
-
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#008348]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M3 10.5l18-6v15l-18-6v-3z"/>
-                        </svg>
-
-                    </div>
-
-
-
-                    <h3 class="text-xl font-black uppercase leading-snug text-[#008348]">
-                        <a href="{{ path('app_bdmm') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                 Bachelor of Digital Marketing and Management
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    Focuses on developing students’ skills in planning, designing, and executing digital marketing campaigns while ensuring adherence to ethical standards, data privacy, and sustainability.
-                </p>
-
-            </div>
-
-            <!-- FINTECH -->
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2">
-
-                 <div class="flex items-start gap-5 mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl bg-[#febe10]/15 flex items-center justify-center mb-5">
-
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             class="w-8 h-8 text-[#febe10]"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor"
-                             stroke-width="1.8">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M12 8c-3 0-5 1-5 3s2 3 5 3 5 1 5 3-2 3-5 3"/>
-                        </svg>
-
-                    </div>
-
-                     <h3 class="text-xl font-black uppercase leading-snug text-[#008348]">
-                        <a href="{{ path('app_bsfintech') }}"
-                        class="group/link inline-flex items-center gap-2 text-[#008348] hover:text-[#febe10] transition duration-300">
-
-                            <span>
-                                BS in Financial Technology Engineering Program
-                            </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                class="w-10 h-10 transition-transform duration-300 group-hover/link:translate-x-1">
-
-                                <path stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                            </svg>
-
-                        </a>
-                    </h3>
-
-
-                </div>
-
-                <p class="text-slate-600 leading-relaxed">
-                    Integrates finance, technology, and engineering principles to develop cutting-edge financial solutions. It covers blockchain, artificial intelligence (AI) in finance, cybersecurity, data analytics, and financial systems engineering, preparing students to create secure, efficient, and innovative financial products.
-                </p>
-
-            </div>
-
+            {% endfor %}
         </div>
-
     </div>
-
 </section>
 
 <!-- WHY CHOOSE -->

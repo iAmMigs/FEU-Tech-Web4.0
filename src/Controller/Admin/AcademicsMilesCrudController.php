@@ -47,9 +47,9 @@ class AcademicsMilesCrudController extends AbstractCrudController
         yield FormField::addTab('Hero Section');
         yield TextField::new('heroBadge', 'Hero Badge (e.g. Learning Enhancement System)');
         yield ImageField::new('heroLogo', 'Hero Logo Image')
-            ->setBasePath('/uploads/academics/')
+            ->setBasePath('/')
             ->setUploadDir('public/uploads/academics/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setUploadedFileNamePattern('uploads/academics/[randomhash].[extension]')
             ->setRequired(false);
         yield TextField::new('heroTitle', 'Main Title');
         yield TextField::new('heroSubtitle', 'Subtitle');

@@ -25,9 +25,9 @@ class ProgramLaboratoryCrudController extends AbstractCrudController
         yield TextField::new('roomNumber', 'Room Number & Building (e.g. Room 101 • FIT Building)');
         yield TextareaField::new('description', 'Description');
         yield ImageField::new('image', 'Laboratory Image')
-            ->setBasePath('/uploads/academics/labs/')
+            ->setBasePath('/')
             ->setUploadDir('public/uploads/academics/labs/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setUploadedFileNamePattern('uploads/academics/labs/[randomhash].[extension]')
             ->setRequired(false);
     }
 }
