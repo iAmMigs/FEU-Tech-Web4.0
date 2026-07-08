@@ -88,7 +88,7 @@
                                                 {% if item.tagIcon == 'graduation-cap' %}
                                                     <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
                                                 {% elseif item.tagIcon == 'users' %}
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 3-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                                 {% elseif item.tagIcon == 'medal' %}
                                                     <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                                                 {% endif %}
@@ -109,7 +109,7 @@
 
         <div class="mt-24 timeline-item opacity-0 transform translate-y-8 transition-all duration-700 ease-out -mx-4 md:-mx-12 lg:-mx-20 relative z-10" data-index="{{ timeline|length }}" data-theme="gold">
             
-            <div class="absolute inset-y-0 left-0 right-0 pointer-events-none z-20">
+            <div class="absolute inset-y-0 left-0 right-0 pointer-events-none z-30">
                 <div class="absolute left-[147px] md:left-[211px] lg:left-[243px] top-0 h-48 w-[6px] bg-gradient-to-b from-white/20 via-white/20 to-transparent"></div>
                 <div id="timeline-line-end" class="absolute left-[147px] md:left-[211px] lg:left-[243px] top-0 w-[6px] bg-gradient-to-b from-white via-white to-transparent h-0 transition-all duration-300"></div>
 
@@ -121,19 +121,20 @@
                 </div>
             </div>
 
-            <div class="w-full bg-[#003820] text-white relative overflow-hidden flex flex-col min-h-[480px]">
-                <div class="absolute left-0 top-0 bottom-0 w-full lg:w-[23%] z-0 opacity-20 lg:opacity-30 mix-blend-luminosity pointer-events-none">
-                    <img src="/images/history/2014.jpg" alt="FEU Tech Building" class="w-full h-full object-cover">
+            <div class="w-full bg-[#003820] text-white relative flex flex-col min-h-[480px]">
+                
+                <!-- Image layout changed to z-10 to stay directly above the bg-[#003820] background color layer -->
+                <div class="absolute left-0 -top-16 bottom-0 w-full lg:w-[23%] z-10 pointer-events-none">
+                    <img src="/images/history/FEUFooter.png" alt="FEU Tech Building" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#003820]"></div>
                 </div>
 
-                <div class="absolute left-4 md:left-[36px] lg:left-[48px] top-1/2 -translate-y-1/2 z-30 hidden sm:block">
-                        <div class="w-28 h-36 rounded-full bg-[#002615] border-2 border-[#EFA316] flex items-center justify-center shadow-lg">
-                            <img src="/images/Tech_Logo.png" class="w-29 h-28 object-contain">
-                        </div>
+                <!-- Increased content layers below to z-20 so they display on top of the background image details -->
+                <div class="absolute left-4 md:left-[36px] lg:left-[48px] top-1/2 -translate-y-1/2 z-20 hidden sm:block">
+                    <img src="/images/Tech_Logo.png" class="w-40 h-40 object-contain">
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pl-48 pr-6 md:pl-64 md:pr-16 lg:pl-80 lg:pr-24 pt-16 pb-20 relative z-10 my-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pl-48 pr-6 md:pl-64 md:pr-16 lg:pl-80 lg:pr-24 pt-16 pb-20 relative z-20 my-auto">
                     <div class="lg:col-span-6 space-y-4 text-left">
                         <span class="text-6xl md:text-7xl font-black tracking-tighter block text-white font-sans">2014</span>
                         <h3 class="text-2xl md:text-3xl font-extrabold text-[#EFA316] uppercase tracking-wide leading-tight font-sans">Back to Its Roots </h3>
@@ -152,7 +153,7 @@
                                 </p>
                             </div>
 
-                            <h2 class="text-5xl font-bold text-[#EFA316] mb-4 font-['Poppins'] tracking-[0.3em] scale-y-[2]  origin-center inline-block">
+                            <h2 class="text-5xl font-bold text-[#EFA316] mb-4 font-['Poppins'] tracking-[0.3em] scale-y-[2] origin-center inline-block">
                                 FEU TECH
                             </h2>
                             
@@ -166,7 +167,7 @@
                     </div>
                 </div>
 
-                <div class="mt-auto w-full bg-[#002615] py-5 px-6 border-t border-white/10 text-center">
+                <div class="mt-auto w-full bg-[#002615] py-5 px-6 border-t border-white/10 text-center relative z-20">
                     <div class="flex flex-wrap justify-center items-center gap-4 md:gap-10 text-[11px] tracking-widest text-gray-300 uppercase">
                         <span class="flex items-center gap-2"><svg class="w-4 h-4 text-[#EFA316]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg> Engineering Roots</span>
                         <span class="text-[#EFA316] font-bold select-none">•</span>

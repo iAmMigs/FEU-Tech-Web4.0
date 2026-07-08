@@ -105,7 +105,7 @@
                                 <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top-left translate-y-2 group-hover:translate-y-0 z-50">
                                     <div class="py-2 flex flex-col">
                                         <a href="{{ path('app_facts_history') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facts and History</a>
-                                        <a href="{{ path('app_vision_mision') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Vision, Mission, Quality Policy</a>
+                                        <a href="{{ path('app_vision_mision') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Vision, Mission, EOMS Policy</a>
                                         <a href="{{ path('app_facilities') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Facilities</a>
                                         <a href="{{ path('app_executive_officers') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">Executive Officers</a>
 
@@ -221,11 +221,6 @@
                                 </div>
                             </div>
 
-                            <div class="relative group mt-1">
-                                <a href="{{ path('app_magazine') }}" class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
-                                    E- Magazine 
-                                </a>
-                            </div>
 
                             <div class="relative group mt-1">
                                 <button class="nav-link whitespace-nowrap text-feu-green font-semibold hover:text-feu-yellow transition-colors flex items-center gap-1 uppercase pb-1 text-sm relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-feu-green after:transition-all">
@@ -291,7 +286,7 @@
                             </a>
 
                             <a href="{{ path('app_vision_mision') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">
-                                Vision, Mission, Quality Policy
+                                Vision, Mission, EOMS Policy
                             </a>
 
                             <a href="{{ path('app_facilities') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">
@@ -434,43 +429,45 @@
                         </button>
 
                         <div class="hidden pl-6 pr-2 py-1 flex-col space-y-1 bg-black/10 rounded-lg mt-1">
-                            <a href="https://paraverse.feutech.edu.ph/" class="block py-1.5 text-sm text-slate-300 hover:text-white">Educational Innovation and Hub</a>
-                            <a href="{{ path('app_miles') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">MILES</a>
+                            <a href="{{ path('app_coe') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">College of Engineering</a>
                             <a href="{{ path('app_ccsma') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">College of Computer Studies</a>
                             <a href="{{ path('app_coe') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">College of Engineering</a>
                             <a href="{{ path('app_gened') }}" class="block py-1.5 text-sm text-slate-300 hover:text-white">General Education</a>
 
-                        <div class="mt-2">
+                            <div class="mt-2">
 
-                            <button class="w-full flex justify-between items-center py-2 text-sm text-slate-300 hover:text-white nested-accordion">
-                                <span>Services List</span>
+                                <button class="w-full flex justify-between items-center py-2 text-sm text-slate-300 hover:text-white nested-accordion">
+                                    <span>Academic Service</span>
 
-                                <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
+                                    <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
 
-                            <div class="hidden mt-1 ml-2 pl-3 border-l border-white/10 space-y-1">
+                                <div class="hidden mt-1 ml-2 pl-3 border-l border-white/10 space-y-1">
 
-                                <a href="{{ path('app_registrar') }}"
-                                class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                    Registrar
-                                </a>
+                                    <a href="{{ path('app_registrar') }}"
+                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
+                                        Registrar
+                                    </a>
 
-                                <a href="{{ asset('images/UPDATED-AY2526.png') }}"
-                                target="_blank"
-                                class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                    Academic Calendar
-                                </a>
+                                    <a href="{{ asset('images/UPDATED-AY2526.png') }}"
+                                    target="_blank"
+                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
+                                        Academic Calendar
+                                    </a>
 
-                                <a href="{{ path('app_library') }}"
-                                class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                    Library
-                                </a>
+                                    <a href="{{ path('app_library') }}"
+                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
+                                        Library
+                                    </a>
+
+                                </div>
 
                             </div>
 
-                        </div>
+                            <a href="https://paraverse.feutech.edu.ph/" class="block py-1.5 text-sm text-slate-300 hover:text-white">Educational Innovation and Hub</a>
+
                             <a href="https://feutech.edu.ph/ftic" class="block py-1.5 text-sm text-slate-300 hover:text-white mt-1">
                                 FEU Tech Innovation Center
                             </a>
@@ -621,151 +618,156 @@
         </footer>
 
         <script>
-        (function () {
-            function handleScroll() {
-                const header = document.getElementById('main-header');
-                if (!header) return;
-                if (window.scrollY > 10) {
-                    header.classList.remove('bg-white', 'shadow-sm');
-                    header.classList.add('bg-white/50', 'shadow-md');
-                } else {
-                    header.classList.remove('bg-white/50', 'shadow-md');
-                    header.classList.add('bg-white', 'shadow-sm');
+            (function () {
+                function handleScroll() {
+                    const header = document.getElementById('main-header');
+                    if (!header) return;
+                    if (window.scrollY > 10) {
+                        header.classList.remove('bg-white', 'shadow-sm');
+                        header.classList.add('bg-white/50', 'shadow-md');
+                    } else {
+                        header.classList.remove('bg-white/50', 'shadow-md');
+                        header.classList.add('bg-white', 'shadow-sm');
+                    }
                 }
-            }
 
-            function initializeScrollEffect() {
-                // Remove the hard window lock. Instead, safely attach/reattach the event listener.
-                window.removeEventListener('scroll', handleScroll);
-                window.addEventListener('scroll', handleScroll);
-                
-                // Instantly run once on page initialization/navigation to check current scroll position
-                handleScroll();
-            }
+                function initializeScrollEffect() {
+                    window.removeEventListener('scroll', handleScroll);
+                    window.addEventListener('scroll', handleScroll);
+                    handleScroll();
+                }
 
-            function initializeNavigation() {
-                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-                const drawerCloseBtn = document.getElementById('drawer-close-btn');
-                const mobileDrawer = document.getElementById('mobile-drawer');
-                const drawerOverlay = document.getElementById('drawer-overlay');
-                const drawerPanel = document.getElementById('drawer-panel');
+                function initializeNavigation() {
+                    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                    const drawerCloseBtn = document.getElementById('drawer-close-btn');
+                    const mobileDrawer = document.getElementById('mobile-drawer');
+                    const drawerOverlay = document.getElementById('drawer-overlay');
+                    const drawerPanel = document.getElementById('drawer-panel');
 
-                if (!mobileMenuBtn || !mobileDrawer || !drawerOverlay || !drawerPanel) return;
-                
-                // Clear dataset marker on turbo reloads to ensure bindings work fresh
-                mobileMenuBtn.removeAttribute('data-initialized');
-                if (mobileMenuBtn.dataset.initialized === 'true') return;
-                mobileMenuBtn.dataset.initialized = 'true';
+                    if (!mobileMenuBtn || !mobileDrawer || !drawerOverlay || !drawerPanel) return;
+                    
+                    // FIX: Check the attribute first before setting it, and don't blindly remove it
+                    if (mobileMenuBtn.dataset.initialized === 'true') return;
+                    mobileMenuBtn.dataset.initialized = 'true';
 
-                function openMobileMenu() {
-                    mobileDrawer.classList.remove('invisible');
-                    requestAnimationFrame(() => {
-                        drawerOverlay.classList.remove('opacity-0');
-                        drawerOverlay.classList.add('opacity-100');
-                        drawerPanel.classList.remove('-translate-x-full');
-                        drawerPanel.classList.add('translate-x-0');
-                        document.body.classList.add('overflow-hidden');
+                    function openMobileMenu() {
+                        mobileDrawer.classList.remove('invisible');
+                        requestAnimationFrame(() => {
+                            drawerOverlay.classList.remove('opacity-0');
+                            drawerOverlay.classList.add('opacity-100');
+                            drawerPanel.classList.remove('-translate-x-full');
+                            drawerPanel.classList.add('translate-x-0');
+                            document.body.classList.add('overflow-hidden');
+                        });
+                    }
+
+                    function closeMobileMenu() {
+                        drawerOverlay.classList.remove('opacity-100');
+                        drawerOverlay.classList.add('opacity-0');
+                        drawerPanel.classList.remove('translate-x-0');
+                        drawerPanel.classList.add('-translate-x-full');
+                        setTimeout(() => { mobileDrawer.classList.add('invisible'); }, 300);
+                        document.body.classList.remove('overflow-hidden');
+                    }
+
+                    mobileMenuBtn.addEventListener('click', openMobileMenu);
+                    drawerCloseBtn?.addEventListener('click', closeMobileMenu);
+                    drawerOverlay?.addEventListener('click', closeMobileMenu);
+
+                    // Escape key handling
+                    const handleKeyDown = (e) => {
+                        if (e.key === 'Escape') closeMobileMenu();
+                    };
+                    document.removeEventListener('keydown', handleKeyDown);
+                    document.addEventListener('keydown', handleKeyDown);
+
+                    // Main Accordions
+                    const accordions = document.querySelectorAll('.target-accordion');
+                    accordions.forEach((accordion) => {
+                        if (accordion.dataset.initialized === 'true') return;
+                        accordion.dataset.initialized = 'true';
+                        
+                        accordion.addEventListener('click', function () {
+                            const submenu = this.nextElementSibling;
+                            const icon = this.querySelector('svg');
+                            if (!submenu) return;
+                            
+                            if (submenu.classList.contains('hidden')) {
+                                submenu.classList.remove('hidden');
+                                submenu.classList.add('flex');
+                                icon?.classList.add('rotate-180');
+                            } else {
+                                submenu.classList.remove('flex');
+                                submenu.classList.add('hidden');
+                                icon?.classList.remove('rotate-180');
+                            }
+                        });
                     });
                 }
 
-                function closeMobileMenu() {
-                    drawerOverlay.classList.remove('opacity-100');
-                    drawerOverlay.classList.add('opacity-0');
-                    drawerPanel.classList.remove('translate-x-0');
-                    drawerPanel.classList.add('-translate-x-full');
-                    setTimeout(() => { mobileDrawer.classList.add('invisible'); }, 300);
-                    document.body.classList.remove('overflow-hidden');
+                function setupNestedAccordions() {
+                    const nestedAccordions = document.querySelectorAll('.nested-accordion');
+                    nestedAccordions.forEach((accordion) => {
+                        if (accordion.dataset.initialized === 'true') return;
+                        accordion.dataset.initialized = 'true';
+                        
+                        accordion.addEventListener('click', function () {
+                            const submenu = this.nextElementSibling;
+                            const icon = this.querySelector('svg');
+                            if (!submenu) return;
+                            
+                            if (submenu.classList.contains('hidden')) {
+                                submenu.classList.remove('hidden');
+                                icon?.classList.add('rotate-180');
+                            } else {
+                                submenu.classList.add('hidden');
+                                icon?.classList.remove('rotate-180');
+                            }
+                        });
+                    });
                 }
 
-                mobileMenuBtn.addEventListener('click', openMobileMenu);
-                drawerCloseBtn?.addEventListener('click', closeMobileMenu);
-                drawerOverlay?.addEventListener('click', closeMobileMenu);
+                let loadStartTime = Date.now();
+                const MIN_DISPLAY_TIME = 600;
 
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') closeMobileMenu();
-                });
+                function hideLoader() {
+                    const elapsedTime = Date.now() - loadStartTime;
+                    const timeToWait = Math.max(0, MIN_DISPLAY_TIME - elapsedTime);
+                    setTimeout(() => {
+                        const loader = document.getElementById('page-loader');
+                        if (!loader) return;
+                        loader.style.opacity = '0';
+                        setTimeout(() => { loader.style.display = 'none'; }, 500);
+                    }, timeToWait);
+                }
 
-                const accordions = document.querySelectorAll('.target-accordion');
-                accordions.forEach((accordion) => {
-                    accordion.removeAttribute('data-initialized');
-                    if (accordion.dataset.initialized === 'true') return;
-                    accordion.dataset.initialized = 'true';
-                    accordion.addEventListener('click', function () {
-                        const submenu = this.nextElementSibling;
-                        const icon = this.querySelector('svg');
-                        if (!submenu) return;
-                        if (submenu.classList.contains('hidden')) {
-                            submenu.classList.remove('hidden');
-                            submenu.classList.add('flex');
-                            icon?.classList.add('rotate-180');
-                        } else {
-                            submenu.classList.remove('flex');
-                            submenu.classList.add('hidden');
-                            icon?.classList.remove('rotate-180');
-                        }
-                    });
-                });
-            }
-
-            // Moved these inside the scope so they evaluate cleanly on fresh page targets
-            function setupNestedAccordions() {
-                const nestedAccordions = document.querySelectorAll('.nested-accordion');
-                nestedAccordions.forEach((accordion) => {
-                    accordion.removeAttribute('data-initialized');
-                    if (accordion.dataset.initialized === 'true') return;
-                    accordion.dataset.initialized = 'true';
-                    accordion.addEventListener('click', function () {
-                        const submenu = this.nextElementSibling;
-                        const icon = this.querySelector('svg');
-                        if (!submenu) return;
-                        if (submenu.classList.contains('hidden')) {
-                            submenu.classList.remove('hidden');
-                            icon?.classList.add('rotate-180');
-                        } else {
-                            submenu.classList.add('hidden');
-                            icon?.classList.remove('rotate-180');
-                        }
-                    });
-                });
-            }
-
-            let loadStartTime = Date.now();
-            const MIN_DISPLAY_TIME = 600;
-
-            function hideLoader() {
-                const elapsedTime = Date.now() - loadStartTime;
-                const timeToWait = Math.max(0, MIN_DISPLAY_TIME - elapsedTime);
-                setTimeout(() => {
+                function showLoader() {
+                    loadStartTime = Date.now();
                     const loader = document.getElementById('page-loader');
                     if (!loader) return;
-                    loader.style.opacity = '0';
-                    setTimeout(() => { loader.style.display = 'none'; }, 500);
-                }, timeToWait);
-            }
+                    loader.style.display = 'flex';
+                    setTimeout(() => { loader.style.opacity = '1'; }, 10);
+                }
 
-            function showLoader() {
-                loadStartTime = Date.now();
-                const loader = document.getElementById('page-loader');
-                if (!loader) return;
-                loader.style.display = 'flex';
-                setTimeout(() => { loader.style.opacity = '1'; }, 10);
-            }
+                function initAll() {
+                    initializeNavigation();
+                    setupNestedAccordions();
+                    initializeScrollEffect();
+                }
 
-            // Unified initialization runner
-            function initAll() {
-                initializeNavigation();
-                setupNestedAccordions();
-                initializeScrollEffect();
-            }
-
-            document.addEventListener('DOMContentLoaded', initAll);
-            document.addEventListener('turbo:load', initAll);
-            
-            document.addEventListener('turbo:visit', showLoader);
-            document.addEventListener('turbo:load', hideLoader);
-            document.addEventListener('turbo:render', hideLoader);
-            window.addEventListener('load', hideLoader);
-        })();
-        </script>
+                // Runs safely across standard loads and Hotwire Turbo updates
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initAll);
+                } else {
+                    initAll();
+                }
+                document.addEventListener('turbo:load', initAll);
+                
+                document.addEventListener('turbo:visit', showLoader);
+                document.addEventListener('turbo:load', hideLoader);
+                document.addEventListener('turbo:render', hideLoader);
+                window.addEventListener('load', hideLoader);
+            })();
+            </script>
     </body>
 </html>
