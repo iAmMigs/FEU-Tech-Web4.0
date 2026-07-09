@@ -198,4 +198,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (mediaModal) mediaModal.hide();
     }
+
+    // 7. YOUTUBE WATCH URL TO VIDEO ID AUTOFILL
+    document.body.addEventListener('input', (e) => {
+        const target = e.target;
+        if (target && target.id && target.id.endsWith('_linkUrl')) {
+            const val = target.value.trim();
+            if (val) {
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                const match = val.match(regExp);
+                if (match && match[2].length === 11) {
+                    const videoId = match[2];
+                    const form = target.closest('form');
+                    if (form) {
+                        const ytIdInput = form.querySelector('[id$="_youtubeId"]');
+                        if (ytIdInput && !ytIdInput.value) {
+                            ytIdInput.value = videoId;
+                        }
+                    }
+                }
+            }
+        }
+    });
 });

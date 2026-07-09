@@ -18,6 +18,9 @@ use App\Controller\Admin\AcademicsMilesCrudController;
 use App\Controller\Admin\AcademicsMilesAddonCrudController;
 use App\Controller\Admin\AcademicsRegistrarCrudController;
 use App\Controller\Admin\AcademicsLibraryCrudController;
+use App\Controller\Admin\MagazineItemCrudController;
+use App\Controller\Admin\TambayanVideoCrudController;
+use App\Controller\Admin\HomeEventCrudController;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
@@ -37,7 +40,12 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
-        yield MenuItem::linkTo(GeneralPageCrudController::class, 'General Pages', 'fas fa-home');
+        yield MenuItem::subMenu('General Module', 'fas fa-home')->setSubItems([
+            MenuItem::linkTo(GeneralPageCrudController::class, 'Page Settings', 'fas fa-cog'),
+            MenuItem::linkTo(MagazineItemCrudController::class, 'Manage Magazines', 'fas fa-book-open'),
+            MenuItem::linkTo(TambayanVideoCrudController::class, 'Manage Tambayan Videos', 'fas fa-video'),
+            MenuItem::linkTo(HomeEventCrudController::class, 'Manage Events', 'fas fa-calendar-alt'),
+        ]);
 
         yield MenuItem::linkToRoute('About Pages', 'fas fa-info-circle', 'admin'); // Placeholder
 

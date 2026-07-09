@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ page and page.metaTitle ? page.metaTitle : 'School of Innovation | FEU Institute of Technology' }}{% endblock %}
+{% block meta_description %}{{ page and page.metaDescription ? page.metaDescription : '' }}{% endblock %}
+{% block meta_keywords %}{{ page and page.metaKeywords ? page.metaKeywords : '' }}{% endblock %}
+
 {% block body %}
 <section id="top" class="relative w-full h-[85vh] min-h-[650px] flex items-center overflow-hidden bg-slate-950">
     
     <div id="hero-bg-default" class="absolute inset-0 z-0">
         <video autoplay muted loop playsinline class="w-full h-full object-cover select-none pointer-events-none">
-            <source src="/videos/SAMPLEHERO2.mp4" type="video/mp4">
+            <source src="{{ page and page.heroVideoPath ? (page.heroVideoPath starts with '/' or page.heroVideoPath starts with 'http' ? page.heroVideoPath : '/' ~ page.heroVideoPath) : '/videos/SAMPLEHERO2.mp4' }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20 md:to-transparent"></div>
     </div>
@@ -18,29 +22,35 @@
     <div id="hero-content" class="relative z-30 w-full max-w-7xl mx-auto px-6 sm:px-4 lg:px-16 flex flex-col justify-center items-start text-left">
         
         <span class="font-roboto text-white font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4 bg-feu-green/5 px-3 py-1.5 rounded-md inline-block backdrop-blur-sm border border-white/20">
-            Welcome to The School of Innovation
+            {{ page and page.heroTagline ? page.heroTagline : 'Welcome to The School of Innovation' }}
         </span>
         
         <h1 class="font-poppins text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.4] tracking-wide max-w-4xl" style="text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.3);">
-            Shape Your Future at <span class="text-feu-yellow font-black" style="text-shadow: 0 4px 12px rgba(240, 179, 35, 0.25), 0 2px 4px rgba(0, 0, 0, 0.4);"><br>FEU Tech</span>
+            {{ page and page.heroTitle ? page.heroTitle|raw : 'Shape Your Future at <span class="text-feu-yellow font-black" style="text-shadow: 0 4px 12px rgba(240, 179, 35, 0.25), 0 2px 4px rgba(0, 0, 0, 0.4);"><br>FEU Tech</span>' }}
         </h1>
         
         <p class="font-roboto text-base md:text-lg lg:text-l text-white mb-10 font-normal leading-relaxed max-w-2xl tracking-wide drop-shadow-md">
-            FEU Tech is an AI Campus and an internationally ranked institution recognized for global excellence in Engineering, Computer Science, I.T., Multimedia Arts and Research. It is committed to producing graduates who are industry-ready and globally competitive from day one.
+            {{ page and page.heroDescription ? page.heroDescription : 'FEU Tech is an AI Campus and an internationally ranked institution recognized for global excellence in Engineering, Computer Science, I.T., Multimedia Arts and Research. It is committed to producing graduates who are industry-ready and globally competitive from day one.' }}
         </p>
         
         <div class="flex flex-wrap gap-4 w-full sm:w-auto">
-            <a href="{{ path('app_ccsma') }}" class="w-full sm:w-auto text-center px-8 py-4 bg-white/5 backdrop-blur-md text-feu-yellow font-bold rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/45 active:scale-98 transition-all text-sm tracking-wider font-poppins uppercase shadow-lg">
-                CCSMA
-            </a>
+            {% if page and page.heroBtn1Text %}
+                <a href="{{ page.heroBtn1Url }}" class="w-full sm:w-auto text-center px-8 py-4 bg-white/5 backdrop-blur-md text-feu-yellow font-bold rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/45 active:scale-98 transition-all text-sm tracking-wider font-poppins uppercase shadow-lg">
+                    {{ page.heroBtn1Text }}
+                </a>
+            {% endif %}
             
-            <a href="/freshmen" class="w-full sm:w-auto text-center px-10 py-4 bg-feu-yellow text-feu-green font-black rounded-lg shadow-2xl shadow-feu-yellow/20 hover:bg-yellow-400 hover:shadow-feu-yellow/45 hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm tracking-wider font-poppins uppercase">
-                Apply Now
-            </a>
+            {% if page and page.heroBtn2Text %}
+                <a href="{{ page.heroBtn2Url }}" class="w-full sm:w-auto text-center px-10 py-4 bg-feu-yellow text-feu-green font-black rounded-lg shadow-2xl shadow-feu-yellow/20 hover:bg-yellow-400 hover:shadow-feu-yellow/45 hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm tracking-wider font-poppins uppercase">
+                    {{ page.heroBtn2Text }}
+                </a>
+            {% endif %}
             
-            <a href="{{ path('app_coe') }}" class="w-full sm:w-auto text-center px-8 py-4 bg-white/5 backdrop-blur-md text-feu-yellow font-bold rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/45 active:scale-98 transition-all text-sm tracking-wider font-poppins uppercase shadow-lg">
-                COE
-            </a>
+            {% if page and page.heroBtn3Text %}
+                <a href="{{ page.heroBtn3Url }}" class="w-full sm:w-auto text-center px-8 py-4 bg-white/5 backdrop-blur-md text-feu-yellow font-bold rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/45 active:scale-98 transition-all text-sm tracking-wider font-poppins uppercase shadow-lg">
+                    {{ page.heroBtn3Text }}
+                </a>
+            {% endif %}
         </div>
         
     </div>
@@ -283,7 +293,7 @@ if (
 
 <section id="courses" class="py-24 relative overflow-hidden border-t-4 border-feu-yellow scroll-animate">
     <div class="absolute inset-0 z-0">
-        <img src="/images/FEU-TECHBLD.jpg" alt="Apply Background" class="w-full h-full object-cover">
+        <img src="{{ page and page.coursesBgImage ? (page.coursesBgImage starts with '/' or page.coursesBgImage starts with 'http' ? page.coursesBgImage : '/' ~ page.coursesBgImage) : '/images/FEU-TECHBLD.jpg' }}" alt="Apply Background" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-[#008348]/90"></div>
     </div>
 
@@ -291,21 +301,21 @@ if (
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <div class="flex flex-col gap-6">
                 <div class="bg-[#129658] rounded-3xl p-8 shadow-lg flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">College of Engineering</h3>
-                    <p class="text-white/90 mb-8 leading-relaxed pr-4">Build the future with fully-accredited civil, electronics, mechanical, and computer engineering programs. Take the first step towards a successful career.</p>
+                    <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">{{ page and page.coeCardTitle ? page.coeCardTitle : 'College of Engineering' }}</h3>
+                    <p class="text-white/90 mb-8 leading-relaxed pr-4">{{ page and page.coeCardDescription ? page.coeCardDescription|raw : 'Build the future with fully-accredited civil, electronics, mechanical, and computer engineering programs. Take the first step towards a successful career.' }}</p>
                     <div class="mt-auto">
-                        <a href="/academics/coe" class="inline-block px-8 py-3 bg-[#f0b323] text-slate-900 font-bold rounded-full hover:bg-yellow-400 transition-colors shadow-md">
-                            Apply Now!
+                        <a href="{{ page and page.coeCardBtnUrl ? page.coeCardBtnUrl : '/academics/coe' }}" class="inline-block px-8 py-3 bg-[#f0b323] text-slate-900 font-bold rounded-full hover:bg-yellow-400 transition-colors shadow-md">
+                            {{ page and page.coeCardBtnText ? page.coeCardBtnText : 'Apply Now!' }}
                         </a>
                     </div>
                 </div>
 
                 <div class="bg-[#129658] rounded-3xl p-8 shadow-lg flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">College of Computer Studies & Multimedia Arts</h3>
-                    <p class="text-white/90 mb-8 leading-relaxed pr-4">Dive deep into software engineering, artificial intelligence, and premier creative multimedia programs. Lead the digital revolution.</p>
+                    <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">{{ page and page.ccsmaCardTitle ? page.ccsmaCardTitle : 'College of Computer Studies & Multimedia Arts' }}</h3>
+                    <p class="text-white/90 mb-8 leading-relaxed pr-4">{{ page and page.ccsmaCardDescription ? page.ccsmaCardDescription|raw : 'Dive deep into software engineering, artificial intelligence, and premier creative multimedia programs. Lead the digital revolution.' }}</p>
                      <div class="mt-auto">
-                         <a href="/academics/ccsma" class="inline-block px-8 py-3 bg-white text-[#008348] font-bold rounded-full hover:bg-slate-50 transition-colors shadow-md">
-                            Apply Now!
+                         <a href="{{ page and page.ccsmaCardBtnUrl ? page.ccsmaCardBtnUrl : '/academics/ccsma' }}" class="inline-block px-8 py-3 bg-white text-[#008348] font-bold rounded-full hover:bg-slate-50 transition-colors shadow-md">
+                            {{ page and page.ccsmaCardBtnText ? page.ccsmaCardBtnText : 'Apply Now!' }}
                         </a>
                      </div>
                 </div>
@@ -314,7 +324,7 @@ if (
             <div class="bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col justify-center">
                 <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
-                        <span class="text-[1.35rem] font-bold text-slate-800">About FEU Tech Experience</span>
+                        <span class="text-[1.35rem] font-bold text-slate-800">{{ page and page.accordion1Title ? page.accordion1Title : 'About FEU Tech Experience' }}</span>
                         <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -323,13 +333,13 @@ if (
                     </button>
 
                     <div class="accordion-content mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        At FEU Tech, we're more than a school — we're a launchpad for your future. We push boundaries and shape industry leaders through fully-accredited engineering, computer science, and multimedia programs. Here, you don't just learn — you build, innovate, and lead.
+                        {{ page and page.accordion1Content ? page.accordion1Content|raw : 'At FEU Tech, we\'re more than a school — we\'re a launchpad for your future. We push boundaries and shape industry leaders through fully-accredited engineering, computer science, and multimedia programs. Here, you don\'t just learn — you build, innovate, and lead.' }}
                     </div>
                 </div>
 
                 <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
-                        <span class="text-[1.35rem] font-bold text-slate-800">Campus Life</span>
+                        <span class="text-[1.35rem] font-bold text-slate-800">{{ page and page.accordion2Title ? page.accordion2Title : 'Campus Life' }}</span>
                         <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -338,13 +348,13 @@ if (
                     </button>
 
                     <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        Lorem ipsum 
+                        {{ page and page.accordion2Content ? page.accordion2Content|raw : 'Lorem ipsum' }}
                     </div>
                 </div>
 
                 <div class="accordion-item border-b border-slate-100 pb-6 mb-6">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
-                        <span class="text-[1.35rem] font-bold text-slate-800">Student Organizations</span>
+                        <span class="text-[1.35rem] font-bold text-slate-800">{{ page and page.accordion3Title ? page.accordion3Title : 'Student Organizations' }}</span>
                         <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -353,13 +363,13 @@ if (
                     </button>
 
                     <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        Lorem ipsum
+                        {{ page and page.accordion3Content ? page.accordion3Content|raw : 'Lorem ipsum' }}
                      </div>
                 </div>
 
                 <div class="accordion-item pt-2">
                     <button class="accordion-btn w-full flex justify-between items-center text-left group focus:outline-none">
-                        <span class="text-[1.35rem] font-bold text-slate-800">Regular Events</span>
+                        <span class="text-[1.35rem] font-bold text-slate-800">{{ page and page.accordion4Title ? page.accordion4Title : 'Regular Events' }}</span>
                         <div class="accordion-icon w-8 h-8 rounded-full bg-slate-50 text-slate-400 flex items-center justify-center flex-shrink-0">
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -368,7 +378,7 @@ if (
                     </button>
 
                     <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        Lorem ipsum
+                        {{ page and page.accordion4Content ? page.accordion4Content|raw : 'Lorem ipsum' }}
                     </div>
                 </div>
 
@@ -500,43 +510,13 @@ if (
 
         <div id="eventsCarousel" class="flex overflow-x-auto gap-8 no-scrollbar snap-x snap-mandatory pb-8 scroll-smooth w-full">
 
-            {% set events = [
-                {
-                    path: 'event_one',
-                    image: '/images/carousels/MAY5.jfif',
-                    alt: 'National Tech Symposium',
-                    badge: 'SEMINARS',
-                    date: 'May 5, 2026',
-                    title: 'Shaping the Future of Education: Utah Valley University, FEU Tech, Unite for AI Innovation Workshop',
-                    description: 'Join industry leaders as they discuss the future of AI and Machine Learning innovations.'
-                },
-                {
-                    path: 'event_two',
-                    image: '/images/carousels/TARA.jpg',
-                    alt: 'Research Expo',
-                    badge: 'EXHIBITIONS',
-                    date: 'Nov 24, 2026',
-                    title: '#TaraNaSaPIYU 2026: Welcoming the Next Generation of Innovators at FEU Tech',
-                    description: 'Showcasing the brightest capstone projects from our graduating engineering students.'
-                },
-                {
-                    path: 'event_three',
-                    image: '/images/carousels/FTIC.jpg',
-                    alt: 'Hackathon',
-                    badge: 'COMPETITIONS',
-                    date: 'April 24, 2026',
-                    title: 'FTIC Ramps Up the Culture of Innovation at FEU Tech with a Campus-Wide Symposium',
-                    description: 'A 48-hour coding marathon to solve real-world problems. Open to all students.'
-                }
-            ] %}
-
             {% for event in events %}
                 <div class="w-full md:w-[calc(50%-1rem)] min-w-full md:min-w-[calc(50%-1rem)] snap-start flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300">
-                    <a href="{{ path(event.path) }}" class="block group">
+                    <a href="{{ event.routeOrUrl starts with 'http' or event.routeOrUrl starts with '/' ? event.routeOrUrl : path(event.routeOrUrl) }}" class="block group">
                         
                         <div class="relative h-80 overflow-hidden bg-slate-100">
-                            <img src="{{ event.image }}"
-                                alt="{{ event.alt }}"
+                            <img src="{{ event.imagePath starts with '/' or event.imagePath starts with 'http' ? event.imagePath : '/' ~ event.imagePath }}"
+                                alt="{{ event.title }}"
                                 class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
 
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -562,7 +542,7 @@ if (
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                <span>{{ event.date }}</span>
+                                <span>{{ event.dateText }}</span>
                             </div>
 
                             <h3 class="text-2xl font-bold text-slate-800 mb-3 group-hover:text-feu-green transition-colors line-clamp-2">
@@ -673,22 +653,12 @@ document.addEventListener('turbo:load', () => {
 
 <script>
 const magazines = [
+    {% for mag in magazines %}
     {
-        img: "/images/magazine/issue1.png",
-        link: "https://drive.google.com/file/d/1Nvc5Qvx9kIQOijV6fzbx6O6VC1t5M4LD/view"
-    },
-    {
-        img: "/images/magazine/issue3.png",
-        link: "https://heyzine.com/flip-book/fd6d3a5475.html#page/1"
-    },
-    {
-        img: "/images/magazine/issue2.png",
-        link: "https://drive.google.com/file/d/1rpQ8TCiGqPfzIsufRCltl_Y39OavyN9T/view"
-    },
-    {
-        img: "/images/magazine/issue5.png",
-        link: "https://heyzine.com/flip-book/574ef6415d.html"
-    }
+        img: "{{ mag.imagePath starts with '/' or mag.imagePath starts with 'http' ? mag.imagePath : '/' ~ mag.imagePath }}",
+        link: "{{ mag.linkUrl }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
 ];
 
 let magIndex = 1;
@@ -720,13 +690,18 @@ document.addEventListener('turbo:load', () => {
         const main = magazines[magIndex];
         const right = magazines[rightIndex];
 
-        magMain.src = main.img;
-        magLeft.src = left.img;
-        magRight.src = right.img;
-
-        document.getElementById("magMainLink").href = main.link;
-        document.getElementById("magLeftLink").href = left.link;
-        document.getElementById("magRightLink").href = right.link;
+        if (main) {
+            magMain.src = main.img;
+            document.getElementById("magMainLink").href = main.link;
+        }
+        if (left) {
+            magLeft.src = left.img;
+            document.getElementById("magLeftLink").href = left.link;
+        }
+        if (right) {
+            magRight.src = right.img;
+            document.getElementById("magRightLink").href = right.link;
+        }
     }
 
     updateMag();
@@ -736,26 +711,13 @@ document.addEventListener('turbo:load', () => {
 <script>
 document.addEventListener('turbo:load', () => {
     const videos = [
+        {% for vid in videos %}
         {
-            id: "d0a2jThLgx4",
-            title: "MILES PARAVERSE",
-            link: "https://www.youtube.com/watch?v=d0a2jThLgx4"
-        },
-        {
-            id: "n_LEKwGma6g",
-            title: "EXPLORE THE FEU TECH CAMPUS!",
-            link: "https://www.youtube.com/watch?v=n_LEKwGma6g&source_ve_path=MTc4NDI0"
-        },
-        {
-            id: "N36B85B5xC8",
-            title: "\"Hall of Greats\" Music Video",
-            link: "https://www.youtube.com/watch?v=N36B85B5xC8"
-        },
-        {
-            id: "ewMDmlMNboE",
-            title: "3 Easy Steps for Freshmen Enrollment at FEU Tech",
-            link: "https://www.youtube.com/watch?v=ewMDmlMNboE"
-        }
+            id: "{{ vid.youtubeId }}",
+            title: "{{ vid.title|escape('js') }}",
+            link: "{{ vid.linkUrl }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
     ];
 
     let activeVideoIndex = 0;
