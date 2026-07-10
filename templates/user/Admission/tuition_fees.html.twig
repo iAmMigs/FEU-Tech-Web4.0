@@ -7,7 +7,7 @@
 <!-- Hero Section -->
 <section class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="{{ page and page.heroImage ? (page.heroImage == 'FEU-TECHBLD.jpg' ? '/images/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage) : '/images/FEU-TECHBLD.jpg' }}" alt="FEU Tech Building" class="w-full h-full object-cover transform scale-105">
+        <img src="{{ page and page.heroImage ? (page.heroImage == 'FEU-TECHBLD.jpg' ? '/images/' ~ page.heroImage : (page.heroImage starts with 'uploads/' ? '/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage)) : '/images/FEU-TECHBLD.jpg' }}" alt="FEU Tech Building" class="w-full h-full object-cover transform scale-105">
         <div class="absolute inset-0 bg-slate-900/75 mix-blend-multiply"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
         <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#008348] via-[#febe10] to-[#008348]"></div>

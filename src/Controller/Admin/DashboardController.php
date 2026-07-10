@@ -9,6 +9,19 @@ use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\PaymentOptionCrudController;
 
+use App\Controller\Admin\AcademicsDepartmentCrudController;
+use App\Controller\Admin\AcademicsProgramCrudController;
+use App\Controller\Admin\ProgramFacultyCrudController;
+use App\Controller\Admin\ProgramLaboratoryCrudController;
+use App\Controller\Admin\ProgramSpecializationCrudController;
+use App\Controller\Admin\AcademicsMilesCrudController;
+use App\Controller\Admin\AcademicsMilesAddonCrudController;
+use App\Controller\Admin\AcademicsRegistrarCrudController;
+use App\Controller\Admin\AcademicsLibraryCrudController;
+use App\Controller\Admin\MagazineItemCrudController;
+use App\Controller\Admin\TambayanVideoCrudController;
+use App\Controller\Admin\HomeEventCrudController;
+
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
 {
@@ -27,7 +40,12 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
-        yield MenuItem::linkTo(GeneralPageCrudController::class, 'General Pages', 'fas fa-home');
+        yield MenuItem::subMenu('General Module', 'fas fa-home')->setSubItems([
+            MenuItem::linkTo(GeneralPageCrudController::class, 'Page Settings', 'fas fa-cog'),
+            MenuItem::linkTo(MagazineItemCrudController::class, 'Manage Magazines', 'fas fa-book-open'),
+            MenuItem::linkTo(TambayanVideoCrudController::class, 'Manage Tambayan Videos', 'fas fa-video'),
+            MenuItem::linkTo(HomeEventCrudController::class, 'Manage Events', 'fas fa-calendar-alt'),
+        ]);
 
         yield MenuItem::linkToRoute('About Pages', 'fas fa-info-circle', 'admin'); // Placeholder
 
@@ -41,7 +59,17 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkTo(FaqItemCrudController::class, 'Manage FAQ Items', 'fas fa-question-circle'),
         ]);
 
-        yield MenuItem::linkToRoute('Academic Pages', 'fas fa-book', 'admin'); // Placeholder
+        yield MenuItem::subMenu('Academics', 'fas fa-book')->setSubItems([
+            MenuItem::linkTo(AcademicsDepartmentCrudController::class, 'Departments', 'fas fa-university'),
+            MenuItem::linkTo(AcademicsProgramCrudController::class, 'Programs', 'fas fa-graduation-cap'),
+            MenuItem::linkTo(ProgramFacultyCrudController::class, 'Faculty Directory', 'fas fa-users'),
+            MenuItem::linkTo(ProgramLaboratoryCrudController::class, 'Laboratories', 'fas fa-flask'),
+            MenuItem::linkTo(ProgramSpecializationCrudController::class, 'Specializations', 'fas fa-route'),
+            MenuItem::linkTo(AcademicsMilesCrudController::class, 'MILES Content', 'fas fa-desktop'),
+            MenuItem::linkTo(AcademicsMilesAddonCrudController::class, 'MILES Addons', 'fas fa-plug'),
+            MenuItem::linkTo(AcademicsRegistrarCrudController::class, 'Registrar\'s Office', 'fas fa-file-invoice'),
+            MenuItem::linkTo(AcademicsLibraryCrudController::class, 'Library Services', 'fas fa-book-reader'),
+        ]);
 
         yield MenuItem::linkTo(StudentSupportPageCrudController::class, 'Student Support Pages', 'fas fa-users');
 
@@ -51,3 +79,4 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkTo(SiteSettingsCrudController::class, 'Site Settings', 'fas fa-cog');
     }
 }
+

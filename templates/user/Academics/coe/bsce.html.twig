@@ -1,1109 +1,194 @@
-{% extends 'base.html.twig' %}
+{% extends 'user/Academics/program_detail.html.twig' %}
 
 {% block title %}Bachelor of Science in Civil Engineering{% endblock %}
 
-{% block body %}
-
-<style>
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        background:
-            radial-gradient(circle at top left, rgba(0,131,72,0.08), transparent 25%),
-            radial-gradient(circle at bottom right, rgba(254,190,16,0.10), transparent 25%),
-            #f8fafc;
-    }
-
-    .scroll-section {
-        scroll-margin-top: 120px;
-    }
-
-    .nav-link.active {
-        background: #008348;
-        color: white;
-        transform: translateX(6px);
-    }
-
-    .glass-card {
-        backdrop-filter: blur(14px);
-        background: rgba(255,255,255,.72);
-    }
-
-    .faculty-card {
-        transition:
-            transform .35s ease,
-            box-shadow .35s ease;
-    }
-
-    .faculty-card:hover {
-        transform: translateY(-8px);
-
-        box-shadow:
-            0 20px 50px rgba(0,131,72,.18),
-            0 10px 30px rgba(254,190,16,.12);
-    }
-
-    .blueprint-bg {
-        background-image:
-            linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-
-        background-size: 24px 24px;
-    }
-
-    /* FLOATING */
-
-    .float-animation {
-        animation: floating 5s ease-in-out infinite;
-    }
-
-    @keyframes floating {
-
-        0%,100% {
-            transform: translateY(0px);
-        }
-
-        50% {
-            transform: translateY(-14px);
-        }
-    }
-
-    /* CARD HOVER */
-
-    .glow-hover {
-        transition:
-            transform .35s ease,
-            box-shadow .35s ease;
-    }
-
-    .glow-hover:hover {
-
-        transform: translateY(-8px);
-
-        box-shadow:
-            0 20px 50px rgba(0,131,72,.18),
-            0 10px 30px rgba(254,190,16,.12);
-    }
-
-    /* SHIMMER EFFECT */
-
-    .shimmer {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .shimmer::before {
-
-        content: '';
-
-        position: absolute;
-
-        top: 0;
-        left: -120%;
-
-        width: 70%;
-        height: 100%;
-
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.25),
-            transparent
-        );
-
-        transform: skewX(-20deg);
-    }
-
-    .shimmer:hover::before {
-        animation: shimmerMove 1.1s ease;
-    }
-
-    @keyframes shimmerMove {
-
-        100% {
-            left: 160%;
-        }
-    }
-
-    /* ENGINEERING COMPETENCIES */
-
-    .competency-pill {
-
-        border: 2px solid #008348;
-
-        background: white;
-
-        color: #008348;
-
-        transition:
-            all .35s ease,
-            box-shadow .35s ease;
-    }
-
-    .competency-pill:hover {
-
-        background: #008348;
-
-        color: white;
-
-        box-shadow:
-            0 15px 30px rgba(0,131,72,.22);
-    }
-
-      /* ENGINEERING COMPETENCIES */
-
-    .careers-pill {
-
-        border: 2px solid #febe10;
-
-        background: white;
-
-        color: #5b5c5c;
-
-        transition:
-            all .35s ease,
-            box-shadow .35s ease;
-        
-    }
-
-    .careers-pill:hover {
-
-        background: #febe10;
-
-        color: white;
-
-        box-shadow:
-            0 15px 30px rgba(0,131,72,.22);
-    }
-
-    /* LAB IMAGE HOVER */
-
-    .lab-image {
-        transition:
-            transform .6s ease,
-            filter .4s ease;
-    }
-
-    .lab-image:hover {
-        transform: scale(1.03);
-        filter: brightness(1.04);
-    }
-
-</style>
-
-<!-- HERO -->
-<section class="relative z-10 overflow-hidden border-b border-slate-100">
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-
-        <div class="relative group rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50">
-
-            <img src="/images/Academics/bsce.png"
-                 class="w-full h-auto block transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                 alt="Civil Engineering Hero">
-
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-
-        </div>
-
+{% block default_hero_image %}images/Academics/bsce.png{% endblock %}
+
+{% block overview_default %}
+<p class="text-slate-600 leading-relaxed text-lg mb-6">
+    The Bachelor of Science in Civil Engineering (BSCE) is a four-year program that aims to provide students with knowledge in mathematics and science to be applied in the different specializations such as structural, transportation, water resource, geotechnical, environmental and construction project management.
+</p>
+<p class="text-slate-600 leading-relaxed text-lg">
+    Students are trained to develop exceptional skills in planning, design, supervision, and implementation of infrastructures and civil engineering works.
+</p>
+{% endblock %}
+
+{% block objectives_default %}
+<p class="text-slate-600 text-lg mb-8">
+    Three to five years after graduation, the Civil Engineering alumni shall have:
+</p>
+<div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Professional Growth</h3>
+        <p class="text-slate-600 text-justify">Engaged in the practice of Civil Engineering, specifically on the different specializations on structural engineering, water resources engineering, construction engineering and management, geotechnical engineering and transportation engineering, or technopreneurship and innovation.</p>
     </div>
-
-</section>
-
-<main class="relative py-12">
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
-
-        <div class="grid lg:grid-cols-[300px,1fr] gap-10">
-
-            <!-- SIDEBAR -->
-            <aside class="hidden lg:block sticky top-10 self-start">
-
-                <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 p-8">
-
-                    <div class="flex items-center gap-4 mb-8">
-
-                        <img src="/images/Tamtam/Reading_Book_Tammy.png"
-                             class="w-20 object-contain float-animation"
-                             alt="TamTam">
-
-                        <div>
-
-                            <p class="text-xs uppercase tracking-[0.3em] text-feu-green font-black">
-                                FEU TECH
-                            </p>
-
-                            <h2 class="text-2xl font-black text-feu-green">
-                                BSCE
-                            </h2>
-
-                        </div>
-
-                    </div>
-
-                    <nav class="space-y-3">
-
-                        <a href="#overview" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Overview
-                        </a>
-
-                        <a href="#objectives" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Objectives
-                        </a>
-
-                        <a href="#outcomes" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Outcomes & Competencies
-                        </a>
-
-                        <a href="#specialization" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Tracks
-                        </a>
-
-                        <a href="#careers" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Careers
-                        </a>
-
-                        <a href="#facilities" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Laboratories
-                        </a>
-
-                        <a href="#faculty" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Faculty
-                        </a>
-
-                        <a href="#contact" class="nav-link block px-5 py-4 rounded-2xl bg-slate-100 text-feu-green font-bold transition-all duration-300">
-                            Contact
-                        </a>
-
-                    </nav>
-
-                </div>
-
-            </aside>
-
-            <!-- CONTENT -->
-            <div class="space-y-16">
-
-                <!-- OVERVIEW -->
-                <section id="overview" class="scroll-section">
-
-                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
-
-                        <div class="flex items-center gap-5 mb-8">
-
-                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
-                                 class="w-24 object-contain float-animation"
-                                 alt="TamTam">
-
-                            <div>
-
-                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                    Program Overview
-                                </p>
-
-                                <h2 class="text-4xl font-black text-feu-green uppercase">
-                                    General Description of the Program
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-                        <p class="text-slate-600 leading-relaxed text-lg mb-6">
-                            The Bachelor of Science in Civil Engineering (BSCE) is a four-year program that aims to provide students with knowledge in mathematics and science to be applied in the different specializations such as structural, transportation, water resource, geotechnical, environmental and construction project management. 
-                        </p>
-
-                        <p class="text-slate-600 leading-relaxed text-lg">
-                            Students are trained to develop exceptional skills in planning, design, supervision, and implementation of infrastructures and civil engineering works.
-                        </p>
-
-                    </div>
-
-                </section>
-
-                <!-- OBJECTIVES -->
-                <section id="objectives" class="scroll-section library-card-wrapper">
-
-                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
-
-                        <div class="flex items-center gap-4 mb-8">
-                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
-                                 class="w-24"
-                                 alt="TamTam">
-
-                            <div>
-                                <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                    Academic Goals
-                                </p>
-
-                                <h2 class="text-4xl font-black text-feu-green uppercase">
-                                    Program Educational Objectives
-                                </h2>
-                            </div>
-                        </div>
-
-                        <p class="text-slate-600 text-lg mb-8">
-                            Three to five years after graduation, the Civil Engineering alumni shall have:
-
-                        <div class="grid md:grid-cols-2 gap-6">
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Professional Growth
-                                </h3>
-
-                                <p class="text-slate-600 text-justify">
-                                    Engaged in the practice of Civil Engineering, specifically on the different specializations on structural engineering, water resources engineering, construction engineering and management, geotechnical engineering and transportation engineering, or technopreneurship and innovation.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Leadership
-                                </h3>
-
-                                <p class="text-slate-600 text-justify">
-                                    Assumed significant roles with key responsibilities in their workplace.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Organizations
-                                </h3>
-
-                                <p class="text-slate-600 text-justify">
-                                    Involved themselves in professional, socio-civic, government, or non-government activities.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Community Impact
-                                </h3>
-
-                                <p class="text-slate-600 text-justify">
-                                    Demonstrated continuous professional development through certifications, attendance to training, seminars, and conferences and/or pursuit of graduate studies in engineering or related fields.
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-
-                <!-- OUTCOMES -->
-                <section id="outcomes" class="scroll-section">
-
-                    <div class="bg-feu-green rounded-[3rem] p-10 text-white overflow-hidden relative">
-
-                        <div class="absolute right-0 bottom-0 opacity-10">
-                            <img src="/images/Tamtam/Reading_Book_Tammy.png"
-                                 class="w-72"
-                                 alt="TamTam">
-                        </div>
-
-                        <div class="relative z-10">
-
-                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
-                                Graduate Competencies
-                            </p>
-
-                            <h2 class="text-4xl font-black uppercase mb-10">
-                                Program/Student Outcomes
-                            </h2>
-
-                            <div class="grid md:grid-cols-2 gap-6">
-
-                                {% set outcomes = [
-                                    'Apply knowledge of mathematics, natural science, engineering fundamentals and an engineering specialization to the solution of complex engineering problems.',
-                                    'Conduct investigations of complex engineering problems using research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of information to provide valid conclusions.',
-                                    'Design solutions for complex engineering problems and design systems, components or processes that meet specified needs with appropriate consideration for public health and safety, cultural, societal, and environmental considerations.',
-                                    'Function effectively as an individual, and as a member or leader in diverse teams and in multi-disciplinary settings.',
-                                    'Identify, formulate, research literature and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences and engineering sciences.',
-                                    'Apply ethical principles and commit to professional ethics and responsibilities and norms of engineering practice.',
-                                    'Communicate effectively on complex engineering activities with the engineering community and with society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.',
-                                    'Understand and evaluate the sustainability and impact of professional engineering work in the solution of complex engineering problems in societal and environmental context.',
-                                    'Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change.',
-                                    'Apply reasoning informed by contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to professional engineering practice and solutions to complex engineering problems.',
-                                    'Create, select and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modelling, to complex engineering problems with an understanding of the limitations.',
-                                    'Demonstrate knowledge and understanding of engineering management principles and economic decision-making and apply these to one’s own work, as a member and leader in a team, to manage projects and in multidisciplinary environments.'
-                                ] %}
-
-                                {% for item in outcomes %}
-                                    <div class="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
-                                        
-                                        <div class="flex gap-4">
-
-                                            <span class="bg-feu-yellow text-feu-green
-                                                        w-10 h-10 shrink-0
-                                                        rounded-full
-                                                        flex items-center justify-center
-                                                        font-black text-sm">
-                                                {{ range('A', 'Z')[loop.index0] }}
-                                            </span>
-
-                                            <p class="text-white/90 leading-relaxed">
-                                                {{ item }}
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ENGINEERING COMPETENCIES -->
-                <section id="attributes" class="scroll-section">
-
-                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
-
-                        <div class="mb-10">
-
-                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                                Graduate Attributes
-                            </p>
-
-                            <h2 class="text-4xl font-black text-feu-green uppercase">
-                                Engineering Competencies
-                            </h2>
-
-                        </div>
-
-                        <div class="flex flex-wrap gap-4">
-
-                            {% set attributes = [
-                                'Engineering Knowledge',
-                                'Problem Analysis',
-                                'Design Development',
-                                'Investigation',
-                                'Modern Tool Usage',
-                                'Environment & Sustainability',
-                                'Ethics',
-                                'Communication',
-                                'Project Management',
-                                'Lifelong Learning'
-                            ] %}
-
-                            {% for item in attributes %}
-
-                                <div class="competency-pill px-6 py-4 rounded-full font-bold shadow-md">
-                                    {{ item }}
-                                </div>
-
-                            {% endfor %}
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                 <!-- specialization -->
-                <section id="specialization" class="scroll-section library-card-wrapper">
-
-                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100">
-
-                        <div class="flex items-center gap-4 mb-8">
-                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
-                                 class="w-24"
-                                 alt="TamTam">
-
-                            <div>
-                                <h2 class="text-4xl font-black text-feu-green uppercase">
-                                    Specialization / Tracking
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Structural Engineering
-                                </h3>
-
-                                <p class="text-slate-600">
-                                    A sub-discipline of BSCE that focuses on the design and analysis of structural system to resist loads, stresses, and pressures from environmental and external sources such as earthquake, and wind to ensure the safety of the occupants throughout its lifespan.
-                                </p>
-                            </div>
-
-                            <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
-                                <h3 class="font-black text-feu-green mb-4 uppercase">
-                                    Water Resources Engineering
-                                </h3>
-
-                                <p class="text-slate-600">
-                                    A sub-discipline of BSCE that focuses on the study of hydrologic cycle and movement of water in the atmosphere and land surface. In addition, the hydraulic engineering responses through infrastructure development, design, and construction includes water supply system, sewerage, flood control and drainage, irrigation, and hydropower.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Career Opportunities -->
-                <section id="careers" class="scroll-section">
-
-                    <div class="bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
-
-                        <div class="mb-10">
-                            <h2 class="text-3xl font-black text-feu-green uppercase">
-                                Career Opportunities
-                            </h2>
-
-                            <p class="uppercase tracking-[0.3em] text-slate-600 text-xs mb-2">
-                                All graduates of Civil Engineering have career opportunities in different fields such as:
-                            </p>
-
-                        </div>
-
-                        <div class="flex flex-wrap gap-4">
-
-                            {% set attributes = [
-                                'Construction Field',
-                                'Construction Project Management',
-                                'Environmental Engineering',
-                                'Geotechnical Engineering',
-                                'Oil and Gas',
-                                'Structural Design',
-                                'Water Resources',
-                            ] %}
-
-                            {% for item in attributes %}
-
-                                <div class="careers-pill px-6 py-4 rounded-full font-bold shadow-md">
-                                    {{ item }}
-                                </div>
-
-                            {% endfor %}
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <!-- FACILITIES -->
-                <section id="facilities" class="scroll-section space-y-10">
-
-                    <div>
-
-                        <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                            Facilities & Laboratories
-                        </p>
-
-                        <h2 class="text-4xl font-black text-feu-green uppercase">
-                            Engineering Laboratories
-                        </h2>
-
-                    </div>
-
-                    <!-- MATCONS -->
-                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
-
-                        <img src="/images/Academics/IMG_0400.jpg"
-                             class="rounded-[2rem] object-cover w-full h-full lab-image"
-                             alt="Matcons Laboratory">
-
-                        <div>
-
-                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
-                                Room 101 • FIT Building
-                            </div>
-
-                            <h3 class="text-3xl font-black text-feu-green mb-5">
-                                Materials of Construction Laboratory
-                            </h3>
-
-                            <p class="text-slate-600 leading-relaxed">
-                                Matcons laboratory is located at the ground floor (Room 101) of the FIT Building. It houses different equipment for testing materials used in construction such as concrete, steel, and asphalt. The centerpiece of the Matcons Lab is the Universal testing machine which is capable of checking compressive strength, shear strength and flexural strength of concrete, and tensile strength of steel. Researches pertaining to materials development and structural engineering of both students and professors are conducted in this laboratory. It also caters to other researches including those from senior high school and other universities.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                <!-- Geotechnical Engineering Laboratory -->
-                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
-
-                        <img src="/images/Academics/IMG_0392.jpg"
-                             class="rounded-[2rem] object-cover w-full h-full lab-image"
-                             alt="Geotechnical Engineering Laboratory">
-
-                        <div>
-
-                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
-                                Room 1004 • FIT Building
-                            </div>
-
-                            <h3 class="text-3xl font-black text-feu-green mb-5">
-                                Geotechnical Engineering Laboratory
-                            </h3>
-
-                            <p class="text-slate-600 leading-relaxed">
-                                Geotech Lab is located at the 10th floor (Room 1004) of FIT Building. It houses the equipment used for Geotechnical Engineering 1 (Soil Mechanics) and Geotechnical Engineering 2 (Foundation Engineering). Researches of students and professors regarding geotechnical engineering and laboratory experiments are also conducted in this facility.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- MATCONS -->
-                    <div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
-
-                        <img src="/images/Academics/IMG_0410.jpg"
-                             class="rounded-[2rem] object-cover w-full h-full lab-image"
-                             alt="Hydraulics Laboratory">
-
-                        <div>
-
-                            <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">
-                                Room 908 • FIT Building
-                            </div>
-
-                            <h3 class="text-3xl font-black text-feu-green mb-5">
-                                Hydraulics Laboratory
-                            </h3>
-
-                            <p class="text-slate-600 leading-relaxed">
-                                Hydraulics Lab is located at the 9th floor (Room 908) of the FIT Building. It houses the equipment and apparatus needed for the fluid mechanics and hydraulics laboratory experiments. Students conducting experiments and researches in line with the water resource track are using this laboratory. Other university and senior high school students conducting experiments are also welcome to use this facility.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <!-- FACULTY -->
-                <section id="faculty" class="scroll-section">
-
-                    <div class="mb-10">
-
-                        <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-2">
-                            Civil Engineering Department
-                        </p>
-
-                        <h2 class="text-4xl font-black text-feu-green uppercase">
-                            Full Time Faculty Members
-                        </h2>
-
-                    </div>
-
-                    <div class="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
-
-                        {% set faculty = [
-
-                            {
-                                name: 'Kevin Lawrence M. De Jesus',
-                                role: 'Director',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Adamson University
-                Master of Science in Civil Engineering, Mapúa Institute of Technology
-                Doctor of Philosophy in Environmental Engineering, Mapúa University',
-                                specialization: 'Environmental Quality Monitoring, Machine Learning',
-                                "information-2": 'Registered Civil Engineer | PICE Environmental and Energy Engineering Specialist',
-                                affiliation: 'Philippine Institute of Civil Engineers (Life Member), National Research Council of the Philippines, International Association of Engineers'
-                            },
-
-                            {
-                                name: 'Jon Arnel S. Telan',
-                                role: 'Assistant Director',
-                                "information-1": 'Bachelor of Science in Civil Engineering, De La Salle University
-                Master of Science in Civil Engineering, De La Salle University
-                Doctor of Philosophy in Civil Engineering (On-going), De La Salle University',
-                                specialization: 'Structural Engineering',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Leonard M. Agustin',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Mariano Marcos State University
-                Bachelor of Science in Interior Design, Philippine School of Interior Design
-                Master of Science in Civil Engineering, Mapúa University',
-                                specialization: 'Construction Engineering and Management',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers (Life Member)'
-                            },
-
-                            {
-                                name: 'Bon Ryan P. Aniban',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Pamantasan ng Lungsod ng Valenzuela
-                Master of Science in Civil Engineering, Mapúa University',
-                                specialization: 'Structural Engineering, Machine Learning',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Dave T. Apilado',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Central Luzon State University
-                Master of Engineering (Civil Engineering, On-going), Technological Institute of the Philippines - Quezon City',
-                                specialization: 'Structural Engineering and Construction Engineering and Management',
-                                "information-2": 'Registered Civil Engineer | Registered Master Plumber | DPWH Accredited Materials Engineer | Safety Officer 2',
-                                affiliation: 'Philippine Institute of Civil Engineers, NAMPAP'
-                            },
-
-                            {
-                                name: 'Christian E. Baldo',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, FEU Institute of Technology
-                Master of Science in Civil Engineering, University of the Philippines Diliman
-                Doctor of Philosophy in Civil Engineering (On-going), University of the Philippines Diliman',
-                                specialization: 'Structural Engineering',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'John Ray H. Benawe',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, University of the Cordilleras
-                Master of Science in Civil Engineering, Mapúa University
-                Doctor of Philosophy in Civil Engineering (On-going), De La Salle University',
-                                specialization: 'Geotechnical Engineering',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Jenny Barsolaso Calot',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, University of Eastern Philippines
-                Master in Civil Engineering, University of Eastern Philippines
-                Doctor of Philosophy in Environmental Engineering (On-going), Mapúa University',
-                                specialization: 'Water Resources and Hydraulic Engineering / Environmental and River Engineering',
-                                "information-2": 'Registered Civil Engineer | Career Service Professional | Safety Officer 2 (COSH)',
-                                affiliation: 'Philippine Institute of Civil Engineers (Life Member), Association of Structural Engineers of the Philippines (Associate Member)'
-                            },
-
-                            {
-                                name: 'Ivan Karl B. Camacho',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, FEU Institute of Technology
-                Master of Science in Civil Engineering (On-going), University of the Philippines Diliman',
-                                specialization: 'Geotechnical Engineering, Geosynthetics, Slope Protection',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Lady Lyn E. Escarieses',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, FEU Institute of Technology
-                Master of Science in Civil Engineering (On-going), Mapúa University',
-                                specialization: 'Water Resources Engineering, Hydrology, Hydraulic Analysis',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Young Water Professionals, International Water Resources Association'
-                            },
-
-                            {
-                                name: 'Donna Ville L. Gante',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, University of Mindanao
-                Master of Science in Civil Engineering, Mapúa University
-                Doctor of Philosophy in Civil Engineering (On-going), De La Salle University',
-                                specialization: 'Construction Engineering Management, Structural Engineering',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Charmaine Kay G. Guñabo',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Technological Institute of the Philippines - Quezon City
-                Master of Science in Civil Engineering, Mapúa University',
-                                specialization: 'Structural Engineering',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Danielle Christopher A. Lambino',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Mapúa University
-                Master of Science in Civil Engineering (On-going), Mapúa University',
-                                specialization: 'Project Management, Machine Learning',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Ireneo G. Mateo',
-                                role: 'Faculty Member',
-                                "information-1": 'BS Civil Engineering, Bulacan State University
-                BS Environmental and Sanitary Engineering, National University Manila
-                MS Urban Management and Development (Erasmus Universiteit Rotterdam)
-                Master of Management (Environmental Planning), Philippine Christian University
-                TCP, Technological Institute of the Philippines
-                Doctor in Engineering Management (On-going), Pamantasan ng Lungsod ng Maynila',
-                                specialization: 'Water and Wastewater Engineering, Environmental Engineering, Project Management',
-                                "information-2": 'Registered Civil Engineer | Registered Sanitary Engineer | Safety Officer II',
-                                affiliation: 'PICE, Philippine Society of Sanitary Engineers, AWWA, ASCE'
-                            },
-
-                            {
-                                name: 'Jun Jun H. Moreno',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Marinduque State University
-                Master of Science in Civil Engineering (On-going), Mapúa University',
-                                specialization: 'Construction Safety, Machine Learning',
-                                "information-2": 'Registered Civil Engineer',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Ian Ceymark P. Palmero',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, FEU Institute of Technology
-                Master of Science in Civil Engineering, Mapúa University',
-                                specialization: 'Prefabricated Construction, Materials Engineering',
-                                "information-2": 'Registered Civil Engineer | Registered Master Plumber',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            },
-
-                            {
-                                name: 'Roberto Rosario',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Polytechnic University of the Philippines
-                Master of Science in Civil Engineering, Polytechnic University of the Philippines',
-                                specialization: 'Transportation Engineering, Materials Engineering, Pavement Engineering',
-                                "information-2": 'Registered Civil Engineer | Accredited Materials Engineer',
-                                affiliation: 'Transportation Science Society of the Philippines'
-                            },
-
-                            {
-                                name: 'Rome Je C. Santos',
-                                role: 'Faculty Member',
-                                "information-1": 'Bachelor of Science in Civil Engineering, Adamson University
-                Master of Science in Civil Engineering, Mapúa University
-                Post Baccalaureate in Project Management, De La Salle College of Saint Benilde
-                Juris Doctor (On-going), De La Salle University',
-                                specialization: 'Construction Engineering, Materials Engineering',
-                                "information-2": 'Registered Civil Engineer | Registered Master Plumber | Safety Officer 3',
-                                affiliation: 'Philippine Institute of Civil Engineers'
-                            }
-
-                        ] %}
-
-                        {% for item in faculty %}
-
-                        <div class="faculty-card bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100">
-
-                            <div class="w-20 h-20 rounded-full bg-feu-green flex items-center justify-center text-white text-2xl font-black mb-6 float-animation">
-                                {{ item.name|split(' ')[0]|first }}
-                            </div>
-
-                            <h3 class="text-2xl font-black text-feu-green mb-2">
-                                {{ item.name }}
-                            </h3>
-
-                            <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-5">
-                                {{ item.role }}
-                            </p>
-
-                            <div class="mb-4">
-                                <p class="font-black text-feu-green text-sm uppercase mb-1">Education</p>
-                                <p class="text-slate-600 whitespace-pre-line">{{ item["information-1"] }}</p>
-                            </div>
-
-                            <div class="mb-4">
-                                <p class="font-black text-feu-green text-sm uppercase mb-1">Specialization</p>
-                                <p class="text-slate-600">{{ item.specialization }}</p>
-                            </div>
-
-                            <div class="mb-4">
-                                <p class="font-black text-feu-green text-sm uppercase mb-1">Credentials</p>
-                                <p class="text-slate-600">{{ item["information-2"] }}</p>
-                            </div>
-
-                            <div>
-                                <p class="font-black text-feu-green text-sm uppercase mb-1">Affiliation</p>
-                                <p class="text-slate-600">{{ item.affiliation }}</p>
-                            </div>
-
-                        </div>
-
-                        {% endfor %}
-
-                    </div>
-
-                </section>
-
-
-                 <!-- CONTACT -->
-                <section id="contact" class="scroll-section">
-
-                    <div class="bg-feu-green rounded-[3rem] p-12 text-white relative overflow-hidden">
-
-                        <div class="absolute bottom-0 right-0 opacity-10">
-                            <img src="/images/Tamtam/Jumping_Tammy_Pencil.png"
-                                 class="w-80"
-                                 alt="TamTam">
-                        </div>
-
-                        <div class="relative z-10">
-
-                            <p class="uppercase tracking-[0.3em] text-feu-yellow font-black text-xs mb-3">
-                               Civil Engineering Department
-                            </p>
-
-                            <h2 class="text-5xl font-black uppercase mb-10">
-                                Contact Details
-                            </h2>
-
-                            <div class="grid md:grid-cols-2 gap-10">
-
-                                <div class="space-y-5">
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Office
-                                        </p>
-
-                                        <p class="text-xl">
-                                            Room 1605
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Office Hours
-                                        </p>
-
-                                        <p class="text-xl">
-                                            Monday to Friday <br>
-                                            8:00 a.m. ─ 5:00 p.m.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Trunkline
-                                        </p>
-
-                                        <p class="text-xl">
-                                            (02) 8281 8888 Local 306
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">
-                                            Email
-                                        </p>
-
-                                    <div>
-
-                                        <p class="text-xl text-feu-yellow">
-                                            <a href="mailto:ce@feutech.edu.ph"
-                                            class="hover:text-white transition-colors duration-300 underline underline-offset-4">
-                                                ce@feutech.edu.ph
-                                            </a>
-                                        </p>
-                                    </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="glass-card rounded-[2rem] p-8 text-feu-green relative overflow-hidden">
-    
-                                    <!-- Background Tammy -->
-                                    <img src="/images/Tamtam/Wave_Tammy.png"
-                                        class="absolute bottom-0 right-0 w-40 opacity-40 pointer-events-none select-none"
-                                        alt="TamTam background">
-
-                                    <p class="uppercase tracking-[0.3em] text-feu-green font-black text-xs mb-3">
-                                        Program Director
-                                    </p>
-
-                                    <h3 class="text-3xl font-black text-black uppercase mb-3">
-                                        KEVIN LAWRENCE M. DE JESUS, Ph D.
-                                    </h3>
-
-                                    <p class="text-slate-600 leading-relaxed">
-                                        Program Director of Civil Engineering
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Leadership</h3>
+        <p class="text-slate-600 text-justify">Assumed significant roles with key responsibilities in their workplace.</p>
+    </div>
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Organizations</h3>
+        <p class="text-slate-600 text-justify">Involved themselves in professional, socio-civic, government, or non-government activities.</p>
+    </div>
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Community Impact</h3>
+        <p class="text-slate-600 text-justify">Demonstrated continuous professional development through certifications, attendance to training, seminars, and conferences and/or pursuit of graduate studies in engineering or related fields.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block outcomes_description_default %}
+What every engineering graduate is expected to demonstrate
+{% endblock %}
+
+{% block outcomes_default %}
+<div class="grid md:grid-cols-2 gap-6">
+    {% set outcomes = [
+        'Apply knowledge of mathematics, natural science, engineering fundamentals and an engineering specialization to the solution of complex engineering problems.',
+        'Conduct investigations of complex engineering problems using research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of information to provide valid conclusions.',
+        'Design solutions for complex engineering problems and design systems, components or processes that meet specified needs with appropriate consideration for public health and safety, cultural, societal, and environmental considerations.',
+        'Function effectively as an individual, and as a member or leader in diverse teams and in multi-disciplinary settings.',
+        'Identify, formulate, research literature and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences and engineering sciences.',
+        'Apply ethical principles and commit to professional ethics and responsibilities and norms of engineering practice.',
+        'Communicate effectively on complex engineering activities with the engineering community and with society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.',
+        'Understand and evaluate the sustainability and impact of professional engineering work in the solution of complex engineering problems in societal and environmental context.',
+        'Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change.',
+        'Apply reasoning informed by contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to professional engineering practice and solutions to complex engineering problems.',
+        'Create, select and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modelling, to complex engineering problems with an understanding of the limitations.',
+        'Demonstrate knowledge and understanding of engineering management principles and economic decision-making and apply these to one’s own work, as a member and leader in a team, to manage projects and in multidisciplinary environments.'
+    ] %}
+    {% for item in outcomes %}
+        <div class="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
+            <div class="flex gap-4">
+                <span class="bg-feu-yellow text-feu-green w-10 h-10 shrink-0 rounded-full flex items-center justify-center font-black text-sm">
+                    {{ range('A', 'Z')[loop.index0]|default(loop.index) }}
+                </span>
+                <p class="text-white/90 leading-relaxed">{{ item }}</p>
             </div>
-
         </div>
+    {% endfor %}
+</div>
+{% endblock %}
 
+{% block attributes_default %}
+<div class="flex flex-wrap gap-4">
+    {% set attributes = [
+        'Engineering Knowledge',
+        'Problem Analysis',
+        'Design Development',
+        'Investigation',
+        'Modern Tool Usage',
+        'Environment & Sustainability',
+        'Ethics',
+        'Communication',
+        'Project Management',
+        'Lifelong Learning'
+    ] %}
+    {% for item in attributes %}
+        <div class="competency-pill px-6 py-4 rounded-full font-bold shadow-md">{{ item }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block specializations_default %}
+<div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Structural Engineering</h3>
+        <p class="text-slate-600">A sub-discipline of BSCE that focuses on the design and analysis of structural system to resist loads, stresses, and pressures from environmental and external sources such as earthquake, and wind to ensure the safety of the occupants throughout its lifespan.</p>
     </div>
+    <div class="bg-slate-50 rounded-[2rem] p-6 border border-slate-100">
+        <h3 class="font-black text-feu-green mb-4 uppercase">Water Resources Engineering</h3>
+        <p class="text-slate-600">A sub-discipline of BSCE that focuses on the study of hydrologic cycle and movement of water in the atmosphere and land surface. In addition, the hydraulic engineering responses through infrastructure development, design, and construction includes water supply system, sewerage, flood control and drainage, irrigation, and hydropower.</p>
+    </div>
+</div>
+{% endblock %}
 
-</main>
+{% block careers_default %}
+<div class="flex flex-wrap gap-4">
+    {% set careers = [
+        'Construction Field',
+        'Construction Project Management',
+        'Environmental Engineering',
+        'Geotechnical Engineering',
+        'Oil and Gas',
+        'Structural Design',
+        'Water Resources'
+    ] %}
+    {% for item in careers %}
+        <div class="careers-pill px-6 py-4 rounded-full font-bold shadow-md">{{ item }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
 
-<script>
+{% block laboratories_default %}
+<div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+    <img src="{{ asset('images/Academics/IMG_0400.jpg') }}" class="rounded-[2rem] object-cover w-full h-[300px] lab-image" alt="Materials of Construction Laboratory">
+    <div>
+        <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">Room 101 • FIT Building</div>
+        <h3 class="text-3xl font-black text-feu-green mb-5">Materials of Construction Laboratory</h3>
+        <p class="text-slate-600 leading-relaxed">Matcons laboratory is located at the ground floor (Room 101) of the FIT Building. It houses different equipment for testing materials used in construction such as concrete, steel, and asphalt. The centerpiece of the Matcons Lab is the Universal testing machine which is capable of checking compressive strength, shear strength and flexural strength of concrete, and tensile strength of steel.</p>
+    </div>
+</div>
+<div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+    <img src="{{ asset('images/Academics/IMG_0392.jpg') }}" class="rounded-[2rem] object-cover w-full h-[300px] lab-image" alt="Geotechnical Engineering Laboratory">
+    <div>
+        <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">Room 1004 • FIT Building</div>
+        <h3 class="text-3xl font-black text-feu-green mb-5">Geotechnical Engineering Laboratory</h3>
+        <p class="text-slate-600 leading-relaxed">Geotech Lab is located at the 10th floor (Room 1004) of FIT Building. It houses the equipment used for Geotechnical Engineering 1 (Soil Mechanics) and Geotechnical Engineering 2 (Foundation Engineering).</p>
+    </div>
+</div>
+<div class="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-[3rem] p-10 shadow-2xl border border-slate-100 glow-hover">
+    <img src="{{ asset('images/Academics/IMG_0410.jpg') }}" class="rounded-[2rem] object-cover w-full h-[300px] lab-image" alt="Hydraulics Laboratory">
+    <div>
+        <div class="inline-block px-4 py-2 rounded-full bg-feu-green text-white text-sm font-bold mb-5">Room 908 • FIT Building</div>
+        <h3 class="text-3xl font-black text-feu-green mb-5">Hydraulics Laboratory</h3>
+        <p class="text-slate-600 leading-relaxed">Hydraulics Lab is located at the 9th floor (Room 908) of the FIT Building. It houses the equipment and apparatus needed for the fluid mechanics and hydraulics laboratory experiments.</p>
+    </div>
+</div>
+{% endblock %}
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.scroll-section');
+{% block faculty_default %}
+<div class="grid md:grid-cols-2 xl:grid-cols-2 gap-8">
+    <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl border border-slate-100 flex flex-col md:flex-row gap-8 items-start hover:shadow-feu-green/10 transition duration-300">
+        <div class="w-32 h-32 rounded-3xl overflow-hidden shrink-0 border-2 border-slate-200">
+            <img src="{{ asset('images/Tamtam/Reading_Book_Tammy.png') }}" class="w-full h-full object-cover" alt="Kevin Lawrence M. De Jesus">
+        </div>
+        <div>
+            <h3 class="text-2xl font-black text-feu-green mb-1">Kevin Lawrence M. De Jesus</h3>
+            <p class="text-slate-500 font-semibold mb-3">Director</p>
+            <p class="text-slate-600 leading-relaxed text-sm mb-4">Bachelor of Science in Civil Engineering, Adamson University<br>Master of Science in Civil Engineering, Mapúa Institute of Technology<br>Doctor of Philosophy in Environmental Engineering, Mapúa University</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded-full border border-green-100">Environmental Quality Monitoring, Machine Learning</span>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl border border-slate-100 flex flex-col md:flex-row gap-8 items-start hover:shadow-feu-green/10 transition duration-300">
+        <div class="w-32 h-32 rounded-3xl overflow-hidden shrink-0 border-2 border-slate-200">
+            <img src="{{ asset('images/Tamtam/Reading_Book_Tammy.png') }}" class="w-full h-full object-cover" alt="Jon Arnel S. Telan">
+        </div>
+        <div>
+            <h3 class="text-2xl font-black text-feu-green mb-1">Jon Arnel S. Telan</h3>
+            <p class="text-slate-500 font-semibold mb-3">Assistant Director</p>
+            <p class="text-slate-600 leading-relaxed text-sm mb-4">Bachelor of Science in Civil Engineering, De La Salle University<br>Master of Science in Civil Engineering, De La Salle University</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded-full border border-green-100">Structural Engineering</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-    navLinks.forEach(link => {
-
-        link.addEventListener('click', function (e) {
-
-            e.preventDefault();
-
-            const target = document.querySelector(this.getAttribute('href'));
-
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-
-        });
-
-    });
-
-    function updateActiveLink() {
-
-        let currentSection = '';
-
-        sections.forEach(section => {
-
-            const rect = section.getBoundingClientRect();
-
-            if (rect.top <= 200 && rect.bottom >= 200) {
-                currentSection = section.id;
-            }
-
-        });
-
-        navLinks.forEach(link => {
-
-            link.classList.remove('active');
-
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
-
-        });
-
-    }
-
-    window.addEventListener('scroll', updateActiveLink);
-
-    updateActiveLink();
-
-</script>
-
+{% block contact_default %}
+<div class="space-y-6">
+    <div>
+        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">Trunkline</p>
+        <p class="text-xl">(02) 8281 8888 local 101</p>
+    </div>
+    <div>
+        <p class="text-feu-yellow font-black uppercase text-xs tracking-widest mb-1">Email</p>
+        <p class="text-xl text-feu-yellow">
+            <a href="mailto:civileng@feutech.edu.ph" class="hover:text-white transition-colors duration-300 underline underline-offset-4">civileng@feutech.edu.ph</a>
+        </p>
+    </div>
+</div>
 {% endblock %}

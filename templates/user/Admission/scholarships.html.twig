@@ -9,7 +9,7 @@
     <!-- Background Layer -->
     <div class="absolute inset-0 z-0">
         <!-- Hero Image -->
-        <img src="{{ page and page.heroImage ? (page.heroImage == 'Admission_Sample.png' ? '/images/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage) : '/images/Admission_Sample.png' }}" alt="Scholarships Hero" class="w-full h-full object-cover transform scale-105 transition-transform duration-10000 hover:scale-100">
+        <img src="{{ page and page.heroImage ? (page.heroImage == 'Admission_Sample.png' ? '/images/' ~ page.heroImage : (page.heroImage starts with 'uploads/' ? '/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage)) : '/images/Admission_Sample.png' }}" alt="Scholarships Hero" class="w-full h-full object-cover transform scale-105 transition-transform duration-10000 hover:scale-100">
         
         <!-- Dark overlay -->
         <div class="absolute inset-0 bg-slate-900/70 mix-blend-multiply"></div>

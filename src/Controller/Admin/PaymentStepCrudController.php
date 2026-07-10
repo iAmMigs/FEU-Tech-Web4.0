@@ -37,9 +37,9 @@ class PaymentStepCrudController extends AbstractCrudController
         yield TextField::new('title', 'Step Title');
         yield TextEditorField::new('description', 'Step Description')->hideOnIndex();
         yield ImageField::new('image', 'Step Image')
-            ->setBasePath('/uploads/payments/')
+            ->setBasePath('/')
             ->setUploadDir('public/uploads/payments/')
-            ->setUploadedFileNamePattern('[randomhash].[extension]')
+            ->setUploadedFileNamePattern('uploads/payments/[randomhash].[extension]')
             ->setRequired(false);
     }
 }

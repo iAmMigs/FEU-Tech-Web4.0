@@ -90,8 +90,12 @@
     <!-- Hero Section -->
     <section class="hero-gradient text-white py-20 px-4 mb-12">
         <div class="max-w-7xl mx-auto text-center animate-fade-in">
-            <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight">FEU TECH <span class="text-feu-yellow">LIBRARY</span></h1>
-            <p class="text-xl max-w-2xl mx-auto font-light opacity-90 italic">"The center of excellence in providing knowledge and quality information."</p>
+            <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight">
+                {{ page.heroTitle is defined and page.heroTitle is not empty ? page.heroTitle|raw : 'FEU TECH <span class="text-feu-yellow">LIBRARY</span>' }}
+            </h1>
+            <p class="text-xl max-w-2xl mx-auto font-light opacity-90 italic">
+                {{ page.heroSubtitle is defined and page.heroSubtitle is not empty ? page.heroSubtitle|raw : '"The center of excellence in providing knowledge and quality information."' }}
+            </p>
             <div class="mt-10 flex flex-wrap justify-center gap-4">
                 <a href="#services" class="bg-feu-yellow text-feu-green px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">Browse Services</a>
                 <a href="#service-hours" class="border-2 border-white px-8 py-3 rounded-full font-bold text-white hover:bg-white hover:text-green-600 transition-all duration-300"> Check Hours</a>
@@ -119,10 +123,10 @@
                         {% endfor %}
                     </nav>
 
-                    <div class="mt-8 p-4 bg-feu-green/5 rounded-xl border border-feu-green/10">
+                     <div class="mt-8 p-4 bg-feu-green/5 rounded-xl border border-feu-green/10">
                         <h4 class="text-feu-green font-bold text-sm uppercase mb-2">Quick Contact</h4>
-                        <p class="text-xs text-slate-600">Local 120/150</p>
-                        <p class="text-xs text-slate-600">library@feutech.edu.ph</p>
+                        <p class="text-xs text-slate-600">{{ page.localNumber is defined and page.localNumber is not empty ? page.localNumber : 'Local 120/150' }}</p>
+                        <p class="text-xs text-slate-600">{{ page.email is defined and page.email is not empty ? page.email : 'library@feutech.edu.ph' }}</p>
                     </div>
                 </div>
             </aside>
@@ -139,15 +143,15 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-slate-400 text-xs uppercase tracking-widest">Location</h4>
-                            <p class="text-xl font-bold text-feu-green">Room 1401</p>
+                            <p class="text-xl font-bold text-feu-green">{{ page.locationRoom is defined and page.locationRoom is not empty ? page.locationRoom : 'Room 1401' }}</p>
                             <p class="text-sm text-slate-500">FEU Institute of Technology</p>
                         </div>
                     </div>
                     <div class="h-10 w-px bg-slate-100 hidden md:block"></div>
                     <div class="text-center md:text-right">
                         <h4 class="font-bold text-slate-400 text-xs uppercase tracking-widest mb-2">Trunkline</h4>
-                        <p class="text-lg font-bold text-slate-700">(02) 8281 8888</p>
-                        <p class="text-sm font-medium text-feu-green">Local 120/150</p>
+                        <p class="text-lg font-bold text-slate-700">{{ page.trunkline is defined and page.trunkline is not empty ? page.trunkline : '(02) 8281 8888' }}</p>
+                        <p class="text-sm font-medium text-feu-green">{{ page.localNumber is defined and page.localNumber is not empty ? page.localNumber : 'Local 120/150' }}</p>
                     </div>
                 </section>
 
@@ -174,9 +178,9 @@
                                     Vision
                                 </h2>
 
-                                <p class="text-slate-600 leading-relaxed font-medium">
-                                    The FEU Tech Library aims to be the center of excellence in providing knowledge and quality information, supporting the College's commitment to produce quality individuals in the field of Engineering and Information Technology.
-                                </p>
+                                <div class="text-slate-600 leading-relaxed font-medium text-sm md:text-base">
+                                    {{ page.visionText is defined and page.visionText is not empty ? page.visionText|raw : 'The FEU Tech Library aims to be the center of excellence in providing knowledge and quality information, supporting the College\'s commitment to produce quality individuals in the field of Engineering and Information Technology.' }}
+                                </div>
                             </div>
                         </div>
 
@@ -199,9 +203,9 @@
                                     Mission
                                 </h2>
 
-                                <p class="text-slate-600 leading-relaxed font-medium">
-                                    The mission of the FEU Tech Library is to provide service and develop a collection that will support the instructional, curricular, research and industry needs of the College.
-                                </p>
+                                <div class="text-slate-600 leading-relaxed font-medium text-sm md:text-base">
+                                    {{ page.missionText is defined and page.missionText is not empty ? page.missionText|raw : 'The mission of the FEU Tech Library is to provide service and develop a collection that will support the instructional, curricular, research and industry needs of the College.' }}
+                                </div>
                             </div>
                         </div>
 
@@ -225,9 +229,9 @@
                                     Goal
                                 </h2>
 
-                                <p class="text-slate-600 leading-relaxed font-medium">
-                                    To provide a dynamic environment of academic learning by utilizing information technology, bibliographic management, and efficient library service in the dissemination of resources.
-                                </p>
+                                <div class="text-slate-600 leading-relaxed font-medium text-sm md:text-base">
+                                    {{ page.goalText is defined and page.goalText is not empty ? page.goalText|raw : 'To provide a dynamic environment of academic learning by utilizing information technology, bibliographic management, and efficient library service in the dissemination of resources.' }}
+                                </div>
                             </div>
                         </div>
 
@@ -243,23 +247,40 @@
 
                         <h3 class="text-3xl font-bold mb-8 text-center text-feu-yellow">Core Values</h3>
 
-                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-                            <div>
-                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Innovation</h4>
-                                <p class="text-sm opacity-90">While respecting current practices, the Library also strives for innovation. We value not just the new, but that which is new and better.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Communication</h4>
-                                <p class="text-sm opacity-90">The Library understands that the unrestricted, effective, and frequent exchange of ideas, information, and experience is absolutely necessary for the realization of our vision and the achievement of our goals.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Collaboration</h4>
-                                <p class="text-sm opacity-90">The Library believes in Collaboration and teamwork, both within and outside of its formal structure. Working together, we gain strength and find solutions; we are more than the sum of our parts.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Positive Attitude</h4>
-                                <p class="text-sm opacity-90">The Library believes that a positive attitude will enchance the library experience. We will achieve a positive attitude by supporting the Library's mission, finding enjoyment and satisfaction in our work, and being empathetic toward others.</p>
-                            </div>
+                         <div class="flex flex-wrap justify-center gap-8 relative z-10">
+                            {% if page.coreValues is defined and page.coreValues is not empty %}
+                                {% for val in page.coreValues %}
+                                    {% set parts = val|split(':', 2) %}
+                                    {% if parts|length == 2 %}
+                                        <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[220px] lg:min-w-0">
+                                            <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">{{ parts[0]|trim }}</h4>
+                                            <p class="text-sm opacity-90">{{ parts[1]|trim }}</p>
+                                        </div>
+                                    {% else %}
+                                        <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[220px] lg:min-w-0">
+                                            <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Value</h4>
+                                            <p class="text-sm opacity-90">{{ val|trim }}</p>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[220px] lg:min-w-0">
+                                    <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Innovation</h4>
+                                    <p class="text-sm opacity-90">While respecting current practices, the Library also strives for innovation. We value not just the new, but that which is new and better.</p>
+                                </div>
+                                <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[220px] lg:min-w-0">
+                                    <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Communication</h4>
+                                    <p class="text-sm opacity-90">The Library understands that the unrestricted, effective, and frequent exchange of ideas, information, and experience is absolutely necessary for the realization of our vision and the achievement of our goals.</p>
+                                </div>
+                                <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[220px] lg:min-w-0">
+                                    <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Collaboration</h4>
+                                    <p class="text-sm opacity-90">The Library believes in Collaboration and teamwork, both within and outside of its formal structure. Working together, we gain strength and find solutions; we are more than the sum of our parts.</p>
+                                </div>
+                                <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[220px] lg:min-w-0">
+                                    <h4 class="font-bold text-feu-yellow mb-2 uppercase text-sm tracking-widest">Positive Attitude</h4>
+                                    <p class="text-sm opacity-90">The Library believes that a positive attitude will enchance the library experience. We will achieve a positive attitude by supporting the Library's mission, finding enjoyment and satisfaction in our work, and being empathetic toward others.</p>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </section>
@@ -295,18 +316,8 @@
 
                             <!-- Text Content (Span 7) -->
                             <div class="lg:col-span-7 order-1 lg:order-2 space-y-8">
-                                <div class="relative pl-8 border-l-4 border-feu-yellow/20">
-                                    <span class="absolute -left-[10px] top-0 w-4 h-4 rounded-full bg-feu-yellow shadow-[0_0_10px_rgba(234,179,8,0.5)]"></span>
-                                    <p class="text-slate-600 text-lg leading-relaxed italic">
-                                        "The beginnings of the FEU Tech Library can be traced back to <span class="text-feu-green font-bold">1993</span> when it was still called <span class="font-bold text-feu-green">EAST ASIA INSTITUTE OF COMPUTER TECHNOLOGY</span>."
-                                        The journey began with a modest collection of just <span class="font-semibold text-slate-900">386 volumes</span>. Following the landmark merger of the Engineering and IT colleges in 2003, our resource hub underwent a massive transformation to meet the demands of a new era in technology.
-                                    </p>
-                                </div>
-
                                 <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
-                                    <p class="bg-slate-50 p-6 rounded-2xl border-l-4 border-feu-green">
-                                        Today, we bridge the gap between tradition and innovation—where <span class="font-bold text-feu-green">physical archives meet digital intelligence</span>, ensuring our Tamaraws have the fastest access to global knowledge.
-                                    </p>
+                                    {{ page.historyText is defined and page.historyText is not empty ? page.historyText|raw : 'The beginnings of the FEU Tech Library can be traced back to 1993...' }}
                                 </div>
                             </div>
                         </div>
@@ -345,33 +356,46 @@
 
                             <!-- Schedule -->
                             <div class="space-y-6 relative z-10">
-
-                                <!-- Monday-Friday -->
-                                <div class="flex justify-between items-start border-b border-white/10 pb-4 gap-4">
-                                    
-                                    <span class="font-medium text-white/80 flex-1">
-                                        Monday — Friday
-                                    </span>
-
-                                    <span class="font-bold text-lg sm:text-xl text-feu-yellow text-right leading-tight shrink-0">
-                                        7:00 am - <br>
-                                        8:00 pm
-                                    </span>
-                                </div>
-
-                                <!-- Saturday -->
-                                <div class="flex justify-between items-start border-b border-white/10 pb-4 gap-4">
-                                    
-                                    <span class="font-medium text-white/80 flex-1">
-                                        Saturday
-                                    </span>
-
-                                    <span class="font-bold text-lg sm:text-xl text-feu-yellow text-right leading-tight shrink-0">
-                                        8:00 am - <br>
-                                        5:00 pm
-                                    </span>
-                                </div>
-
+                                {% if page.serviceHours is defined and page.serviceHours is not empty %}
+                                    {% for sched in page.serviceHours %}
+                                        {% set parts = sched|split(':', 2) %}
+                                        {% if parts|length == 2 %}
+                                            <div class="flex justify-between items-start border-b border-white/10 pb-4 gap-4">
+                                                <span class="font-medium text-white/80 flex-1">
+                                                    {{ parts[0]|trim }}
+                                                </span>
+                                                <span class="font-bold text-lg sm:text-xl text-feu-yellow text-right leading-tight shrink-0">
+                                                    {{ parts[1]|trim }}
+                                                </span>
+                                            </div>
+                                        {% else %}
+                                            <div class="flex justify-between items-start border-b border-white/10 pb-4 gap-4">
+                                                <span class="font-medium text-white/80 flex-1">
+                                                    {{ sched|trim }}
+                                                </span>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="flex justify-between items-start border-b border-white/10 pb-4 gap-4">
+                                        <span class="font-medium text-white/80 flex-1">
+                                            Monday — Friday
+                                        </span>
+                                        <span class="font-bold text-lg sm:text-xl text-feu-yellow text-right leading-tight shrink-0">
+                                            7:00 am - <br>
+                                            8:00 pm
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between items-start border-b border-white/10 pb-4 gap-4">
+                                        <span class="font-medium text-white/80 flex-1">
+                                            Saturday
+                                        </span>
+                                        <span class="font-bold text-lg sm:text-xl text-feu-yellow text-right leading-tight shrink-0">
+                                            8:00 am - <br>
+                                            5:00 pm
+                                        </span>
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <!-- Mascot -->
@@ -401,18 +425,37 @@
 
                             <!-- Schedule -->
                             <div class="space-y-6 text-slate-700 relative z-10">
-
-                                <div class="flex justify-between items-start border-b border-slate-100 pb-4 gap-4">
-
-                                    <span class="font-medium text-slate-500 flex-1">
-                                        Wednesday & Saturday
-                                    </span>
-
-                                    <span class="font-bold text-lg sm:text-xl text-feu-green text-right leading-tight shrink-0">
-                                        8:00 am - <br>
-                                        5:00 pm
-                                    </span>
-                                </div>
+                                {% if page.outsideServiceHours is defined and page.outsideServiceHours is not empty %}
+                                    {% for sched in page.outsideServiceHours %}
+                                        {% set parts = sched|split(':', 2) %}
+                                        {% if parts|length == 2 %}
+                                            <div class="flex justify-between items-start border-b border-slate-100 pb-4 gap-4">
+                                                <span class="font-medium text-slate-500 flex-1">
+                                                    {{ parts[0]|trim }}
+                                                </span>
+                                                <span class="font-bold text-lg sm:text-xl text-feu-green text-right leading-tight shrink-0">
+                                                    {{ parts[1]|trim }}
+                                                </span>
+                                            </div>
+                                        {% else %}
+                                            <div class="flex justify-between items-start border-b border-slate-100 pb-4 gap-4">
+                                                <span class="font-medium text-slate-500 flex-1">
+                                                    {{ sched|trim }}
+                                                </span>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="flex justify-between items-start border-b border-slate-100 pb-4 gap-4">
+                                        <span class="font-medium text-slate-500 flex-1">
+                                            Wednesday & Saturday
+                                        </span>
+                                        <span class="font-bold text-lg sm:text-xl text-feu-green text-right leading-tight shrink-0">
+                                            8:00 am - <br>
+                                            5:00 pm
+                                        </span>
+                                    </div>
+                                {% endif %}
 
                                 <!-- Note -->
                                 <p class="text-sm italic font-medium text-red-500 bg-red-50 p-4 rounded-xl inline-block mt-6">
@@ -774,6 +817,28 @@
 
                         <div class="p-8 md:p-12 space-y-16">
                             
+                            {% if page.policies is defined and page.policies is not empty %}
+                            <!-- General Rules & Guidelines (CMS Dynamic) -->
+                            <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                                <h3 class="text-xl font-bold text-feu-green mb-6 flex items-center">
+                                    <span class="bg-feu-green/10 p-2 rounded-xl mr-3 text-feu-green">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                    </span>
+                                    General Rules & Guidelines
+                                </h3>
+                                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {% for policy in page.policies %}
+                                        <div class="p-5 rounded-2xl bg-white border border-slate-100 flex items-start space-x-3 shadow-sm hover:shadow-md transition-all duration-300">
+                                            <div class="h-2 w-2 rounded-full bg-feu-yellow mt-2 flex-shrink-0"></div>
+                                            <span class="text-slate-700 font-medium text-sm leading-relaxed">{{ policy }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
                             <!-- Top Tier Grid: Users, ID, and Access -->
                             <div class="grid lg:grid-cols-3 gap-8">
                                 <!-- Authorized Users -->
@@ -1046,6 +1111,28 @@
                     </div>
 
                     <div class="relative z-10 p-8 md:p-12">
+
+                        {% if page.journals is defined and page.journals is not empty %}
+                        <!-- Featured Journals (CMS Dynamic) -->
+                        <div class="mb-10 p-8 rounded-3xl bg-slate-50 border border-slate-100">
+                            <h3 class="text-xl font-bold text-feu-green mb-6 flex items-center">
+                                <span class="bg-feu-green/10 p-2 rounded-xl mr-3 text-feu-green">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-feu-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                    </svg>
+                                </span>
+                                Subscribed Journals & Publications
+                            </h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {% for journal in page.journals %}
+                                    <div class="p-4 rounded-2xl bg-white border border-slate-100 flex items-center space-x-3 shadow-sm hover:shadow-md transition-all duration-300">
+                                        <div class="h-2 w-2 rounded-full bg-feu-yellow mt-0.5 flex-shrink-0"></div>
+                                        <span class="text-slate-700 font-medium text-sm leading-snug">{{ journal }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
 
                         <div class="grid gap-10">
 
@@ -1387,125 +1474,170 @@
                         </div>
                     </div>
 
-                    <div class="space-y-2">
+                    <div class="space-y-4">
+                        {% if page.libraryAreas is defined and page.libraryAreas is not empty %}
+                            {% for area in page.libraryAreas %}
+                                {% set parts = area|split(':', 2) %}
+                                {% set isEven = loop.index is even %}
+                                {% if parts|length == 2 %}
+                                    <div class="group relative {% if isEven %}bg-feu-green text-white shadow-xl{% else %}bg-white border border-slate-200 hover:border-feu-green hover:shadow-2xl{% endif %} rounded-3xl overflow-hidden transition-all duration-500">
+                                        <div class="flex flex-col md:flex-row">
+                                            <!-- Fixed Index Box -->
+                                            <div class="{% if isEven %}bg-feu-yellow text-feu-green{% else %}bg-feu-green text-feu-yellow{% endif %} w-full md:w-36 min-h-[140px] flex items-center justify-center shrink-0">
+                                                <span class="text-4xl font-black font-mono">
+                                                    {{ "%02d"|format(loop.index) }}
+                                                </span>
+                                            </div>
 
-                        <!-- 01. Discussion Room -->
-                        <div class="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-feu-green">
-                            <div class="flex flex-col md:flex-row">
-
-                                <!-- Fixed Index Box -->
-                                <div class="bg-feu-green w-full md:w-36 min-h-[140px] flex items-center justify-center text-feu-yellow shrink-0">
-                                    <span class="text-4xl font-black font-mono">
-                                        01
-                                    </span>
-                                </div>
-
-                                <!-- Content -->
-                                <div class="p-8 md:p-10 flex-grow">
-                                    <h3 class="text-2xl font-bold text-feu-green mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">
-                                        Discussion Room / Group Study Area
-                                    </h3>
-
-                                    <p class="text-slate-600 text-lg max-w-2xl leading-relaxed">
-                                        The library provides an opportunity for the students to discuss course content and group works at the discussion area.
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <!-- 02. Silent Area -->
-                        <div class="group relative bg-feu-green rounded-3xl overflow-hidden transition-all duration-500 shadow-xl">
-                            <div class="flex flex-col md:flex-row">
-
-                                <!-- Fixed Index Box -->
-                                <div class="bg-feu-yellow w-full md:w-36 min-h-[140px] flex items-center justify-center text-feu-green shrink-0">
-                                    <span class="text-4xl font-black font-mono">
-                                        02
-                                    </span>
-                                </div>
-
-                                <!-- Content -->
-                                <div class="p-8 md:p-10 flex-grow text-white">
-                                    <h3 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">
-                                        Silent Area / Individual Reading Area
-                                    </h3>
-
-                                    <p class="text-white/80 text-lg max-w-2xl leading-relaxed mb-8">
-                                        A space has been set for individual reading & silent study. Study spaces in the rest of the library are Quiet Zones, where short, whispered conversations will be tolerated.
-                                    </p>
-
-                                    <!-- Mini Rules Grid -->
-                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/20">
-
-                                        <div class="flex flex-col">
-                                            <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">
-                                                Device Policy
-                                            </span>
-
-                                            <span class="text-sm font-medium">
-                                                Silent mode only. No headphone leakage.
-                                            </span>
+                                            <!-- Content -->
+                                            <div class="p-8 md:p-10 flex-grow">
+                                                <h3 class="text-2xl font-bold {% if isEven %}text-white{% else %}text-feu-green{% endif %} mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">
+                                                    {{ parts[0]|trim }}
+                                                </h3>
+                                                <p class="{% if isEven %}text-white/85{% else %}text-slate-600{% endif %} text-lg max-w-2xl leading-relaxed">
+                                                    {{ parts[1]|trim }}
+                                                </p>
+                                            </div>
                                         </div>
-
-                                        <div class="flex flex-col">
-                                            <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">
-                                                Calls
-                                            </span>
-
-                                            <span class="text-sm font-medium">
-                                                Take all phone calls outside the library.
-                                            </span>
-                                        </div>
-
-                                        <div class="flex flex-col">
-                                            <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">
-                                                Refreshments
-                                            </span>
-
-                                            <span class="text-sm font-medium">
-                                                Bottled water only. No food permitted.
-                                            </span>
-                                        </div>
-
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="group relative {% if isEven %}bg-feu-green text-white shadow-xl{% else %}bg-white border border-slate-200 hover:border-feu-green hover:shadow-2xl{% endif %} rounded-3xl overflow-hidden transition-all duration-500">
+                                        <div class="flex flex-col md:flex-row">
+                                            <!-- Fixed Index Box -->
+                                            <div class="{% if isEven %}bg-feu-yellow text-feu-green{% else %}bg-feu-green text-feu-yellow{% endif %} w-full md:w-36 min-h-[140px] flex items-center justify-center shrink-0">
+                                                <span class="text-4xl font-black font-mono">
+                                                    {{ "%02d"|format(loop.index) }}
+                                                </span>
+                                            </div>
 
-                            </div>
-                        </div>
+                                            <!-- Content -->
+                                            <div class="p-8 md:p-10 flex-grow">
+                                                <p class="{% if isEven %}text-white/85{% else %}text-slate-600{% endif %} text-lg max-w-2xl leading-relaxed">
+                                                    {{ area|trim }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <!-- 01. Discussion Room -->
+                            <div class="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-feu-green">
+                                <div class="flex flex-col md:flex-row">
 
-                        <!-- 03. Faculty Area -->
-                        <div class="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-feu-green">
-                            <div class="flex flex-col md:flex-row">
-
-                                <!-- Fixed Index Box -->
-                                <div class="bg-feu-green w-full md:w-36 min-h-[140px] flex items-center justify-center text-feu-yellow shrink-0">
-                                    <span class="text-4xl font-black font-mono">
-                                        03
-                                    </span>
-                                </div>
-
-                                <!-- Content -->
-                                <div class="p-8 md:p-10 flex-grow">
-
-                                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-feu-green/10 text-feu-yellow rounded-full text-[10px] font-black uppercase tracking-widest mb-4">
-                                        Faculty Only
+                                    <!-- Fixed Index Box -->
+                                    <div class="bg-feu-green w-full md:w-36 min-h-[140px] flex items-center justify-center text-feu-yellow shrink-0">
+                                        <span class="text-4xl font-black font-mono">
+                                            01
+                                        </span>
                                     </div>
 
-                                    <!-- Fixed 03 title color -->
-                                    <h3 class="text-2xl font-bold text-feu-yellow mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">
-                                        Faculty Area
-                                    </h3>
+                                    <!-- Content -->
+                                    <div class="p-8 md:p-10 flex-grow">
+                                        <h3 class="text-2xl font-bold text-feu-green mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">
+                                            Discussion Room / Group Study Area
+                                        </h3>
 
-                                    <p class="text-slate-600 text-lg max-w-2xl leading-relaxed italic">
-                                        "An office-like work space provided for the faculty members of the FEU Institute of Technology."
-                                    </p>
+                                        <p class="text-slate-600 text-lg max-w-2xl leading-relaxed">
+                                            The library provides an opportunity for the students to discuss course content and group works at the discussion area.
+                                        </p>
+                                    </div>
 
                                 </div>
-
                             </div>
-                        </div>
 
+                            <!-- 02. Silent Area -->
+                            <div class="group relative bg-feu-green rounded-3xl overflow-hidden transition-all duration-500 shadow-xl">
+                                <div class="flex flex-col md:flex-row">
+
+                                    <!-- Fixed Index Box -->
+                                    <div class="bg-feu-yellow w-full md:w-36 min-h-[140px] flex items-center justify-center text-feu-green shrink-0">
+                                        <span class="text-4xl font-black font-mono">
+                                            02
+                                        </span>
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="p-8 md:p-10 flex-grow text-white">
+                                        <h3 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">
+                                            Silent Area / Individual Reading Area
+                                        </h3>
+
+                                        <p class="text-white/80 text-lg max-w-2xl leading-relaxed mb-8">
+                                            A space has been set for individual reading & silent study. Study spaces in the rest of the library are Quiet Zones, where short, whispered conversations will be tolerated.
+                                        </p>
+
+                                        <!-- Mini Rules Grid -->
+                                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-white/20">
+
+                                            <div class="flex flex-col">
+                                                <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">
+                                                    Device Policy
+                                                </span>
+
+                                                <span class="text-sm font-medium">
+                                                    Silent mode only. No headphone leakage.
+                                                </span>
+                                            </div>
+
+                                            <div class="flex flex-col">
+                                                <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">
+                                                    Calls
+                                                </span>
+
+                                                <span class="text-sm font-medium">
+                                                    Take all phone calls outside the library.
+                                                </span>
+                                            </div>
+
+                                            <div class="flex flex-col">
+                                                <span class="text-feu-yellow text-[10px] font-black uppercase tracking-widest mb-1">
+                                                    Refreshments
+                                                </span>
+
+                                                <span class="text-sm font-medium">
+                                                    Bottled water only. No food permitted.
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- 03. Faculty Area -->
+                            <div class="group relative bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-feu-green">
+                                <div class="flex flex-col md:flex-row">
+
+                                    <!-- Fixed Index Box -->
+                                    <div class="bg-feu-green w-full md:w-36 min-h-[140px] flex items-center justify-center text-feu-yellow shrink-0">
+                                        <span class="text-4xl font-black font-mono">
+                                            03
+                                        </span>
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="p-8 md:p-10 flex-grow">
+
+                                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-feu-green/10 text-feu-yellow rounded-full text-[10px] font-black uppercase tracking-widest mb-4">
+                                            Faculty Only
+                                        </div>
+
+                                        <!-- Fixed 03 title color -->
+                                        <h3 class="text-2xl font-bold text-feu-yellow mb-4 uppercase tracking-tight group-hover:translate-x-2 transition-transform">
+                                            Faculty Area
+                                        </h3>
+
+                                        <p class="text-slate-600 text-lg max-w-2xl leading-relaxed italic">
+                                            "An office-like work space provided for the faculty members of the FEU Institute of Technology."
+                                        </p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </section>
@@ -1552,6 +1684,37 @@
                                 </div>
                             </div>
                         </div>
+
+                        {% if page.eLibrary is defined and page.eLibrary is not empty %}
+                        <!-- Dynamic E-Library Access Links -->
+                        <div class="mt-10 p-8 rounded-3xl bg-white/10 border border-white/10 backdrop-blur-sm">
+                            <h3 class="font-bold text-feu-yellow mb-6 uppercase tracking-widest text-sm flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                                E-Library Online Databases & Subscriptions
+                            </h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {% for item in page.eLibrary %}
+                                    {% set parts = item|split(':', 2) %}
+                                    {% if parts|length == 2 %}
+                                        <a href="{{ parts[1]|trim }}" target="_blank" class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/15 hover:border-feu-yellow transition-all duration-300 flex flex-col justify-between gap-2 group">
+                                            <div>
+                                                <h4 class="font-black text-white text-lg tracking-tight uppercase group-hover:text-feu-yellow transition-colors">{{ parts[0]|trim }}</h4>
+                                                <p class="text-xs text-white/60 truncate mt-1">{{ parts[1]|trim }}</p>
+                                            </div>
+                                            <span class="text-xs font-bold text-feu-yellow flex items-center gap-1 mt-2">
+                                                Access Database
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
                     </div>
                 </section>
             </div>
