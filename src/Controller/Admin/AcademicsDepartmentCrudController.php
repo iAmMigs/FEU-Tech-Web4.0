@@ -49,9 +49,9 @@ class AcademicsDepartmentCrudController extends AbstractCrudController
 
         yield FormField::addTab('Hero Section');
         yield ImageField::new('heroImage', 'Hero Background Image')
-            ->setBasePath('/')
+            ->setBasePath('/uploads/academics/')
             ->setUploadDir('public/uploads/academics/')
-            ->setUploadedFileNamePattern('uploads/academics/[randomhash].[extension]')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false)
             ->onlyOnForms();
         yield TextField::new('heroTitle', 'Main Title')->onlyOnForms();

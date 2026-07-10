@@ -28,9 +28,9 @@ class ProgramFacultyCrudController extends AbstractCrudController
         yield TextareaField::new('information2', 'Credentials & Licenses');
         yield TextareaField::new('affiliation', 'Professional Affiliations');
         yield ImageField::new('image', 'Faculty Image')
-            ->setBasePath('/')
+            ->setBasePath('/uploads/academics/faculty/')
             ->setUploadDir('public/uploads/academics/faculty/')
-            ->setUploadedFileNamePattern('uploads/academics/faculty/[randomhash].[extension]')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false);
     }
 }
