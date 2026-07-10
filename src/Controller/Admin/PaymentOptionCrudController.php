@@ -53,6 +53,7 @@ class PaymentOptionCrudController extends AbstractCrudController
             ->hideOnIndex();
             
         yield ImageField::new('instructionsImage', 'Instructions Image (Optional, for single image guides)')
+            ->hideOnIndex()
             ->setBasePath('/')
             ->setUploadDir('public/uploads/payments/')
             ->setUploadedFileNamePattern('uploads/payments/[randomhash].[extension]')
@@ -61,7 +62,7 @@ class PaymentOptionCrudController extends AbstractCrudController
 
 
         yield FormField::addTab('Sample Computation (e.g. GCash)');
-        yield BooleanField::new('showComputation', 'Show Computation Block');
+        yield BooleanField::new('showComputation', 'Show Computation Block')->hideOnIndex();
         yield TextField::new('computationFee', 'Base Fee Amount (e.g. 5,000.00)')->hideOnIndex();
         yield TextField::new('computationDivisor', 'Processing Divisor (e.g. 0.985)')->hideOnIndex();
         yield TextField::new('computationTotal', 'Total Charge Amount (e.g. 5,076.15)')->hideOnIndex();

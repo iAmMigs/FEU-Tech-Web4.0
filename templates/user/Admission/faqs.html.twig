@@ -8,7 +8,7 @@
 <section class="relative w-full py-24 min-h-[40vh] flex items-center justify-center overflow-hidden bg-slate-900">
     <div class="absolute inset-0 z-0">
         <div class="absolute inset-0 bg-cover bg-center opacity-10" 
-             style="background-image: url('{{ page and page.heroImage ? (page.heroImage starts with 'pattern.svg' ? '/images/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage) : '/images/pattern.svg' }}');">
+             style="background-image: url('{{ page and page.heroImage ? (page.heroImage starts with 'pattern.svg' ? '/images/' ~ page.heroImage : (page.heroImage starts with 'uploads/' ? '/' ~ page.heroImage : '/uploads/admissions/' ~ page.heroImage)) : '/images/pattern.svg' }}');">
         </div>
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-feu-green/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-t from-feu-yellow/20 to-transparent"></div>
