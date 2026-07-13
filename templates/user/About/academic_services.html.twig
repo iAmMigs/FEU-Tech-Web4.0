@@ -77,43 +77,36 @@
         <!-- Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {% set services = [
-                ['Community Extension Services','Ardie G. Pinzon','Director'],
-                ['Discipline Office','Yvette G. Supnet, RC','Coordinator'],
-                ['Guidance and Counseling','Marietta M. Bengat, M.Ed., RGC','Director'],
-                ['iTamaraw Center for Academic Resources and Enrichment (iCARE)','Engr. Kennedy P. Limbo','Director'],
-                ['Library','Mercedita M. Ragudo, RL, MLIS','Chief Librarian'],
-                ['Registrar','Danna May C. Mansul, MIT',''],
-                ['Student Activities and Development','TBD','Director']
-            ] %}
-
             {% for s in services %}
             <div class="service-card bg-white p-8 rounded-lg shadow-sm">
 
                 <!-- Office -->
                 <h3 class="service-title text-[#008348] font-black text-sm uppercase tracking-widest mb-4 transition-colors">
-                    {{ s[0] }}
+                    {{ s.serviceTitle }}
                 </h3>
 
                 <!-- Name -->
                 <p class="service-name text-xl font-bold text-black transition-colors leading-snug">
-                    {{ s[1] }}
+                    {{ s.name }}
                 </p>
 
                 <!-- Role -->
-                {% if s[2] %}
+                {% if s.role %}
                 <p class="role-text text-xs uppercase mt-2 tracking-wider transition-colors">
-                    {{ s[2] }}
+                    {{ s.role }}
                 </p>
                 {% endif %}
 
                 <!-- Hidden Hover Accent -->
                 <div class="hover-line"></div>
             </div>
+            {% else %}
+            <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12">
+                <p class="text-slate-500 text-lg">No academic services modules populated yet.</p>
+            </div>
             {% endfor %}
 
         </div>
     </div>
 </section>
-
 {% endblock %}

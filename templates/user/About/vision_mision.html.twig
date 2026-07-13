@@ -19,24 +19,17 @@
 
         <div class="max-w-4xl">
 
-            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/10 backdrop-blur-md mb-8">
-                <span class="w-2.5 h-2.5 rounded-full bg-feu-yellow animate-pulse"></span>
-                <span class="text-white/90 uppercase tracking-[0.25em] text-xs font-semibold">
-                    About FEU Tech
-                </span>
-            </div>
-
             <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95]">
-                Vision, Mission,
+                {{ content ? content.heroTitle : 'Vision, Mission,' }}
                 <span class="block text-feu-yellow mt-2">
-                    & EOMS Policy
+                    {{ content ? content.heroTitleHighlight : '& EOMS Policy' }}
                 </span>
             </h1>
 
             <div class="mt-8 h-1.5 w-40 bg-gradient-to-r from-feu-yellow via-white to-feu-green rounded-full"></div>
 
             <p class="mt-8 text-lg text-slate-200 max-w-2xl font-light">
-                Driven by innovation, excellence, and nation-building.
+                {{ content ? content.heroDescription : 'Driven by innovation, excellence, and nation-building.' }}
             </p>
 
         </div>
@@ -44,7 +37,6 @@
     </div>
 
 </section>
-
 
 <section class="relative py-28 bg-gradient-to-b from-slate-50 via-white to-slate-100 overflow-hidden">
 
@@ -90,7 +82,6 @@
                              stroke="currentColor"
                              stroke-width="2"
                              viewBox="0 0 24 24">
-
                             <circle cx="12" cy="12" r="8"></circle>
                             <circle cx="12" cy="12" r="4"></circle>
                             <path d="M12 2v2M12 20v2M2 12h2M20 12h2"></path>
@@ -102,14 +93,12 @@
                 <div class="p-10 pt-20 h-full flex flex-col relative z-10">
 
                     <div class="flex items-center justify-between mb-8">
-
                         <div>
                             <p class="text-feu-green uppercase tracking-[0.25em] text-xs font-bold mb-2">
                                 Institutional
                             </p>
-
                             <h3 class="text-3xl font-extrabold text-slate-800">
-                                Vision
+                                {{ content ? content.titleOne : 'Vision' }}
                             </h3>
                         </div>
                     </div>
@@ -117,12 +106,11 @@
                     <div class="w-16 h-1 bg-feu-green rounded-full mb-6"></div>
 
                     <p class="text-slate-600 leading-relaxed text-[15px] text-justify flex-grow">
-                        Aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.
+                        {{ content ? content.titleOneText : 'Aims to be the global standard of innovation in education, research, and nation-building by creating the next generation of changemakers that will shape the future of the country and the world.' }}
                     </p>
 
                 </div>
             </div>
-
 
             <div class="group relative bg-white rounded-[2rem] border border-slate-200 shadow-xl hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 overflow-visible">
 
@@ -143,7 +131,6 @@
                              stroke="currentColor"
                              stroke-width="2"
                              viewBox="0 0 24 24">
-
                             <path d="M9 18h6"></path>
                             <path d="M10 22h4"></path>
                             <path d="M12 2a7 7 0 00-4 12c.6.6 1 1.3 1.2 2h5.6c.2-.7.6-1.4 1.2-2A7 7 0 0012 2z"></path>
@@ -155,14 +142,12 @@
                 <div class="p-10 pt-20 h-full flex flex-col relative z-10">
 
                     <div class="flex items-center justify-between mb-8">
-
                         <div>
                             <p class="text-feu-yellow uppercase tracking-[0.25em] text-xs font-bold mb-2">
                                 Institutional
                             </p>
-
                             <h3 class="text-3xl font-extrabold text-slate-800">
-                                Mission
+                                {{ content ? content.titleTwo : 'Mission' }}
                             </h3>
                         </div>
                     </div>
@@ -170,14 +155,14 @@
                     <div class="w-16 h-1 bg-feu-yellow rounded-full mb-6"></div>
 
                     <p class="text-slate-600 leading-relaxed text-[15px] text-justify flex-grow">
-                        Dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of the society.
+                        {{ content ? content.titleTwoText : 'Dedicated to provide quality, relevant, innovative and industry-based education producing competent and principled professionals with greater sense of responsibility, social awareness and high competitiveness contributing significantly to the betterment of the society.' }}
                     </p>
 
                 </div>
             </div>
-            </div>
+        </div>
 
-            <div class="grid grid-cols-1 mt-14">
+        <div class="grid grid-cols-1 mt-14">
             <div class="group relative bg-white rounded-[2rem] border border-slate-200 shadow-xl hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 overflow-visible">
 
                 <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 transition-transform duration-500 group-hover:scale-110"></div>
@@ -197,7 +182,6 @@
                              stroke="currentColor"
                              stroke-width="2"
                              viewBox="0 0 24 24">
-
                             <path d="M9 12h6m-6 4h6M7 4h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z"></path>
                         </svg>
                     </div>
@@ -206,14 +190,12 @@
                 <div class="p-10 pt-20 h-full flex flex-col relative z-10">
 
                     <div class="flex items-center justify-between mb-8">
-
                         <div>
                             <p class="text-feu-green uppercase tracking-[0.25em] text-xs font-bold mb-2">
                                 Educational
                             </p>
-
                             <h3 class="text-3xl font-extrabold text-slate-800">
-                                EOMS Policy
+                                {{ content ? content.titleThree : 'EOMS Policy' }}
                             </h3>
                         </div>
                     </div>
@@ -221,9 +203,9 @@
                     <div class="w-16 h-1 bg-feu-green rounded-full mb-6"></div>
 
                     <p class="text-slate-600 leading-relaxed text-[15px] text-justify flex-grow">
-                        Committed to providing innovative, industry-relevant, and learner-centered education that equips students with technical, professional, and lifelong-learning competencies for global citizenship and nation building. Guided by the core values of Fortitude, Excellence, and Uprightness, the institution fosters a community of ethical, socially responsible, and future-ready learners.                    
-		            </p>
-	
+                        {{ content ? content.titleThreeText : 'Committed to providing innovative, industry-relevant, and learner-centered education that equips students with technical, professional, and lifelong-learning competencies for global citizenship and nation building. Guided by the core values of Fortitude, Excellence, and Uprightness, the institution fosters a community of ethical, socially responsible, and future-ready learners.' }}
+                    </p>
+
                     <div class="py-8">
                         <h3 class="text-xl font-bold text-slate-800 leading-tight">
                             To fulfill this commitment, FEU Tech shall:
@@ -232,148 +214,41 @@
                     </div>
 
                     <ul class="space-y-5 text-slate-600 text-[15px]">
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Offer globally competitive and industry-aligned academic programs;
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Implement learner-centered and flexible pedagogies through MILES and other innovative learning systems;
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Provide equitable access to qualified, competent, and engaged educators and support personnel;
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Enhance student employability by cultivating entrepreneurial mindsets and strengthening local and international industry partnerships;
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Support safe, inclusive, and sustainable learning environments that promote wellbeing and environmental stewardship;
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Ensure satisfaction of learners and other relevant stakeholders through responsive services and continual feedback mechanisms;
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Comply with all applicable statutory, regulatory, accreditation, stakeholder, and intellectual- property requirements;
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Uphold data privacy, ethical conduct, and academic integrity across all operations; and
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-4 group/item">
-                            <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
-                                <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white"
-                                     fill="none"
-                                     stroke="currentColor"
-                                     viewBox="0 0 24 24">
-                                    <path stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-
-                            <span class="leading-relaxed">
-                                Continually improve the effectiveness, efficiency, and suitability of the EOMS.
-                            </span>
-                        </li>
-
-
+                        {% if content and content.titleThreeCommitments is not empty %}
+                            {% for commitment in content.titleThreeCommitments %}
+                                <li class="flex items-start gap-4 group/item">
+                                    <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                        <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="leading-relaxed">
+                                        {{ commitment }}
+                                    </span>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li class="flex items-start gap-4 group/item">
+                                <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                    <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="leading-relaxed">Offer globally competitive and industry-aligned academic programs;</span>
+                            </li>
+                            <li class="flex items-start gap-4 group/item">
+                                <div class="mt-1 w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 border border-feu-green/10 group-hover/item:bg-feu-green transition-colors duration-300">
+                                    <svg class="w-3.5 h-3.5 text-feu-green group-hover/item:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="leading-relaxed">Implement learner-centered and flexible pedagogies through MILES and other innovative learning systems;</span>
+                            </li>
+                        {% endif %}
                     </ul>
 
                 </div>
             </div>
-
         </div>
     </div>
 </section>

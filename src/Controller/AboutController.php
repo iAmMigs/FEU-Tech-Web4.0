@@ -2,6 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\AboutVisionMision;
+use App\Entity\HistoryItem;
+use App\Entity\HistoryFooter;
+use App\Entity\AboutAcademicDirector;
+use App\Entity\AboutExecutiveOfficer;
+use App\Entity\AboutAcademicService;
+use App\Entity\AboutNonAcademicDirector;
+use App\Entity\AboutOffice;
+use App\Entity\AboutFacilitiesPage;
+use App\Entity\AboutFacilitiesTab;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -16,93 +27,101 @@ final class AboutController extends AbstractController
     }
 
     #[Route('/about/facts-and-history', name: 'app_facts_history')]
-    public function factsHistory(): Response
-    {
-        return $this->renderWithDefaults('About/facts_history.html.twig');
+        public function factsHistory(EntityManagerInterface $em): Response
+        {
+            $timeline = $em->getRepository(HistoryItem::class)->findBy([], ['year' => 'ASC']);
+            $footer = $em->getRepository(HistoryFooter::class)->findOneBy([]) ?? new HistoryFooter();
+
+            return $this->renderWithDefaults('About/facts_history.html.twig', [
+                'timeline' => $timeline,
+                'footer' => $footer
+            ]);
     }
 
     #[Route('/about/vision-mision', name: 'app_vision_mision')]
-    public function visionMision(): Response
+    public function visionMision(EntityManagerInterface $em): Response
     {
-        return $this->renderWithDefaults('About/vision_mision.html.twig');
+        $content = $em->getRepository(AboutVisionMision::class)->findOneBy([]);
+
+        return $this->render('user/About/vision_mision.html.twig', [
+            'content' => $content,
+        ]);
     }
 
+    
     #[Route('/about/facilities', name: 'app_facilities')]
-    public function facilities(): Response
+    public function facilities(EntityManagerInterface $em): Response
     {
-        return $this->renderWithDefaults('About/facilities.html.twig');
+        $pageData = $em->getRepository(AboutFacilitiesPage::class)->find(1);
+        $tabCollection = $em->getRepository(AboutFacilitiesTab::class)->findBy([], ['sortOrder' => 'ASC']);
+
+        if (!$pageData) {
+            throw $this->createNotFoundException('Facilities structural management config data missing entry index #1.');
+        }
+
+        return $this->render('user/About/facilities.html.twig', [
+            'page' => $pageData,
+            'tabs' => $tabCollection
+        ]);
     }
 
     #[Route('/about/executive-officers', name: 'app_executive_officers')]
-    public function executiveOfficers(): Response
+    public function executiveOfficers(EntityManagerInterface $em): Response
     {
-        return $this->renderWithDefaults('About/executive_officers.html.twig');
+        $featuredOfficers = $em->getRepository(AboutExecutiveOfficer::class)
+            ->findBy(['isFeatured' => true], ['id' => 'ASC']);
+
+        $regularOfficers = $em->getRepository(AboutExecutiveOfficer::class)
+            ->findBy(['isFeatured' => false], ['id' => 'ASC']);
+
+        return $this->render('user/About/executive_officers.html.twig', [
+            'featured_officers' => $featuredOfficers,
+            'officers' => $regularOfficers,
+        ]);
     }
 
     #[Route('/about/academic-directors', name: 'app_academic_directors')]
-    public function academicDirectors(): Response
+    public function academicDirectors(EntityManagerInterface $em): Response
     {
-        return $this->renderWithDefaults('About/academic_director.html.twig');
+        $directors = $em->getRepository(AboutAcademicDirector::class)->findBy([], ['id' => 'ASC']);
+
+        return $this->render('user/About/academic_director.html.twig', [
+            'directors' => $directors,
+        ]);
     }
 
     #[Route('/about/academic-services', name: 'app_academic_services')]
-    public function academicServices(): Response
+    public function academicServices(EntityManagerInterface $em): Response
     {
-        return $this->renderWithDefaults('About/academic_services.html.twig');
+        $services = $em->getRepository(AboutAcademicService::class)->findBy([], ['id' => 'ASC']);
+
+        return $this->render('user/About/academic_services.html.twig', [
+            'services' => $services,
+        ]);
     }
 
     #[Route('/about/non-academic-directors', name: 'app_non_academic_directors')]
-    public function nonAcademicDirectors(): Response
+    public function nonAcademicDirectors(EntityManagerInterface $em): Response
     {
-        return $this->renderWithDefaults('About/non_academic_directors.html.twig');
+        $directors = $em->getRepository(AboutNonAcademicDirector::class)->findBy([], ['id' => 'ASC']);
+
+        return $this->render('user/About/non_academic_directors.html.twig', [
+            'directors' => $directors,
+        ]);
     }
 
     //OFFICES
-    #[Route('/about/offices/co', name: 'app_communications_office')]
-    public function CommunicationsOffice(): Response
+   #[Route('/about/offices/{slug}', name: 'app_about_office_detail')]
+    public function showOffice(string $slug, EntityManagerInterface $em): Response
     {
-        return $this->renderWithDefaults('About/offices/co.html.twig');
-    }
+        $office = $em->getRepository(AboutOffice::class)->findOneBy(['slug' => $slug]);
 
-    #[Route('/about/offices/aero', name: 'app_admissionsandexternalrelationsoffice')]
-    public function AdmissionsandExternalRelationsOffice(): Response
-    {
-        return $this->renderWithDefaults('About/offices/aero.html.twig');
-    }
+        if (!$office) {
+            throw $this->createNotFoundException('The requested office profile does not exist.');
+        }
 
-    #[Route('/about/offices/fo', name: 'app_facilitiesoffice')]
-    public function facilitiesOffice(): Response
-    {
-        return $this->renderWithDefaults('About/offices/fo.html.twig');
-    }
-
-    #[Route('/about/offices/finance', name: 'app_financeoffice')]
-    public function financeOffice(): Response
-    {
-        return $this->renderWithDefaults('About/offices/finance.html.twig');
-    }
-
-    #[Route('/about/offices/hro', name: 'app_humanresourcesoffice')]
-    public function humanresourcesOffice(): Response
-    {
-        return $this->renderWithDefaults('About/offices/hro.html.twig');
-    }
-
-    #[Route('/about/offices/ialap', name: 'app_ialapoffice')]
-    public function ialapOffice(): Response
-    {
-        return $this->renderWithDefaults('About/offices/ialap.html.twig');
-    }
-
-    #[Route('/about/offices/itso', name: 'app_itsooffice')]
-    public function itsoOffice(): Response
-    {
-        return $this->renderWithDefaults('About/offices/itso.html.twig');
-    }
-    
-    #[Route('/about/offices/qao', name: 'app_qaooffice')]
-    public function qaooffice(): Response
-    {
-        return $this->renderWithDefaults('About/offices/qao.html.twig');
+        return $this->render('user/About/offices/detail.html.twig', [
+            'office' => $office
+        ]);
     }
 }

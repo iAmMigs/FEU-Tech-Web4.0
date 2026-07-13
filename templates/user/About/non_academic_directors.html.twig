@@ -74,42 +74,33 @@
         <!-- Grid (MATCHED) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {% set directors = [
-                ['Admissions & External Relations','Doris Rowena Z. Albelda','Director','admissions@feutech.edu.ph'],
-                ['Communications','Ma. Ana C. Cayabyab','Director','co@feutech.edu.ph'],
-                ['Facilities','Engr. Karl Kevin Dela Calzada','Director','fo@feutech.edu.ph'],
-                ['Industry-Academe Linkage, Alumni, and Placement','Samantha Kyle R. Sadorra','Director','ialap@feutech.edu.ph'],
-                ['Innovation Programs','Engr. Norman Nicole A. Jimenez','Director','innovate@fit.edu.ph'],
-                ['Quality Assurance','Engr. Alexis Mervin T. Sy','Director','qao@feutech.edu.ph']
-            ] %}
-
             {% for d in directors %}
             <div class="director-card bg-white p-8 rounded-lg shadow-sm">
 
                 <!-- Program -->
                 <h3 class="program-title text-[#008348] font-black text-sm uppercase tracking-widest mb-4 transition-colors">
-                    {{ d[0] }}
+                    {{ d.programTitle }}
                 </h3>
 
                 <!-- Name -->
                 <p class="director-name text-xl font-bold text-black transition-colors leading-snug">
-                    {{ d[1] }}
+                    {{ d.name }}
                 </p>
 
                 <!-- Role -->
                 <p class="role-text text-xs uppercase mt-2 tracking-wider transition-colors">
-                    {{ d[2] }}
+                    {{ d.role }}
                 </p>
 
                 <!-- Email -->
-                {% if d[3] %}
+                {% if d.email %}
                 <div class="mt-6 pt-6 border-t border-slate-100">
-                    <a href="mailto:{{ d[3] }}" 
+                    <a href="mailto:{{ d.email }}" 
                        class="email-link text-sm text-slate-500 font-medium transition-colors break-all flex items-center">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
-                        {{ d[3] }}
+                        {{ d.email }}
                     </a>
                 </div>
                 {% endif %}
@@ -117,10 +108,13 @@
                 <!-- Hover line -->
                 <div class="hover-line"></div>
             </div>
+            {% else %}
+            <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12">
+                <p class="text-slate-500 text-lg">No non-academic directors registered yet.</p>
+            </div>
             {% endfor %}
 
         </div>
     </div>
 </section>
-
 {% endblock %}

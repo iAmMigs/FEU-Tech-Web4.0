@@ -25,21 +25,19 @@
 
         <div class="max-w-3xl">
 
-            <span class="inline-flex items-center px-5 py-2  rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-feu-yellow text-sm font-bold tracking-[0.25em] uppercase mb-7">
-                Campus Facilities
+            <span class="inline-flex items-center px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-feu-yellow text-sm font-bold tracking-[0.25em] uppercase mb-7">
+                {{ page.heroTag }}
             </span>
 
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tight">
-                Building the
-                <span class="text-feu-yellow">
-                    Future of Learning
+                {{ page.heroTitleWhite }}
+                <span class="text-feu-yellow block mt-2">
+                    {{ page.heroTitleYellow }}
                 </span>
             </h1>
 
             <p class="mt-8 text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl">
-                FEU Tech delivers modern academic environments, advanced learning spaces,
-                and student-centered facilities designed to empower innovation,
-                collaboration, wellness, and technological excellence.
+                {{ page.heroDescription }}
             </p>
         </div>
 
@@ -53,7 +51,7 @@
         
         <div class="flex flex-col items-center mb-10 text-center">
             <span class="text-[#008348] text-xs font-bold tracking-[0.3em] uppercase bg-[#008348]/10 px-4 py-1.5 rounded-full mb-3">
-                Virtual Campus Tour
+                {{ page.tourBadge }}
             </span>
         </div>
 
@@ -84,7 +82,7 @@
                     preload="metadata"
                     poster="/images/yt.png">
 
-                    <source src="/videos/FACILITIES.mp4" type="video/mp4">
+                    <source src="/images/facility/{{ page.videoPath }}" type="video/mp4">
                 </video>
 
             </div>
@@ -104,451 +102,106 @@
         <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8">
 
             <div class="space-y-4">
+                {% for item in tabs %}
+                    {# Alternates styling automatically based on loop counters instead of database fields #}
+                    {% set colorClass = (loop.index % 2 == 0) ? 'yellow' : 'emerald' %}
+                    <button onclick="showContent({{ loop.index0 }})"
+                            class="facility-btn {{ loop.first ? 'active' : '' }}">
 
-                {% set facilities = [
-                    {
-                        number: '01',
-                        title: 'Campus Facilities',
-                        subtitle: 'Learning spaces & equipment',
-                        color: 'emerald'
-                    },
-                    {
-                        number: '02',
-                        title: 'Campus Experience',
-                        subtitle: 'Heritage & environment',
-                        color: 'yellow'
-                    },
-                    {
-                        number: '03',
-                        title: 'Technology Building',
-                        subtitle: 'Modern infrastructure',
-                        color: 'emerald'
-                    },
-                    {
-                        number: '04',
-                        title: 'Facilities Office',
-                        subtitle: 'Safety & maintenance',
-                        color: 'yellow'
-                    },
-                    {
-                        number: '05',
-                        title: 'Student Support Offices',
-                        subtitle: 'Services & development',
-                        color: 'emerald'
-                    }
-                ] %}
+                        <div class="flex items-center gap-4">
+                            <div class="facility-icon {{ colorClass }}">
+                                {{ "%02d"|format(loop.index) }}
+                            </div>
 
-                {% for item in facilities %}
-                <button onclick="showContent({{ loop.index0 }})"
-                        class="facility-btn {{ loop.first ? 'active' : '' }}">
-
-                    <div class="flex items-center gap-4">
-
-                        <div class="facility-icon {{ item.color }}">
-                            {{ item.number }}
+                            <div class="text-left">
+                                <h2 class="font-bold text-slate-800 text-sm">
+                                    {{ item.navTitle }}
+                                </h2>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    {{ item.navSubtitle }}
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="text-left">
-                            <h2 class="font-bold text-slate-800 text-sm">
-                                {{ item.title }}
-                            </h2>
-
-                            <p class="text-xs text-slate-500 mt-1">
-                                {{ item.subtitle }}
-                            </p>
-                        </div>
-
-                    </div>
-
-                </button>
+                    </button>
                 {% endfor %}
-
             </div>
 
             <div id="viewer"
                  class="relative overflow-hidden rounded-[2rem] bg-white border border-slate-200 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
-
-
             </div>
 
         </div>
-
     </div>
 
 </section>
 
 
 <style>
-
-/* Continuous Marquee Animation Definition */
-.sync-marquee-wrapper {
-    gap: 2rem;
-}
+.sync-marquee-wrapper { gap: 2rem; }
 .marquee-content {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: space-around;
-    min-width: 100%;
-    gap: 2rem;
+    flex-shrink: 0; display: flex; justify-content: space-around; min-width: 100%; gap: 2rem;
     animation: scroll-marquee 25s linear infinite;
 }
-@keyframes scroll-marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
-}
-
-.facility-btn{
-    width:100%;
-    padding:1rem;
-    border-radius:1.4rem;
-    background:white;
-    border:1px solid #e2e8f0;
-    transition:all .3s ease;
-    box-shadow:0 4px 20px rgba(15,23,42,.03);
-}
-
-.facility-btn:hover{
-    transform:translateY(-4px);
-    border-color:rgba(0,131,72,.2);
-    box-shadow:0 16px 35px rgba(15,23,42,.08);
-}
-
-.facility-btn.active{
-    background:#003b25;
-    border-color:#003b25;
-}
-
-.facility-btn.active h2,
-.facility-btn.active p{
-    color:white;
-}
-
-.facility-icon{
-    width:44px;
-    height:44px;
-    min-width:44px;
-    border-radius:.9rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    font-size:.8rem;
-    transition:.3s;
-}
-
-.facility-icon.emerald{
-    background:#ecfdf5;
-    color:#008348;
-}
-
-.facility-icon.yellow{
-    background:#fef9c3;
-    color:#ca8a04;
-}
-
-.facility-icon.slate{
-    background:#f1f5f9;
-    color:#0f172a;
-}
-
-.facility-icon.blue{
-    background:#eff6ff;
-    color:#2563eb;
-}
-
-.facility-icon.purple{
-    background:#faf5ff;
-    color:#9333ea;
-}
-
-.facility-btn.active .facility-icon{
-    background:rgba(255,255,255,.1);
-    color:#febe10;
-}
-
-.facility-hero-btn{
-    padding:.95rem 1.75rem;
-    border-radius:1rem;
-    font-weight:700;
-    transition:.3s;
-}
-
-.facility-hero-btn:hover{
-    transform:translateY(-3px);
-}
-
-.facility-stat-card{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:1.25rem;
-    padding:1.2rem;
-}
-
-.facility-stat-card .stat-title{
-    font-size:2rem;
-    font-weight:900;
-    line-height:1;
-}
-
-.facility-stat-card p{
-    margin-top:.55rem;
-    font-size:.82rem;
-    color:#64748b;
-    line-height:1.5;
-}
-
-.facility-main-image{
-    transition: opacity .35s ease;
-}
-
-.gallery-thumb{
-    width:80px;
-    height:80px;
-    overflow:hidden;
-    border-radius:1rem;
-    border:3px solid rgba(255,255,255,.7);
-    background:white;
-    cursor:pointer;
-    transition:all .3s ease;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.gallery-thumb:hover{
-    transform:translateY(-5px) scale(1.05);
-    border-color:#febe10;
-}
-
-.gallery-thumb img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
+@keyframes scroll-marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+.facility-btn { width: 100%; padding: 1rem; border-radius: 1.4rem; background: white; border: 1px solid #e2e8f0; transition: all .3s ease; box-shadow: 0 4px 20px rgba(15,23,42,.03); }
+.facility-btn:hover { transform: translateY(-4px); border-color: rgba(0,131,72,.2); box-shadow: 0 16px 35px rgba(15,23,42,.08); }
+.facility-btn.active { background: #003b25; border-color: #003b25; }
+.facility-btn.active h2, .facility-btn.active p { color: white; }
+.facility-icon { width: 44px; height: 44px; min-width: 44px; border-radius: .9rem; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .8rem; transition: .3s; }
+.facility-icon.emerald { background: #ecfdf5; color: #008348; }
+.facility-icon.yellow { background: #fef9c3; color: #ca8a04; }
+.facility-btn.active .facility-icon { background: rgba(255,255,255,.1); color: #febe10; }
+.facility-stat-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 1.25rem; padding: 1.2rem; }
+.facility-stat-card .stat-title { font-size: 2rem; font-weight: 900; line-height: 1; }
+.facility-stat-card p { margin-top: .55rem; font-size: .82rem; color: #64748b; line-height: 1.5; }
+.facility-main-image { transition: opacity .35s ease; }
+.gallery-thumb { width: 80px; height: 80px; overflow: hidden; border-radius: 1rem; border: 3px solid rgba(255,255,255,.7); background: white; cursor: pointer; transition: all .3s ease; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.gallery-thumb:hover { transform: translateY(-5px) scale(1.05); border-color: #febe10; }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
 </style>
 
+
 <script>
-
+// Dynamic Array mapping data objects fed directly from backend collections
 const data = [
-
-{
-    badge: "Facilities",
-
-    title: "Modern Learning & Campus Facilities",
-
-    images: [
-        "/images/facility/campus_facilities_1.jpg",
-        "/images/facility/campus_facilities_2.jpg",
-        "/images/facility/campus_facilities_3.jpg",
-    ],
-
-    desc: `
-        <p>
-            FEU Tech provides fully-equipped air-conditioned classrooms and laboratories;
-            high-tech computers, engineering tools, and equipment; 24-hour security and monitoring;
-            full library services; canteen and student services; and building-wide WiFi accessibility.
-        </p>
-
-        <p>
-            Students benefit from a safe, innovative, and technology-driven academic environment
-            designed to support learning, collaboration, and professional growth.
-        </p>
-    `,
-
-    stats: `
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-green">E-Library</div>
-            <p>A go-to place when you need to study</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-yellow">WiFi</div>
-            <p>Building-wide internet accessibility</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-slate-800">Labs</div>
-            <p>Industry-standard engineering facilities and high-tech computers</p>
-        </div>
-    `
-},
-
-{
-    badge: "Heritage",
-
-    title: "The FEU Tech Campus Experience",
-
-    images: [
-        "/images/facility/Main_campus.jpg",
-        "/images/facility/Main_campus_2.jpg",
-        "/images/facility/Main_campus_3.jpg"
-    ],
-
-    desc: `
-        <p>
-            The FEU Technology Building is located along Morayta within Far Eastern University’s
-            prestigious campus, which has been part of Manila’s educational legacy for over 90 years.
-        </p>
-
-        <p>
-            The Main Campus features grassy parks, shady trees, and award-winning Art Deco architecture,
-            including five buildings designed by National Artist Pablo Antonio.
-        </p>
-    `,
-
-    stats: `
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-green">90+</div>
-            <p>Years of educational excellence</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-yellow">5</div>
-            <p>Art Deco buildings by Pablo Antonio</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-slate-800">Green</div>
-            <p>Open parks and shaded campus spaces</p>
-        </div>
-    `
-},
-
-{
-    badge: "Innovation",
-
-    title: "The Modern FEU Technology Building",
-
-    images: [
-        "/images/facility/Modern (1).jpg",
-        "/images/facility/Modern (2).jpg",
-        "/images/facility/Modern (3).jpg"
-    ],
-
-    desc: `
-        <p>
-            FEU Institute of Technology is housed in a modern 17-story building in the
-            heart of Manila’s University Belt.
-        </p>
-
-        <p>
-            The building includes scenic elevators, electronic library facilities,
-            a covered gym and basketball court, a 25-meter indoor swimming pool,
-            eco-friendly Green Building Technology, standby power supply systems,
-            and energy-efficient air conditioning.
-        </p>
-    `,
-
-    stats: `
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-green">17</div>
-            <p>Floors of modern infrastructure</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-yellow">25m</div>
-            <p>Indoor swimming pool facility</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-slate-800">Eco</div>
-            <p>Green Building Technology systems</p>
-        </div>
-    `
-},
-
-{
-    badge: "Operations",
-
-    title: "Facilities Office Responsibilities",
-
-    images: [
-        "/images/facility/facilities_1.jpg",
-        "/images/facility/facilities_2.jpg",
-        "/images/facility/facilities_3.png"
-    ],
-
-    desc: `
-        <p>
-            The Facilities Office maintains an ideal academic physical setting
-            for the Institute while ensuring safety and efficiency across campus.
-        </p>
-
-        <p>
-            Its main responsibility is to create and maintain a safe environment
-            for students and associates while monitoring facility usage and
-            daily campus activities.
-        </p>
-    `,
-
-    stats: `
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-green">Safe</div>
-            <p>Secure learning environment</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-yellow">Daily</div>
-            <p>Facility activity monitoring</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-slate-800">Care</div>
-            <p>Campus maintenance management</p>
-        </div>
-    `
-},
-
-{
-    badge: "Student Services",
-
-    title: "Comprehensive Student Support Offices",
-
-    images: [
-        "/images/facility/student_support_1.png",
-        "/images/facility/student_support_1.jpg",
-        "/images/facility/student_support_3.jpg"
-    ],
-
-    desc: `
-        <p>
-            FEU Tech supports students through specialized offices including
-            AERO, GCO, SADO, Health Services Unit, ITSO, iCARE,
-            Library Services, IALAP, and the Registrar’s Office.
-        </p>
-
-        <p>
-            These offices provide academic support, wellness services,
-            career development, leadership opportunities, industry linkages,
-            technological assistance, and student-centered services.
-        </p>
-    `,
-
-    stats: `
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-green">iCARE</div>
-            <p>Academic enrichment services</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-feu-yellow">IALAP</div>
-            <p>Career and industry opportunities</p>
-        </div>
-
-        <div class="facility-stat-card">
-            <div class="stat-title text-slate-800">SADO</div>
-            <p>Leadership and student development</p>
-        </div>
-    `
-}
-
+    {% for item in tabs %}
+    {
+        badge: {{ item.contentBadge|json_encode|raw }},
+        title: {{ item.contentTitle|json_encode|raw }},
+        images: [
+            "/images/facility/{{ item.imgOne }}",
+            "/images/facility/{{ item.imgTwo }}",
+            "/images/facility/{{ item.imgThree }}"
+        ],
+        desc: `
+            {% for paragraph in item.descriptionMarkdown|split('\r\n') %}
+                {% if paragraph|trim is not empty %}
+                    <p class="mb-4">{{ paragraph|raw }}</p>
+                {% endif %}
+            {% endfor %}
+        `,
+        stats: `
+            <div class="facility-stat-card">
+                <div class="stat-title text-feu-green">{{ item.statOneTitle|raw }}</div>
+                <p>{{ item.statOneDesc|raw }}</p>
+            </div>
+            <div class="facility-stat-card">
+                <div class="stat-title text-feu-yellow">{{ item.statTwoTitle|raw }}</div>
+                <p>{{ item.statTwoDesc|raw }}</p>
+            </div>
+            <div class="facility-stat-card">
+                <div class="stat-title text-slate-800">{{ item.statThreeTitle|raw }}</div>
+                <p>{{ item.statThreeDesc|raw }}</p>
+            </div>
+        `
+    }{{ not loop.last ? ',' : '' }}
+    {% endfor %}
 ];
 
 function changeGalleryImage(src){
-
     const mainImage = document.getElementById("mainFacilityImage");
-
     mainImage.style.opacity = "0";
-
     setTimeout(() => {
         mainImage.src = src;
         mainImage.style.opacity = "1";
@@ -556,7 +209,6 @@ function changeGalleryImage(src){
 }
 
 function showContent(index){
-
     const viewer = document.getElementById("viewer");
     const buttons = document.querySelectorAll(".facility-btn");
 
@@ -564,72 +216,53 @@ function showContent(index){
     buttons[index].classList.add("active");
 
     viewer.innerHTML = `
-
         <div class="relative overflow-hidden">
-
             <div class="relative h-[420px] overflow-hidden">
-
                 <img 
                     id="mainFacilityImage"
                     src="${data[index].images[0]}"
                     class="w-full h-full object-cover facility-main-image">
-
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-
                 <div class="absolute bottom-16 left-0 p-8 lg:p-10">
-
                     <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-bold uppercase tracking-[0.2em] mb-5">
                         ${data[index].badge}
                     </div>
-
                     <h2 class="text-4xl lg:text-5xl font-black text-white max-w-3xl leading-tight">
                         ${data[index].title}
                     </h2>
-
                 </div>
-
             </div>
-
             <div class="absolute bottom-6 right-6 flex gap-4 z-20">
-
                 ${data[index].images.map((img) => `
                     <button 
                         onclick="changeGalleryImage('${img}')"
                         class="gallery-thumb">
-
                         <img src="${img}" class="w-full h-full object-cover">
-
                     </button>
                 `).join('')}
-
             </div>
-
         </div>
-
         <div class="p-8 lg:p-10">
-
             <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_.8fr] gap-10">
-
                 <div>
-
-                    <div class="space-y-7 text-slate-600 leading-loose text-[16px] lg:text-[17px] font-medium">
+                    <div class="space-y-4 text-slate-600 leading-loose text-[16px] lg:text-[17px] font-medium">
                         ${data[index].desc}
                     </div>
-
                 </div>
-
                 <div class="grid grid-cols-1 gap-4">
                     ${data[index].stats}
                 </div>
-
             </div>
-
         </div>
     `;
 }
 
-showContent(0);
-
+// Render dynamic baseline collection on initial page load
+document.addEventListener("DOMContentLoaded", () => {
+    if(data.length > 0) {
+        showContent(0);
+    }
+});
 </script>
 
 {% endblock %}

@@ -20,54 +20,36 @@
         <div id="timeline-line" class="absolute left-[131px] md:left-[163px] top-4 w-[6px] h-0 transition-[height] duration-300 z-[5] rounded"></div>
 
         <div class="space-y-16">
-            {% set timeline = [
-                { 'date': '1936', 'title': 'FEU Establishes the Institute of Technology', 'tag': 'WHAT IS CHED? CHED stands for Commission on Higher Education. It is the government agency responsible for regulating and coordinating higher education in the Philippines.', 'content': 'Recognizing the country\'s growing need for engineers to support nation-building, FEU founded the Institute of Technology, initially offering Civil Engineering.', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'none', 'iconImage': '/images/history/1936.jpg' },
-
-                { 'date': '1991', 'title': 'A New Technology Direction', 'tag': '', 'content': 'FEU began transforming its technology education by partnering with East Asia Computer Center, shifting its focus toward computer and information technology.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'trending-up', 'iconImage': '/images/history/1991.jpg' },
-
-                { 'date': '1992', 'title': 'Computer Science Begins', 'tag': 'Computing Education Begins', 'content': 'The institution launched its first computing degree, Bachelor of Science in Computer and Information Science (BSCIS).', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'graduation-cap', 'iconImage': '/images/history/1992.png' },
-
-                { 'date': '1994', 'title': 'Computer Engineering Introduced', 'tag': '', 'content': 'Responding to the growing demand for computing professionals, Bachelor of Science in Computer Engineering (BSCoE) was added.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'trending-up', 'iconImage': '/images/history/1994.jpg' },
-
-                { 'date': '1998', 'title': 'East Asia College of Information Technology', 'tag': '', 'content': 'Commission on Higher Education (CHED) officially recognized the institution\'s new name: East Asia College of Information Technology (EACIT).', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'building', 'iconImage': '/images/history/1998.jpg' },
-
-                { 'date': '2000', 'title': 'CHED Center of Development', 'tag': '', 'content': 'EACIT was designated by CHED as a Center of Development for Excellence in Information Technology Education in the NCR.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'award', 'iconImage': '/images/history/2000.jpg' },
-
-                { 'date': '2001', 'title': 'Engineering Returns', 'tag': '', 'content': 'FEU revived its engineering education through the reopening of the College of Engineering, while EACIT expanded with BS Information Technology and BS Information Management.', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'refresh', 'iconImage': '/images/history/2001.jpg' },
-
-                { 'date': '2002', 'title': 'FEU Acquires EACIT', 'tag': '', 'content': 'FEU acquired controlling ownership of EACIT, paving the way for a unified technology institution.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'users', 'iconImage': '/images/history/2002.jpg' },
-
-                { 'date': '2003', 'title': 'The Power of Two', 'tag': 'Joining Together', 'content': 'The College of Engineering and EACIT merged to form FEU–East Asia College (FEU–EAC), combining engineering and computing education under one institution.', 'theme': 'green', 'bgColor': 'bg-[#004026]', 'textColor': 'text-[#004026]', 'borderColor': 'border-[#004026]', 'tagIcon': 'users', 'iconImage': '/images/history/2003.jpg' },
-
-                { 'date': '2004', 'title': 'Engineering Programs Recognized', 'tag': 'Government Recognized Engineering Program', 'content': 'CHED granted Government Recognition to FEU\'s engineering programs, reinforcing the institution\'s commitment to quality engineering education.', 'theme': 'gold', 'bgColor': 'bg-[#EFA316]', 'textColor': 'text-[#EFA316]', 'borderColor': 'border-[#EFA316]', 'tagIcon': 'medal', 'iconImage': '/images/history/2014.jpg' }
-                
-            ] %}
-
             {% for item in timeline %}
-                <div class="relative z-10 flex items-center timeline-item opacity-0 transform translate-y-8 transition-all duration-700 ease-out min-h-[100px]" data-index="{{ loop.index0 }}" data-theme="{{ item.theme }}">
+                {# Automatically alternate themes if desired, or stick to item.theme. Using a fallback just in case. #}
+                {% set theme = loop.index is odd ? 'gold' : 'emerald' %}
+                
+                <div class="relative z-10 flex items-center timeline-item opacity-0 transform translate-y-8 transition-all duration-700 ease-out min-h-[100px]" data-index="{{ loop.index0 }}" data-theme="{{ theme }}">
                     
                     <div class="w-28 h-28 flex items-center justify-center shrink-0 pl-2">
-                        <div class="border-2 p-1.5 rounded-xl w-full h-full flex items-center justify-center bg-white {{ item.theme == 'gold' ? 'border-amber-500 text-amber-500' : 'border-emerald-800 text-emerald-800' }}">
-                            <img src="{{ item.iconImage }}" alt="{{ item.date }} icon" class="w-full h-full object-cover rounded-lg">
+                        <div class="border-2 p-1.5 rounded-xl w-full h-full flex items-center justify-center bg-white {{ theme == 'gold' ? 'border-amber-500 text-amber-500' : 'border-emerald-800 text-emerald-800' }}">
+                            {% if item.iconImage %}
+                                <img src="{{ asset('images/history/' ~ item.iconImage) }}" alt="{{ item.year }} icon" class="w-full h-full object-cover rounded-lg">
+                            {% endif %}
                         </div>
                     </div>
 
                     <div class="absolute left-[118px] md:left-[150px] flex items-center z-30 group-node">
-                        <div class="w-7 h-7 rounded-full bg-white border-4 {{ item.borderColor }} flex items-center justify-center shadow-sm relative shrink-0 z-20">
-                            <div class="timeline-dot w-2 h-2 rounded-full {{ item.bgColor }} transition-all duration-300"></div>
+                        <div class="w-7 h-7 rounded-full bg-white border-4 {{ theme == 'gold' ? 'border-[#EFA316]' : 'border-[#004026]' }} flex items-center justify-center shadow-sm relative shrink-0 z-20">
+                            <div class="timeline-dot w-2 h-2 rounded-full {{ theme == 'gold' ? 'bg-[#EFA316]' : 'bg-[#004026]' }} transition-all duration-300"></div>
                         </div>
                         
                         <img src="/images/readingtamtam2.gif"
-                            class="timeline-gif absolute left-[-10px] w-12 h-12 object-contain opacity-0 scale-75 transition-all duration-300 z-40 pointer-events-none rounded-full border-2 {{ item.borderColor }} bg-white max-w-none">
+                            class="timeline-gif absolute left-[-10px] w-12 h-12 object-contain opacity-0 scale-75 transition-all duration-300 z-40 pointer-events-none rounded-full border-2 {{ theme == 'gold' ? 'border-[#EFA316]' : 'border-[#004026]' }} bg-white max-w-none">
 
-                        <div class="relative -ml-1 h-14 flex items-center pl-6 pr-8 font-black text-white text-2xl font-sans tracking-wide shadow-md rounded-r-lg {{ item.bgColor }} [clip-path:polygon(0%_0%,_85%_0%,_100%_50%,_85%_100%,_0%_100%)] min-w-[110px] md:min-w-[130px] z-10">
-                            {{ item.date }}
+                        <div class="relative -ml-1 h-14 flex items-center pl-6 pr-8 font-black text-white text-2xl font-sans tracking-wide shadow-md rounded-r-lg {{ theme == 'gold' ? 'bg-[#EFA316]' : 'bg-[#004026]' }} [clip-path:polygon(0%_0%,_85%_0%,_100%_50%,_85%_100%,_0%_100%)] min-w-[110px] md:min-w-[130px] z-10">
+                            {{ item.year }}
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full pl-52 md:pl-64 items-center py-4">
                         <div class="lg:col-span-4">
-                            <h3 class="text-lg md:text-xl font-bold font-sans tracking-tight {{ item.textColor }}">
+                            <h3 class="text-lg md:text-xl font-bold font-sans tracking-tight {{ theme == 'gold' ? 'text-[#EFA316]' : 'text-[#004026]' }}">
                                 {{ item.title }}
                             </h3>
                         </div>
@@ -79,23 +61,8 @@
                         </div>
                         
                         <div class="lg:col-span-3 flex justify-start lg:justify-end">
-                            {% if item.tag is defined and item.tag is not empty %}
-                                <div class="px-4 py-3 border-2 {{ item.borderColor }} bg-white rounded-xl text-center w-full max-w-[220px] shadow-sm flex items-center gap-3 justify-center">
-                                    
-                                    {% if item.tagIcon != 'none' %}
-                                        <div class="shrink-0 {{ item.textColor }}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                                {% if item.tagIcon == 'graduation-cap' %}
-                                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
-                                                {% elseif item.tagIcon == 'users' %}
-                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 3-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                                {% elseif item.tagIcon == 'medal' %}
-                                                    <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                                                {% endif %}
-                                            </svg>
-                                        </div>
-                                    {% endif %}
-                                    
+                            {% if item.tag is not empty %}
+                                <div class="px-4 py-3 border-2 {{ theme == 'gold' ? 'border-[#EFA316]' : 'border-[#004026]' }} bg-white rounded-xl text-center w-full max-w-[220px] shadow-sm flex items-center gap-3 justify-center">
                                     <span class="text-[10px] font-black text-gray-700 uppercase tracking-wider text-left leading-tight block">
                                         {{ item.tag }}
                                     </span>
@@ -123,23 +90,25 @@
 
             <div class="w-full bg-[#003820] text-white relative flex flex-col min-h-[480px]">
                 
-                <!-- Image layout changed to z-10 to stay directly above the bg-[#003820] background color layer -->
                 <div class="absolute left-0 -top-16 bottom-0 w-full lg:w-[23%] z-10 pointer-events-none">
                     <img src="/images/history/FEUFooter.png" alt="FEU Tech Building" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#003820]"></div>
                 </div>
 
-                <!-- Increased content layers below to z-20 so they display on top of the background image details -->
                 <div class="absolute left-4 md:left-[36px] lg:left-[48px] top-1/2 -translate-y-1/2 z-20 hidden sm:block">
-                    <img src="/images/Tech_Logo.png" class="w-40 h-40 object-contain">
+                    {% if footer.logoImage %}
+                        <img src="{{ asset('images/' ~ footer.logoImage) }}" class="w-40 h-40 object-contain" alt="Logo">
+                    {% else %}
+                        <img src="/images/Tech_Logo.png" class="w-40 h-40 object-contain" alt="Logo Fallback">
+                    {% endif %}
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pl-48 pr-6 md:pl-64 md:pr-16 lg:pl-80 lg:pr-24 pt-16 pb-20 relative z-20 my-auto">
                     <div class="lg:col-span-6 space-y-4 text-left">
-                        <span class="text-6xl md:text-7xl font-black tracking-tighter block text-white font-sans">2014</span>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-[#EFA316] uppercase tracking-wide leading-tight font-sans">Back to Its Roots </h3>
+                        <span class="text-6xl md:text-7xl font-black tracking-tighter block text-white font-sans">{{ footer.year }}</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-[#EFA316] uppercase tracking-wide leading-tight font-sans">{{ footer.title }}</h3>
                         <p class="text-xs md:text-sm text-gray-200 font-medium leading-relaxed max-w-xl">
-                            FEU–East Asia College was officially <br> renamed FEU Institute of Technology <br> (FEU Tech), restoring its historic identity <br> while embracing modern innovation and technology.
+                            {{ footer.content }}
                         </p>
                     </div>
                     <div class="lg:col-span-6 flex justify-center lg:justify-end w-full">
@@ -149,18 +118,17 @@
                                     <img src="/images/history/footer.png" class="w-16 h-16">
                                 </div>
                                 <p class="text-xs uppercase tracking-widest text-white font-bold leading-tight text-left">
-                                    Restoring Our Heritage.<br>Embracing the Future.
+                                    {{ footer.subtitle }}
                                 </p>
                             </div>
 
                             <h2 class="text-5xl font-bold text-[#EFA316] mb-4 font-['Poppins'] tracking-[0.3em] scale-y-[2] origin-center inline-block">
-                                FEU TECH
+                                {{ footer.badgeText }}
                             </h2>
                             
-
                             <div class="border-2 border-[#EFA316] py-2 px-2 inline-block w-full">
                                 <span class="text-[15px] font-bold text-[#EFA316] block uppercase font-['Poppins'] whitespace-nowrap tracking-[0.5em]">
-                                    SCHOOL OF INNOVATION
+                                    {{ footer.footerTagline }}
                                 </span>
                             </div>
                         </div>

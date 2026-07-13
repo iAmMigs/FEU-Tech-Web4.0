@@ -7,34 +7,28 @@
         --feu-yellow: #febe10;
     }
 
-    /* Base card layout */
     .director-card {
         transition: all 0.3s ease;
-        border: 1px solid #e2e8f0; /* slate-200 */
+        border: 1px solid #e2e8f0; 
         position: relative;
         overflow: hidden;
         background-color: #ffffff;
     }
 
-    /* Hover State: Background remains white, no floating/transform */
     .director-card:hover {
         background-color: #ffffff !important; 
         border-color: var(--feu-green);
-        /* Subtle glow instead of a deep shadow since it doesn't "lift" */
         box-shadow: 0 4px 12px rgba(0, 131, 72, 0.08);
     }
 
-    /* Text colors for white background hover */
     .director-card:hover .program-title { color: var(--feu-green); }
     .director-card:hover .director-name { color: #000000; } 
     .director-card:hover .role-text { color: var(--feu-yellow); }
     
-    /* Email link hover states */
     .director-card .email-link { transition: color 0.2s ease; }
     .director-card:hover .email-link { color: #64748b; } /* slate-500 */
     .director-card .email-link:hover { color: var(--feu-green) !important; }
 
-    /* Accent line that grows on hover */
     .hover-line {
         position: absolute;
         bottom: 0;
@@ -49,7 +43,7 @@
         width: 100%;
     }
 </style>
-<!-- Hero Section -->
+
 <section id="top" class="relative w-full h-[30vh] min-h-[350px] flex items-center justify-center overflow-hidden bg-black">
     <div class="absolute inset-0 z-0">
         <img src="/images/EXECUTIVE_TECH.jpg" alt="Hero Background" class="w-full h-full object-cover opacity-40">
@@ -67,63 +61,46 @@
     </div>
 </section>
 
-<!-- Academic Directors Section -->
 <section class="py-24 bg-slate-50 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {% set directors = [
-                ['Civil Engineering','Kevin Lawrence M. De Jesus, Ph.D.','Program Director','ce@feutech.edu.ph'],
-                ['Computer Engineering','Engr. Nino U. Pilueta','Program Director','cpe@feutech.edu.ph'],
-                ['Computer Science','Shaneth C. Ambat, Ph.D.','Program Director','ccs_cs@feutech.edu.ph'],
-                ['Electrical Engineering','Engr. Mark Anthony G. Teodoro','Program Director','eee@feutech.edu.ph'],
-                ['Electronics Engineering','Antipas T. Teologo, Jr. Ph.D.','Program Director','eee@feutech.edu.ph'],
-                ['Humanities, Social Sciences, and Comm.','Ma. Ruth S. Que','Program Director','hsc@feutech.edu.ph'],
-                ['Information Technology','Roman M. De Angel, DIT','Program Director','ccs_it@feutech.edu.ph'],
-                ['Mathematics and Physical Sciences','Engr. Ivan Jerome Panis','Program Director','mps@feutech.edu.ph'],
-                ['Mechanical Engineering','Engr. Jaychris Georgette Y. Onia','Program Director','me@feutech.edu.ph'],
-                ['Multimedia Arts','Abigail L. Alix, MIT','Program Director','ccs_mma@feutech.edu.ph'],
-                ['Research','Engr. Mylene D. Gomez','Director','']
-            ] %}
-
             {% for d in directors %}
             <div class="director-card bg-white p-8 rounded-lg shadow-sm">
-                <!-- Program -->
                 <h3 class="program-title text-[#008348] font-black text-sm uppercase tracking-widest mb-4 transition-colors">
-                    {{ d[0] }}
+                    {{ d.programTitle }}
                 </h3>
 
-                <!-- Name -->
                 <p class="director-name text-xl font-bold text-black transition-colors leading-snug">
-                    {{ d[1] }}
+                    {{ d.name }}
                 </p>
 
-                <!-- Role -->
                 <p class="role-text text-xs uppercase mt-2 tracking-wider transition-colors">
-                    {{ d[2] }}
+                    {{ d.role }}
                 </p>
 
-                <!-- Email -->
-                {% if d[3] %}
+                {% if d.email %}
                 <div class="mt-6 pt-6 border-t border-slate-100">
-                    <a href="mailto:{{ d[3] }}" 
+                    <a href="mailto:{{ d.email }}" 
                        class="email-link text-sm text-slate-500 font-medium transition-colors break-all flex items-center">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
-                        {{ d[3] }}
+                        {{ d.email }}
                     </a>
                 </div>
                 {% endif %}
 
-                <!-- Hidden Hover Accent -->
                 <div class="hover-line"></div>
+            </div>
+            {% else %}
+            <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-12">
+                <p class="text-slate-500 text-lg">No academic directors listed at this time.</p>
             </div>
             {% endfor %}
 
         </div>
     </div>
 </section>
-
 {% endblock %}

@@ -139,14 +139,15 @@
                                             </div>
                                             <div class="absolute top-0 left-full ml-1 w-48 bg-white border border-slate-100 shadow-xl rounded-lg opacity-0 invisible group-hover/office:opacity-100 group-hover/office:visible transition-all transform translate-x-2 group-hover/office:translate-x-0 z-50">
                                                 <div class="py-2 flex flex-col">
-                                                    <a href="{{ path('app_admissionsandexternalrelationsoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">AERO</a>
-                                                    <a href="{{ path('app_communications_office') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">CO</a>
-                                                    <a href="{{ path('app_facilitiesoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">FO</a>
-                                                    <a href="{{ path('app_financeoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">FINANCE</a>
-                                                    <a href="{{ path('app_humanresourcesoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">HRO</a>
-                                                    <a href="{{ path('app_ialapoffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">IALAP</a>
-                                                    <a href="{{ path('app_itsooffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">ITSO</a>
-                                                    <a href="{{ path('app_qaooffice') }}" class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors">QAO</a>
+                                                    {# Look right here at line 143: loop directly through the global variable variable instead of a function #}
+                                                    {% for nav_office in global_nav_offices %}
+                                                        <a href="{{ path('app_about_office_detail', {'slug': nav_office.slug}) }}" 
+                                                        class="px-4 py-2 text-sm text-slate-600 hover:text-feu-green hover:bg-slate-50 transition-colors uppercase">
+                                                        {{ nav_office.navLabel }}
+                                                        </a>
+                                                    {% else %}
+                                                        <span class="px-4 py-2 text-xs text-slate-400 italic">No offices configured</span>
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                         </div>
@@ -348,57 +349,23 @@
                             </a>
 
                             <div class="mt-2">
-
                                 <button class="w-full flex justify-between items-center py-2 text-sm text-slate-300 hover:text-white nested-accordion">
                                     <span>Offices</span>
-
                                     <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </button>
 
                                 <div class="hidden mt-1 ml-2 pl-3 border-l border-white/10 space-y-1">
-
-                                    <a href="{{ path('app_admissionsandexternalrelationsoffice') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        Admissions & External Relations (AERO)
-                                    </a>
-
-                                    <a href="{{ path('app_communications_office') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        Communications Office (CO)
-                                    </a>
-
-                                    <a href="{{ path('app_facilitiesoffice') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        Facilities Office (FO)
-                                    </a>
-
-                                    <a href="{{ path('app_financeoffice') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        Finance Office
-                                    </a>
-
-                                    <a href="{{ path('app_humanresourcesoffice') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        Human Resources Office (HRO)
-                                    </a>
-
-                                    <a href="{{ path('app_ialapoffice') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        IALAP
-                                    </a>
-
-                                    <a href="{{ path('app_itsooffice') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        ITSO
-                                    </a>
-
-                                    <a href="{{ path('app_qaooffice') }}"
-                                    class="block py-1.5 text-xs text-slate-300 hover:text-white">
-                                        Quality Assurance Office (QAO)
-                                    </a>
-
+                                    {# Loop dynamically through the database records instead of using hardcoded links #}
+                                    {% for nav_office in global_nav_offices %}
+                                        <a href="{{ path('app_about_office_detail', {'slug': nav_office.slug}) }}"
+                                        class="block py-1.5 text-xs text-slate-300 hover:text-white uppercase">
+                                            {{ nav_office.officeTitle }} ({{ nav_office.navLabel }})
+                                        </a>
+                                    {% else %}
+                                        <span class="block py-1.5 text-xs text-slate-500 italic">No offices configured</span>
+                                    {% endfor %}
                                 </div>
                             </div>
 

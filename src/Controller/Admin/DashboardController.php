@@ -7,7 +7,18 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\Admin\PaymentOptionCrudController;
+use App\Controller\Admin\HistoryItemCrudController;
+use App\Controller\Admin\HistoryFooterCrudController;
+use App\Controller\Admin\AboutVisionMisionCrudController;
+use App\Controller\Admin\AboutFacilitiesPageCrudController;
+use App\Controller\Admin\AboutFacilitiesTabCrudController;
+use App\Controller\Admin\AboutAcademicDirectorCrudController;
+use App\Controller\Admin\AboutExecutiveOfficerCrudController;
+use App\Controller\Admin\AboutAcademicServiceCrudController;
+use App\Controller\Admin\AboutNonAcademicDirectorCrudController;
+use App\Controller\Admin\AboutOfficeCrudController;
 
 use App\Controller\Admin\AcademicsDepartmentCrudController;
 use App\Controller\Admin\AcademicsProgramCrudController;
@@ -21,6 +32,8 @@ use App\Controller\Admin\AcademicsLibraryCrudController;
 use App\Controller\Admin\MagazineItemCrudController;
 use App\Controller\Admin\TambayanVideoCrudController;
 use App\Controller\Admin\HomeEventCrudController;
+use App\Controller\Admin\JobOpportunityCrudController;
+use App\Controller\Admin\JobCareersCrudController;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
@@ -47,7 +60,18 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkTo(HomeEventCrudController::class, 'Manage Events', 'fas fa-calendar-alt'),
         ]);
 
-        yield MenuItem::linkToRoute('About Pages', 'fas fa-info-circle', 'admin'); // Placeholder
+        yield MenuItem::subMenu('About Pages', 'fas fa-info-circle')->setSubItems([
+            MenuItem::linkTo(HistoryItemCrudController::class, 'History Timeline', 'fas fa-history'),
+            MenuItem::linkTo(HistoryFooterCrudController::class, 'History Footer Settings', 'fas fa-shoe-prints'),
+            MenuItem::linkTo(AboutVisionMisionCrudController::class, 'Vision and Mission', 'fas fa-eye'),
+            MenuItem::linkTo(AboutFacilitiesPageCrudController::class, 'Facilities Page Settings', 'fas fa-building'),
+            MenuItem::linkTo(AboutFacilitiesTabCrudController::class, 'Facilities Tab Management', 'fas fa-th-large'),
+            MenuItem::linkTo(AboutExecutiveOfficerCrudController::class, 'Executive Officers', 'fas fa-user-tie'),
+            MenuItem::linkTo(AboutAcademicDirectorCrudController::class, 'Academic Directors', 'fas fa-user-friends'),
+            MenuItem::linkTo(AboutAcademicServiceCrudController::class, 'Academic Services', 'fas fa-chalkboard-teacher'),
+            MenuItem::linkTo(AboutNonAcademicDirectorCrudController::class, 'Non-Academic Directors', 'fas fa-user-friends'),
+            MenuItem::linkTo(AboutOfficeCrudController::class, 'Offices', 'fas fa-building'),
+        ]);
 
         yield MenuItem::subMenu('Admissions', 'fas fa-graduation-cap')->setSubItems([
             MenuItem::linkTo(AdmissionPagesCrudController::class, 'Application Procedures', 'fas fa-list'),
@@ -57,6 +81,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkTo(ScholarshipItemCrudController::class, 'Manage Scholarships', 'fas fa-award'),
             MenuItem::linkTo(AdmissionFaqsCrudController::class, 'FAQ Settings', 'fas fa-cog'),
             MenuItem::linkTo(FaqItemCrudController::class, 'Manage FAQ Items', 'fas fa-question-circle'),
+        
         ]);
 
         yield MenuItem::subMenu('Academics', 'fas fa-book')->setSubItems([
@@ -73,10 +98,12 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::linkTo(StudentSupportPageCrudController::class, 'Student Support Pages', 'fas fa-users');
 
-        yield MenuItem::linkToRoute('Career Pages', 'fas fa-briefcase', 'admin'); // Placeholder
+        yield MenuItem::subMenu('Careers Management', 'fas fa-briefcase')->setSubItems([
+            MenuItem::linkTo(JobOpportunityCrudController::class, 'Open Job Positions', 'fas fa-id-card'),
+            MenuItem::linkTo(JobCareersCrudController::class, 'Edit Page Text Content', 'fas fa-edit'),
+        ]);
 
         yield MenuItem::section('Settings');
         yield MenuItem::linkTo(SiteSettingsCrudController::class, 'Site Settings', 'fas fa-cog');
     }
 }
-
