@@ -7,7 +7,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
-// 1. Change your import from ImageField to FileField
 use EasyCorp\Bundle\EasyAdminBundle\Field\FileField; 
 
 class AboutFacilitiesPageCrudController extends AbstractCrudController

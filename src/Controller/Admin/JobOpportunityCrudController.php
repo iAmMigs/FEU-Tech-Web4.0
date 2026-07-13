@@ -37,8 +37,6 @@ class JobOpportunityCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $projectDir = $this->params->get('kernel.project_dir');
-        
-        // We keep your directory creation logic exactly as is
         $mascotDir = $projectDir . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'HRO' . DIRECTORY_SEPARATOR . 'HRTAMTAM';
         $posterDir = $projectDir . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'HRO';
 
@@ -60,18 +58,14 @@ class JobOpportunityCrudController extends AbstractCrudController
             ]);
             
         yield ImageField::new('mascot', 'Mascot Image File')
-            // FIX 1: Pass the relative path instead of the absolute $mascotDir
             ->setUploadDir('public/images/HRO/HRTAMTAM')
             ->setBasePath('/images/HRO/HRTAMTAM')
-            // FIX 2: Add [randomhash] to automatically prevent filename collisions
             ->setUploadedFileNamePattern('[name]-[randomhash].[extension]')
             ->setRequired($pageName === Crud::PAGE_NEW);
             
         yield ImageField::new('image', 'Official HRO Poster')
-            // FIX 1: Pass the relative path
             ->setUploadDir('public/images/HRO')
             ->setBasePath('/images/HRO')
-            // FIX 2: Add [randomhash] 
             ->setUploadedFileNamePattern('[name]-[randomhash].[extension]')
             ->setRequired(false);
 

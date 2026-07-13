@@ -27,7 +27,6 @@ class JobCareersCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        // Safe-guard the frontend layout structure by removing creation/deletion capabilities
         return $actions
             ->disable(Action::NEW, Action::DELETE, Action::DETAIL);
     }
