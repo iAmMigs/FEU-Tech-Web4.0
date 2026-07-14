@@ -13,11 +13,8 @@ class MagazineItem
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $imagePath = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $linkUrl = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $pdfPath = null;
 
     #[ORM\Column]
     private ?int $sortOrder = null;
@@ -27,26 +24,14 @@ class MagazineItem
         return $this->id;
     }
 
-    public function getImagePath(): ?string
+    public function getPdfPath(): ?string
     {
-        return $this->imagePath;
+        return $this->pdfPath;
     }
 
-    public function setImagePath(string $imagePath): static
+    public function setPdfPath(?string $pdfPath): static
     {
-        $this->imagePath = $imagePath;
-
-        return $this;
-    }
-
-    public function getLinkUrl(): ?string
-    {
-        return $this->linkUrl;
-    }
-
-    public function setLinkUrl(string $linkUrl): static
-    {
-        $this->linkUrl = $linkUrl;
+        $this->pdfPath = $pdfPath;
 
         return $this;
     }

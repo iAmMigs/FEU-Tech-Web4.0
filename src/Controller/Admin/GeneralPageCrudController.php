@@ -10,7 +10,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
@@ -44,6 +43,11 @@ class GeneralPageCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $context = $this->getContext();
+        $entity = $context?->getEntity()?->getInstance();
+        $currentVideo = $entity instanceof GeneralPages ? $entity->getHeroVideoPath() : null;
+        $currentBg = $entity instanceof GeneralPages ? $entity->getCoursesBgImage() : null;
+
         yield IdField::new('id')->hideOnForm();
 
         yield FormField::addTab('Page Details');
@@ -60,10 +64,11 @@ class GeneralPageCrudController extends AbstractCrudController
             ->setBasePath('/')
             ->setUploadDir('public/uploads/general/')
             ->setUploadedFileNamePattern('uploads/general/[randomhash].[extension]')
-            ->setRequired(false);
+            ->setRequired(false)
+            ->setHelp($currentVideo ? "Currently used: <code>{$currentVideo}</code>" : "Default video will be used.");
         yield TextField::new('heroTagline', 'Hero Tagline')->hideOnIndex();
-        yield TextField::new('heroTitle', 'Hero Title')->hideOnIndex();
-        yield TextEditorField::new('heroDescription', 'Hero Description')->hideOnIndex();
+        yield TextareaField::new('heroTitle', 'Hero Title')->hideOnIndex();
+        yield TextareaField::new('heroDescription', 'Hero Description')->hideOnIndex();
         
         yield FormField::addFieldset('Hero CTA Button 1');
         yield TextField::new('heroBtn1Text', 'Button 1 Text')->hideOnIndex();
@@ -82,35 +87,36 @@ class GeneralPageCrudController extends AbstractCrudController
             ->setBasePath('/')
             ->setUploadDir('public/uploads/general/')
             ->setUploadedFileNamePattern('uploads/general/[randomhash].[extension]')
-            ->setRequired(false);
+            ->setRequired(false)
+            ->setHelp($currentBg ? "Currently used: <code>{$currentBg}</code>" : "Default image will be used.");
 
         yield FormField::addFieldset('College of Engineering Card');
         yield TextField::new('coeCardTitle', 'Engineering Title')->hideOnIndex();
-        yield TextEditorField::new('coeCardDescription', 'Engineering Description')->hideOnIndex();
+        yield TextareaField::new('coeCardDescription', 'Engineering Description')->hideOnIndex();
         yield TextField::new('coeCardBtnText', 'Engineering Button Text')->hideOnIndex();
         yield TextField::new('coeCardBtnUrl', 'Engineering Button URL')->hideOnIndex();
 
         yield FormField::addFieldset('College of Computer Studies Card');
         yield TextField::new('ccsmaCardTitle', 'CCSMA Title')->hideOnIndex();
-        yield TextEditorField::new('ccsmaCardDescription', 'CCSMA Description')->hideOnIndex();
+        yield TextareaField::new('ccsmaCardDescription', 'CCSMA Description')->hideOnIndex();
         yield TextField::new('ccsmaCardBtnText', 'CCSMA Button Text')->hideOnIndex();
         yield TextField::new('ccsmaCardBtnUrl', 'CCSMA Button URL')->hideOnIndex();
 
         yield FormField::addTab('Accordions Section');
         yield FormField::addFieldset('Accordion 1');
         yield TextField::new('accordion1Title', 'Accordion 1 Title')->hideOnIndex();
-        yield TextEditorField::new('accordion1Content', 'Accordion 1 Content')->hideOnIndex();
+        yield TextareaField::new('accordion1Content', 'Accordion 1 Content')->hideOnIndex();
 
         yield FormField::addFieldset('Accordion 2');
         yield TextField::new('accordion2Title', 'Accordion 2 Title')->hideOnIndex();
-        yield TextEditorField::new('accordion2Content', 'Accordion 2 Content')->hideOnIndex();
+        yield TextareaField::new('accordion2Content', 'Accordion 2 Content')->hideOnIndex();
 
         yield FormField::addFieldset('Accordion 3');
         yield TextField::new('accordion3Title', 'Accordion 3 Title')->hideOnIndex();
-        yield TextEditorField::new('accordion3Content', 'Accordion 3 Content')->hideOnIndex();
+        yield TextareaField::new('accordion3Content', 'Accordion 3 Content')->hideOnIndex();
 
         yield FormField::addFieldset('Accordion 4');
         yield TextField::new('accordion4Title', 'Accordion 4 Title')->hideOnIndex();
-        yield TextEditorField::new('accordion4Content', 'Accordion 4 Content')->hideOnIndex();
+        yield TextareaField::new('accordion4Content', 'Accordion 4 Content')->hideOnIndex();
     }
 }

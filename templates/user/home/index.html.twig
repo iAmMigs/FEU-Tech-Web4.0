@@ -26,11 +26,11 @@
         </span>
         
         <h1 class="font-poppins text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.4] tracking-wide max-w-4xl" style="text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.3);">
-            {{ page and page.heroTitle ? page.heroTitle|raw : 'Shape Your Future at <span class="text-feu-yellow font-black" style="text-shadow: 0 4px 12px rgba(240, 179, 35, 0.25), 0 2px 4px rgba(0, 0, 0, 0.4);"><br>FEU Tech</span>' }}
+            {{ page and page.heroTitle ? page.heroTitle|striptags : 'Shape Your Future at <span class="text-feu-yellow font-black" style="text-shadow: 0 4px 12px rgba(240, 179, 35, 0.25), 0 2px 4px rgba(0, 0, 0, 0.4);"><br>FEU Tech</span>'|raw }}
         </h1>
         
         <p class="font-roboto text-base md:text-lg lg:text-l text-white mb-10 font-normal leading-relaxed max-w-2xl tracking-wide drop-shadow-md">
-            {{ page and page.heroDescription ? page.heroDescription : 'FEU Tech is an AI Campus and an internationally ranked institution recognized for global excellence in Engineering, Computer Science, I.T., Multimedia Arts and Research. It is committed to producing graduates who are industry-ready and globally competitive from day one.' }}
+            {{ page and page.heroDescription ? page.heroDescription|striptags : 'FEU Tech is an AI Campus and an internationally ranked institution recognized for global excellence in Engineering, Computer Science, I.T., Multimedia Arts and Research. It is committed to producing graduates who are industry-ready and globally competitive from day two.' }}
         </p>
         
         <div class="flex flex-wrap gap-4 w-full sm:w-auto">
@@ -53,6 +53,78 @@
             {% endif %}
         </div>
         
+    </div>
+</section>
+
+<section class="relative z-20 -mt-40 pb-8 overflow-hidden">
+    <div id="carousel-track-wrapper" class="relative w-full overflow-hidden group/carousel pt-24">
+
+        <div id="carousel-left-arrow" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-start transition-opacity duration-300 pointer-events-none mt-8">
+            <div class="w-14 h-20 bg-white shadow-lg rounded-r-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-l-0 cursor-pointer">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div id="carousel-right-arrow" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-end transition-opacity duration-300 pointer-events-none mt-8">
+            <div class="w-14 h-20 bg-white shadow-lg rounded-l-2xl flex items-center justify-center text-slate-800 pointer-events-auto hover:bg-slate-50 transition-colors border border-slate-100 border-r-0 cursor-pointer">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div id="carousel-track" class="flex gap-6 py-6 px-2" style="width: max-content;">
+
+            {% for set in 1..3 %}
+            {% for card in carouselCards %}
+                <div
+                    class="carousel-card group flex-shrink-0 w-[280px] bg-[image:var(--bg-default)] backdrop-blur-md rounded-2xl p-6 shadow-xl drop-shadow-md border border-white/50 cursor-pointer select-none hover:shadow-[0_20px_40px_rgba(0,45,25,0.3)] hover:-translate-y-2 transition-all duration-500 relative hover:[background-image:var(--bg-hover)]"
+                    style="
+                        --bg-default: linear-gradient(135deg, rgba(254, 201, 44, 0.2), rgba(0, 45, 25, 0.2));
+                        --bg-hover: linear-gradient(135deg, rgb(254, 201, 44), rgb(0, 45, 25));
+                    "
+                    data-carousel-img="{{ card.cardImagePath ? (card.cardImagePath starts with '/' or card.cardImagePath starts with 'http' ? card.cardImagePath : '/' ~ card.cardImagePath) : '' }}"
+                    data-hero-bg="{{ card.heroBgPath ? (card.heroBgPath starts with '/' or card.heroBgPath starts with 'http' ? card.heroBgPath : '/' ~ card.heroBgPath) : '' }}"
+                >
+
+                <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none rounded-2xl overflow-hidden group-hover:opacity-10 transition-opacity duration-500"></div>
+
+                <div class="flex items-center gap-4 mb-3 relative z-10">
+
+                    {% if card.logoPath %}
+                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <img
+                            src="{{ card.logoPath starts with '/' or card.logoPath starts with 'http' ? card.logoPath : '/' ~ card.logoPath }}"
+                            alt="{{ card.title }}"
+                            class="w-10 h-10 object-contain"
+                        >
+                    </div>
+                    {% endif %}
+
+                    <div class="relative z-10">
+                        <h4 class="text-base font-bold text-feu-green group-hover:text-white transition-colors duration-500 leading-tight">
+                            {{ card.title }}
+                        </h4>
+
+                        <p class="text-xs text-slate-700 group-hover:text-slate-100 transition-colors duration-500 mt-0.5 font-medium">
+                            {{ card.subtitle }}
+                        </p>
+                    </div>
+
+                </div>
+
+                <div
+                    class="h-1.5 w-0 group-hover:w-full rounded-full transition-all duration-500 absolute bottom-0 left-0"
+                    style="background-image: linear-gradient(135deg,rgb(0, 45, 25), rgb(254, 201, 44));"
+                ></div>
+
+            </div>
+            {% endfor %}
+            {% endfor %}
+
+        </div>
     </div>
 </section>
 
@@ -302,7 +374,7 @@ if (
             <div class="flex flex-col gap-6">
                 <div class="bg-[#129658] rounded-3xl p-8 shadow-lg flex flex-col">
                     <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">{{ page and page.coeCardTitle ? page.coeCardTitle : 'College of Engineering' }}</h3>
-                    <p class="text-white/90 mb-8 leading-relaxed pr-4">{{ page and page.coeCardDescription ? page.coeCardDescription|raw : 'Build the future with fully-accredited civil, electronics, mechanical, and computer engineering programs. Take the first step towards a successful career.' }}</p>
+                    <p class="text-white/90 mb-8 leading-relaxed pr-4">{{ page and page.coeCardDescription ? page.coeCardDescription|striptags : 'Build the future with fully-accredited civil, electronics, mechanical, and computer engineering programs. Take the first step towards a successful career.' }}</p>
                     <div class="mt-auto">
                         <a href="{{ page and page.coeCardBtnUrl ? page.coeCardBtnUrl : '/academics/coe' }}" class="inline-block px-8 py-3 bg-[#f0b323] text-slate-900 font-bold rounded-full hover:bg-yellow-400 transition-colors shadow-md">
                             {{ page and page.coeCardBtnText ? page.coeCardBtnText : 'Apply Now!' }}
@@ -312,9 +384,9 @@ if (
 
                 <div class="bg-[#129658] rounded-3xl p-8 shadow-lg flex flex-col">
                     <h3 class="text-2xl font-extrabold text-white mb-4 uppercase tracking-wide">{{ page and page.ccsmaCardTitle ? page.ccsmaCardTitle : 'College of Computer Studies & Multimedia Arts' }}</h3>
-                    <p class="text-white/90 mb-8 leading-relaxed pr-4">{{ page and page.ccsmaCardDescription ? page.ccsmaCardDescription|raw : 'Dive deep into software engineering, artificial intelligence, and premier creative multimedia programs. Lead the digital revolution.' }}</p>
+                    <p class="text-white/90 mb-8 leading-relaxed pr-4">{{ page and page.ccsmaCardDescription ? page.ccsmaCardDescription|striptags : 'Dive deep into software engineering, artificial intelligence, and premier creative multimedia programs. Lead the digital revolution.' }}</p>
                      <div class="mt-auto">
-                         <a href="{{ page and page.ccsmaCardBtnUrl ? page.ccsmaCardBtnUrl : '/academics/ccsma' }}" class="inline-block px-8 py-3 bg-white text-[#008348] font-bold rounded-full hover:bg-slate-50 transition-colors shadow-md">
+                          <a href="{{ page and page.ccsmaCardBtnUrl ? page.ccsmaCardBtnUrl : '/academics/ccsma' }}" class="inline-block px-8 py-3 bg-white text-[#008348] font-bold rounded-full hover:bg-slate-50 transition-colors shadow-md">
                             {{ page and page.ccsmaCardBtnText ? page.ccsmaCardBtnText : 'Apply Now!' }}
                         </a>
                      </div>
@@ -333,7 +405,7 @@ if (
                     </button>
 
                     <div class="accordion-content mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        {{ page and page.accordion1Content ? page.accordion1Content|raw : 'At FEU Tech, we\'re more than a school — we\'re a launchpad for your future. We push boundaries and shape industry leaders through fully-accredited engineering, computer science, and multimedia programs. Here, you don\'t just learn — you build, innovate, and lead.' }}
+                        {{ page and page.accordion1Content ? page.accordion1Content|striptags : 'At FEU Tech, we\'re more than a school — we\'re a launchpad for your future. We push boundaries and shape industry leaders through fully-accredited engineering, computer science, and multimedia programs. Here, you don\'t just learn — you build, innovate, and lead.' }}
                     </div>
                 </div>
 
@@ -348,7 +420,7 @@ if (
                     </button>
 
                     <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        {{ page and page.accordion2Content ? page.accordion2Content|raw : 'Lorem ipsum' }}
+                        {{ page and page.accordion2Content ? page.accordion2Content|striptags : 'Lorem ipsum' }}
                     </div>
                 </div>
 
@@ -363,7 +435,7 @@ if (
                     </button>
 
                     <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        {{ page and page.accordion3Content ? page.accordion3Content|raw : 'Lorem ipsum' }}
+                        {{ page and page.accordion3Content ? page.accordion3Content|striptags : 'Lorem ipsum' }}
                      </div>
                 </div>
 
@@ -378,7 +450,7 @@ if (
                     </button>
 
                     <div class="accordion-content hidden mt-6 text-slate-500 leading-relaxed text-[0.95rem] pr-2">
-                        {{ page and page.accordion4Content ? page.accordion4Content|raw : 'Lorem ipsum' }}
+                        {{ page and page.accordion4Content ? page.accordion4Content|striptags : 'Lorem ipsum' }}
                     </div>
                 </div>
 
@@ -402,17 +474,18 @@ if (
                     <span class="w-8 h-1 bg-feu-yellow rounded-full"></span>
                 </h2>
 
+                {% if magazines|length > 0 %}
                 <div class="relative h-[580px] flex items-center justify-center overflow-visible select-none [perspective:1000px]" id="magazineCarousel">
                     <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] h-16 bg-black/15 blur-[50px] rounded-full pointer-events-none"></div>
                     
-                    <a id="magLeftLink" target="_blank" rel="noopener noreferrer" class="absolute left-2 md:left-6 top-20 w-[220px] md:w-[300px] z-10 block transform -rotate-6 hover:-rotate-12 transition-all duration-500 hover:z-20">
+                    <a id="magLeftLink" href="#" class="absolute left-2 md:left-6 top-20 w-[220px] md:w-[300px] z-10 block transform -rotate-6 hover:-rotate-12 transition-all duration-500 hover:z-20">
                         <img id="magLeft"
                             src="/images/magazine/issue1.png"
                             class="w-full rounded-lg shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
                     </a>
 
                     <div class="absolute z-30 w-[300px] md:w-[410px] transform hover:scale-[1.03] transition-all duration-500 group/center">
-                        <a id="magMainLink" target="_blank" rel="noopener noreferrer" class="block relative">
+                        <a id="magMainLink" href="#" class="block relative">
                             <img id="magMain"
                                 src="/images/magazine/issue3.png"
                                 class="w-full rounded-xl shadow-[0_35px_70px_rgba(0,0,0,0.35)] border border-white/20 transition-all duration-500">
@@ -436,12 +509,21 @@ if (
                         </button>
                     </div>
 
-                    <a id="magRightLink" target="_blank" rel="noopener noreferrer" class="absolute right-2 md:right-6 top-16 w-[240px] md:w-[330px] z-20 block transform rotate-6 hover:rotate-12 transition-all duration-500 hover:z-20">
+                    <a id="magRightLink" href="#" class="absolute right-2 md:right-6 top-16 w-[240px] md:w-[330px] z-20 block transform rotate-6 hover:rotate-12 transition-all duration-500 hover:z-20">
                         <img id="magRight"
                             src="/images/magazine/issue2.png"
                             class="w-full rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.22)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.35)] transition-all duration-500">
                     </a>
                 </div>
+                {% else %}
+                <div class="w-full max-w-lg mx-auto text-center py-16 px-6 bg-white/40 backdrop-blur-md border border-slate-100 rounded-3xl shadow-xl flex flex-col items-center justify-center gap-4 my-8">
+                    <div class="w-16 h-16 bg-feu-yellow/10 rounded-full flex items-center justify-center text-feu-yellow text-3xl mb-2">
+                        📖
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800">Stay Tuned</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">We are currently preparing our next exciting issue of student magazines. Check back soon for new content!</p>
+                </div>
+                {% endif %}
             </div>
 
             <div class="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent my-2"></div>
@@ -651,24 +733,54 @@ document.addEventListener('turbo:load', () => {
 });
 </script>
 
+<!-- PDF.js library for client-side cover extraction -->
+<script src="/flipbook/js/libs/pdf.min.js"></script>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = '/flipbook/js/libs/pdf.worker.min.js';
+</script>
+
 <script>
 const magazines = [
     {% for mag in magazines %}
     {
-        img: "{{ mag.imagePath starts with '/' or mag.imagePath starts with 'http' ? mag.imagePath : '/' ~ mag.imagePath }}",
-        link: "{{ mag.linkUrl }}"
+        pdf: "{{ mag.pdfPath ? (mag.pdfPath starts with '/' or mag.pdfPath starts with 'uploads/' or mag.pdfPath starts with 'http' ? '/' ~ mag.pdfPath : '/uploads/magazines/pdf/' ~ mag.pdfPath) : '' }}"
     }{% if not loop.last %},{% endif %}
     {% endfor %}
 ];
 
-let magIndex = 1;
+let magIndex = 0;
 
 document.addEventListener('turbo:load', () => {
+    // Inject dfLightBox shim on jQuery if not already defined
+    if (window.jQuery && !window.jQuery.dfLightBox && typeof DFLightBox !== "undefined") {
+        window.jQuery.dfLightBox = function(options) {
+            if (!window.dfLightBox) {
+                window.dfLightBox = new DFLightBox(function() {
+                    if (window.dfActiveLightBoxBook && window.dfActiveLightBoxBook.dispose) {
+                        window.dfActiveLightBoxBook.dispose();
+                        window.dfActiveLightBoxBook = null;
+                    }
+                });
+            }
+            window.dfLightBox.show(function() {
+                window.dfActiveLightBoxBook = window.jQuery(window.dfLightBox.container).flipBook(options.source, {
+                    isLightBox: true,
+                    transparent: false,
+                    height: "100%"
+                });
+            });
+        };
+    }
+
     const magLeft = document.getElementById("magLeft");
     const magMain = document.getElementById("magMain");
     const magRight = document.getElementById("magRight");
     const prevMagBtn = document.getElementById("prevMag");
     const nextMagBtn = document.getElementById("nextMag");
+
+    const leftLink = document.getElementById("magLeftLink");
+    const mainLink = document.getElementById("magMainLink");
+    const rightLink = document.getElementById("magRightLink");
 
     if (!magLeft || !magMain || !magRight || !prevMagBtn || !nextMagBtn) return;
 
@@ -682,6 +794,80 @@ document.addEventListener('turbo:load', () => {
         updateMag();
     });
 
+    function openFlipbook(pdfUrl) {
+        if (!pdfUrl) return;
+        if (window.jQuery && typeof window.jQuery.dfLightBox === "function") {
+            window.jQuery.dfLightBox({source: pdfUrl});
+        } else {
+            window.open(pdfUrl, '_blank');
+        }
+    }
+
+    if (leftLink) {
+        leftLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            const leftIndex = (magIndex - 1 + magazines.length) % magazines.length;
+            const left = magazines[leftIndex];
+            if (left) openFlipbook(left.pdf);
+        });
+    }
+
+    if (mainLink) {
+        mainLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            const main = magazines[magIndex];
+            if (main) openFlipbook(main.pdf);
+        });
+    }
+
+    if (rightLink) {
+        rightLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            const rightIndex = (magIndex + 1) % magazines.length;
+            const right = magazines[rightIndex];
+            if (right) openFlipbook(right.pdf);
+        });
+    }
+
+    const pdfCoversCache = {};
+
+    function setMagazineCover(mag, imgElement) {
+        if (!mag) return;
+
+        const pdfUrl = mag.pdf;
+        if (!pdfUrl) {
+            imgElement.src = '';
+            return;
+        }
+
+        if (pdfCoversCache[pdfUrl]) {
+            imgElement.src = pdfCoversCache[pdfUrl];
+            return;
+        }
+
+        imgElement.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="150" viewBox="0 0 100 150"><rect width="100%" height="100%" fill="%23f1f5f9"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="8" fill="%2394a3b8">Loading Cover...</text></svg>';
+
+        pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+            return pdf.getPage(1);
+        }).then(page => {
+            const scale = 1.5;
+            const viewport = page.getViewport({ scale: scale });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            return page.render({ canvasContext: context, viewport: viewport }).promise.then(() => {
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+                pdfCoversCache[pdfUrl] = dataUrl;
+                imgElement.src = dataUrl;
+            });
+        }).catch(err => {
+            console.error('Error generating PDF cover for ' + pdfUrl, err);
+            imgElement.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="150" viewBox="0 0 100 150"><rect width="100%" height="100%" fill="%23fee2e2"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="8" fill="%23ef4444">Error loading cover</text></svg>';
+        });
+    }
+
     function updateMag() {
         const leftIndex = (magIndex - 1 + magazines.length) % magazines.length;
         const rightIndex = (magIndex + 1) % magazines.length;
@@ -691,16 +877,16 @@ document.addEventListener('turbo:load', () => {
         const right = magazines[rightIndex];
 
         if (main) {
-            magMain.src = main.img;
-            document.getElementById("magMainLink").href = main.link;
+            setMagazineCover(main, magMain);
+            if (mainLink) mainLink.href = main.pdf;
         }
         if (left) {
-            magLeft.src = left.img;
-            document.getElementById("magLeftLink").href = left.link;
+            setMagazineCover(left, magLeft);
+            if (leftLink) leftLink.href = left.pdf;
         }
         if (right) {
-            magRight.src = right.img;
-            document.getElementById("magRightLink").href = right.link;
+            setMagazineCover(right, magRight);
+            if (rightLink) rightLink.href = right.pdf;
         }
     }
 
@@ -800,6 +986,19 @@ document.addEventListener('turbo:load', () => {
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+/* Custom dFlip Lightbox Background */
+.df-lightbox-wrapper {
+    background: radial-gradient(circle, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.85) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+.df-lightbox-close {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+.df-lightbox-close:hover {
+    color: white !important;
 }
 </style>
 {% endblock %}

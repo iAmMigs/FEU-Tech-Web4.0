@@ -2,7 +2,6 @@
 
 namespace App\Command;
 
-use App\Entity\Page;
 use App\Entity\AdmissionPages;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -28,49 +27,7 @@ class InitPagesCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-
-        $pagesData = [
-            // General
-            ['category' => 'General', 'slug' => 'home', 'pageName' => 'Home Page'],
-            ['category' => 'General', 'slug' => 'privacy-policy', 'pageName' => 'Privacy Policy'],
-            ['category' => 'General', 'slug' => 'terms-and-conditions', 'pageName' => 'Terms & Conditions'],
-
-            // Admissions
-            ['category' => 'Admissions', 'slug' => 'admissions-freshmen', 'pageName' => 'Freshmen'],
-            ['category' => 'Admissions', 'slug' => 'admissions-transferees', 'pageName' => 'Transferees'],
-            ['category' => 'Admissions', 'slug' => 'admissions-cross-enrollees', 'pageName' => 'Cross Enrollees'],
-            ['category' => 'Admissions', 'slug' => 'admissions-second-degree', 'pageName' => 'Second Degree'],
-            ['category' => 'Admissions', 'slug' => 'admissions-international-students', 'pageName' => 'International Students'],
-            ['category' => 'Admissions', 'slug' => 'admissions-scholarships', 'pageName' => 'Scholarships & Grants'],
-            ['category' => 'Admissions', 'slug' => 'admissions-tuition-fees', 'pageName' => 'Tuition Fees'],
-            ['category' => 'Admissions', 'slug' => 'admissions-faqs', 'pageName' => 'FAQs'],
-
-            // Student Support
-            ['category' => 'Student Support', 'slug' => 'student-journey-gcu', 'pageName' => 'Guidance & Counseling'],
-            ['category' => 'Student Support', 'slug' => 'student-journey-sa', 'pageName' => 'Student Affairs'],
-            ['category' => 'Student Support', 'slug' => 'student-journey-du', 'pageName' => 'Discipline Unit'],
-            ['category' => 'Student Support', 'slug' => 'student-journey-so', 'pageName' => 'Student Organizations'],
-            ['category' => 'Student Support', 'slug' => 'student-journey-cesu', 'pageName' => 'Community Extension'],
-            ['category' => 'Student Support', 'slug' => 'student-journey-hsu', 'pageName' => 'Health Services'],
-            ['category' => 'Student Support', 'slug' => 'student-journey-icare', 'pageName' => 'iCARE'],
-            ['category' => 'Student Support', 'slug' => 'student-journey-ialap', 'pageName' => 'iALAP'],
-        ];
-
-        $pageRepository = $this->entityManager->getRepository(Page::class);
         $count = 0;
-
-        foreach ($pagesData as $data) {
-            $page = $pageRepository->findOneBy(['slug' => $data['slug']]);
-            if (!$page) {
-                $page = new Page();
-                $page->setCategory($data['category']);
-                $page->setSlug($data['slug']);
-                $page->setPageName($data['pageName']);
-                
-                $this->entityManager->persist($page);
-                $count++;
-            }
-        }
 
         // Seed AdmissionPages category table content if empty or unpopulated (Only procedure pages)
         $admissionPagesRepo = $this->entityManager->getRepository(AdmissionPages::class);

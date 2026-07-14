@@ -50,6 +50,8 @@ use App\Controller\Admin\HomeEventCrudController;
 use App\Controller\Admin\JobOpportunityCrudController;
 use App\Controller\Admin\JobCareersCrudController;
 
+use App\Controller\Admin\HomeCarouselCardCrudController;
+
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
 {
@@ -70,6 +72,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::subMenu('General Module', 'fas fa-home')->setSubItems([
             MenuItem::linkTo(GeneralPageCrudController::class, 'Page Settings', 'fas fa-cog'),
+            MenuItem::linkTo(HomeCarouselCardCrudController::class, 'Manage Hero Carousel', 'fas fa-images'),
             MenuItem::linkTo(MagazineItemCrudController::class, 'Manage Magazines', 'fas fa-book-open'),
             MenuItem::linkTo(TambayanVideoCrudController::class, 'Manage Tambayan Videos', 'fas fa-video'),
             MenuItem::linkTo(HomeEventCrudController::class, 'Manage Events', 'fas fa-calendar-alt'),

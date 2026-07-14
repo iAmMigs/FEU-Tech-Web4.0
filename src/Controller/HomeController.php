@@ -10,6 +10,7 @@ use App\Entity\GeneralPages;
 use App\Entity\MagazineItem;
 use App\Entity\TambayanVideo;
 use App\Entity\HomeEvent;
+use App\Entity\HomeCarouselCard;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 final class HomeController extends AbstractController
@@ -36,12 +37,14 @@ final class HomeController extends AbstractController
 
         // Fetch dynamic general pages content
         $page = $this->entityManager->getRepository(GeneralPages::class)->findOneBy(['slug' => 'home']);
+        $carouselCards = $this->entityManager->getRepository(HomeCarouselCard::class)->findBy([], ['sortOrder' => 'ASC']);
         $magazines = $this->entityManager->getRepository(MagazineItem::class)->findBy([], ['sortOrder' => 'ASC']);
         $videos = $this->entityManager->getRepository(TambayanVideo::class)->findBy([], ['sortOrder' => 'ASC']);
         $events = $this->entityManager->getRepository(HomeEvent::class)->findBy([], ['sortOrder' => 'ASC']);
 
         return $this->renderWithDefaults('home/index.html.twig', [
             'page' => $page,
+            'carouselCards' => $carouselCards,
             'magazines' => $magazines,
             'videos' => $videos,
             'events' => $events,
@@ -84,23 +87,26 @@ final class HomeController extends AbstractController
         $home = $repo->findOneBy(['slug' => 'home']);
         
         // Update in-place if it starts with static paths to preserve ID = 1
-        if ($home && str_starts_with($home->getHeroVideoPath() ?? '', '/videos/')) {
-            $this->copyAsset('videos/SAMPLEHERO2.mp4', 'uploads/general/SAMPLEHERO2.mp4');
-            $home->setHeroVideoPath('uploads/general/SAMPLEHERO2.mp4');
-
-            $this->copyAsset('images/FEU-TECHBLD.jpg', 'uploads/general/FEU-TECHBLD.jpg');
-            $home->setCoursesBgImage('uploads/general/FEU-TECHBLD.jpg');
-            $em->persist($home);
-            $em->flush();
-        }
-
-        $magRepo = $em->getRepository(MagazineItem::class);
-        $firstMag = $magRepo->findOneBy([]);
-        if ($firstMag && str_starts_with($firstMag->getImagePath() ?? '', '/images/')) {
-            foreach ($magRepo->findAll() as $m) {
-                $em->remove($m);
+        if ($home) {
+            $updated = false;
+            $heroPath = $home->getHeroVideoPath();
+            if (empty($heroPath) || str_starts_with($heroPath, '/videos/')) {
+                $this->copyAsset('videos/SAMPLEHERO2.mp4', 'uploads/general/SAMPLEHERO2.mp4');
+                $home->setHeroVideoPath('uploads/general/SAMPLEHERO2.mp4');
+                $updated = true;
             }
-            $em->flush();
+
+            $coursesBg = $home->getCoursesBgImage();
+            if (empty($coursesBg) || str_starts_with($coursesBg, '/images/')) {
+                $this->copyAsset('images/FEU-TECHBLD.jpg', 'uploads/general/FEU-TECHBLD.jpg');
+                $home->setCoursesBgImage('uploads/general/FEU-TECHBLD.jpg');
+                $updated = true;
+            }
+
+            if ($updated) {
+                $em->persist($home);
+                $em->flush();
+            }
         }
 
         $eventRepo = $em->getRepository(HomeEvent::class);
@@ -159,40 +165,6 @@ final class HomeController extends AbstractController
 
         // Enforce ID = 1 for the home page so the EasyAdmin edit URL (/1/edit) remains valid
         $em->getConnection()->executeStatement("UPDATE general_pages SET id = 1 WHERE slug = 'home'");
-
-        // Seed magazines if empty
-        if (count($magRepo->findAll()) === 0) {
-            $magazines = [
-                [
-                    'img' => '/images/magazine/issue1.png',
-                    'dest' => 'uploads/magazines/issue1.png',
-                    'link' => 'https://drive.google.com/file/d/1Nvc5Qvx9kIQOijV6fzbx6O6VC1t5M4LD/view'
-                ],
-                [
-                    'img' => '/images/magazine/issue3.png',
-                    'dest' => 'uploads/magazines/issue3.png',
-                    'link' => 'https://heyzine.com/flip-book/fd6d3a5475.html#page/1'
-                ],
-                [
-                    'img' => '/images/magazine/issue2.png',
-                    'dest' => 'uploads/magazines/issue2.png',
-                    'link' => 'https://drive.google.com/file/d/1rpQ8TCiGqPfzIsufRCltl_Y39OavyN9T/view'
-                ],
-                [
-                    'img' => '/images/magazine/issue5.png',
-                    'dest' => 'uploads/magazines/issue5.png',
-                    'link' => 'https://heyzine.com/flip-book/574ef6415d.html'
-                ]
-            ];
-            foreach ($magazines as $index => $mag) {
-                $this->copyAsset($mag['img'], $mag['dest']);
-                $item = new MagazineItem();
-                $item->setImagePath($mag['dest']);
-                $item->setLinkUrl($mag['link']);
-                $item->setSortOrder($index + 1);
-                $em->persist($item);
-            }
-        }
 
         // Seed videos if empty
         $videoRepo = $em->getRepository(TambayanVideo::class);
@@ -269,6 +241,89 @@ final class HomeController extends AbstractController
                 $item->setDateText($evt['date']);
                 $item->setTitle($evt['title']);
                 $item->setDescription($evt['description']);
+                $item->setSortOrder($index + 1);
+                $em->persist($item);
+            }
+        }
+
+        // Seed carousel cards if empty
+        $carouselRepo = $em->getRepository(HomeCarouselCard::class);
+        if (count($carouselRepo->findAll()) === 0) {
+            $cards = [
+                [
+                    'title' => 'AUN-QA Certified',
+                    'subtitle' => 'Engineering Programs',
+                    'logo' => '/images/carousels/AUN.jpg',
+                    'logoDest' => 'uploads/carousel/AUN.jpg',
+                    'image' => '/images/Home_carousel/TECH_AUNQA.png',
+                    'imageDest' => 'uploads/carousel/TECH_AUNQA.png',
+                    'heroBg' => '/images/Home_carousel/AUN-QA_BG.png',
+                    'heroBgDest' => 'uploads/carousel/AUN-QA_BG.png'
+                ],
+                [
+                    'title' => 'TOPCIT',
+                    'subtitle' => 'IT Competency Standard',
+                    'logo' => '/images/carousels/topcit.jpeg',
+                    'logoDest' => 'uploads/carousel/topcit.jpeg',
+                    'image' => '/images/Home_carousel/TECH_TOPCIT.png',
+                    'imageDest' => 'uploads/carousel/TECH_TOPCIT.png',
+                    'heroBg' => '/images/Home_carousel/TopCIT_BG.png',
+                    'heroBgDest' => 'uploads/carousel/TopCIT_BG.png'
+                ],
+                [
+                    'title' => 'QS Asia Ranked',
+                    'subtitle' => '#118 SEA · #10 Philippines',
+                    'logo' => '/images/carousels/QS.png',
+                    'logoDest' => 'uploads/carousel/QS.png',
+                    'image' => '/images/Home_carousel/TECH_Top.png',
+                    'imageDest' => 'uploads/carousel/TECH_Top.png',
+                    'heroBg' => '/images/Home_carousel/Top_BG.png',
+                    'heroBgDest' => 'uploads/carousel/Top_BG.png'
+                ],
+                [
+                    'title' => 'Accreditations',
+                    'subtitle' => 'Nationally & Internationally Recognized',
+                    'logo' => null,
+                    'logoDest' => null,
+                    'image' => '/images/Home_carousel/TECH_Accredications.png',
+                    'imageDest' => 'uploads/carousel/TECH_Accredications.png',
+                    'heroBg' => '/images/Home_carousel/Acreditation_BG.png',
+                    'heroBgDest' => 'uploads/carousel/Acreditation_BG.png'
+                ],
+                [
+                    'title' => 'Autonomous Status',
+                    'subtitle' => 'CHED Granted Autonomy',
+                    'logo' => null,
+                    'logoDest' => null,
+                    'image' => '/images/Home_carousel/TECH_Autonomous.png',
+                    'imageDest' => 'uploads/carousel/TECH_Autonomous.png',
+                    'heroBg' => '/images/ABOUT_TECH.jpg',
+                    'heroBgDest' => 'uploads/carousel/ABOUT_TECH.jpg'
+                ],
+                [
+                    'title' => 'Top 2% Scientists',
+                    'subtitle' => 'World-class Research Faculty',
+                    'logo' => null,
+                    'logoDest' => null,
+                    'image' => '/images/Home_carousel/TECH_TopScientist.png',
+                    'imageDest' => 'uploads/carousel/TECH_TopScientist.png',
+                    'heroBg' => '/images/Home_carousel/TopScientist_BG.png',
+                    'heroBgDest' => 'uploads/carousel/TopScientist_BG.png'
+                ]
+            ];
+            foreach ($cards as $index => $card) {
+                if ($card['logo']) {
+                    $this->copyAsset($card['logo'], $card['logoDest']);
+                }
+                $this->copyAsset($card['image'], $card['imageDest']);
+                $this->copyAsset($card['heroBg'], $card['heroBgDest']);
+
+                $item = new HomeCarouselCard();
+                $item->setTitle($card['title']);
+                $item->setSubtitle($card['subtitle']);
+                $item->setLogoPath($card['logoDest']);
+                $item->setCardImagePath($card['imageDest']);
+                $item->setHeroBgPath($card['heroBgDest']);
                 $item->setSortOrder($index + 1);
                 $em->persist($item);
             }
