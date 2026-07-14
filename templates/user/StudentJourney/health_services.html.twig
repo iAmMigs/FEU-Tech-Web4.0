@@ -1,15 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Health Services Unit - FEU Institute of Technology{% endblock %}
+{% block title %}{{ content and content.metaTitle ? content.metaTitle : 'Health Services Unit - FEU Institute of Technology' }}{% endblock %}
 
 {% block body %}
 <!-- Hero Section -->
 <section id="top" class="relative w-full h-[45vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
     <div class="absolute inset-0 z-0">
-        <!-- Assuming a library/study area placeholder -->
-        <div class="w-full h-full bg-slate-800 absolute"></div>
-        <img src="/images/Tamtam/nursetamtam.png" class="absolute w-[500px] opacity-10 mix-blend-screen right-[-100px] top-[-50px]" alt="">
-        <img src="/images/Tamtam/doctor.png" class="absolute w-[500px] opacity-10 mix-blend-screen left-[-100px] top-[-50px]" alt="">
+        {% if content and content.heroImage %}
+            <img src="{{ asset('images/studentservice/' ~ content.heroImage) }}" class="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" alt="">
+        {% else %}
+            <div class="w-full h-full bg-slate-800 absolute"></div>
+            <img src="/images/Tamtam/nursetamtam.png" class="absolute w-[500px] opacity-10 mix-blend-screen right-[-100px] top-[-50px]" alt="">
+            <img src="/images/Tamtam/doctor.png" class="absolute w-[500px] opacity-10 mix-blend-screen left-[-100px] top-[-50px]" alt="">
+        {% endif %}
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/60"></div>
     </div>
 
@@ -17,11 +20,11 @@
         <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
             Student Journey
         </span>
-        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
-            Health <span class="text-feu-yellow">Services</span>
+        <h1 class="text-5xl md:text-7xl font-black text-feu-yellow leading-tight uppercase tracking-tighter">
+              {{ content and content.heroTitle ? content.heroTitle : 'Health Services' }}
         </h1>
         <p class="mt-6 text-slate-300 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-            Attending to the health needs of the school community with top-tier medical and dental care.
+            {{ content and content.heroSubtitle ? content.heroSubtitle : 'Attending to the health needs of the school community with top-tier medical and dental care.' }}
         </p>
         <div class="w-24 h-1 bg-[#febe10] mx-auto mt-8 rounded-full"></div>
     </div>
@@ -29,7 +32,7 @@
 
 <!-- Overview & Telemedicine Highlight -->
 <section class="py-20 bg-slate-50 relative">
-    <!-- Subtle Mascot Detail -->
+    <!-- Tammy Mascot Greeting Condition (Hardcoded element remains unchanged) -->
     <div class="absolute top-10 right-[10%] opacity-30 z-0 hidden lg:block hover:opacity-100 transition-opacity duration-300">
         <img src="/images/Tamtam/Wave_Tammy.png" alt="Tammy Greeting" class="w-32 h-auto">
     </div>
@@ -37,9 +40,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100 mb-16 flex flex-col md:flex-row gap-12 items-center">
             <div class="flex-1">
-                <h2 class="text-3xl font-black text-slate-900 mb-4">Dedicated to Your Well-being</h2>
+                <h2 class="text-3xl font-black text-slate-900 mb-4">
+                    {{ content and content.wellbeingTitle ? content.wellbeingTitle : 'Dedicated to Your Well-being' }}
+                </h2>
                 <p class="text-slate-600 leading-relaxed mb-6">
-                    The Health Services Unit (HSU) is manned by a dedicated team of Physicians, Dentists, Nurses, and trained support staff rendering free medical and dental services, including physical and dental examinations for all students.
+                    {{ content and content.wellbeingDescription ? content.wellbeingDescription : 'The Health Services Unit (HSU) is manned by a dedicated team of Physicians, Dentists, Nurses, and trained support staff rendering free medical and dental services, including physical and dental examinations for all students.' }}
                 </p>
                 
                 <!-- Telemedicine Box -->
@@ -49,9 +54,11 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-blue-900 mb-1">Telemedicine Services Available</h4>
+                            <h4 class="font-bold text-blue-900 mb-1">
+                                {{ content and content.telemedicineTitle ? content.telemedicineTitle : 'Telemedicine Services Available' }}
+                            </h4>
                             <p class="text-sm text-blue-800 leading-relaxed">
-                                Enable long-distance patient care and consultations via the HSU FB Page or Virtual Office. Get the care you need from the safety of your home.
+                                {{ content and content.telemedicineDescription ? content.telemedicineDescription : 'Enable long-distance patient care and consultations via the HSU FB Page or Virtual Office. Get the care you need from the safety of your home.' }}
                             </p>
                         </div>
                     </div>
@@ -59,56 +66,43 @@
             </div>
         </div>
 
-        <!-- Services Grid -->
+        <!-- Dynamic Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Medical Services -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            {% for prog in programs %}
+                {% set isDental = prog.type == 'dental' %}
+                
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                    {# Dynamic Theme Colors (Medical style vs Dental style) #}
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 
+                        {{ isDental ? 'bg-cyan-50 text-cyan-500' : 'bg-red-50 text-red-500' }}">
+                        {% if isDental %}
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        {% else %}
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        {% endif %}
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">{{ prog.title }}</h3>
+                    
+                    {% if prog.tagLabel %}
+                        <p class="text-xs font-semibold text-amber-500 uppercase tracking-wider mb-4 border border-amber-200 bg-amber-50 inline-block px-2 py-1 rounded">
+                            {{ prog.tagLabel }}
+                        </p>
+                    {% endif %}
+                    
+                    <ul class="space-y-4 {% if prog.tagLabel is empty %}mt-6{% endif %}">
+                        {% for item in prog.servicesArray %}
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-0.5 shrink-0 {{ isDental ? 'text-cyan-500' : 'text-green-500' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="{{ isDental ? 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' : 'M5 13l4 4L19 7' }}"></path>
+                            </svg>
+                            <span class="text-slate-600 text-sm">{{ item }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-6">Medical Services</h3>
-                <ul class="space-y-4">
-                    {% set medical = [
-                        'Medical Consultation (Face-to-Face & Telemedicine)',
-                        'Medication and Prescription',
-                        'Physical Examination for Freshmen, Transferees, and Interns',
-                        'Issuance & Validation of Medical Certificates',
-                        'Assistance for Students with Disabilities (PWD)',
-                        'First Aid and Emergency Response',
-                        'Random Drug Testing (RDT)',
-                        'BP Monitoring & Accidental Insurance'
-                    ] %}
-                    {% for item in medical %}
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span class="text-slate-600 text-sm">{{ item }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <!-- Dental Services -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                <div class="w-12 h-12 bg-cyan-50 text-cyan-500 rounded-xl flex items-center justify-center mb-6">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-6">Dental Services</h3>
-                <p class="text-xs font-semibold text-amber-500 uppercase tracking-wider mb-4 border border-amber-200 bg-amber-50 inline-block px-2 py-1 rounded">Subject to pandemic guidelines</p>
-                <ul class="space-y-4">
-                    {% set dental = [
-                        'Dental Consultation',
-                        'Dental Extraction',
-                        'Dental Prophylaxis',
-                        'Dental Restoration'
-                    ] %}
-                    {% for item in dental %}
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-cyan-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-slate-600 text-sm">{{ item }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -134,5 +128,4 @@
         </div>
     </div>
 </section>
-
 {% endblock %}

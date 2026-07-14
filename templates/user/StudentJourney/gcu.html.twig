@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Guidance & Counseling Unit - FEU Institute of Technology{% endblock %}
+{% block title %}{{ content and content.metaTitle ? content.metaTitle : 'Guidance & Counseling Unit - FEU Institute of Technology' }}{% endblock %}
 
 {% block body %}
 <style>
@@ -9,7 +9,6 @@
         --feu-yellow: #febe10;
     }
 
-    /* Base card layout */
     .service-card {
         transition: all 0.3s ease;
         border: 1px solid #e2e8f0;
@@ -18,19 +17,16 @@
         background-color: #ffffff;
     }
 
-    /* Hover State */
     .service-card:hover {
         border-color: var(--feu-green);
         box-shadow: 0 10px 25px -5px rgba(0, 131, 72, 0.1), 0 8px 10px -6px rgba(0, 131, 72, 0.1);
         transform: translateY(-2px);
     }
 
-    /* Text colors */
     .service-card:hover .service-title {
         color: var(--feu-green);
     }
 
-    /* Accent line */
     .hover-line {
         position: absolute;
         bottom: 0;
@@ -45,7 +41,6 @@
         width: 100%;
     }
 
-    /* Glassmorphism utility */
     .glass {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
@@ -54,10 +49,33 @@
     }
 </style>
 
+{# Macro Helper block to resolve custom dropdown graphics smoothly inline #}
+{% macro drawIcon(choice) %}
+    {% if choice == 'book' %}
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+    {% elseif choice == 'heart' %}
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+    {% elseif choice == 'users' %}
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+    {% elseif choice == 'clipboard' %}
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+    {% elseif choice == 'phone' %}
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+    {% elseif choice == 'star' %}
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+    {% else %}
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    {% endif %}
+{% endmacro %}
+
 <!-- Hero Section -->
 <section id="top" class="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
     <div class="absolute inset-0 z-0">
-        <img src="/images/facility/student_support_1.png" alt="Hero Background" class="w-full h-full object-cover opacity-50 mix-blend-overlay">
+        {% if content and content.heroImage %}
+            <img src="{{ asset('images/studentservice/' ~ content.heroImage) }}" alt="Hero Background" class="w-full h-full object-cover opacity-50 mix-blend-overlay">
+        {% else %}
+            <img src="/images/facility/student_support_1.png" alt="Hero Background" class="w-full h-full object-cover opacity-50 mix-blend-overlay">
+        {% endif %}
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/50"></div>
     </div>
 
@@ -65,11 +83,11 @@
         <span class="text-[#febe10] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
             Student Journey
         </span>
-        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight uppercase tracking-tighter">
-            Guidance & <span class="text-[#febe10]">Counseling</span>
+        <h1 class="text-5xl md:text-7xl font-black text-feu-yellow leading-tight uppercase tracking-tighter">
+            {{ content and content.heroTitle ? content.heroTitle : 'Guidance & Counseling' }}
         </h1>
         <p class="mt-6 text-slate-300 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-            Your partner in achieving success in career, personal, and social domains.
+            {{ content and content.heroSubtitle ? content.heroSubtitle : 'Your partner in achieving success in career, personal, and social domains.' }}
         </p>
         <div class="w-24 h-1 bg-[#febe10] mx-auto mt-8 rounded-full"></div>
     </div>
@@ -77,12 +95,15 @@
 
 <!-- Banner Section -->
 <section class="w-full py-0 overflow-hidden bg-white border-t-8 border-b-8 border-[#008348]">
-    <img src="/images/gcu_header_photo.png" alt="GCU Team" class="w-full h-auto">
+    {% if content and content.bannerImage %}
+        <img src="{{ asset('images/studentservice/' ~ content.bannerImage) }}" alt="GCU Team Dynamic Banner" class="w-full h-auto">
+    {% else %}
+        <img src="/images/gcu_header_photo.png" alt="GCU Team Placeholder" class="w-full h-auto">
+    {% endif %}
 </section>
 
 <!-- Overview & Mission Section -->
 <section class="py-20 bg-white relative">
-    <!-- Subtle Mascot Detail -->
     <div class="absolute top-10 right-10 lg:right-20 opacity-20 pointer-events-none z-0">
         <img src="/images/Tamtam/Idle_Tammy.png" alt="Tammy" class="w-32 h-auto drop-shadow-lg transform rotate-12">
     </div>
@@ -94,9 +115,11 @@
                     <span class="w-2 h-2 rounded-full bg-feu-green"></span>
                     Overview
                 </div>
-                <h2 class="text-4xl font-black text-slate-900 leading-tight">Empowering Students for Success</h2>
+                <h2 class="text-4xl font-black text-slate-900 leading-tight">
+                    {{ content and content.overviewTitle ? content.overviewTitle : 'Empowering Students for Success' }}
+                </h2>
                 <p class="text-slate-600 leading-relaxed text-lg">
-                    The Guidance and Counseling Office (GCO) is committed to providing innovative programs and services for the development of the emotional, social, and psychological well-being of students. It is a place where any student can go and talk about concerns that affect his/her life as a college student and as an individual.
+                    {{ content and content.overviewDescription ? content.overviewDescription : 'The Guidance and Counseling Office (GCO) is committed to providing innovative programs and services for the development of the emotional, social, and psychological well-being of students.' }}
                 </p>
                 <p class="text-slate-500 italic text-sm border-l-4 border-feu-yellow pl-4 py-2 bg-slate-50 rounded-r">
                     Concerns or issues discussed in individual sessions with any of the counselors are treated with confidentiality and do not appear in the students’ academic records.
@@ -109,17 +132,17 @@
                 
                 <h3 class="text-2xl font-black text-slate-900 mb-4 flex items-center gap-3">
                     <svg class="w-6 h-6 text-feu-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    Our Mission
+                    {{ content and content.missionTitle ? content.missionTitle : 'Our Mission' }}
                 </h3>
                 <p class="text-slate-700 leading-relaxed text-lg font-medium">
-                    To deliver preventive, innovative, and comprehensive counseling services and wellness programs that will facilitate students in actualizing their potential to become empowered individuals.
+                    {{ content and content.missionDescription ? content.missionDescription : 'To deliver preventive, innovative, and comprehensive counseling services and wellness programs that will facilitate students in actualizing their potential to become empowered individuals.' }}
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Programs Section -->
+<!-- Dynamic Programs Section -->
 <section class="py-20 bg-slate-50 border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
@@ -128,52 +151,23 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Program 1 -->
+            {% for prog in programs %}
             <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
-                <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center text-feu-green mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                {% set colorClass = cycle(['text-feu-green bg-green-50', 'text-feu-yellow bg-yellow-50', 'text-blue-600 bg-blue-50', 'text-purple-600 bg-purple-50'], loop.index0) %}
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform {{ colorClass }}">
+                    {{ _self.drawIcon(prog.iconChoice) }}
                 </div>
-                <h3 class="service-title font-bold text-xl mb-3">Information & Enrichment</h3>
-                <p class="text-slate-500 text-sm leading-relaxed flex-grow">Provides opportunities for personal exploration and growth through orientations, seminars, and focus groups.</p>
+                <h3 class="service-title font-bold text-xl mb-3">{{ prog.title }}</h3>
+                <p class="text-slate-500 text-sm leading-relaxed flex-grow">{{ prog.description }}</p>
                 <div class="hover-line rounded-b-2xl"></div>
             </div>
-
-            <!-- Program 2 -->
-            <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
-                <div class="w-12 h-12 rounded-xl bg-yellow-50 flex items-center justify-center text-feu-yellow mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                </div>
-                <h3 class="service-title font-bold text-xl mb-3">Mental Health Forums</h3>
-                <p class="text-slate-500 text-sm leading-relaxed flex-grow">Reinforces positive coping mechanisms for stress and anxiety through dedicated seminars and webinars.</p>
-                <div class="hover-line rounded-b-2xl"></div>
-            </div>
-
-            <!-- Program 3 -->
-            <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
-                <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                </div>
-                <h3 class="service-title font-bold text-xl mb-3">Specialized Groups</h3>
-                <p class="text-slate-500 text-sm leading-relaxed flex-grow">Extends support for unique needs through programs like C.O.P.E., R.I.S.E., and S.A.S.E.</p>
-                <div class="hover-line rounded-b-2xl"></div>
-            </div>
-
-            <!-- Program 4 -->
-            <div class="service-card rounded-2xl p-8 flex flex-col h-full group">
-                <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-                </div>
-                <h3 class="service-title font-bold text-xl mb-3">Psychological Testing</h3>
-                <p class="text-slate-500 text-sm leading-relaxed flex-grow">Offers increased awareness and understanding of oneself through standardized psychological tests.</p>
-                <div class="hover-line rounded-b-2xl"></div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
 
-<!-- Services Details -->
+<!-- Core Services Details -->
 <section class="py-20 bg-white relative overflow-hidden">
-    <!-- Mascot Peeking -->
     <div class="absolute bottom-0 right-[10%] z-0 hidden md:block">
         <img src="/images/Tamtam/Sitting_Tammy.png" alt="Tammy Peeking" class="w-48 h-auto translate-y-8 hover:translate-y-2 transition-transform duration-500 ease-in-out cursor-pointer">
     </div>
@@ -184,30 +178,22 @@
         </div>
 
         <div class="space-y-6">
-            {% set servicesList = [
-                {'title': 'Counseling (Individual/Group)', 'desc': 'Allows a student to express various concerns affecting their life. Establishes a supportive connection to facilitate adjustment and progress.'},
-                {'title': 'Consultation', 'desc': 'Assists students, parents, and faculty in developing solutions by providing adept advice and tapping into available resources.'},
-                {'title': 'Psychological Testing', 'desc': 'Helps students become more aware of their strengths and areas for improvement to guide decisions and actions.'},
-                {'title': 'Referral and Follow-Up', 'desc': 'Continued assistance in improving school performance, including checking on the status of students who have availed of previous services.'},
-                {'title': 'Support Services', 'desc': 'Includes collaboration with academic services, readmission/transfer-out clearances, recommendations, and self-help materials.'}
-            ] %}
-
-            {% for service in servicesList %}
+            {% for svc in coreServices %}
             <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-feu-green/30 transition-all group">
                 <div class="flex items-start gap-4">
-                    <div class="mt-1 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#febe10] group-hover:bg-feu-green transition-colors flex-shrink-0">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="mt-1 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#febe10] group-hover:bg-feu-green group-hover:text-white transition-colors flex-shrink-0">
+                        {{ _self.drawIcon(svc.iconChoice) }}
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-feu-green transition-colors">{{ service.title }}</h4>
-                        <p class="text-slate-600 leading-relaxed">{{ service.desc }}</p>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-feu-green transition-colors">{{ svc.title }}</h4>
+                        <p class="text-slate-600 leading-relaxed">{{ svc.description }}</p>
                     </div>
                 </div>
             </div>
             {% endfor %}
             
             <div class="text-center pt-8">
-                <a href="https://drive.google.com/file/d/1-fNdy_0X5o2aq9GW5cKSpGAKkLLYTjmw/view" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-feu-green text-white rounded-full font-bold uppercase tracking-wider hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl">
+                <a href="{{ content and content.faqUrl ? content.faqUrl : '#' }}" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-feu-green text-white rounded-full font-bold uppercase tracking-wider hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     View GCU FAQs
                 </a>
@@ -226,7 +212,7 @@
                     <p class="text-slate-400 mb-6">Reach out to the Guidance and Counseling Office.</p>
                     <div class="space-y-4">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-feu-green/20 flex items-center justify-center text-feu-green">
+                            <div class="w-10 h-10 rounded-full bg-feu-yellow/20 flex items-center justify-center text-feu-yellow">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div>
@@ -267,5 +253,4 @@
         </div>
     </div>
 </section>
-
 {% endblock %}

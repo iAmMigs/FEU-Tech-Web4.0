@@ -20,6 +20,21 @@ use App\Controller\Admin\AboutAcademicServiceCrudController;
 use App\Controller\Admin\AboutNonAcademicDirectorCrudController;
 use App\Controller\Admin\AboutOfficeCrudController;
 
+use App\Controller\Admin\StudentJourneySaCrudController;
+use App\Controller\Admin\StudentJourneyDuCrudController;
+use App\Controller\Admin\StudentJourneySoCrudController;
+use App\Controller\Admin\StudentJourneySoOrganizationCrudController;
+use App\Controller\Admin\StudentJourneySpecialSoOrganizationCrudController;
+use App\Controller\Admin\StudentJourneyCommunityExtensionCrudController;
+use App\Controller\Admin\StudentJourneyCommunityExtensionProgramsCrudController;
+use App\Controller\Admin\StudentJourneyHealthServiceCrudController;
+use App\Controller\Admin\StudentJourneyHealthServiceProgramsCrudController;
+use App\Controller\Admin\StudentJourneyGuidanceCrudController;
+use App\Controller\Admin\StudentJourneyGuidanceCounselingProgramsCrudController;
+use App\Controller\Admin\StudentJourneyIcareCrudController;
+use App\Controller\Admin\StudentJourneyIcareServicesCrudController;
+use App\Controller\Admin\StudentJourneyIalapCrudController;
+
 use App\Controller\Admin\AcademicsDepartmentCrudController;
 use App\Controller\Admin\AcademicsProgramCrudController;
 use App\Controller\Admin\ProgramFacultyCrudController;
@@ -96,7 +111,23 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkTo(AcademicsLibraryCrudController::class, 'Library Services', 'fas fa-book-reader'),
         ]);
 
-        yield MenuItem::linkTo(StudentSupportPageCrudController::class, 'Student Support Pages', 'fas fa-users');
+        yield MenuItem::subMenu('Student Services', 'fas fa-user-graduate')->setSubItems([
+            MenuItem::linkTo(StudentJourneySaCrudController::class, 'Student Affairs', 'fas fa-user-friends'),
+            MenuItem::linkTo(StudentJourneyDuCrudController::class, 'Discipline Unit', 'fas fa-user-shield'),
+            MenuItem::linkTo(StudentJourneySoCrudController::class, 'Student Organizations', 'fas fa-users'),
+            MenuItem::linkTo(StudentJourneySoOrganizationCrudController::class, 'SO Organizations', 'fas fa-users'),
+            MenuItem::linkTo(StudentJourneySpecialSoOrganizationCrudController::class, 'Special SO Organizations', 'fas fa-users'),
+            MenuItem::linkTo(StudentJourneyCommunityExtensionCrudController::class, 'Community Extension', 'fas fa-hands-helping'),
+            MenuItem::linkTo(StudentJourneyCommunityExtensionProgramsCrudController::class, 'Community Extension Programs', 'fas fa-hands-helping'),
+            MenuItem::linkTo(StudentJourneyHealthServiceCrudController::class, 'Health Services', 'fas fa-heartbeat'),
+            MenuItem::linkTo(StudentJourneyHealthServiceProgramsCrudController::class, 'Health Service Programs', 'fas fa-heartbeat'),
+            MenuItem::linkTo(StudentJourneyGuidanceCrudController::class, 'Guidance Programs & Services', 'fas fa-user-md'),
+            MenuItem::linkTo(StudentJourneyGuidanceCounselingProgramsCrudController::class, 'Guidance & Counseling', 'fas fa-user-md'),
+            MenuItem::linkTo(StudentJourneyIcareCrudController::class, 'iCARE Page Content', 'fas fa-hands-helping'),
+            MenuItem::linkTo(StudentJourneyIcareServicesCrudController::class, 'iCARE Dynamic Services', 'fas fa-hands-helping'),
+            MenuItem::linkTo(StudentJourneyIalapCrudController::class, 'Alumni & Placement Page Content', 'fas fa-user-graduate'),
+        ]);
+
 
         yield MenuItem::subMenu('Careers Management', 'fas fa-briefcase')->setSubItems([
             MenuItem::linkTo(JobOpportunityCrudController::class, 'Open Job Positions', 'fas fa-id-card'),
