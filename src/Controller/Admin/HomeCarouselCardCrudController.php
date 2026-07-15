@@ -31,21 +31,25 @@ class HomeCarouselCardCrudController extends AbstractCrudController
         yield IdField::new('id')->hideOnForm();
         yield TextField::new('title', 'Title');
         yield TextField::new('subtitle', 'Subtitle');
+        
         yield ImageField::new('logoPath', 'Logo Image')
-            ->setBasePath('/')
+            ->setBasePath('uploads/carousel/')
             ->setUploadDir('public/uploads/carousel/')
-            ->setUploadedFileNamePattern('uploads/carousel/[randomhash].[extension]')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false);
+            
         yield ImageField::new('cardImagePath', 'Card Overlaid Image')
-            ->setBasePath('/')
+            ->setBasePath('uploads/carousel/')
             ->setUploadDir('public/uploads/carousel/')
-            ->setUploadedFileNamePattern('uploads/carousel/[randomhash].[extension]')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false);
+            
         yield ImageField::new('heroBgPath', 'Hero Background Image')
-            ->setBasePath('/')
+            ->setBasePath('uploads/carousel/')
             ->setUploadDir('public/uploads/carousel/')
-            ->setUploadedFileNamePattern('uploads/carousel/[randomhash].[extension]')
+            ->setUploadedFileNamePattern('[randomhash].[extension]')
             ->setRequired(false);
+            
         yield IntegerField::new('sortOrder', 'Sort Order');
     }
 }
